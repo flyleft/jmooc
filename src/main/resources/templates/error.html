@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.thymeleaf.org ">
+<head >
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>Your request cannot be processed</title>
+    <link rel="stylesheet" th:href="@{/css/error.css}">
+</head>
+<body>
+<div class="container">
+    <h1 th:text="${status}">404<span>:(</span></h1>
+
+    <p th:text="${title}">Sorry, an error has occurred.</p>
+
+    <span th:text="${error}"></span>
+    <br/>
+</div>
+</body>
+</html>

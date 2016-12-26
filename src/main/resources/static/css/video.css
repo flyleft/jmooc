@@ -1,0 +1,13 @@
+.vjs-matrix.video-js {
+    color: #00ff00;
+}
+
+.vjs-matrix .vjs-big-play-button {
+    border-color: #00ff00;
+}
+
+.vjs-matrix .vjs-volume-level,
+.vjs-matrix .vjs-play-progress,
+.vjs-matrix .vjs-slider-bar {
+    background: #00ff00;
+}
