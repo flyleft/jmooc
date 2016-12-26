@@ -6,3 +6,4 @@ out/
 /ui/node_modules/*
 classes/
 arget/
+*.log.*

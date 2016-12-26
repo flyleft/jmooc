@@ -4,7 +4,7 @@ var path = require('path');
 module.exports = {
     //入口文件配置
     entry: {
-        index: './src/Component/chat/main.js',
+        index: './src/Component/main.js',
     },
     //出口文件配置
     output: {
