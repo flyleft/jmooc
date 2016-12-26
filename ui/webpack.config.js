@@ -4,18 +4,39 @@ var path = require('path');
 module.exports = {
     //入口文件配置
     entry: {
-        index: './src/Component/entry.js',
+        index: './src/Component/chat/main.js',
     },
     //出口文件配置
     output: {
         path: './dist/js/',
-        filename: '[name].js',
+        filename: 'chat.js',
     },
     module: {
         loaders: [
-            {test: /\.vue$/, loader: 'vue'},
-            {test: /\.css$/, loader: 'style!css'},
-            {test: /\.js$/, loader: 'babel', exclude: /node_modules/}
+            {
+                test: /\.vue$/,
+                loader: 'vue-loader'
+            },
+            {
+                test: /\.js$/,
+                loader: 'babel-loader',
+                exclude: /node_modules/
+            },
+            {
+                test: /\.css$/,
+                loader: 'style-loader!css-loader'
+            },
+            {
+                test: /\.(eot|svg|ttf|woff|woff2)(\?\S*)?$/,
+                loader: 'file-loader'
+            },
+            {
+                test: /\.(png|jpe?g|gif|svg)(\?\S*)?$/,
+                loader: 'file-loader',
+                query: {
+                    name: '[name].[ext]?[hash]'
+                }
+            }
         ]
     }
 }
