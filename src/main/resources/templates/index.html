@@ -1,76 +1,197 @@
-<!DOCTYPE HTML>
-
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>jmooc</title>
-
-    <link rel="stylesheet" href="/css/animate.css">
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/css/index.css">
-
-
+    <meta charset="utf-8" />
+    <title>eLearn - Home 1</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />	
+    <!-- CSS Files -->
+	<link rel="stylesheet" href="/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="/css/font-awesome.min.css" />
+	<link rel="stylesheet" href="/css/style.css" />
+	<link rel="stylesheet" href="/css/animate.min.css" />
+	
 </head>
 <body>
-<div class="gtco-loader"></div>
-
-<div id="page">
-    <nav class="gtco-nav" role="navigation">
-        <div class="gtco-container">
-            <div class="row">
-                <div class="col-sm-4 col-xs-12">
-                    <div id="gtco-logo"><a href="index.html">jmooc<em>.</em></a></div>
+    <header class="main bg-dark-img home-1">
+        <div class="container">
+            <nav class="navbar" role="navigation">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="index.html"><img id="logo" src="/img/logo.png" alt="eLearn" /></a>
                 </div>
-                <div class="col-xs-8 text-right menu-1">
-                    <ul>
-                        <li class="active"><a href="index.html">首页</a></li>
-                        <li class="has-dropdown">
-                            <a href="services.html">课程中心</a>
-                            <ul class="dropdown">
-                                <li><a href="#">信息</a></li>
-                                <li><a href="#">电气</a></li>
-                                <li><a href="#">土木</a></li>
-                                <li><a href="#">物理</a></li>
+                <div class="collapse navbar-collapse">
+                <div class="navbar-right menu-main"> 
+                    <ul class="nav navbar-nav">
+                      
+						<li><a href="index.html"><span>首页</span></a></li>
+						<li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span>课程中心</span> <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="categories.htm">信息</a></li>
+                                <li><a href="videos-list.htm">电气</a></li>
+                                <li><a href="videos-grid.htm">土木</a></li>
+                                <li><a href="video.htm">政治</a></li>
                             </ul>
                         </li>
-                        <li class="has-dropdown">
-                            <a href="#">训练场</a>
-                            <ul class="dropdown">
-                                <li><a href="#">c语言</a></li>
-                                <li><a href="#">c++</a></li>
-                                <li><a href="#">java</a></li>
-                                <li><a href="#">其他</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="about.html">在线交流</a></li>
-                        <li><a href="portfolio.html">代码运行</a></li>
+                        <li><a href="about-us.htm"><span>代码运行</span></a></li>
+                        
+                        
+                        <li><a href="features.htm"><span>习题中心</span></a></li>
+                       
+                        <li><a href="contact.htm"><span>联系人</span></a></li>
                     </ul>
+                    <a class="btn btn-theme navbar-btn btn-default sign-in" href="#">Sign in</a>
+                    <a class="btn btn-theme navbar-btn btn-orange  sign-up" href="register.htm">Sign up</a>
                 </div>
-            </div>
-
-        </div>
-    </nav>
-    <header id="gtco-header" class="gtco-cover" role="banner">
-        <div class="overlay"></div>
-        <div class="gtco-container">
-            <div class="row">
-                <div class="col-md-12 col-md-offset-0 text-left">
-                    <div class="display-t">
-                        <div class="display-tc">
-                            <h1 class="animate-box" data-animate-effect="fadeInUp">在线课程学习平台</h1>
-                            <h2 class="animate-box" data-animate-effect="fadeInUp">在线学习，与老师在线交流，c/c++/java代码在线运行，文档下载</h2>
-                            <p class="animate-box" data-animate-effect="fadeInUp"><a href="#" class="btn btn-white btn-lg btn-outline">进入</a></p>
-                        </div>
-                    </div>
                 </div>
+            </nav>
+            
+            <p class="header text-center text-white">在线学习，与老师在线交流，c/c++/java代码在线运行</p>
+            
+            <!-- Screens -->
+            <div class="screens animation-domready">
+                <p>
+                    <img src="/img/home1_tab3.png" data-animation-delay="0.5s" data-animation="fadeInUp" class="animated" alt="" />
+                    <img src="/img/home1_tab2.png" data-animation-delay="1.5s" data-animation="fadeInUp" class="animated" alt="" />
+                    <img src="/img/home1_tab1.png" data-animation-delay="2.5s" data-animation="fadeInUp" class="animated" alt="" />
+                </p>
             </div>
         </div>
     </header>
-</div>
-
-<script src="/js/jquery.min.js"></script>
-<script src="/js/jquery.waypoints.min.js"></script>
-<script src="/js/main.js"></script>
+    <!--
+    <section class="poweredby">
+        <figure class="container">
+            <div class="row text-center client-logos">
+                
+            </div>
+            <figcaption></figcaption>
+        </figure>
+    </section>
+	-->
+    
+    <div class="container content content-light home-1">
+        <section class="row animation-scroll">
+            <figure class="col-md-6 animated" data-animation="bounceInLeft"><img src="/img/home1_img1.png" alt="" /></figure>
+            <article class="col-md-6 animated" data-animation="bounceInRight">
+                <h3><strong>Learn</strong> from your <strong>home office</strong></h3>
+                <p>We believe that analysis of your company and your customers is key in responding effectively to your promotional needs and we will work with you to fully understand your business.</p>
+                <a href="categories.htm" class="link-more">Check out the library <i class="fa fa-arrow-right "></i></a>
+            </article>
+        </section>
+        <section class="row animation-scroll">
+            <article class="col-md-6 animated" data-animation="bounceInLeft">
+                <h3><strong>Stay tuned</strong> with your <strong>mobile devices</strong></h3>
+                <p>At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur.</p>
+                <a href="#" class="link-more">Check out our webapp <i class="fa fa-arrow-right "></i></a>
+            </article>
+            <figure class="col-md-6 animated" data-animation="bounceInRight"><img src="/img/home1_img2.png" alt="" /></figure>
+        </section>
+        <section class="row animation-scroll">
+            <figure class="col-md-6 animated" data-animation="bounceInLeft"><img src="/img/home1_img3.png" alt="" /></figure>
+            <article class="col-md-6 animated" data-animation="bounceInRight">
+                <h3><strong>Connect</strong> different file types everywhere</h3>
+                <p>We believe that analysis of your company and your customers is key in responding effectively to your promotional needs and we will work with you to fully understand your business.</p>
+                <a href="#" class="link-more">Check out the dashboard <i class="fa fa-arrow-right "></i></a>
+            </article>
+        </section>
+        <section class="row animation-scroll">
+            <article class="col-md-6 animated" data-animation="bounceInLeft">
+                <h3><strong>Share tutorials</strong> with your <strong>friends</strong></h3>
+                <p>At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur.</p>
+                <a href="#" class="link-more">Go to your portal <i class="fa fa-arrow-right "></i></a>
+            </article>
+            <div class="col-md-6 animated widget-social" data-animation="bounceInRight">
+                <a class="btn btn-social btn-social-circle social-facebook" href="https://www.facebook.com/pages/KL-Webmedia/131260293670757"><i class="fa fa-facebook"></i><span class="click-number">32</span></a>
+                <a class="btn btn-social btn-social-circle social-twitter" href="https://twitter.com/KLWebmedia"><i class="fa fa-twitter"></i><span class="click-number">24</span></a>
+                <a class="btn btn-social btn-social-circle social-gplus" href="https://plus.google.com/113174627408639682462/posts"><i class="fa fa-google-plus"></i><span class="click-number">14</span></a>
+                <a class="btn btn-social btn-social-circle social-dribbble" href="http://dribbble.com/KL-Webmedia"><i class="fa fa-dribbble"></i><span class="click-number">8</span></a>
+                <i class="fa fa-circle fa-lg"></i><i class="fa fa-circle fa-2x"></i><i class="fa fa-circle fa-3x"></i>
+                <span class="text"><i class="fa fa-comments text-orange"></i> <b>32</b> people like your tutorials</span>
+            </div>
+        </section>
+    </div>
+    <div class="copyrights">Collect from <a href="http://www.cssmoban.com/" >企业网站模板</a></div>
+    
+    <section class="content content-dark testimonial">
+        <div class="container">
+            <p class="header text-center text-white">We are <strong>51,031</strong> creative teachers so far</p>
+            <div class="face">
+                <a href="#tab-nicole-kidman" data-toggle="tab"><img src="/img/65x65.gif" alt="Nicole Kidman" /></a>
+                <a href="#tab-leland-orser" data-toggle="tab"><img src="/img/65x65.gif" alt="Leland Orser" /></a>
+                <a href="#tab-henry-cavill" data-toggle="tab"><img src="/img/65x65.gif" alt="Henry Cavill" /></a>
+                <a href="#tab-andres-gertrudix" data-toggle="tab"><img src="/img/65x65.gif" alt="Andres Gertrudix" /></a>
+                <a href="#tab-justin-biber" data-toggle="tab"><img src="/img/65x65.gif" alt="Justin Biber" /></a>
+            </div>
+            <div class="tab-content quote">
+                <blockquote id="tab-nicole-kidman" class="tab-pane fade in active">
+                    <p>&ldquo;This platform is the best idea to teach young people without loosing any time.&rdquo;</p>
+                    <cite>Nicole Kidman <span>(actress)</span></cite>
+                </blockquote>
+                <blockquote id="tab-leland-orser" class="tab-pane fade">
+                    <p>&ldquo;Lorem ipsum dolor sit amet enim. Etiam ullamcorper. Suspendisse a pellentesque dui, non felis. Maecenas malesuada elit lectus felis, malesuada ultricies.&rdquo;</p>
+                    <cite>Leland Orser <span>(actor)</span></cite>
+                </blockquote>
+                <blockquote id="tab-henry-cavill" class="tab-pane fade">
+                    <p>&ldquo;Curabitur et ligula. Ut molestie a, ultricies porta urna.Lorem ipsum dolor sit amet enim. Etiam ullamcorper.&rdquo;</p>
+                    <cite>Henry Cavill <span>(actor)</span></cite>
+                </blockquote>
+                <blockquote id="tab-andres-gertrudix" class="tab-pane fade">
+                    <p>&ldquo;Maecenas malesuada elit lectus felis, malesuada ultricies. Vestibulum commodo volutpat a, convallis ac, laoreet enim. Phasellus fermentum in, dolor.&rdquo;</p>
+                    <cite>Andres Gertrudix <span>(actor)</span></cite>
+                </blockquote>
+                <blockquote id="tab-justin-biber" class="tab-pane fade">
+                    <p>&ldquo;Ipsum dolor sit amet enim. Etiam ullamcorper. Suspendisse a pellentesque dui, non felis. Maecenas malesuada elit lectus felis, malesuada ultricies.&rdquo;</p>
+                    <cite>Justin Biber <span>(singer)</span></cite>
+                </blockquote>
+            </div>
+            <a href="plans.htm" class="btn btn-theme btn-green">Start teaching</a>
+        </div>
+    </section>
+    
+    <section class="content content-light">
+        <div class="container">
+            <p class="header text-center"><strong>Customize</strong> your tutorials <strong>online base</strong></p>
+            <p class="text-center">We believe that analysis of your company and your customers is key in responding effectively to your promotional needs and we will work with you to fully understand your business.</p>
+            
+            <hr class="invisible" />
+            
+            <div class="row">
+                <div class="col-md-6">
+                    <h3>Keep things simple and clean</h3>
+                    <ul class="fa-ul list-special">
+                        <li><i class="fa-li fa fa-2x fa-check text-green"></i>update your tutorials daily, weekly or yearly</li>
+                        <li><i class="fa-li fa fa-2x fa-check text-green"></i>build your own tutorials database</li>
+                        <li><i class="fa-li fa fa-2x fa-check text-green"></i>create sections and topics for your tutorials</li>
+                        <li><i class="fa-li fa fa-2x fa-check text-green"></i>create wounderful landing page designs</li>
+                        <li><i class="fa-li fa fa-2x fa-check text-green"></i>send your followers updates about you works</li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <h3>Watch the video and create your site</h3>
+                    <a class="video-prev video-play-here" href="http://www.youtube.com/v/9QscURRuF0g&amp;autoplay=1" style="height:240px;"></a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <footer class="main bg-dark-img">
+        <section class="copyright">
+            <div class="container"> &copy; Copyright 2016
+            </div>
+        </section>
+    </footer>
+    <!-- JavaScript Files -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/animate.js"></script>
+    <script src="/js/jquery.cuteTime.min.js"></script>
+    <script src="/js/script.js"></script>
+    <!-- / JavaScript Files -->
 </body>
 </html>
