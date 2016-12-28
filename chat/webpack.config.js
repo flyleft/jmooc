@@ -1,15 +1,18 @@
 var webpack = require('webpack')
 var path = require('path');
+var CopyWebpackPlugin = require('copy-webpack-plugin');
+var SRC_PATH = path.resolve(__dirname, 'src');
+var DIST_PATH = path.resolve(__dirname, 'dist');
 
 module.exports = {
     //入口文件配置
     entry: {
-        index: './src/Component/main.js',
+        index: './src/index.js',
     },
     //出口文件配置
     output: {
-        path: './dist/js/',
-        filename: 'chat.js',
+        path: './dist',
+        filename: '[name].js',
     },
     module: {
         loaders: [
@@ -38,5 +41,20 @@ module.exports = {
                 }
             }
         ]
-    }
+    },
+    babel: {
+        presets: ['es2015'],
+        plugins: []
+    },
+    vue: {
+        loaders: {
+            js: 'babel'
+        }
+    },
+    plugins: [
+        new CopyWebpackPlugin([
+            { from: path.resolve(SRC_PATH, 'assets'), to: path.resolve(DIST_PATH, 'assets') },
+            { from: path.resolve(SRC_PATH, 'index.html'), to: path.resolve(DIST_PATH, 'index.html') }
+        ])
+    ]
 }

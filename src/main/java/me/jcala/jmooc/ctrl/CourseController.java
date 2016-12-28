@@ -11,4 +11,10 @@ public class CourseController {
     public String video(Model model){
         return "video";
     }
+
+    @GetMapping("/courses")
+    public String coursesList(){
+
+        return "courses";
+    }
 }

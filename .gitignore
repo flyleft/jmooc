@@ -3,7 +3,7 @@ build/*
 *.iml
 .gradle/3.1/*
 out/
-/ui/node_modules/*
+/chat/node_modules/*
 classes/
 arget/
 *.log.*
