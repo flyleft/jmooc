@@ -6439,7 +6439,7 @@
 
 
 	// module
-	exports.push([module.id, "\n#app {\r\n  font-family: 'Avenir', Helvetica, Arial, sans-serif;\r\n  -webkit-font-smoothing: antialiased;\r\n  -moz-osx-font-smoothing: grayscale;\r\n  text-align: center;\r\n  color: #2c3e50;\r\n  margin-top: 60px;\n}\nh1, h2 {\r\n  font-weight: normal;\n}\nul {\r\n  list-style-type: none;\r\n  padding: 0;\n}\nli {\r\n  display: inline-block;\r\n  margin: 0 10px;\n}\na {\r\n  color: #42b983;\n}\r\n", ""]);
+	exports.push([module.id, "\n#app {\r\n  font-family: 'Avenir', Helvetica, Arial, sans-serif;\r\n  -webkit-font-smoothing: antialiased;\r\n  -moz-osx-font-smoothing: grayscale;\r\n  text-align: center;\r\n  color: #2c3e50;\r\n  margin-top: 60px;\n}\nh1, h2 {\r\n  font-weight: normal;\n}\r\n", ""]);
 
 	// exports
 
@@ -6737,21 +6737,6 @@
 	//
 	//
 	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
 
 	exports.default = {
 	  name: 'app',
@@ -6771,56 +6756,8 @@
 	    attrs: {
 	      "id": "app"
 	    }
-	  }, [_c('img', {
-	    attrs: {
-	      "src": __webpack_require__(10)
-	    }
-	  }), _vm._v(" "), _c('h1', [_vm._v("\\" + _vm._s(_vm.msg))]), _vm._v(" "), _c('h2', [_vm._v("Essential Links")]), _vm._v(" "), _vm._m(0), _vm._v(" "), _c('h2', [_vm._v("Ecosystem")]), _vm._v(" "), _vm._m(1)])
-	},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-	  return _c('ul', [_c('li', [_c('a', {
-	    attrs: {
-	      "href": "https://vuejs.org",
-	      "target": "_blank"
-	    }
-	  }, [_vm._v("Core Docs")])]), _vm._v(" "), _c('li', [_c('a', {
-	    attrs: {
-	      "href": "https://forum.vuejs.org",
-	      "target": "_blank"
-	    }
-	  }, [_vm._v("Forum")])]), _vm._v(" "), _c('li', [_c('a', {
-	    attrs: {
-	      "href": "https://gitter.im/vuejs/vue",
-	      "target": "_blank"
-	    }
-	  }, [_vm._v("Gitter Chat")])]), _vm._v(" "), _c('li', [_c('a', {
-	    attrs: {
-	      "href": "https://twitter.com/vuejs",
-	      "target": "_blank"
-	    }
-	  }, [_vm._v("Twitter")])])])
-	},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-	  return _c('ul', [_c('li', [_c('a', {
-	    attrs: {
-	      "href": "http://router.vuejs.org/",
-	      "target": "_blank"
-	    }
-	  }, [_vm._v("vue-router")])]), _vm._v(" "), _c('li', [_c('a', {
-	    attrs: {
-	      "href": "http://vuex.vuejs.org/",
-	      "target": "_blank"
-	    }
-	  }, [_vm._v("vuex")])]), _vm._v(" "), _c('li', [_c('a', {
-	    attrs: {
-	      "href": "http://vue-loader.vuejs.org/",
-	      "target": "_blank"
-	    }
-	  }, [_vm._v("vue-loader")])]), _vm._v(" "), _c('li', [_c('a', {
-	    attrs: {
-	      "href": "https://github.com/vuejs/awesome-vue",
-	      "target": "_blank"
-	    }
-	  }, [_vm._v("awesome-vue")])])])
-	}]}
+	  }, [_c('h1', [_vm._v("\\" + _vm._s(_vm.msg))])])
+	},staticRenderFns: []}
 	module.exports.render._withStripped = true
 	if (false) {
 	  module.hot.accept()
@@ -6828,12 +6765,6 @@
 	     require("vue-loader/node_modules/vue-hot-reload-api").rerender("data-v-0f2b743c", module.exports)
 	  }
 	}
-
-/***/ },
-/* 10 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__.p + "logo.jpg?dd49ecb8fe9327db0e2fa9c832d77f12";
 
 /***/ }
 /******/ ]);

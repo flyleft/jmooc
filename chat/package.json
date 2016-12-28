@@ -5,7 +5,7 @@
   "author": "jcala",
   "main": "index.js",
   "scripts": {
-    "start": "webpack --watch --progress --colors",
+    "start": "webpack --watch --progress --colors --display-error-details",
     "dev": "webpack-dev-server --display-error-details"
   },
   "dependencies": {

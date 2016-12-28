@@ -11,7 +11,7 @@ module.exports = {
     },
     //出口文件配置
     output: {
-        path: './dist',
+        path: './dist/js',
         filename: '[name].js',
     },
     module: {
@@ -53,8 +53,8 @@ module.exports = {
     },
     plugins: [
         new CopyWebpackPlugin([
-            { from: path.resolve(SRC_PATH, 'assets'), to: path.resolve(DIST_PATH, 'assets') },
-            { from: path.resolve(SRC_PATH, 'index.html'), to: path.resolve(DIST_PATH, 'index.html') }
+            /*{ from: path.resolve(SRC_PATH, 'assets'), to: path.resolve(DIST_PATH, 'assets') },*/
+           /* { from: path.resolve(SRC_PATH, 'index.html'), to: path.resolve(DIST_PATH, 'index.html') }*/
         ])
     ]
 }
