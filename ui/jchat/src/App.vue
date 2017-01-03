@@ -4,7 +4,8 @@
       <card></card>
     </div>
     <div class="main">
-      <InputText></InputText>
+      <message></message>
+      <input-text></input-text>
     </div>
   </div>
 </template>
@@ -12,10 +13,12 @@
 <script>
 import Card from './components/Card';
 import InputText from './components/InputText';
+import Message from './components/Message';
+
 export default {
   name: 'chat',
   components: {
-    Card,InputText
+    Card,InputText,Message
   },
   created () {
         this.$store.dispatch('initData');

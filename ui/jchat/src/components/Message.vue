@@ -1,4 +1,6 @@
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
    computed: mapGetters({
         user: 'getUser',
@@ -14,11 +16,10 @@ export default {
         }
     },
     directives: {
-        // 发送消息后滚动到底部
-        'scroll-bottom' () {
-            this.vm.$nextTick(() => {
-                this.el.scrollTop = this.el.scrollHeight - this.el.clientHeight;
-            });
+        'scroll-bottom' (el) {
+            /*Vue.$nextTick(() => {
+                el.scrollTop = el.scrollHeight - el.clientHeight;
+            });*/
         }
     }
 };
