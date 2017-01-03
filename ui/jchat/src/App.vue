@@ -2,6 +2,7 @@
   <div id="chat">
     <div class="sidebar">
       <card></card>
+      <list></list>
     </div>
     <div class="main">
       <message></message>
@@ -14,11 +15,12 @@
 import Card from './components/Card';
 import InputText from './components/InputText';
 import Message from './components/Message';
+import List from './components/UserList';
 
 export default {
   name: 'chat',
   components: {
-    Card,InputText,Message
+    Card,InputText,Message,List
   },
   created () {
         this.$store.dispatch('initData');

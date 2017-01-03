@@ -1,19 +1,14 @@
 <script>
-import { actions } from '../store';
+import { mapGetters, mapActions } from 'vuex'
 
 export default {
-    vuex: {
-        actions: actions,
-        getters: {
-            // 过滤后的会话列表
-            sessions: ({ sessions, filterKey }) => {
-                let result = sessions.filter(session => session.user.name.includes(filterKey));
-                return result;
-            },
-            // 当前会话index
-            currentId: ({ currentSessionId }) => currentSessionId
-        }
-    }
+    computed: mapGetters({
+            sessions: 'getFilterSessions',
+            currentId: 'getCurrentSessionId'
+        }),
+    methods: mapActions([
+      'selectSession'
+  ])
 };
 </script>
 
