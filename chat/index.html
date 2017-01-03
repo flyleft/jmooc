@@ -4,33 +4,34 @@
   <meta charset="utf-8">
   <title>vue-chat</title>
   <style>
-    @import 'http://fonts.googleapis.com/css?family=Noto+Sans';
-    body {
-      padding: 0;
+    * {
+      box-sizing: border-box;
+    }
+    *:before, *:after {
+      box-sizing: inherit;
+    }
+    body, html {
+      height: 100%;
+      overflow: hidden;
+    }
+    body, ul {
       margin: 0;
-      background: -moz-linear-gradient(-45deg, #183850 0, #183850 25%, #192c46 50%, #22254c 75%, #22254c 100%);
-      background: -webkit-linear-gradient(-45deg, #183850 0, #183850 25%, #192c46 50%, #22254c 75%, #22254c 100%);
-      background-repeat: no-repeat;
-      background-attachment: fixed;
+      padding: 0;
     }
-
-    ::-webkit-scrollbar {
-      width: 10px;
+    body {
+      color: #4d4d4d;
+      font: 14px/1.4em 'Helvetica Neue', Helvetica, 'Microsoft Yahei', Arial, sans-serif;
+      background: #f5f5f5 url('dist/images/bg.jpg') no-repeat center;
+      background-size: cover;
+      font-smoothing: antialiased;
     }
-
-    ::-webkit-scrollbar-track {
-      border-radius: 10px;
-      background-color: rgba(25, 147, 147, 0.1);
-    }
-
-    ::-webkit-scrollbar-thumb {
-      border-radius: 10px;
-      background-color: rgba(25, 147, 147, 0.2);
+    ul {
+      list-style: none;
     }
   </style>
 </head>
 <body>
-<div id="chat"/>
+<div id="chat"></div>
 <script src="./dist/js/index.js"></script>
 </body>
 </html>

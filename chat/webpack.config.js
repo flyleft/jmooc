@@ -51,6 +51,13 @@ module.exports = {
             js: 'babel'
         }
     },
+    resolve:{
+        root:'',//绝对路径
+        extensions: ['', '.js', '.css', '.scss','.vue'],
+        alias: {
+            vue : path.join(__dirname,'/node_modules/vue/dist/vue')
+        }
+    },
     plugins: [
         new CopyWebpackPlugin([
             /*{ from: path.resolve(SRC_PATH, 'assets'), to: path.resolve(DIST_PATH, 'assets') },*/

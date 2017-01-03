@@ -4,6 +4,8 @@ build/*
 .gradle/3.1/*
 out/
 /chat/node_modules/*
+/jchat/node_modules/*
+/ui/jchat/node_modules/*
 classes/
 arget/
 *.log.*
