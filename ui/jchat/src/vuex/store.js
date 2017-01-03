@@ -10,7 +10,7 @@ const state = {
   // 当前用户
   user: {
       name: 'coffce',
-      img: './assets/user.jpg'
+      img: 'https://github.com/jcalaz/jcalaz.github.io/blob/master/img/sort_clothes.jpeg'
   },
   // 会话列表
   sessions: [
@@ -18,7 +18,7 @@ const state = {
           id: 1,
           user: {
               name: '示例介绍',
-              img: 'dist/images/2.png'
+              img: 'https://github.com/jcalaz/jcalaz.github.io/blob/master/img/sort_avater_cluo.jpg'
           },
           messages: [
               {
@@ -34,7 +34,7 @@ const state = {
           id: 2,
           user: {
               name: 'webpack',
-              img: 'dist/images/3.jpg'
+              img: 'https://github.com/jcalaz/jcalaz.github.io/blob/master/img/sort_avater_girl.jpg'
           },
           messages: []
       }

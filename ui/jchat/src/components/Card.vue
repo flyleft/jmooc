@@ -10,7 +10,7 @@ export default {
     },
     methods: {
         onKeyup(e){
-           this.$store.search(e.target.value);
+           store.dispatch('initData', e.target.value);
         }
     }
 };
