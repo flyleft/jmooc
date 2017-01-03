@@ -1,16 +1,13 @@
 <script>
-import { mapActions } from 'vuex'
-import store from '../vuex/store.js';
-
 export default {
     computed:{
       user: function(){
-  	      return store.state.user;
+  	      return this.$store.state.user;
       }
     },
     methods: {
         onKeyup(e){
-           store.dispatch('initData', e.target.value);
+           this.$store.dispatch('initData', e.target.value);
         }
     }
 };
