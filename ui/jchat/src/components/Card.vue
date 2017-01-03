@@ -7,7 +7,7 @@ export default {
     },
     methods: {
         onKeyup(e){
-           this.$store.dispatch('initData', e.target.value);
+           this.$store.dispatch('search', e.target.value);
         }
     }
 };
