@@ -9,7 +9,7 @@ export const sendMessage = ({ commit }, content) => {
 }
 
 export const selectSession = ({ commit }, id) => {
-  commit(types.SEND_MESSAGE, id)
+  commit(types.SELECT_SESSION, id)
 }
 
 export const search = ({ commit }, value) => {

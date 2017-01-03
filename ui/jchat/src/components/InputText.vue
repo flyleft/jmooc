@@ -8,8 +8,8 @@ export default {
     methods: {
         onKeyup (e) {
             if ( e.keyCode === 13 && this.content.length) {
-                this.sendMessage(this.content);
-                this.content = '';
+                 this.$store.dispatch('sendMessage', this.content);
+                 this.content = '';
             }
         }
     }

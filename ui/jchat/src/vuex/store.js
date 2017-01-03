@@ -11,22 +11,22 @@ const state = {
   // 当前用户
   user: {
       name: 'coffce',
-      img: '/static/user.jpg'
+      img: '/static/jcala.jpg'
   },
   // 会话列表
   sessions: [
       {
           id: 1,
           user: {
-              name: '示例介绍',
-              img: '/static/user.jpg'
+              name: 'kaxi',
+              img: '/static/kaxi.jpg'
           },
           messages: [
               {
-                  content: 'Hello，这是一个基于Vue + Vuex + Webpack构建的简单chat示例，聊天记录保存在localStorge, 有什么问题可以通过Github Issue问我。',
+                  content: 'Hello,好久不见',
                   date: now
               }, {
-                  content: '项目地址: https://github.com/coffcer/vue-chat',
+                  content: '你还好吗？',
                   date: now
               }
           ]
@@ -34,8 +34,8 @@ const state = {
       {
           id: 2,
           user: {
-              name: 'webpack',
-              img: '/static/user.jpg'
+              name: 'paoying',
+              img: '/static/paoying.jpg'
           },
           messages: []
       }
