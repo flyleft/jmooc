@@ -1,5 +1,6 @@
 
-/*export const currentUser = state => {
-     return state.user;
-}
-*/
+export const getUser = state => state.user;
+
+export const getCurrentSession = state => state.sessions.find(session => session.id === state.currentSessionId);
+
+

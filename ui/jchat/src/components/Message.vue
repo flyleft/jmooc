@@ -1,11 +1,9 @@
 <script>
 export default {
-    vuex: {
-        getters: {
-            user: ({ user }) => user,
-            session: ({ sessions, currentSessionId }) => sessions.find(session => session.id === currentSessionId)
-        }
-    },
+   computed: mapGetters({
+        user: 'getUser',
+        session: 'getCurrentSession'
+    }),
     filters: {
         // 将日期过滤为 hour:minutes
         time (date) {

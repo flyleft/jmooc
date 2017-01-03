@@ -1,10 +1,10 @@
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
-    computed:{
-      user: function(){
-  	      return this.$store.state.user;
-      }
-    },
+      computed: mapGetters({
+            user: 'getUser'
+        }),
     methods: {
         onKeyup(e){
            this.$store.dispatch('search', e.target.value);
