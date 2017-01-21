@@ -41,7 +41,6 @@ configurations {
     compile.exclude group: 'org.apache.tomcat.embed'
     compile.exclude group: 'org.apache.tomcat'
     compile.exclude group: 'org.apache.struts'
-    compile.exclude group: 'dom4j'
     compile.exclude group: 'c3p0'
     compile.exclude group: 'ch.qos.logback'
 }
@@ -82,7 +81,7 @@ dependencies {
     //-------------------数据库连接池---------------------------
     compile 'com.alibaba:druid:1.0.27'
     //---------------------消息队列-----------------------------
-    compile "org.springframework.boot:spring-boot-starter-activemq:${springBootVersion}"
+//    compile "org.springframework.boot:spring-boot-starter-activemq:${springBootVersion}"
     //----------------------ORM--------------------------------
     compile "org.springframework.boot:spring-boot-starter-data-jpa:${springBootVersion}"
     //--------------------JDK工具------------------------------
