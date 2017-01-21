@@ -27,7 +27,7 @@ spring:
       cache: false
       encoding: utf-8
       suffix: .html
-      mode: HTML
+      mode: HTML5
 #      view-names: error,index
     http:
         encoding.charset: UTF-8
