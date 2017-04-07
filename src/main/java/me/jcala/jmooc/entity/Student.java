@@ -9,11 +9,10 @@ import javax.persistence.Table;
 
 @Data
 @Entity
-@Table(name = "user")
-public class User {
+@Table(name = "student_tb")
+public class Student {
     @Id
-    @Column(name = "user_id")
-    private long userId;//id
+    private long id;//id
 
     private String name;//用户名
 
@@ -28,8 +27,5 @@ public class User {
     private int msgNum;//未读消息数
 
     private int sysMsgNum;//系统未读消息数
-
-    @Column(name = "user_type")
-    private int userType;//0:student 1:teacher 2:admin
 
 }
