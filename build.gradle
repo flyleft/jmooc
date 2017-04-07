@@ -1,7 +1,7 @@
 buildscript {
     ext {
-        springBootPluginVersion = '1.4.2.RELEASE'
-        springBootVersion = '1.4.2.RELEASE'
+        springBootPluginVersion = '1.5.2.RELEASE'
+        springBootVersion = '1.5.2.RELEASE'
         ehcacheVersion='2.10.3'
         dockerPluginVersion='1.2'
     }
