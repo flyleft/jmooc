@@ -10,13 +10,15 @@ import javax.persistence.Table;
 @Data
 @Entity
 @Table(name = "student_tb")
-public class Student {
+public class User {
     @Id
     private long id;//id
 
     private String name;//用户名
 
     private String password;//密码
+
+    private int type;//类型。1：学生，2：老师，3：管理员
 
     private int age;//年龄
 
