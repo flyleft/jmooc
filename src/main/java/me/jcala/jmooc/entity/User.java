@@ -6,10 +6,11 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.util.List;
 
 @Data
 @Entity
-@Table(name = "student_tb")
+@Table(name = "user_tb")
 public class User {
     @Id
     private long id;//id
@@ -29,5 +30,9 @@ public class User {
     private int msgNum;//未读消息数
 
     private int sysMsgNum;//系统未读消息数
+
+    private List<Integer> exercise_collection;//收藏的习题
+
+    private List<Integer> exercise_error;//错误的习题
 
 }
