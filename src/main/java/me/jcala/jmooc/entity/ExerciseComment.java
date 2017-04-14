@@ -1,15 +1,17 @@
 package me.jcala.jmooc.entity;
 
+import lombok.Data;
+
 import javax.persistence.*;
 
-public class Message {
+@Data
+@Entity
+@Table(name = "exercise_comment_tb")
+public class ExerciseComment {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-
-    @Column(nullable = false,columnDefinition="tinyint default 1")
-    private int typeAndStatus;//1：系统未读消息；2：系统已读消息；3：用户未读消息；4：用户已读消息
 
     @OneToOne(optional=false,cascade=CascadeType.ALL,fetch=FetchType.LAZY,targetEntity=User.class)
     @JoinColumn(name="id",nullable=false,updatable=false)
@@ -18,7 +20,7 @@ public class Message {
     @Column(nullable = false,columnDefinition="text")
     private String content;
 
-    public Message() {
+    public ExerciseComment() {
     }
 
     public long getId() {
@@ -29,12 +31,12 @@ public class Message {
         this.id = id;
     }
 
-    public int getTypeAndStatus() {
-        return typeAndStatus;
+    public User getFromUser() {
+        return fromUser;
     }
 
-    public void setTypeAndStatus(int typeAndStatus) {
-        this.typeAndStatus = typeAndStatus;
+    public void setFromUser(User fromUser) {
+        this.fromUser = fromUser;
     }
 
     public String getContent() {
@@ -43,13 +45,5 @@ public class Message {
 
     public void setContent(String content) {
         this.content = content;
-    }
-
-    public User getFromUser() {
-        return fromUser;
-    }
-
-    public void setFromUser(User fromUser) {
-        this.fromUser = fromUser;
     }
 }

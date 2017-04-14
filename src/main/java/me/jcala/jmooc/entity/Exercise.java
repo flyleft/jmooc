@@ -3,6 +3,9 @@ package me.jcala.jmooc.entity;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
+
 //习题表
 @Data
 @Entity
@@ -29,6 +32,9 @@ public class Exercise {
 
     @Column(name = "choose_answer")
     private int chooseAnswer;//正确选项
+
+    @OneToMany(cascade = CascadeType.REFRESH, fetch = FetchType.LAZY,targetEntity = ExerciseComment.class)
+    private List<ExerciseComment> exerciseCommentList=new ArrayList<>();
 
     public Exercise() {
     }
