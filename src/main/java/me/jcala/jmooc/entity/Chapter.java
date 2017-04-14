@@ -2,9 +2,7 @@ package me.jcala.jmooc.entity;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.List;
 
 @Data
@@ -13,27 +11,26 @@ import java.util.List;
 public class Chapter {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;//id
 
+    @Column(nullable = false,length = 40)
     private String name;//章节名称
 
+    @Column(length = 40)
     private String video;//在线视频url
 
-    private List<String> fileUrls;//文件列表
+    @Column(name = "file_list")
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE},fetch=FetchType.EAGER)
+    private List<File> fileList;//文件列表
 
+    @Column(name = "exercise_list")
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE},fetch=FetchType.EAGER)
     private List<Exercise> exerciseList;//习题列表
 
     public Chapter() {
     }
 
-    public Chapter(long id, String name, String video,
-                   List<String> fileUrls, List<Exercise> exerciseList) {
-        this.id = id;
-        this.name = name;
-        this.video = video;
-        this.fileUrls = fileUrls;
-        this.exerciseList = exerciseList;
-    }
 
     public long getId() {
         return id;
@@ -59,12 +56,12 @@ public class Chapter {
         this.video = video;
     }
 
-    public List<String> getFileUrls() {
-        return fileUrls;
+    public List<File> getFileList() {
+        return fileList;
     }
 
-    public void setFileUrls(List<String> fileUrls) {
-        this.fileUrls = fileUrls;
+    public void setFileList(List<File> fileList) {
+        this.fileList = fileList;
     }
 
     public List<Exercise> getExerciseList() {

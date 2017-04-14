@@ -46,7 +46,6 @@ spring:
         url: jdbc:mysql://127.0.0.1:3306/jmooc?serverTimezone=UTC&characterEncoding=utf-8
         driverClassName: com.mysql.cj.jdbc.Driver
         schema: classpath:import.sql
-        data: classpath:data.sql
         initialize: false
         sql-script-encoding: UTF-8
         druid:

@@ -2,11 +2,7 @@ package me.jcala.jmooc.entity;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import java.util.List;
-
+import javax.persistence.*;
 //习题表
 @Data
 @Entity
@@ -14,34 +10,29 @@ import java.util.List;
 public class Exercise {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;//id
 
-    private int type;//类型。1:选择题，2：大题
-
+    @Column(nullable = false,length = 40)
     private String name;//习题名称
 
+    @Column(nullable = false,columnDefinition="tinyint default 1")
+    private int type;//类型。1:选择题，2：大题
+
+    @Column(columnDefinition="TEXT")
     private String desc;//习题描述
 
+    @Column(nullable = false,columnDefinition="tinyint default 1")//1,2,3,4四个难度等级
     private int difficulty;//难度
 
-    private List<String> chooses;//选项列表
+    private String chooses;//选项列表
 
+    @Column(name = "choose_answer")
     private int chooseAnswer;//正确选项
 
     public Exercise() {
     }
 
-    public Exercise(long id, int type, String name,
-                    String desc, int difficulty,
-                    List<String> chooses, int chooseAnswer) {
-        this.id = id;
-        this.type = type;
-        this.name = name;
-        this.desc = desc;
-        this.difficulty = difficulty;
-        this.chooses = chooses;
-        this.chooseAnswer = chooseAnswer;
-    }
 
     public long getId() {
         return id;
@@ -83,19 +74,19 @@ public class Exercise {
         this.difficulty = difficulty;
     }
 
-    public List<String> getChooses() {
-        return chooses;
-    }
-
-    public void setChooses(List<String> chooses) {
-        this.chooses = chooses;
-    }
-
     public int getChooseAnswer() {
         return chooseAnswer;
     }
 
     public void setChooseAnswer(int chooseAnswer) {
         this.chooseAnswer = chooseAnswer;
+    }
+
+    public String getChooses() {
+        return chooses;
+    }
+
+    public void setChooses(String chooses) {
+        this.chooses = chooses;
     }
 }

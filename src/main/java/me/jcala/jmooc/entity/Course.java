@@ -2,9 +2,7 @@ package me.jcala.jmooc.entity;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.List;
 
 @Data
@@ -13,12 +11,17 @@ import java.util.List;
 public class Course {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;//id
 
+    @Column(nullable = false,length = 40)
     private String  name;//课程名称
 
+    @Column(nullable = false,columnDefinition="tinyint default 1")//1,2,3,4四个难度等级
     private int difficulty;//课程难度
 
+    @Column(name = "chapter_list")
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE},fetch=FetchType.EAGER)
     private List<Chapter> chapterList;//课程章节列表
 
     public Course() {

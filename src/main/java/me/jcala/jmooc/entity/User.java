@@ -1,11 +1,7 @@
 package me.jcala.jmooc.entity;
 
 import lombok.Data;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.List;
 
 @Data
@@ -14,45 +10,36 @@ import java.util.List;
 public class User {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;//id
 
+    @Column(nullable = false,length = 40)
     private String name;//用户名
 
+    @Column(nullable = false,length = 32)
     private String password;//密码
 
+    @Column(nullable = false,columnDefinition="tinyint default 1")
     private int type;//类型。1：学生，2：老师，3：管理员
 
+    @Column(columnDefinition="tinyint default 1")
     private int age;//年龄
 
+    @Column(nullable = false,name = "avatar_url",columnDefinition="varchar(40) default '/img/default.png'")
     private String avatarUrl;//头像
 
+    @Column(nullable = false,columnDefinition="tinyint default 1")//1: 正常; 0:冻结
     private boolean status;//状态：正常，冻结
 
-    private int msgNum;//未读消息数
+    @Column(name = "exercise_collection")
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE},fetch=FetchType.LAZY)
+    private List<Exercise> exerciseCollection;//收藏的习题
 
-    private int sysMsgNum;//系统未读消息数
-
-    private List<Integer> exerciseCollection;//收藏的习题
-
-    private List<Integer> exerciseError;//错误的习题
+    @Column(name = "exercise_error")
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE},fetch=FetchType.LAZY)
+    private List<Exercise> exerciseError;//错误的习题
 
     public User() {
-    }
-
-    public User(long id, String name, String password, int type, int age, String avatarUrl,
-                boolean status, int msgNum, int sysMsgNum, List<Integer> exerciseCollection,
-                List<Integer> exerciseError) {
-        this.id = id;
-        this.name = name;
-        this.password = password;
-        this.type = type;
-        this.age = age;
-        this.avatarUrl = avatarUrl;
-        this.status = status;
-        this.msgNum = msgNum;
-        this.sysMsgNum = sysMsgNum;
-        this.exerciseCollection = exerciseCollection;
-        this.exerciseError = exerciseError;
     }
 
     public long getId() {
@@ -111,35 +98,19 @@ public class User {
         this.status = status;
     }
 
-    public int getMsgNum() {
-        return msgNum;
-    }
-
-    public void setMsgNum(int msgNum) {
-        this.msgNum = msgNum;
-    }
-
-    public int getSysMsgNum() {
-        return sysMsgNum;
-    }
-
-    public void setSysMsgNum(int sysMsgNum) {
-        this.sysMsgNum = sysMsgNum;
-    }
-
-    public List<Integer> getExerciseCollection() {
+    public List<Exercise> getExerciseCollection() {
         return exerciseCollection;
     }
 
-    public void setExerciseCollection(List<Integer> exerciseCollection) {
+    public void setExerciseCollection(List<Exercise> exerciseCollection) {
         this.exerciseCollection = exerciseCollection;
     }
 
-    public List<Integer> getExerciseError() {
+    public List<Exercise> getExerciseError() {
         return exerciseError;
     }
 
-    public void setExerciseError(List<Integer> exerciseError) {
+    public void setExerciseError(List<Exercise> exerciseError) {
         this.exerciseError = exerciseError;
     }
 }
