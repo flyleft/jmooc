@@ -3,7 +3,9 @@ package me.jcala.jmooc.entity;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Data
 @Entity
@@ -22,17 +24,12 @@ public class Course {
 
     @Column(name = "chapter_list")
     @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE},fetch=FetchType.EAGER)
-    private List<Chapter> chapterList;//课程章节列表
+    private Set<Chapter> chapterList=new HashSet<>();//课程章节列表
 
     public Course() {
     }
 
-    public Course(long id, String name, int difficulty, List<Chapter> chapterList) {
-        this.id = id;
-        this.name = name;
-        this.difficulty = difficulty;
-        this.chapterList = chapterList;
-    }
+
 
     public long getId() {
         return id;
@@ -58,11 +55,11 @@ public class Course {
         this.difficulty = difficulty;
     }
 
-    public List<Chapter> getChapterList() {
+    public Set<Chapter> getChapterList() {
         return chapterList;
     }
 
-    public void setChapterList(List<Chapter> chapterList) {
+    public void setChapterList(Set<Chapter> chapterList) {
         this.chapterList = chapterList;
     }
 }

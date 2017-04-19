@@ -2,7 +2,9 @@ package me.jcala.jmooc.entity;
 
 import lombok.Data;
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Data
 @Entity
@@ -33,11 +35,11 @@ public class User {
 
     @Column(name = "exercise_collection")
     @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE},fetch=FetchType.LAZY)
-    private List<Exercise> exerciseCollection;//收藏的习题
+    private Set<Exercise> exerciseCollection=new HashSet<>();//收藏的习题
 
     @Column(name = "exercise_error")
     @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE},fetch=FetchType.LAZY)
-    private List<Exercise> exerciseError;//错误的习题
+    private Set<Exercise> exerciseError=new HashSet<>();//错误的习题
 
     public User() {
     }
@@ -98,19 +100,19 @@ public class User {
         this.status = status;
     }
 
-    public List<Exercise> getExerciseCollection() {
+    public Set<Exercise> getExerciseCollection() {
         return exerciseCollection;
     }
 
-    public void setExerciseCollection(List<Exercise> exerciseCollection) {
+    public void setExerciseCollection(Set<Exercise> exerciseCollection) {
         this.exerciseCollection = exerciseCollection;
     }
 
-    public List<Exercise> getExerciseError() {
+    public Set<Exercise> getExerciseError() {
         return exerciseError;
     }
 
-    public void setExerciseError(List<Exercise> exerciseError) {
+    public void setExerciseError(Set<Exercise> exerciseError) {
         this.exerciseError = exerciseError;
     }
 }

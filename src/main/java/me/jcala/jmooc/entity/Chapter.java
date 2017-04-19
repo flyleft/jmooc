@@ -3,7 +3,7 @@ package me.jcala.jmooc.entity;
 import lombok.Data;
 
 import javax.persistence.*;
-import java.util.List;
+import java.util.*;
 
 @Data
 @Entity
@@ -22,11 +22,11 @@ public class Chapter {
 
     @Column(name = "file_list")
     @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE},fetch=FetchType.EAGER)
-    private List<File> fileList;//文件列表
+    private Set<File> fileList=new HashSet<>();//文件列表
 
     @Column(name = "exercise_list")
     @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE},fetch=FetchType.EAGER)
-    private List<Exercise> exerciseList;//习题列表
+    private Set<Exercise> exerciseList=new HashSet<>();//习题列表
 
     public Chapter() {
     }
@@ -56,19 +56,19 @@ public class Chapter {
         this.video = video;
     }
 
-    public List<File> getFileList() {
+    public Set<File> getFileList() {
         return fileList;
     }
 
-    public void setFileList(List<File> fileList) {
+    public void setFileList(Set<File> fileList) {
         this.fileList = fileList;
     }
 
-    public List<Exercise> getExerciseList() {
+    public Set<Exercise> getExerciseList() {
         return exerciseList;
     }
 
-    public void setExerciseList(List<Exercise> exerciseList) {
+    public void setExerciseList(Set<Exercise> exerciseList) {
         this.exerciseList = exerciseList;
     }
 }

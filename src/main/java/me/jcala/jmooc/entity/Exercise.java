@@ -4,7 +4,9 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 //习题表
 @Data
@@ -34,7 +36,7 @@ public class Exercise {
     private int chooseAnswer;//正确选项
 
     @OneToMany(cascade = CascadeType.REFRESH, fetch = FetchType.LAZY,targetEntity = ExerciseComment.class)
-    private List<ExerciseComment> exerciseCommentList=new ArrayList<>();
+    private Set<ExerciseComment> exerciseCommentList=new HashSet<>();
 
     public Exercise() {
     }
