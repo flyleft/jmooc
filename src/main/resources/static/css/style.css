@@ -1,7 +1,4 @@
 
-@import url(http://fonts.useso.com/css?family=Roboto:100,300);
-
-
 body {background-color:#F4F4F4; color:#565656; font-size:16px; line-height:2; }
 
 h1, h2, h3, h4, h5, h6, ul, li, p, a, table { }
@@ -21,7 +18,7 @@ a:hover {color:#F97307; text-decoration:underline; }
 
  /* Special font */
 /* ------------ */
-p.header {font-size:34px; font-family:'Roboto'; font-weight:100; }
+p.header {font-size:34px; font-family: "Helvetica Neue", Helvetica, Arial, "PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif; font-weight:100; }
 p.header strong {font-weight:300; }
 p.header .btn {margin-left:40px; }
 p.header-small {font-size:26px; line-height:1.42857; }
