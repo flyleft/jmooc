@@ -24,7 +24,7 @@ logging:
 spring:
     freemarker:
       enabled: true
-      suffix: ftl
+      suffix: .ftl
       charset: UTF-8
     thymeleaf:
       enabled: false
