@@ -22,7 +22,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html"><img id="logo" src="../src/main/resources/static/img/logo.png" th:src="@{/img/logo.png}" alt="eLearn" /></a>
+                <a class="navbar-brand" href="index.html"><img id="logo" src="/img/logo.png" alt="eLearn" /></a>
             </div>
             <div class="collapse navbar-collapse">
                 <div class="navbar-right menu-main">
