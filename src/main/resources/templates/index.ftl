@@ -22,11 +22,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-<<<<<<< HEAD
-                <a class="navbar-brand" href="index.html"><img id="logo" src="/img/logo.png" alt="eLearn" /></a>
-=======
-                <a class="navbar-brand" href="index.html"><img id="logo" src="/img/logo.png" th:src="@{/img/logo.png}" alt="eLearn" /></a>
->>>>>>> 3cfba5ace591eb852fe66bb69345dd139a60c327
+                <a class="navbar-brand" href="/"><img id="logo" src="/img/logo.png" alt="jmooc" /></a>
             </div>
             <div class="collapse navbar-collapse">
                 <div class="navbar-right menu-main">
@@ -48,7 +44,6 @@
 
                         <li><a href="features.htm"><span>习题中心</span></a></li>
 
-                        <li><a href="contact.htm"><span>联系人</span></a></li>
                     </ul>
                     <a class="btn btn-theme navbar-btn btn-default sign-in" href="#">登录</a>
                 </div>

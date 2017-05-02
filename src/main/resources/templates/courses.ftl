@@ -10,7 +10,15 @@
     <link rel="stylesheet" href="/css/font-awesome.min.css"/>
     <link rel="stylesheet" href="/css/style.css"/>
     <link rel="stylesheet" href="/css/animate.min.css"/>
-
+    <style type="text/css">
+        a:link,a:visited{color:#5e5e5e}
+        a:hover{color:#c9394a}
+        a:active{color:#666}
+        .test p { position: absolute; left: 0; top 0; }
+        .course-nav-item{display:inline-block;margin:0 4px}
+        .course-nav-item a{display:block;line-height:14px;margin-bottom:10px;padding:10px;font-size:14px}
+        .course-nav-item.on a{background:#2b333b;color:#fff;border-radius:2px}
+    </style>
 </head>
 <body>
 <header class="main">
@@ -23,7 +31,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html"><img id="logo" src="/img/logo.png" alt="eLearn" /></a>
+                <a class="navbar-brand" href="/"><img id="logo" src="/img/logo.png" alt="jmooc" /></a>
             </div>
             <div class="collapse navbar-collapse">
                 <div class="navbar-right menu-main">
@@ -35,7 +43,6 @@
 
                         <li><a href="features.htm"><span>习题中心</span></a></li>
 
-                        <li><a href="contact.htm"><span>联系人</span></a></li>
                     </ul>
                     <a class="btn btn-theme navbar-btn btn-default sign-in" href="#">登录</a>
                 </div>
@@ -47,14 +54,34 @@
 <div class="page-header">
     <div class="container">
         <div class="row">
-            <div class="col-md-7">
-                <h1>课程中心</h1>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-9">
-                <h4>方向：<span class="label label-default">全部</span></h4>
-                <h4>方向：<span class="label label-default">全部</span></h4>
+            <div class="test col-md-9">
+                <p>方向：</p>
+                <ul class="">
+                    <li class="course-nav-item on">
+                        <a href="/course/list">全部</a>
+                    </li>
+                    <li class="course-nav-item">
+                        <a href="/course/list?c=fe" >前端开发</a>
+                    </li>
+                    <li class="course-nav-item">
+                        <a href="/course/list?c=be" >后端开发</a>
+                    </li>
+                    <li class="course-nav-item">
+                        <a href="/course/list?c=mobile" >移动开发</a>
+                    </li>
+                    <li class="course-nav-item">
+                        <a href="/course/list?c=data" >数据库</a>
+                    </li>
+                    <li class="course-nav-item">
+                        <a href="/course/list?c=cb" >云计算&amp;大数据</a>
+                    </li>
+                    <li class="course-nav-item">
+                        <a href="/course/list?c=op" >运维&amp;测试</a>
+                    </li>
+                    <li class="course-nav-item">
+                        <a href="/course/list?c=photo" >UI设计</a>
+                    </li>
+                </ul>
             </div>
         </div>
     </div>
