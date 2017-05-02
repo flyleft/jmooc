@@ -11,13 +11,14 @@
     <link rel="stylesheet" href="/css/style.css"/>
     <link rel="stylesheet" href="/css/animate.min.css"/>
     <style type="text/css">
-        a:link,a:visited{color:#5e5e5e}
-        a:hover{color:#c9394a}
-        a:active{color:#666}
+        a:{text-decoration:none;}
+        a:link,a:visited{color:#5e5e5e;text-decoration:none;}
+        a:hover{color:#F97307;text-decoration:none;}
+        a:active{color:#666;text-decoration:none;}
         .test p { position: absolute; left: 0; top 0; }
         .course-nav-item{display:inline-block;margin:0 4px}
         .course-nav-item a{display:block;line-height:14px;margin-bottom:10px;padding:10px;font-size:14px}
-        .course-nav-item.on a{background:#2b333b;color:#fff;border-radius:2px}
+        .course-nav-item.on a{background:#F97307;color:#fff;border-radius:2px}
     </style>
 </head>
 <body>
@@ -72,17 +73,26 @@
                     <li class="course-nav-item">
                         <a href="/course/list?c=data" >数据库</a>
                     </li>
-                    <li class="course-nav-item">
-                        <a href="/course/list?c=cb" >云计算&amp;大数据</a>
-                    </li>
-                    <li class="course-nav-item">
-                        <a href="/course/list?c=op" >运维&amp;测试</a>
-                    </li>
-                    <li class="course-nav-item">
-                        <a href="/course/list?c=photo" >UI设计</a>
-                    </li>
                 </ul>
-            </div>
+                <div class="row">
+                <div class="test col-md-9">
+                    <p>类型：</p>
+                    <ul class="">
+                        <li class="course-nav-item on">
+                            <a href="/course/list">全部</a>
+                        </li>
+                        <li class="course-nav-item">
+                            <a href="/course/list?c=fe" >C</a>
+                        </li>
+                        <li class="course-nav-item">
+                            <a href="/course/list?c=be" >C++</a>
+                        </li>
+                        <li class="course-nav-item">
+                            <a href="/course/list?c=mobile" >JAVA</a>
+                        </li>
+                    </ul>
+                 </div>
+                </div>
         </div>
     </div>
 </div>
