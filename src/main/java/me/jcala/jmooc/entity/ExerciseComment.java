@@ -11,7 +11,7 @@ public class ExerciseComment {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private int id;
 
     @OneToOne(optional=false,cascade=CascadeType.ALL,fetch=FetchType.LAZY,targetEntity=User.class)
     @JoinColumn(name="id",nullable=false,updatable=false)
@@ -23,11 +23,11 @@ public class ExerciseComment {
     public ExerciseComment() {
     }
 
-    public long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(int id) {
         this.id = id;
     }
 

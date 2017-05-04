@@ -3,7 +3,6 @@ package me.jcala.jmooc.entity;
 import lombok.Data;
 import javax.persistence.*;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 @Data
@@ -13,7 +12,7 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;//id
+    private int id;//id
 
     @Column(nullable = false,length = 40)
     private String name;//用户名
@@ -44,11 +43,18 @@ public class User {
     public User() {
     }
 
-    public long getId() {
+    public User(int id,String name, String password, int type) {
+        this.id=id;
+        this.name = name;
+        this.password = password;
+        this.type = type;
+    }
+
+    public int getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(int id) {
         this.id = id;
     }
 

@@ -14,7 +14,7 @@ public class Course {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;//id
+    private int id;//id
 
     @Column(nullable = false,length = 40)
     private String  name;//课程名称
@@ -31,11 +31,11 @@ public class Course {
 
 
 
-    public long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(int id) {
         this.id = id;
     }
 

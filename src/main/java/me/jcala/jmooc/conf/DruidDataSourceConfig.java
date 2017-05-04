@@ -10,10 +10,10 @@ import org.springframework.context.EnvironmentAware;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
+import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 
 import javax.sql.DataSource;
 import java.sql.SQLException;
-
 @Configuration
 public class DruidDataSourceConfig implements EnvironmentAware {
     private RelaxedPropertyResolver propertyResolver;
