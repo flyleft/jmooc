@@ -24,7 +24,7 @@
                     <div class="input-group-addon">
                         <i class="fa fa-user"></i>
                     </div>
-                    <input type="text" class="form-control" name="username" id="username" placeholder="用户名" autocomplete="off" />
+                    <input type="text" class="form-control" name="name" id="name" placeholder="用户名" autocomplete="off" />
                 </div>
             </div>
             <div class="form-group">
@@ -63,7 +63,7 @@
     $("#login-button").bind("click",
             function() {
                 var b, a = document.forms[0];
-                a.action = "/login.action",
+                a.action = "/user/login.do",
                 b = document.loginForm.passBefore.value,
                 document.loginForm.password.value = md5(b),
                 if ("学生用户" == $(this).text().trim()){

@@ -1,11 +1,24 @@
 package me.jcala.jmooc.ctrl;
 
+import me.jcala.jmooc.entity.User;
+import me.jcala.jmooc.service.inter.UserSer;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+
+import javax.servlet.http.HttpServletRequest;
 
 @Controller
 public class UserController {
+
+    private UserSer userSer;
+
+    @Autowired
+    public UserController(UserSer userSer) {
+        this.userSer = userSer;
+    }
 
     @GetMapping("/")
     public String index(Model model){
@@ -14,8 +27,17 @@ public class UserController {
     }
 
     @GetMapping("/user/login")
-    public String login(){
+    public String loginPage(){
         return "login";
+    }
+
+    @PutMapping("/user/login.do")
+    public String DoLogin(User user, HttpServletRequest request){
+        boolean result=userSer.login(user,request);
+        if (result){
+            return "redirect:/";
+        }
+        return "redirect:/user/login";
     }
 
 }
