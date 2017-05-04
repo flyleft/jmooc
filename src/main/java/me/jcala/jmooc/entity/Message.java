@@ -1,7 +1,12 @@
 package me.jcala.jmooc.entity;
 
+import lombok.Data;
+
 import javax.persistence.*;
 
+@Data
+@Entity
+@Table(name = "message_tb")
 public class Message {
 
     @Id
@@ -19,37 +24,5 @@ public class Message {
     private String content;
 
     public Message() {
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public int getTypeAndStatus() {
-        return typeAndStatus;
-    }
-
-    public void setTypeAndStatus(int typeAndStatus) {
-        this.typeAndStatus = typeAndStatus;
-    }
-
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
-    }
-
-    public User getFromUser() {
-        return fromUser;
-    }
-
-    public void setFromUser(User fromUser) {
-        this.fromUser = fromUser;
     }
 }

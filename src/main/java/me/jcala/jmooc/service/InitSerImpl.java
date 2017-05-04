@@ -7,6 +7,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.PostConstruct;
 
@@ -23,6 +24,7 @@ public class InitSerImpl implements InitSer{
     }
 
     @PostConstruct
+    @Transactional
     @Override
     public void executeInit() {
        logger.info("----------开始初始化数据-----------");
@@ -32,7 +34,7 @@ public class InitSerImpl implements InitSer{
 
     private void initUserData(){
         User jcala=new User(1,"jcala","jcala",1);
-        User tea=new User(1,"tea","tea",2);
+        User tea=new User(2,"tea","tea",2);
         userRepository.save(jcala);
         userRepository.save(tea);
     }

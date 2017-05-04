@@ -31,44 +31,4 @@ public class Chapter {
     public Chapter() {
     }
 
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getVideo() {
-        return video;
-    }
-
-    public void setVideo(String video) {
-        this.video = video;
-    }
-
-    public Set<File> getFileList() {
-        return fileList;
-    }
-
-    public void setFileList(Set<File> fileList) {
-        this.fileList = fileList;
-    }
-
-    public Set<Exercise> getExerciseList() {
-        return exerciseList;
-    }
-
-    public void setExerciseList(Set<Exercise> exerciseList) {
-        this.exerciseList = exerciseList;
-    }
 }
