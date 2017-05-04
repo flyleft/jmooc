@@ -33,10 +33,18 @@ public class InitSerImpl implements InitSer{
 
 
     private void initUserData(){
-        User jcala=new User(1,"jcala","jcala",1);
-        User tea=new User(2,"tea","tea",2);
-        userRepository.save(jcala);
-        userRepository.save(tea);
+
+        User jcala=userRepository.findUserByName("jcala");
+        if (jcala==null){
+            userRepository.save(new User("jcala","jcala",1));
+        }
+
+
+        User tea=userRepository.findUserByName("tea");
+        if (tea==null){
+            userRepository.save(new User("tea","tea",2));
+        }
+
     }
 
 }

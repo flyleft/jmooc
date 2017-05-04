@@ -10,7 +10,7 @@ import java.util.Set;
 @Entity
 @Table(name = "user_tb")
 public class User {
-
+    private static final String DEFAULT_AVATAR="/img/default.png";
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;//id
@@ -44,10 +44,10 @@ public class User {
     public User() {
     }
 
-    public User(int id,String name, String password, int type) {
-        this.id=id;
+    public User(String name, String password, int type) {
         this.name = name;
         this.password = password;
         this.type = type;
+        this.avatarUrl=DEFAULT_AVATAR;
     }
 }
