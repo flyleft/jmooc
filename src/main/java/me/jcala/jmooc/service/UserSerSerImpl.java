@@ -29,6 +29,7 @@ public class UserSerSerImpl implements UserSer {
 
         User getUser=userRepository.findUserByNameAndPasswordAndType(user.getName(),user.getPassword(),user.getType());
 
+
         UserAuxiliary userAuxiliary=CommonUtils.User2Auxiliary(getUser);
 
       if (getUser!=null){

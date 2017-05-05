@@ -43,6 +43,9 @@ public class User implements Serializable{
     @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE},fetch=FetchType.LAZY)
     private Set<Exercise> exerciseError=new HashSet<>();//错误的习题
 
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true,fetch = FetchType.LAZY,targetEntity = Message.class)
+    private Set<Message> phones = new HashSet<>();
+
     public User() {
     }
 

@@ -25,6 +25,7 @@ public class Message implements Serializable{
     @Column(nullable = false,columnDefinition="text")
     private String content;
 
+
     public Message() {
     }
 }
