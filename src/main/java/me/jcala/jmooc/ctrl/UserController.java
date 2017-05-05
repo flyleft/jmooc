@@ -33,15 +33,13 @@ public class UserController {
         return "login";
     }
 
-    @ResponseBody
     @PostMapping("/user/login.do")
     public String DoLogin(User user, HttpServletRequest request){
-        return user.toString();
-        /*boolean result=userSer.login(user,request);
+        boolean result=userSer.login(user,request);
         if (result){
             return "redirect:/";
         }
-        return "redirect:/user/login";*/
+        return "redirect:/user/login";
     }
 
 }
