@@ -43,9 +43,41 @@
 
 
                         <li><a href="features.htm"><span>习题中心</span></a></li>
+                    <#if type == 1>
+                        <li class="dropdown user-dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i>${name!"jmooc"}<b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="/user/course"><i class="fa fa-user"></i> 学习课程</a></li>
+                                <li><a href="/user/message"><i class="fa fa-envelope"></i> 消息 <span class="badge">7</span></a></li>
+                                <li><a href="#/user/exercise><i class="fa fa-gear"></i> 习题收藏</a></li>
+                                <li class="divider"></li>
+                                <li><a href="/user/log_out"><i class="fa fa-power-off"></i> 登出</a></li>
+                            </ul>
+                        </li>
+                    <#elseif type == 2>
+                        <li class="dropdown user-dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i>${name!"jmooc"}<b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="/user/course_manager"><i class="fa fa-user"></i> 课程管理</a></li>
+                                <li><a href="/user/message"><i class="fa fa-envelope"></i> 消息 <span class="badge">7</span></a></li>
+                                <li class="divider"></li>
+                                <li><a href="/user/log_out"><i class="fa fa-power-off"></i> 登出</a></li>
+                            </ul>
+                        </li>
+                    <#else>
+                        <li><a class="btn" href="/user/login">登录</a></li>
+                    </#if>
 
                     </ul>
-                    <a class="btn btn-theme navbar-btn btn-default sign-in" href="/user/login">登录</a>
+                    <#--<div class="col-lg-3">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Search for...">
+                            <span class="input-group-btn">
+                              <button class="btn btn-default" type="button">Go!</button>
+                            </span>
+                        </div>
+                    </div>-->
+
                 </div>
             </div>
         </nav>
