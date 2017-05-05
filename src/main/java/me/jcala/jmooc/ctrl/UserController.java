@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 @Controller
 public class UserController {
@@ -51,5 +52,11 @@ public class UserController {
         return "redirect:/user/login";
     }
 
+    @GetMapping("/user/logout")
+    public String doLogOut(HttpServletRequest request){
+        HttpSession session = request.getSession(false);
+        session.removeAttribute("cur_user");
+        return "redirect:/";
+    }
 }
 

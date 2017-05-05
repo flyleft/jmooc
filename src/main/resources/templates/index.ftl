@@ -51,7 +51,7 @@
                                 <li><a href="/user/message"><i class="fa fa-envelope"></i> 消息 <span class="badge">7</span></a></li>
                                 <li><a href="#/user/exercise><i class="fa fa-gear"></i> 习题收藏</a></li>
                                 <li class="divider"></li>
-                                <li><a href="/user/log_out"><i class="fa fa-power-off"></i> 登出</a></li>
+                                <li><a href="/user/logout"><i class="fa fa-power-off"></i> 登出</a></li>
                             </ul>
                         </li>
                     <#elseif type == 2>
@@ -61,7 +61,7 @@
                                 <li><a href="/user/course_manager"><i class="fa fa-user"></i> 课程管理</a></li>
                                 <li><a href="/user/message"><i class="fa fa-envelope"></i> 消息 <span class="badge">7</span></a></li>
                                 <li class="divider"></li>
-                                <li><a href="/user/log_out"><i class="fa fa-power-off"></i> 登出</a></li>
+                                <li><a href="/user/logout"><i class="fa fa-power-off"></i> 登出</a></li>
                             </ul>
                         </li>
                     <#else>
@@ -69,15 +69,6 @@
                     </#if>
 
                     </ul>
-                    <#--<div class="col-lg-3">
-                        <div class="input-group">
-                            <input type="text" class="form-control" placeholder="Search for...">
-                            <span class="input-group-btn">
-                              <button class="btn btn-default" type="button">Go!</button>
-                            </span>
-                        </div>
-                    </div>-->
-
                 </div>
             </div>
         </nav>
