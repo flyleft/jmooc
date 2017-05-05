@@ -1,6 +1,6 @@
 package me.jcala.jmooc.interceptor;
 
-import me.jcala.jmooc.entity.User;
+import me.jcala.jmooc.entity.auxiliary.UserAuxiliary;
 import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
@@ -13,7 +13,7 @@ public class UserSecurityInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         Object obj = request.getSession().getAttribute("cur_user");
-        if (obj == null || !(obj instanceof User)) {
+        if (obj == null || !(obj instanceof UserAuxiliary)) {
             response.sendRedirect(request.getContextPath() + "/user/login");
             return false;
         }

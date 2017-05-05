@@ -1,6 +1,7 @@
 package me.jcala.jmooc.service;
 
 import me.jcala.jmooc.entity.User;
+import me.jcala.jmooc.entity.auxiliary.UserAuxiliary;
 import me.jcala.jmooc.repository.UserRepository;
 import me.jcala.jmooc.service.inter.UserSer;
 import me.jcala.jmooc.utils.CommonUtils;
@@ -26,10 +27,12 @@ public class UserSerSerImpl implements UserSer {
 
         User getUser=userRepository.findUserByNameAndPasswordAndType(user.getName(),user.getPassword(),user.getType());
 
+        UserAuxiliary userAuxiliary=CommonUtils.User2Auxiliary(getUser);
+
       if (getUser!=null){
           user.setPassword(null);
           HttpSession session = request.getSession(true);
-          session.setAttribute("cur_user",user);
+          session.setAttribute("cur_user",userAuxiliary);
           session.setMaxInactiveInterval(600);
           return true;
       }

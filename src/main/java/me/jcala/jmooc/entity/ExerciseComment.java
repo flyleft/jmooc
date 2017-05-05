@@ -3,11 +3,14 @@ package me.jcala.jmooc.entity;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Data
 @Entity
 @Table(name = "exercise_comment_tb")
-public class ExerciseComment {
+public class ExerciseComment implements Serializable{
+
+    private static final long serialVersionUID = 3456978781637596326L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -3,6 +3,7 @@ package me.jcala.jmooc.entity;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -10,7 +11,9 @@ import java.util.Set;
 @Data
 @Entity
 @Table(name = "exercise_tb")
-public class Exercise {
+public class Exercise implements Serializable{
+
+    private static final long serialVersionUID = -5175465537985355910L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

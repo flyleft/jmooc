@@ -3,13 +3,16 @@ package me.jcala.jmooc.entity;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
 @Data
 @Entity
 @Table(name = "course_tb")
-public class Course {
+public class Course implements Serializable{
+
+    private static final long serialVersionUID = -501263791865367727L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

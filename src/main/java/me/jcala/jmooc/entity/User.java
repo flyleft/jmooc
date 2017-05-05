@@ -3,14 +3,16 @@ package me.jcala.jmooc.entity;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
 @Data
 @Entity
 @Table(name = "user_tb")
-public class User {
+public class User implements Serializable{
     private static final String DEFAULT_AVATAR="/img/default.png";
+    private static final long serialVersionUID = 8665628721543300843L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;//id

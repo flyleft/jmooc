@@ -1,5 +1,8 @@
 package me.jcala.jmooc.utils;
 
+import me.jcala.jmooc.entity.User;
+import me.jcala.jmooc.entity.auxiliary.UserAuxiliary;
+
 public class CommonUtils {
 
     public static boolean isEmpty(String...strings){
@@ -9,5 +12,16 @@ public class CommonUtils {
             }
         }
         return false;
+    }
+
+    public static UserAuxiliary User2Auxiliary(User user){
+
+        return new UserAuxiliary(
+                user.getId(),
+                user.getName(),
+                user.getType(),
+                user.getAvatarUrl()
+        );
+
     }
 }

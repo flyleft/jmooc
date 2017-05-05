@@ -3,12 +3,14 @@ package me.jcala.jmooc.entity;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Data
 @Entity
 @Table(name = "message_tb")
-public class Message {
+public class Message implements Serializable{
 
+    private static final long serialVersionUID = 7510490431006467069L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
