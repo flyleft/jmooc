@@ -3,6 +3,7 @@ package me.jcala.jmooc.service;
 import me.jcala.jmooc.entity.User;
 import me.jcala.jmooc.repository.UserRepository;
 import me.jcala.jmooc.service.inter.InitSer;
+import me.jcala.jmooc.utils.EncryptUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,13 +37,15 @@ public class InitSerImpl implements InitSer{
 
         User jcala=userRepository.findUserByName("jcala");
         if (jcala==null){
-            userRepository.save(new User("jcala","jcala",1));
+            String pass= EncryptUtils.EncoderByMd5("jcala");
+            userRepository.save(new User("jcala",pass,1));
         }
 
 
         User tea=userRepository.findUserByName("tea");
         if (tea==null){
-            userRepository.save(new User("tea","tea",2));
+            String pass= EncryptUtils.EncoderByMd5("tea");
+            userRepository.save(new User("tea",pass,2));
         }
 
     }

@@ -14,6 +14,14 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 
 @Configuration
 public class WebMvcConfig extends WebMvcConfigurerAdapter {
+
+	private UserSecurityInterceptor securityInterceptor;
+
+	@Autowired
+	public WebMvcConfig(UserSecurityInterceptor securityInterceptor) {
+		this.securityInterceptor = securityInterceptor;
+	}
+
     @Bean
 	public EmbeddedServletContainerCustomizer containerCustomizer() {
 
@@ -24,13 +32,6 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
 
 				container.addErrorPages(error401Page, error404Page,error500Page);
 		};
-	}
-	private UserSecurityInterceptor securityInterceptor;
-
-	@Autowired
-	public WebMvcConf(UserSecurityInterceptor securityInterceptor) {
-		super();
-		this.securityInterceptor = securityInterceptor;
 	}
 
 	@Override

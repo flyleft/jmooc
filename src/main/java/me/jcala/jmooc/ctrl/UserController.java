@@ -6,7 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -31,13 +33,15 @@ public class UserController {
         return "login";
     }
 
-    @PutMapping("/user/login.do")
+    @ResponseBody
+    @PostMapping("/user/login.do")
     public String DoLogin(User user, HttpServletRequest request){
-        boolean result=userSer.login(user,request);
+        return user.toString();
+        /*boolean result=userSer.login(user,request);
         if (result){
             return "redirect:/";
         }
-        return "redirect:/user/login";
+        return "redirect:/user/login";*/
     }
 
 }

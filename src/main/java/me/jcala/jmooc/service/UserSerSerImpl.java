@@ -6,10 +6,12 @@ import me.jcala.jmooc.repository.UserRepository;
 import me.jcala.jmooc.service.inter.UserSer;
 import me.jcala.jmooc.utils.CommonUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+@Service
 public class UserSerSerImpl implements UserSer {
 
     private UserRepository userRepository;

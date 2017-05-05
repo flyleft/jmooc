@@ -60,19 +60,22 @@
         }
     });
 
+    var getType=function () {
+        if ("学生用户" == $("#user-type").text().trim()){
+            return 1;
+        }else if("教师用户" == $("#user-type").text().trim()) {
+            return 2;
+        }else {
+            return 3;
+        }
+    };
     $("#login-button").bind("click",
             function() {
                 var b, a = document.forms[0];
                 a.action = "/user/login.do",
                 b = document.loginForm.passBefore.value,
                 document.loginForm.password.value = md5(b),
-                if ("学生用户" == $(this).text().trim()){
-                    document.loginForm.type.value =1,
-                }else if("教师用户" == $(this).text().trim()) {
-                    document.loginForm.type.value =2,
-                }else {
-                    document.loginForm.type.value =3,
-                }
+                document.loginForm.type.value=getType();
                 a.method = "post",
                 a.submit()
             })

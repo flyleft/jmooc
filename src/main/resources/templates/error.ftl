@@ -7,11 +7,11 @@
 </head>
 <body>
 <div class="container">
-    <h1>${status}<span>:(</span></h1>
+    <h1>${status!'404'}<span>:(</span></h1>
 
-    <p>${title}</p>
+    <p>${title!'发生异常'}</p>
 
-    <span>${error}</span>
+    <span>${error!'请稍后再试'}</span>
     <br/>
 </div>
 </body>
