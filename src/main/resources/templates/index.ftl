@@ -29,15 +29,6 @@
                     <ul class="nav navbar-nav">
 
                         <li><a href="/"><span>首页</span></a></li>
-                        <!--<li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span>课程中心</span> <b class="caret"></b></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="/courses">信息</a></li>
-                                <li><a href="/courses">电气</a></li>
-                                <li><a href="/courses">土木</a></li>
-                                <li><a href="/courses">政治</a></li>
-                            </ul>
-                        </li>-->
                         <li><a href="/courses"><span>课程中心</span></a></li>
                         <li><a href="about-us.htm"><span>代码运行</span></a></li>
 
@@ -49,7 +40,7 @@
                             <ul class="dropdown-menu">
                                 <li><a href="/user/course"><i class="fa fa-user"></i> 学习课程</a></li>
                                 <li><a href="/user/message"><i class="fa fa-envelope"></i> 消息 <span class="badge">7</span></a></li>
-                                <li><a href="#/user/exercise><i class="fa fa-gear"></i> 习题收藏</a></li>
+                                <li><a href="#/user/stu/exercise><i class="fa fa-gear"></i> 习题收藏</a></li>
                                 <li class="divider"></li>
                                 <li><a href="/user/logout"><i class="fa fa-power-off"></i> 登出</a></li>
                             </ul>
@@ -58,7 +49,7 @@
                         <li class="dropdown user-dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i>${name!"jmooc"}<b class="caret"></b></a>
                             <ul class="dropdown-menu">
-                                <li><a href="/user/course_manager"><i class="fa fa-user"></i> 课程管理</a></li>
+                                <li><a href="/user/tea/crs_mgr?do=add"><i class="fa fa-user"></i> 课程管理</a></li>
                                 <li><a href="/user/message"><i class="fa fa-envelope"></i> 消息 <span class="badge">7</span></a></li>
                                 <li class="divider"></li>
                                 <li><a href="/user/logout"><i class="fa fa-power-off"></i> 登出</a></li>

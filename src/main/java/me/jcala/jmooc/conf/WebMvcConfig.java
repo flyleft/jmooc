@@ -22,7 +22,7 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
 		this.securityInterceptor = securityInterceptor;
 	}
 
-    @Bean
+    /*@Bean
 	public EmbeddedServletContainerCustomizer containerCustomizer() {
 
 		return (ConfigurableEmbeddedServletContainer container) ->{
@@ -32,7 +32,7 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
 
 				container.addErrorPages(error401Page, error404Page,error500Page);
 		};
-	}
+	}*/
 
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {

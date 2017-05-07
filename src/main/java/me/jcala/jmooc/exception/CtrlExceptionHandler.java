@@ -26,4 +26,14 @@ class CtrlExceptionHandler {
         return new ModelAndView("error");
     }
 
+    @ResponseStatus(value = HttpStatus.NOT_FOUND)
+    @ExceptionHandler(NoPageException.class)
+    public String noPageError(Exception e, Model model) {
+        log.info(e.getLocalizedMessage());
+        model.addAttribute("status",404);
+        model.addAttribute("title","对不起，您访问的页面不存在");
+        model.addAttribute("error",e.getLocalizedMessage());
+        return "error";
+    }
+
 }

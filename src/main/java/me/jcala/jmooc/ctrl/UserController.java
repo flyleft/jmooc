@@ -2,13 +2,16 @@ package me.jcala.jmooc.ctrl;
 
 import me.jcala.jmooc.entity.User;
 import me.jcala.jmooc.entity.auxiliary.UserAuxiliary;
+import me.jcala.jmooc.exception.NoPageException;
 import me.jcala.jmooc.service.inter.UserSer;
+import me.jcala.jmooc.utils.CommonUtils;
 import me.jcala.jmooc.utils.RequestUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -57,6 +60,23 @@ public class UserController {
         HttpSession session = request.getSession(false);
         session.removeAttribute("cur_user");
         return "redirect:/";
+    }
+
+    @GetMapping("/user/tea/crs_mgr")
+    public String courseManagerPage(@RequestParam("do") String operate){
+        if (operate==null || CommonUtils.isEmpty(operate)){
+           throw new NoPageException();
+        }
+        if ("add".equals(operate.trim())){
+            return "crs_mgr_add";
+        }else if ("del".equals(operate.trim())){
+            return "crs_mgr_del";
+        }else if ("mod".equals(operate.trim())){
+            return "crs_mgr_mod";
+        }else {
+            throw new NoPageException();
+        }
+
     }
 }
 
