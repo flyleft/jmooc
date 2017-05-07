@@ -47,9 +47,118 @@
 
     <div id="page-wrapper">
         <div class="row">
-            <div class="col-lg-6">
-            </div>
-            <div class="col-lg-6">
+            <div class="col-lg-12">
+                <form role="form">
+                    <div class="form-group">
+                        <label for="name">名称</label>
+                        <input type="text" class="form-control" id="name"
+                               placeholder="请输入课程的名称">
+                    </div>
+                    <div class="form-group">
+                        <label for="name">描述</label>
+                        <input type="text" class="form-control" id="name"
+                               placeholder="请输入关于本课程的描述">
+                    </div>
+                </form>
+                <br>
+
+                <div class="panel panel-primary">
+                    <div class="panel-heading">第一章</div>
+                    <div class="panel-body">
+                        <div class="table-responsive">
+                            <table class="table table-hover tablesorter">
+                                <thead>
+                                <tr>
+                                    <th>课时 <i class="fa fa-sort"></i></th>
+                                    <th>名称 <i class="fa fa-sort"></i></th>
+                                    <th>视频地址 <i class="fa fa-sort"></i></th>
+                                    <th>习题 <i class="fa fa-sort"></i></th>
+                                    <th>文件 <i class="fa fa-sort"></i></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>java基础</td>
+                                    <td>/video/2334</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>java多线程</td>
+                                    <td>/video/2334</td>
+                                    <td>2</td>
+                                    <td>2</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>java并发</td>
+                                    <td>/video/2334</td>
+                                    <td>2</td>
+                                    <td>3</td>
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                    <td>大数据</td>
+                                    <td>/video/2334</td>
+                                    <td>2</td>
+                                    <td>4</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <button type="submit" class="btn btn-default">添加课时</button>
+                        </div>
+                    </div>
+                    <div class="panel-heading">第二章</div>
+                    <div class="table-responsive">
+                        <table class="table table-hover tablesorter">
+                            <thead>
+                            <tr>
+                                <th>课时 <i class="fa fa-sort"></i></th>
+                                <th>名称 <i class="fa fa-sort"></i></th>
+                                <th>视频地址 <i class="fa fa-sort"></i></th>
+                                <th>习题 <i class="fa fa-sort"></i></th>
+                                <th>文件 <i class="fa fa-sort"></i></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>java基础</td>
+                                <td>/video/2334</td>
+                                <td>0</td>
+                                <td>0</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>java多线程</td>
+                                <td>/video/2334</td>
+                                <td>2</td>
+                                <td>2</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>java并发</td>
+                                <td>/video/2334</td>
+                                <td>2</td>
+                                <td>3</td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>大数据</td>
+                                <td>/video/2334</td>
+                                <td>2</td>
+                                <td>4</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <button type="submit" class="btn btn-default">添加课时</button>
+                    </div>
+                    <div class="panel-heading">添加章节</div>
+                </div>
+                <br>
+                <button type="submit" class="btn btn-default">提交</button>
             </div>
         </div><!-- /.row -->
 
