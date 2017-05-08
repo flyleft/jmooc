@@ -63,54 +63,40 @@
                 <br>
 
                 <div class="panel panel-primary">
-                    <div class="panel-heading">第一章</div>
-                    <div class="panel-body">
-                        <div class="table-responsive">
-                            <table class="table table-hover tablesorter">
-                                <thead>
-                                <tr>
-                                    <th>课时 <i class="fa fa-sort"></i></th>
-                                    <th>名称 <i class="fa fa-sort"></i></th>
-                                    <th>视频地址 <i class="fa fa-sort"></i></th>
-                                    <th>习题 <i class="fa fa-sort"></i></th>
-                                    <th>文件 <i class="fa fa-sort"></i></th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>java基础</td>
-                                    <td>/video/2334</td>
-                                    <td>0</td>
-                                    <td>0</td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>java多线程</td>
-                                    <td>/video/2334</td>
-                                    <td>2</td>
-                                    <td>2</td>
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td>java并发</td>
-                                    <td>/video/2334</td>
-                                    <td>2</td>
-                                    <td>3</td>
-                                </tr>
-                                <tr>
-                                    <td>4</td>
-                                    <td>大数据</td>
-                                    <td>/video/2334</td>
-                                    <td>2</td>
-                                    <td>4</td>
-                                </tr>
-                                </tbody>
-                            </table>
-                            <button type="submit" class="btn btn-default">添加课时</button>
-                        </div>
+
+                    <div class="panel-heading">第1章</div>
+                    <div class="table-responsive">
+                        <table class="table table-hover tablesorter">
+                            <thead>
+                            <tr>
+                                <th>课时 <i class="fa fa-sort"></i></th>
+                                <th>名称 <i class="fa fa-sort"></i></th>
+                                <th>视频地址 <i class="fa fa-sort"></i></th>
+                                <th>习题 <i class="fa fa-sort"></i></th>
+                                <th>文件 <i class="fa fa-sort"></i></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td><input type="text"></td>
+                                <td><button class="up_video">上传视频</button></td>
+                                <td>0</td>
+                                <td>0</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>java多线程</td>
+                                <td>/video/2334</td>
+                                <td>2</td>
+                                <td>2</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <button type="submit" class="btn btn-default">添加课时</button>
                     </div>
-                    <div class="panel-heading">第二章</div>
+
+                    <div class="panel-heading">第2章</div>
                     <div class="table-responsive">
                         <table class="table table-hover tablesorter">
                             <thead>
@@ -137,30 +123,16 @@
                                 <td>2</td>
                                 <td>2</td>
                             </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>java并发</td>
-                                <td>/video/2334</td>
-                                <td>2</td>
-                                <td>3</td>
-                            </tr>
-                            <tr>
-                                <td>4</td>
-                                <td>大数据</td>
-                                <td>/video/2334</td>
-                                <td>2</td>
-                                <td>4</td>
-                            </tr>
                             </tbody>
                         </table>
                         <button type="submit" class="btn btn-default">添加课时</button>
+                        <br/>
                     </div>
-                    <div class="panel-heading">添加章节</div>
                 </div>
-                <br>
-                <button type="submit" class="btn btn-default">提交</button>
+                <button type="submit" class="btn btn-info">添加章节</button>
             </div>
         </div><!-- /.row -->
+        <button type="submit" class="btn btn-default">提交</button>
 
     </div><!-- /#page-wrapper -->
 
@@ -169,6 +141,28 @@
 <!-- JavaScript -->
 <script src="/js/jquery.min.js"></script>
 <script src="/js/bootstrap.min.js"></script>
-
+<script src="//cdn.bootcss.com/bootbox.js/4.4.0/bootbox.min.js"></script>
+<script type="text/javascript">
+    $(document).on("click", ".up_video",
+            function() {
+                bootbox.dialog({
+                    title: "上传视频",
+                    message: '<div class="row"><div class="col-md-12"><form class="form-horizontal" id="upload_file" enctype="multipart/form-data"><div class="form-group"><div class="col-md-9"><input name="file" type="file" class="form-control input-md"></div></div></form></div></div>',
+                    buttons: {
+                        success: {
+                            label: "上传",
+                            className: "btn-info",
+                            callback: function() {
+                                var a = document.getElementById("upload_file");
+                                a.action = "/file/video/upload.do",
+                                a.enctype="multipart/form-data",
+                                a.method = "post",
+                                a.submit()
+                            }
+                        }
+                    }
+                })
+            })
+</script>
 </body>
 </html>
