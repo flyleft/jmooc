@@ -41,44 +41,17 @@
                 <li><a href="index.html"><i class="fa fa-edit"></i> 修改课程</a></li>
             </ul>
 
-            <h3 style="text-align: center;color: #ffffff;"> 章节管理</h3>
+            <h3 style="text-align: center;color: #ffffff;"> 课时管理</h3>
         </div><!-- /.navbar-collapse -->
     </nav>
 
     <div id="page-wrapper">
         <div class="row">
             <div class="col-lg-12">
-                <button class="btn btn-default btn-lg" id="add_project"><i class="fa fa-plus"></i> <span class="network-name">添加章节</span></button>
+                <button class="btn btn-default btn-lg" id="add_project"><i class="fa fa-plus"></i> <span class="network-name">添加课时</span></button>
                 <br><br><br>
             </div>
         </div>
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="table-responsive">
-                    <table class="table table-hover table-bordered">
-                        <thead>
-                        <tr>
-                            <th>章节</th>
-                            <th>名称</th>
-                            <th>课时管理</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <#list chps as chp>
-                        <td>${chp.pos!}</td>
-                        <td>${chp.name!}</td>
-                        <td>
-                            <a href='/user/tea/les_mgr?chp_id=${chp.id!}'><i class="fa fa-pencil"></i></a>
-                        </td>
-                        </tr>
-                        </#list>
-
-                        </tbody>
-                    </table>
-                </div>
-
-            </div>
-        </div><!-- /.row -->
     </div><!-- /#page-wrapper -->
 
 </div><!-- /#wrapper -->

@@ -20,10 +20,13 @@ public class Chapter implements Serializable{
     @Column(nullable = false,length = 40)
     private String name;//章节名称
 
+    @Column(nullable = false)
+    private int pos;//位置，表示第几章节
+
     @Column(length = 40)
     private String video;//在线视频url
 
-    @OneToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE},fetch=FetchType.LAZY)
+    @OneToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE},fetch=FetchType.EAGER)
     private Set<Lesson> lessons=new HashSet<>();
 
     public Chapter() {

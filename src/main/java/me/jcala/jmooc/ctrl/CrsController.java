@@ -1,5 +1,6 @@
 package me.jcala.jmooc.ctrl;
 
+import me.jcala.jmooc.entity.Chapter;
 import me.jcala.jmooc.entity.Course;
 import me.jcala.jmooc.exception.NoPageException;
 import me.jcala.jmooc.service.inter.CrsSer;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
+import java.util.Set;
 
 /**
  *  课程管理控制器
@@ -64,8 +66,18 @@ public class CrsController {
 
     @GetMapping("/user/tea/chp_mgr")
     public String chpMgr(@RequestParam("crs_id") int crsId,Model model){
-
+        Set<Chapter> chapters=crsSer.getChapterList(crsId);
+        if (chapters!=null){
+            model.addAttribute("chps",chapters);
+        }
         return "chp_mgr";
+    }
+
+
+    @GetMapping("/user/tea/les_mgr")
+    public String LesMgr(@RequestParam("chp_id") int chpId){
+
+       return "les_mgr";
     }
 
 }

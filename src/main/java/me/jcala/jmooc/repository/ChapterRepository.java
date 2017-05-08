@@ -1,4 +1,8 @@
 package me.jcala.jmooc.repository;
 
-public interface ChapterRepository {
+import me.jcala.jmooc.entity.Chapter;
+import org.springframework.data.repository.CrudRepository;
+
+public interface ChapterRepository extends CrudRepository<Chapter,Integer>{
+
 }

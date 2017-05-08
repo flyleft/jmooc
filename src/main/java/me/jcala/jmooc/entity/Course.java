@@ -39,7 +39,7 @@ public class Course implements Serializable{
     private int userId;
 
     @Column(name = "chapters")
-    @OneToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE},fetch=FetchType.LAZY)
+    @OneToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE},fetch=FetchType.EAGER)
     private Set<Chapter> chapters=new HashSet<>();//课程章节列表
 
     public Course() {

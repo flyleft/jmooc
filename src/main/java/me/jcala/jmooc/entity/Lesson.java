@@ -24,7 +24,8 @@ public class Lesson implements Serializable{
     @Column(nullable = false,length = 40)
     private String name;//章节名称
 
-    private int position;//位置，表示第几课时
+    @Column(nullable = false)
+    private int pos;//位置，表示第几课时
 
     @Column(length = 40)
     private String video;//在线视频url
