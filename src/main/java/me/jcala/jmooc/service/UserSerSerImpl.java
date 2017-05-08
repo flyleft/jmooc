@@ -23,6 +23,7 @@ public class UserSerSerImpl implements UserSer {
 
     @Override
     public boolean login(User user, HttpServletRequest request) {
+
         if (CommonUtils.isEmpty(user.getName(),user.getPassword())){
            return false;
         }
@@ -30,11 +31,10 @@ public class UserSerSerImpl implements UserSer {
         User getUser=userRepository.findUserByNameAndPasswordAndRole(user.getName(),user.getPassword(),user.getRole());
 
 
-        UserAuxiliary userAuxiliary=CommonUtils.User2Auxiliary(getUser);
-
       if (getUser!=null){
           user.setPassword(null);
           HttpSession session = request.getSession(true);
+          UserAuxiliary userAuxiliary=CommonUtils.User2Auxiliary(getUser);
           session.setAttribute("cur_user",userAuxiliary);
           session.setMaxInactiveInterval(600);
           return true;

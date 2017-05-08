@@ -30,12 +30,12 @@ public class UserController {
     public String index(Model model,HttpServletRequest request){
         UserAuxiliary userAuxiliary= RequestUtils.getUserFromReq(request);
         if (userAuxiliary==null){
-           model.addAttribute("role",0);
+           model.addAttribute("type",0);
         }else if (userAuxiliary.getType()==1){
-            model.addAttribute("role",1);
+            model.addAttribute("type",1);
             model.addAttribute("name",userAuxiliary.getName());
         }else if (userAuxiliary.getType()==2){
-            model.addAttribute("role",2);
+            model.addAttribute("type",2);
             model.addAttribute("name",userAuxiliary.getName());
         }
       return "index";
@@ -48,7 +48,12 @@ public class UserController {
 
     @PostMapping("/login.do")
     public String DoLogin(User user, HttpServletRequest request){
-        boolean result=userSer.login(user,request);
+        boolean result= false;
+        try {
+            result = userSer.login(user,request);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         if (result){
             return "redirect:/";
         }
