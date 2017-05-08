@@ -76,9 +76,8 @@
                         </tbody>
                     </table>
                 </div>
-
             </div>
-        </div><!-- /.row -->
+         </div><!-- /.row -->
     </div><!-- /#page-wrapper -->
 
 </div><!-- /#wrapper -->

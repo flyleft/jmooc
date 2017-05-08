@@ -52,6 +52,34 @@
                 <br><br><br>
             </div>
         </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="table-responsive">
+                    <table class="table table-hover table-bordered">
+                        <thead>
+                        <tr>
+                            <th>课时</th>
+                            <th>名称</th>
+                            <th>视频地址</th>
+                            <th>课时管理</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <#list les as item>
+                        <td>${item.pos!}</td>
+                        <td>${item.name!}</td>
+                        <td>${item.video!}</td>
+                        <td>
+                            <a href='/user/tea/les_mgr?chp_id=${item.id!}'><i class="fa fa-pencil"></i></a>
+                        </td>
+                        </tr>
+                        </#list>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div><!-- /.row -->
     </div><!-- /#page-wrapper -->
 
 </div><!-- /#wrapper -->

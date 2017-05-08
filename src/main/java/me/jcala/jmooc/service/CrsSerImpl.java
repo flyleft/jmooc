@@ -2,6 +2,8 @@ package me.jcala.jmooc.service;
 
 import me.jcala.jmooc.entity.Chapter;
 import me.jcala.jmooc.entity.Course;
+import me.jcala.jmooc.entity.Lesson;
+import me.jcala.jmooc.repository.ChapterRepository;
 import me.jcala.jmooc.repository.CourserRepository;
 import me.jcala.jmooc.service.inter.CrsSer;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,9 +16,12 @@ public class CrsSerImpl implements CrsSer{
 
     private CourserRepository courserRepository;
 
+    private ChapterRepository chapterRepository;
+
     @Autowired
-    public CrsSerImpl(CourserRepository courserRepository) {
+    public CrsSerImpl(CourserRepository courserRepository, ChapterRepository chapterRepository) {
         this.courserRepository = courserRepository;
+        this.chapterRepository = chapterRepository;
     }
 
     @Override
@@ -26,6 +31,11 @@ public class CrsSerImpl implements CrsSer{
 
     @Override
     public Set<Chapter> getChapterList(int crsId) {
-        return courserRepository.findChapterListById(crsId);
+        return courserRepository.findChapterListById(crsId).getChapters();
+    }
+
+    @Override
+    public Set<Lesson> getLessonList(int chpId) {
+        return chapterRepository.findLessonListById(chpId).getLessons();
     }
 }
