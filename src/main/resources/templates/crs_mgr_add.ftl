@@ -22,7 +22,7 @@
     <nav class="navbar navbar-inverse navbar-fixed-top navbar-bg" role="navigation">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
-            <button role="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
@@ -51,12 +51,12 @@
                 <form role="form">
                     <div class="form-group">
                         <label for="name">名称</label>
-                        <input role="text" class="form-control" id="name"
+                        <input type="text" class="form-control" id="name"
                                placeholder="请输入课程的名称">
                     </div>
                     <div class="form-group">
                         <label for="name">描述</label>
-                        <input role="text" class="form-control" id="name"
+                        <input type="text" class="form-control" id="name"
                                placeholder="请输入关于本课程的描述">
                     </div>
                     <div class="form-group">
@@ -76,7 +76,9 @@
                             <option value="java">java</option>
                         </select>
                     </div>
-                    <button role="submit" class="btn btn-default">提交</button>
+                    <div class="form-group">
+                        <input type="button" class="form-control" value="提交">
+                    </div>
                 </form>
             </div>
         </div>

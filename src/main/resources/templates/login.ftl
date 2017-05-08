@@ -14,7 +14,7 @@
     <div class="login-content">
         <form name="loginForm">
             <div class="form-group">
-                <div class="btn btn-default btn-block btn-login" id="user-role">
+                <div class="btn btn-default btn-block btn-login" id="user-type">
                     <i class="fa fa-edit"></i>
                     学生用户
                 </div>
@@ -24,7 +24,7 @@
                     <div class="input-group-addon">
                         <i class="fa fa-user"></i>
                     </div>
-                    <input role="text" class="form-control" name="name" id="name" placeholder="用户名" autocomplete="off" />
+                    <input type="text" class="form-control" name="name" id="name" placeholder="用户名" autocomplete="off" />
                 </div>
             </div>
             <div class="form-group">
@@ -32,13 +32,13 @@
                     <div class="input-group-addon">
                         <i class="fa fa-key"></i>
                     </div>
-                    <input role="password" class="form-control" name="passBefore" id="passBefore" placeholder="密码" autocomplete="off" />
-                    <input role="hidden" name="password" id="password"/>
-                    <input role="hidden" name="role" id="role"/>
+                    <input type="password" class="form-control" name="passBefore" id="passBefore" placeholder="密码" autocomplete="off" />
+                    <input type="hidden" name="password" id="password"/>
+                    <input type="hidden" name="type" id="type"/>
                 </div>
             </div>
             <div class="form-group">
-                <button role="submit" class="btn btn-primary btn-block btn-login" id="login-button">
+                <button type="submit" class="btn btn-primary btn-block btn-login" id="login-button">
                     <i class="fa fa-sign-in"></i>
                     登录
                 </button>
@@ -49,8 +49,8 @@
 <script src="/js/jquery.min.js"></script>
 <script src="/js/bootstrap.min.js"></script>
 <script src="//cdn.bootcss.com/blueimp-md5/2.3.1/js/md5.min.js"></script>
-<script role="text/javascript">
-    $("#user-role").click(function(){
+<script type="text/javascript">
+    $("#user-type").click(function(){
         if ("学生用户" == $(this).text().trim()){
             $(this).text("教师用户");
         }else if("教师用户" == $(this).text().trim()) {
@@ -61,9 +61,9 @@
     });
 
     var getType=function () {
-        if ("学生用户" == $("#user-role").text().trim()){
+        if ("学生用户" == $("#user-type").text().trim()){
             return 1;
-        }else if("教师用户" == $("#user-role").text().trim()) {
+        }else if("教师用户" == $("#user-type").text().trim()) {
             return 2;
         }else {
             return 3;
@@ -75,7 +75,7 @@
                 a.action = "/login.do",
                 b = document.loginForm.passBefore.value,
                 document.loginForm.password.value = md5(b),
-                document.loginForm.role.value=getType();
+                document.loginForm.type.value=getType();
                 a.method = "post",
                 a.submit()
             })
