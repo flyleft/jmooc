@@ -34,7 +34,7 @@
                     </div>
                     <input type="password" class="form-control" name="passBefore" id="passBefore" placeholder="密码" autocomplete="off" />
                     <input type="hidden" name="password" id="password"/>
-                    <input type="hidden" name="type" id="type"/>
+                    <input type="hidden" name="role" id="role"/>
                 </div>
             </div>
             <div class="form-group">
@@ -75,7 +75,7 @@
                 a.action = "/login.do",
                 b = document.loginForm.passBefore.value,
                 document.loginForm.password.value = md5(b),
-                document.loginForm.type.value=getType();
+                document.loginForm.role.value=getType();
                 a.method = "post",
                 a.submit()
             })

@@ -6,6 +6,8 @@ import me.jcala.jmooc.exception.NoPageException;
 import me.jcala.jmooc.service.inter.UserSer;
 import me.jcala.jmooc.utils.CommonUtils;
 import me.jcala.jmooc.utils.RequestUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,6 +20,8 @@ import javax.servlet.http.HttpSession;
 
 @Controller
 public class UserController {
+
+    private static final Logger logger= LoggerFactory.getLogger(UserController.class);
 
     private UserSer userSer;
 
