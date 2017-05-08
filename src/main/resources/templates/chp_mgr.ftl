@@ -36,7 +36,7 @@
             <ul class="nav navbar-nav side-nav">
                 <li><a href="charts.html"><i class="fa fa-bell"></i> 消息中心</a></li>
                 <li><a href="index.html"><i class="fa fa-info-circle"></i> 个人信息</a></li>
-                <li class="active-bg"><a href="index.html"><i class="fa fa-plus"></i> 添加课程</a></li>
+                <li><a href="index.html"><i class="fa fa-plus"></i> 添加课程</a></li>
                 <li><a href="index.html"><i class="fa fa-minus-circle"></i> 删除课程</a></li>
                 <li><a href="index.html"><i class="fa fa-edit"></i> 修改课程</a></li>
             </ul>
@@ -48,9 +48,41 @@
     <div id="page-wrapper">
         <div class="row">
             <div class="col-lg-12">
-
+                <button class="btn btn-default btn-lg" id="add_project"><i class="fa fa-plus"></i> <span class="network-name">添加章节</span></button>
+                <br><br><br>
             </div>
         </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="table-responsive">
+                    <table class="table table-hover table-bordered">
+                        <thead>
+                        <tr>
+                            <th>章节</th>
+                            <th>名称</th>
+                            <th>删除</th>
+                            <th>课时管理</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        #foreach($item in ${proList})
+                        #liClass($velocityCount)
+                        <td>$!{item.Name}</td>
+                        <td>$!{item.Url}</td>
+                        <td>
+                            <a class="delete" role="button" href="/admin/deletePro/${item.Id}"  data-title="Delete this project!" data-confirm-button="Yes"><i class="fa fa-trash-o" name="del_project"></i></a>
+                        </td>
+                        <td>
+                            <a href='/user/tea/'><i class="fa fa-pencil"></i></a>
+                        </td>
+                        </tr>
+                        #end
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div><!-- /.row -->
     </div><!-- /#page-wrapper -->
 
 </div><!-- /#wrapper -->
