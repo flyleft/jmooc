@@ -7,7 +7,7 @@ import java.io.Serializable;
 
 @Data
 @Entity
-@Table(name = "exercise_comment_tb")
+@Table(name = "exercise_comment")
 public class ExerciseComment implements Serializable{
 
     private static final long serialVersionUID = 3456978781637596326L;

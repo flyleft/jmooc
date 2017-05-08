@@ -19,7 +19,7 @@ public class CommonUtils {
         return new UserAuxiliary(
                 user.getId(),
                 user.getName(),
-                user.getType(),
+                user.getRole(),
                 user.getAvatarUrl()
         );
 

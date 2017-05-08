@@ -5,10 +5,10 @@
     <title>首页</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- CSS Files -->
-	<link rel="stylesheet" href="../src/main/resources/static/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}"/>
-	<link rel="stylesheet" href="../src/main/resources/static/css/font-awesome.min.css" th:href="@{/css/font-awesome.min.css}"/>
-	<link rel="stylesheet" href="../src/main/resources/static/css/style.css" th:href="@{/css/style.css}"/>
-	<link rel="stylesheet" href="../src/main/resources/static/css/animate.min.css" th:href="@{/css/animate.min.css}"/>
+	<link rel="stylesheet" href="../../src/main/resources/static/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}"/>
+	<link rel="stylesheet" href="../../src/main/resources/static/css/font-awesome.min.css" th:href="@{/css/font-awesome.min.css}"/>
+	<link rel="stylesheet" href="../../src/main/resources/static/css/style.css" th:href="@{/css/style.css}"/>
+	<link rel="stylesheet" href="../../src/main/resources/static/css/animate.min.css" th:href="@{/css/animate.min.css}"/>
 	
 </head>
 <body>
@@ -16,13 +16,13 @@
         <div class="container">
             <nav class="navbar" role="navigation">
                 <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <button role="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                         <span class="sr-only">Toggle navigation</span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="index.html"><img id="logo" src="../src/main/resources/static/img/logo.png" th:src="@{/img/logo.png}" alt="eLearn" /></a>
+                    <a class="navbar-brand" href="index.html"><img id="logo" src="../../src/main/resources/static/img/logo.png" th:src="@{/img/logo.png}" alt="eLearn" /></a>
                 </div>
                 <div class="collapse navbar-collapse">
                 <div class="navbar-right menu-main"> 
@@ -56,9 +56,9 @@
             <!-- Screens -->
             <div class="screens animation-domready">
                 <p>
-                    <img src="../src/main/resources/static/img/home1_tab3.png" th:src="@{/img/home1_tab3.png}" data-animation-delay="0.5s" data-animation="fadeInUp" class="animated" alt="" />
-                    <img src="../src/main/resources/static/img/home1_tab2.png" th:src="@{/img/home1_tab2.png}" data-animation-delay="1.5s" data-animation="fadeInUp" class="animated" alt="" />
-                    <img src="../src/main/resources/static/img/home1_tab1.png" th:src="@{/img/home1_tab1.png}" data-animation-delay="2.5s" data-animation="fadeInUp" class="animated" alt="" />
+                    <img src="../../src/main/resources/static/img/home1_tab3.png" th:src="@{/img/home1_tab3.png}" data-animation-delay="0.5s" data-animation="fadeInUp" class="animated" alt="" />
+                    <img src="../../src/main/resources/static/img/home1_tab2.png" th:src="@{/img/home1_tab2.png}" data-animation-delay="1.5s" data-animation="fadeInUp" class="animated" alt="" />
+                    <img src="../../src/main/resources/static/img/home1_tab1.png" th:src="@{/img/home1_tab1.png}" data-animation-delay="2.5s" data-animation="fadeInUp" class="animated" alt="" />
                 </p>
             </div>
         </div>
@@ -66,7 +66,7 @@
 
     <div class="container content content-light home-1">
         <section class="row animation-scroll">
-            <figure class="col-md-6 animated" data-animation="bounceInLeft"><img src="../src/main/resources/static/img/home1_img1.png" th:src="@{/img/home1_img1.png}" alt="" /></figure>
+            <figure class="col-md-6 animated" data-animation="bounceInLeft"><img src="../../src/main/resources/static/img/home1_img1.png" th:src="@{/img/home1_img1.png}" alt="" /></figure>
             <article class="col-md-6 animated" data-animation="bounceInRight">
                 <h3><strong>远程学习</strong></h3>
                 <p>开设网络第二课堂，随时随地学习；不懂，在线向老师咨询；学习检测，课后习题等你来答</p>
@@ -77,10 +77,10 @@
                 <h3><strong>手机学习</strong></h3>
                 <p>不必需要电脑，针对移动端进行适配，手机也可观看学习视频</p>
             </article>
-            <figure class="col-md-6 animated" data-animation="bounceInRight"><img src="../src/main/resources/static/img/home1_img2.png" th:src="@{/img/home1_img2.png}" alt="" /></figure>
+            <figure class="col-md-6 animated" data-animation="bounceInRight"><img src="../../src/main/resources/static/img/home1_img2.png" th:src="@{/img/home1_img2.png}" alt="" /></figure>
         </section>
         <section class="row animation-scroll">
-            <figure class="col-md-6 animated" data-animation="bounceInLeft"><img src="../src/main/resources/static/img/home1_img3.png" th:src="@{/img/home1_img3.png}" alt="" /></figure>
+            <figure class="col-md-6 animated" data-animation="bounceInLeft"><img src="../../src/main/resources/static/img/home1_img3.png" th:src="@{/img/home1_img3.png}" alt="" /></figure>
             <article class="col-md-6 animated" data-animation="bounceInRight">
                 <h3><strong>海量学习资源</strong></h3>
                 <p>不仅仅只有学习视频，还有海量的学习文件可以下载</p>
@@ -127,11 +127,11 @@
         </section>
     </footer>
     <!-- JavaScript Files -->
-    <script src="../src/main/resources/static/js/jquery.min.js" th:src="@{/js/jquery.min.js}"></script>
-    <script src="../src/main/resources/static/js/bootstrap.min.js" th:src="@{/js/bootstrap.min.js}"></script>
-    <script src="../src/main/resources/static/js/animate.js" th:src="@{/js/animate.js}"></script>
-    <script src="../src/main/resources/static/js/jquery.cuteTime.min.js" th:src="@{/js/jquery.cuteTime.min.js}"></script>
-    <script src="../src/main/resources/static/js/script.js" th:src="@{/js/script.js}"></script>
+    <script src="../../src/main/resources/static/js/jquery.min.js" th:src="@{/js/jquery.min.js}"></script>
+    <script src="../../src/main/resources/static/js/bootstrap.min.js" th:src="@{/js/bootstrap.min.js}"></script>
+    <script src="../../src/main/resources/static/js/animate.js" th:src="@{/js/animate.js}"></script>
+    <script src="../../src/main/resources/static/js/jquery.cuteTime.min.js" th:src="@{/js/jquery.cuteTime.min.js}"></script>
+    <script src="../../src/main/resources/static/js/script.js" th:src="@{/js/script.js}"></script>
     <!-- / JavaScript Files -->
 </body>
 </html>

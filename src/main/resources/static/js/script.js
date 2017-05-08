@@ -169,7 +169,7 @@ $(document).ready(function() {
     });
     $('form.search-blog .submit').click(function() {
         var $form = $(this).parent(),
-            $inputText = $form.find('input[type="search"]');
+            $inputText = $form.find('input[role="search"]');
         if ($inputText.val() != '') {
             $form.submit();
             $form.find('i.fa').attr('class', 'fa fa-spinner fa-spin')

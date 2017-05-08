@@ -7,7 +7,7 @@ import java.io.Serializable;
 
 @Data
 @Entity
-@Table(name = "file_tb")
+@Table(name = "file")
 public class File implements Serializable{
 
     private static final long serialVersionUID = 5459084997270275217L;

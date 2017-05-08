@@ -11,7 +11,9 @@ import java.util.Set;
 @Entity
 @Table(name = "user_tb")
 public class User implements Serializable{
+
     private static final String DEFAULT_AVATAR="/img/default.png";
+
     private static final long serialVersionUID = 8665628721543300843L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,35 +26,29 @@ public class User implements Serializable{
     private String password;//密码
 
     @Column(nullable = false,columnDefinition="tinyint default 1")
-    private int type;//类型。1：学生，2：老师，3：管理员
-
-    @Column(columnDefinition="tinyint default 1")
-    private int age;//年龄
+    private int role;//类型。1：学生，2：老师，3：管理员
 
     @Column(nullable = false,name = "avatar_url",columnDefinition="varchar(40) default '/img/default.png'")
     private String avatarUrl;//头像
 
-    @Column(nullable = false,columnDefinition="tinyint default 1")//1: 正常; 0:冻结
-    private boolean status;//状态：正常，冻结
-
     @Column(name = "exercise_collection")
-    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE},fetch=FetchType.LAZY)
+    @OneToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE},fetch=FetchType.LAZY)
     private Set<Exercise> exerciseCollection=new HashSet<>();//收藏的习题
 
     @Column(name = "exercise_error")
-    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE},fetch=FetchType.LAZY)
+    @OneToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE},fetch=FetchType.LAZY)
     private Set<Exercise> exerciseError=new HashSet<>();//错误的习题
 
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true,fetch = FetchType.LAZY,targetEntity = Message.class)
-    private Set<Message> phones = new HashSet<>();
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true,fetch = FetchType.LAZY,targetEntity = Notice.class)
+    private Set<Notice> notices = new HashSet<>();
 
     public User() {
     }
 
-    public User(String name, String password, int type) {
+    public User(String name, String password, int role) {
         this.name = name;
         this.password = password;
-        this.type = type;
+        this.role = role;
         this.avatarUrl=DEFAULT_AVATAR;
     }
 }

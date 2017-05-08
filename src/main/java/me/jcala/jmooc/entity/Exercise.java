@@ -10,7 +10,7 @@ import java.util.Set;
 //习题表
 @Data
 @Entity
-@Table(name = "exercise_tb")
+@Table(name = "exercise")
 public class Exercise implements Serializable{
 
     private static final long serialVersionUID = -5175465537985355910L;

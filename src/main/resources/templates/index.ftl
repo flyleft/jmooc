@@ -16,7 +16,7 @@
     <div class="container">
         <nav class="navbar" role="navigation">
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <button role="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
@@ -34,7 +34,7 @@
 
 
                         <li><a href="features.htm"><span>习题中心</span></a></li>
-                    <#if type == 1>
+                    <#if role == 1>
                         <li class="dropdown user-dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i>${name!"jmooc"}<b class="caret"></b></a>
                             <ul class="dropdown-menu">
@@ -45,7 +45,7 @@
                                 <li><a href="/user/logout"><i class="fa fa-power-off"></i> 登出</a></li>
                             </ul>
                         </li>
-                    <#elseif type == 2>
+                    <#elseif role == 2>
                         <li class="dropdown user-dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i>${name!"jmooc"}<b class="caret"></b></a>
                             <ul class="dropdown-menu">

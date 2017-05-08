@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="/css/font-awesome.min.css"/>
     <link rel="stylesheet" href="/css/style.css"/>
     <link rel="stylesheet" href="/css/animate.min.css"/>
-    <style type="text/css">
+    <style role="text/css">
         a:{text-decoration:none;}
         a:link,a:visited{color:#5e5e5e;text-decoration:none;}
         a:hover{color:#F97307;text-decoration:none;}
@@ -26,7 +26,7 @@
     <div class="container">
         <nav class="navbar" role="navigation">
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <button role="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>

@@ -32,7 +32,7 @@ var animate = {
     remove: function (item) {
         item.removeClass(item.data('animation')); // remove kind of anim - remove CSS class
     },
-    // Some kind of animation type require hide element before animation start
+    // Some kind of animation role require hide element before animation start
     itemsHide: function (parent) {
         (parent ? this.itemsInside(parent) : this.itemsAll).each(function () { // we need use $('.animated') , not this.itemsAll
             var $this = $(this);

@@ -9,7 +9,7 @@ import java.util.Set;
 
 @Data
 @Entity
-@Table(name = "course_tb")
+@Table(name = "course")
 public class Course implements Serializable{
 
     private static final long serialVersionUID = -501263791865367727L;
@@ -21,12 +21,15 @@ public class Course implements Serializable{
     @Column(nullable = false,length = 40)
     private String  name;//课程名称
 
-    @Column(nullable = false,columnDefinition="tinyint default 1")//1,2,3,4四个难度等级
-    private int difficulty;//课程难度
+    @Column(nullable = false,length = 10)
+    private String dir;//方向:fe,be,mb,db
 
-    @Column(name = "chapter_list")
-    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE},fetch=FetchType.EAGER)
-    private Set<Chapter> chapterList=new HashSet<>();//课程章节列表
+    @Column(nullable = false,length = 10)
+    private String type;//类型:c,cp,java
+
+    @Column(name = "chapters")
+    @OneToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE},fetch=FetchType.LAZY)
+    private Set<Chapter> chapters=new HashSet<>();//课程章节列表
 
     public Course() {
     }

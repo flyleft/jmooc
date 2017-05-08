@@ -7,8 +7,8 @@ import java.io.Serializable;
 
 @Data
 @Entity
-@Table(name = "message_tb")
-public class Message implements Serializable{
+@Table(name = "notice")
+public class Notice implements Serializable{
 
     private static final long serialVersionUID = 7510490431006467069L;
     @Id
@@ -26,6 +26,6 @@ public class Message implements Serializable{
     private String content;
 
 
-    public Message() {
+    public Notice() {
     }
 }

@@ -8,7 +8,7 @@ import java.util.*;
 
 @Data
 @Entity
-@Table(name = "chapter_tb")
+@Table(name = "chapter")
 public class Chapter implements Serializable{
 
     private static final long serialVersionUID = -8060437688285524352L;
@@ -23,13 +23,8 @@ public class Chapter implements Serializable{
     @Column(length = 40)
     private String video;//在线视频url
 
-    @Column(name = "file_list")
-    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE},fetch=FetchType.EAGER)
-    private Set<File> fileList=new HashSet<>();//文件列表
-
-    @Column(name = "exercise_list")
-    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE},fetch=FetchType.EAGER)
-    private Set<Exercise> exerciseList=new HashSet<>();//习题列表
+    @OneToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE},fetch=FetchType.LAZY)
+    private Set<Lesson> lessons=new HashSet<>();
 
     public Chapter() {
     }

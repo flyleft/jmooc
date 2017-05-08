@@ -30,12 +30,12 @@ public class UserController {
     public String index(Model model,HttpServletRequest request){
         UserAuxiliary userAuxiliary= RequestUtils.getUserFromReq(request);
         if (userAuxiliary==null){
-           model.addAttribute("type",0);
+           model.addAttribute("role",0);
         }else if (userAuxiliary.getType()==1){
-            model.addAttribute("type",1);
+            model.addAttribute("role",1);
             model.addAttribute("name",userAuxiliary.getName());
         }else if (userAuxiliary.getType()==2){
-            model.addAttribute("type",2);
+            model.addAttribute("role",2);
             model.addAttribute("name",userAuxiliary.getName());
         }
       return "index";
