@@ -24,7 +24,7 @@ public class Course implements Serializable{
     private String  name;//课程名称
 
     @NotBlank(message="课程描述不可以为空")
-    @Column(nullable = false,length = 150)
+    @Column(nullable = false,columnDefinition="text")
     private String  desp;//课程描述
 
     @NotBlank(message="方向不可以为空")
@@ -34,6 +34,9 @@ public class Course implements Serializable{
     @NotBlank(message="类型不可以为空")
     @Column(nullable = false,length = 10)
     private String type;//类型:c,cp,java
+
+    @Column(nullable = false,name = "user_id")
+    private int userId;
 
     @Column(name = "chapters")
     @OneToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE},fetch=FetchType.LAZY)

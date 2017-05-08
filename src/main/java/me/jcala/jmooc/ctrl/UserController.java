@@ -93,12 +93,16 @@ public class UserController {
     }
 
     @PostMapping("/user/tea/crs_mgr/add.do")
-    public String addCourse(@ModelAttribute("course") @Valid Course course,BindingResult result){
+    public String addCourse(@ModelAttribute("course") @Valid Course course,
+                            BindingResult result,
+                            HttpServletRequest request){
+
+        int userId=RequestUtils.getUserIdFromReq(request);
 
         if (result.hasErrors()) {
             return "crs_mgr_add";
         }
-
+         course.setUserId(userId);
         int crsId=crsSer.addCourse(course);
         return "redirect:/user/tea/chp_mgr?crs_id="+crsId;
     }

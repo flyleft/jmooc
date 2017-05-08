@@ -13,4 +13,12 @@ public class RequestUtils {
         }
         return (UserAuxiliary) obj;
     }
+
+    public static int getUserIdFromReq(HttpServletRequest request){
+        Object obj = request.getSession().getAttribute("cur_user");
+        if (obj == null || !(obj instanceof UserAuxiliary)) {
+            return -1;
+        }
+        return ((UserAuxiliary) obj).getId();
+    }
 }
