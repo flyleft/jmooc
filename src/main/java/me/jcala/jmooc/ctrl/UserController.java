@@ -1,8 +1,10 @@
 package me.jcala.jmooc.ctrl;
 
+import me.jcala.jmooc.entity.Course;
 import me.jcala.jmooc.entity.User;
 import me.jcala.jmooc.entity.auxiliary.UserAuxiliary;
 import me.jcala.jmooc.exception.NoPageException;
+import me.jcala.jmooc.service.inter.CrsSer;
 import me.jcala.jmooc.service.inter.UserSer;
 import me.jcala.jmooc.utils.CommonUtils;
 import me.jcala.jmooc.utils.RequestUtils;
@@ -11,12 +13,12 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
 
 @Controller
 public class UserController {
@@ -24,10 +26,12 @@ public class UserController {
     private static final Logger logger= LoggerFactory.getLogger(UserController.class);
 
     private UserSer userSer;
+    private CrsSer crsSer;
 
     @Autowired
-    public UserController(UserSer userSer) {
+    public UserController(UserSer userSer, CrsSer crsSer) {
         this.userSer = userSer;
+        this.crsSer = crsSer;
     }
 
     @GetMapping("/")
@@ -87,5 +91,23 @@ public class UserController {
         }
 
     }
+
+    @PostMapping("/user/tea/crs_mgr/add.do")
+    public String addCourse(@ModelAttribute("course") @Valid Course course,BindingResult result){
+
+        if (result.hasErrors()) {
+            return "crs_mgr_add";
+        }
+
+        int crsId=crsSer.addCourse(course);
+        return "redirect:/user/tea/chp_mgr?crs_id="+crsId;
+    }
+
+    @GetMapping("/user/tea/chp_mgr")
+    public String chpMgr(@RequestParam("crs_id") int crsId,Model model){
+
+        return "chp_mgr";
+    }
+
 }
 
