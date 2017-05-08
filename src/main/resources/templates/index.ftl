@@ -56,7 +56,7 @@
                             </ul>
                         </li>
                     <#else>
-                        <li><a class="btn" href="/user/login">登录</a></li>
+                        <li><a class="btn" href="/login">登录</a></li>
                     </#if>
 
                     </ul>

@@ -72,7 +72,7 @@
     $("#login-button").bind("click",
             function() {
                 var b, a = document.forms[0];
-                a.action = "/user/login.do",
+                a.action = "/login.do",
                 b = document.loginForm.passBefore.value,
                 document.loginForm.password.value = md5(b),
                 document.loginForm.role.value=getType();

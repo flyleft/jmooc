@@ -45,7 +45,7 @@
                         <li><a href="features.htm"><span>习题中心</span></a></li>
 
                     </ul>
-                    <a class="btn btn-theme navbar-btn btn-default sign-in" href="/user/login">登录</a>
+                    <a class="btn btn-theme navbar-btn btn-default sign-in" href="/login">登录</a>
                 </div>
             </div>
         </nav>

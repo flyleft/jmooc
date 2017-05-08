@@ -41,18 +41,18 @@ public class UserController {
       return "index";
     }
 
-    @GetMapping("/user/login")
+    @GetMapping("/login")
     public String loginPage(){
         return "login";
     }
 
-    @PostMapping("/user/login.do")
+    @PostMapping("/login.do")
     public String DoLogin(User user, HttpServletRequest request){
         boolean result=userSer.login(user,request);
         if (result){
             return "redirect:/";
         }
-        return "redirect:/user/login";
+        return "redirect:/login";
     }
 
     @GetMapping("/user/logout")
