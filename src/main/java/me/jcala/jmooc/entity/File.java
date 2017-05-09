@@ -13,7 +13,7 @@ public class File implements Serializable{
     private static final long serialVersionUID = 5459084997270275217L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private long id;
 
     @Column(nullable = false,length = 50)
     private String name;

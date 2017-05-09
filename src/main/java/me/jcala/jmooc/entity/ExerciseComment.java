@@ -14,7 +14,7 @@ public class ExerciseComment implements Serializable{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private long id;
 
     @ManyToOne(cascade = {CascadeType.REMOVE, CascadeType.REFRESH},fetch=FetchType.LAZY,targetEntity = Exercise.class)
     @JoinColumn(name = "exercise_id")
@@ -30,7 +30,7 @@ public class ExerciseComment implements Serializable{
     public ExerciseComment() {
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 }

@@ -65,7 +65,7 @@ public class CrsController {
         }
 
         course.setUser(user);
-        int crsId=crsSer.addCourse(course);
+        long crsId=crsSer.addCourse(course);
         return "redirect:/user/tea/chp_mgr?crs_id="+crsId;
     }
 

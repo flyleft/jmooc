@@ -19,7 +19,7 @@ public class Lesson implements Serializable{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private long id;
 
     @Column(nullable = false,length = 40)
     private String name;//章节名称

@@ -17,7 +17,7 @@ public class Course implements Serializable{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;//id
+    private long id;//id
 
     @NotBlank(message="课程名称不可以为空")
     @Column(nullable = false,length = 40)

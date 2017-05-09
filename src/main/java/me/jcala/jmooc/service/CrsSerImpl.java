@@ -26,7 +26,7 @@ public class CrsSerImpl implements CrsSer{
     }
 
     @Override
-    public int addCourse(Course course) {
+    public long addCourse(Course course) {
        return courserRepository.save(course).getId();
     }
 

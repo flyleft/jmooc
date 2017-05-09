@@ -17,7 +17,7 @@ public class User implements Serializable{
     private static final long serialVersionUID = 8665628721543300843L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;//id
+    private long id;//id
 
     @Column(nullable = false,length = 40)
     private String name;//用户名
@@ -49,7 +49,7 @@ public class User implements Serializable{
     }
 
 
-    public User(int id,String name) {
+    public User(long id,String name) {
         this.id=id;
         this.name=name;
     }

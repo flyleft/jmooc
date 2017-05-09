@@ -17,7 +17,7 @@ public class Exercise implements Serializable{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;//id
+    private long id;//id
 
     @Column(nullable = false,length = 40)
     private String name;//习题名称

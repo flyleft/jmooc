@@ -7,15 +7,15 @@ import javax.servlet.http.HttpServletRequest;
 
 public class RequestUtils {
 
-/*    public static UserAuxiliary getUserFromReq(HttpServletRequest request){
+    public static UserAuxiliary getUserAuxiliaryFromReq(HttpServletRequest request){
         Object obj = request.getSession().getAttribute("cur_user");
         if (obj == null || !(obj instanceof UserAuxiliary)) {
             return null;
         }
         return (UserAuxiliary) obj;
-    }*/
+    }
 
-    public static int getUserIdFromReq(HttpServletRequest request){
+    public static long getUserIdFromReq(HttpServletRequest request){
         Object obj = request.getSession().getAttribute("cur_user");
         if (obj == null || !(obj instanceof UserAuxiliary)) {
             return -1;

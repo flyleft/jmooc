@@ -29,7 +29,7 @@ public class UserController {
 
     @GetMapping("/")
     public String index(Model model,HttpServletRequest request){
-        UserAuxiliary userAuxiliary= RequestUtils.getUserFromReq(request);
+        UserAuxiliary userAuxiliary= RequestUtils.getUserAuxiliaryFromReq(request);
         if (userAuxiliary==null){
            model.addAttribute("type",0);
         }else if (userAuxiliary.getType()==1){
