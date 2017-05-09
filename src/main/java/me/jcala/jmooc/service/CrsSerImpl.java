@@ -76,4 +76,9 @@ public class CrsSerImpl implements CrsSer{
         if (user==null) return new HashSet<>();
         return user.getCourses();
     }
+
+    @Override
+    public void delCourse(long crsId) {
+        courserRepository.delete(crsId);
+    }
 }

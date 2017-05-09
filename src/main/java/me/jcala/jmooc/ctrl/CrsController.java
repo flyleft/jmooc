@@ -7,7 +7,6 @@ import me.jcala.jmooc.entity.User;
 import me.jcala.jmooc.entity.form.ChpForm;
 import me.jcala.jmooc.exception.NoPageException;
 import me.jcala.jmooc.service.inter.CrsSer;
-import me.jcala.jmooc.utils.BeanUtils;
 import me.jcala.jmooc.utils.CommonUtils;
 import me.jcala.jmooc.utils.RequestUtils;
 import org.slf4j.Logger;
@@ -16,9 +15,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.*;
-
-import javax.jws.WebParam;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import java.util.Set;
@@ -38,6 +38,13 @@ public class CrsController {
         this.crsSer = crsSer;
     }
 
+    //-------------------------------------------------课程管理相关---------------------------------------------
+
+    /**
+     *  课程管理界面
+     *  do为add返回添加课程页面
+     *  do为md返回课程管理界面
+     */
     @GetMapping("/user/tea/crs_mgr")
     public String courseManagerPage(@RequestParam("do") String operate,HttpServletRequest request,Model model){
 
@@ -57,6 +64,9 @@ public class CrsController {
 
     }
 
+    /**
+     * 课程添加请求
+     */
     @PostMapping("/user/tea/crs_mgr/add")
     public String addCourse(@ModelAttribute("course") @Valid Course course,
                             BindingResult result,
@@ -73,12 +83,19 @@ public class CrsController {
         return "redirect:/user/tea/chp_mgr?crs_id="+crsId;
     }
 
+    /**
+     * 课程删除请求
+     */
     @GetMapping("/user/tea/crs_mgr/del")
-    @ResponseBody
     public String delCourse(@RequestParam("crs_id") long crsId){
+        crsSer.delCourse(crsId);
         return "redirect:/user/tea/crs_mgr?do=md";
     }
 
+    //-------------------------------------------------章节管理相关---------------------------------------------
+    /**
+     *  返回章节列表界面
+     */
     @GetMapping("/user/tea/chp_mgr")
     public String chpMgr(@RequestParam("crs_id") long crsId,Model model){
         Set<Chapter> chapters=crsSer.getChapterList(crsId);
@@ -91,6 +108,9 @@ public class CrsController {
     }
 
 
+    /**
+     * 添加章节操作
+     */
     @PostMapping("/user/tea/chp_mgr/add")
     public String chpPost(@ModelAttribute("chapter") @Valid ChpForm chpForm,BindingResult result){
         if (result.hasErrors()) {
@@ -100,6 +120,11 @@ public class CrsController {
         return "redirect:/user/tea/chp_mgr?crs_id="+chpForm.getCrs_id();
     }
 
+    //-------------------------------------------------课时管理相关---------------------------------------------
+
+    /**
+     * 返回课时列表界面
+     */
     @GetMapping("/user/tea/les_mgr")
     public String LesMgr(@RequestParam("chp_id") int chpId, Model model){
         Set<Lesson> lessons=crsSer.getLessonList(chpId);

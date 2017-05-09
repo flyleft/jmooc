@@ -17,5 +17,7 @@ public interface CrsSer {
 
     Set<Lesson> getLessonList(long chpId);//获取某章节的课时列表
 
-    void addChapter(ChpForm chpForm);
+    void addChapter(ChpForm chpForm);//添加章节
+
+    void delCourse(long crsId);//删除课程
 }
