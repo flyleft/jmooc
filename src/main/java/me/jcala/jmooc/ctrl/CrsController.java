@@ -7,6 +7,7 @@ import me.jcala.jmooc.entity.User;
 import me.jcala.jmooc.entity.form.ChpForm;
 import me.jcala.jmooc.exception.NoPageException;
 import me.jcala.jmooc.service.inter.CrsSer;
+import me.jcala.jmooc.utils.BeanUtils;
 import me.jcala.jmooc.utils.CommonUtils;
 import me.jcala.jmooc.utils.RequestUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -86,7 +87,9 @@ public class CrsController {
         if (result.hasErrors()) {
             throw new RuntimeException("表单数据不合法");
         }
-        return "";
+        Chapter chapter= BeanUtils.fromToChapter(chpForm);
+        crsSer.addChapter(chapter);
+        return "redirect:/user/tea/chp_mgr?crs_id="+chpForm.getCrs_id();
     }
 
     @GetMapping("/user/tea/les_mgr")

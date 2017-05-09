@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 
 public class FileController {
 
-    @PostMapping("/file/video/upload.do")
+    @PostMapping("/file/video/upload")
     @ResponseBody
     public String uploadAva(HttpServletRequest request, Model model){
 

@@ -41,7 +41,7 @@ public class CrsSerImpl implements CrsSer{
     }
 
     @Override
-    public void addChapter(ChpForm chpForm) {
-
+    public void addChapter(Chapter chapter) {
+        chapterRepository.save(chapter);
     }
 }

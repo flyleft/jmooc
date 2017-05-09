@@ -46,6 +46,10 @@ public class Course implements Serializable{
     public Course() {
     }
 
+    public Course(long id) {
+        this.id=id;
+    }
+
     public Course(String name, String desp, String dir, String type) {
         this.name = name;
         this.desp = desp;
