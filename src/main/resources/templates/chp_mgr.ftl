@@ -6,7 +6,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>课程管理</title>
+    <title>章节管理</title>
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css"/>
@@ -48,7 +48,7 @@
     <div id="page-wrapper">
         <div class="row">
             <div class="col-lg-12">
-                <button class="btn btn-default btn-lg" id="add_project"><i class="fa fa-plus"></i> <span class="network-name">添加章节</span></button>
+                <button class="btn btn-default btn-lg" id="post_chp"><i class="fa fa-plus"></i> <span class="network-name">添加章节</span></button>
                 <br><br><br>
             </div>
         </div>
@@ -85,5 +85,27 @@
 <!-- JavaScript -->
 <script src="/js/jquery.min.js"></script>
 <script src="/js/bootstrap.min.js"></script>
+<script src="//cdn.bootcss.com/bootbox.js/4.4.0/bootbox.min.js"></script>
+<script type="text/javascript">
+        $(document).on("click", "#post_chp",
+                function() {
+                    bootbox.dialog({
+                        title: "新的章节",
+                        message: '<div class="row"><div class="col-md-12"><form class="form-horizontal" id="post_chp_form"><div class="form-group"> <label class="col-md-2 control-label">名称</label> <div class="col-md-9"> <input name="name" type="text" placeholder="章节名" class="form-control input-md"> </div></div><input type="hidden" name="crs_id" value="${crs}"/> <input type="hidden" name="pos" value="${pos!0}"/></form></div></div>',
+                        buttons: {
+                            success: {
+                                label: "提交",
+                                className: "btn-success",
+                                callback: function() {
+                                    var a = document.getElementById("post_chp_form");
+                                    a.action = "/admin/addPro.action",
+                                            a.method = "post",
+                                            a.submit()
+                                }
+                            }
+                        }
+                    })
+                });
+</script>
 </body>
 </html>
