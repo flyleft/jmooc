@@ -4,7 +4,7 @@ import me.jcala.jmooc.entity.Chapter;
 import org.springframework.data.repository.CrudRepository;
 
 
-public interface ChapterRepository extends CrudRepository<Chapter,Integer>{
+public interface ChapterRepository extends CrudRepository<Chapter,Long>{
 
-    Chapter findById(int id);
+    Chapter findById(long id);
 }

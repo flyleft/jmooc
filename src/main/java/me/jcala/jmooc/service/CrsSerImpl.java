@@ -31,12 +31,12 @@ public class CrsSerImpl implements CrsSer{
     }
 
     @Override
-    public Set<Chapter> getChapterList(int crsId) {
+    public Set<Chapter> getChapterList(long crsId) {
         return courserRepository.findById(crsId).getChapters();
     }
 
     @Override
-    public Set<Lesson> getLessonList(int chpId) {
+    public Set<Lesson> getLessonList(long chpId) {
         return chapterRepository.findById(chpId).getLessons();
     }
 

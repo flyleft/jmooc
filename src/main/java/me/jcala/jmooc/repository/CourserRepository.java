@@ -3,7 +3,7 @@ package me.jcala.jmooc.repository;
 import me.jcala.jmooc.entity.Course;
 import org.springframework.data.repository.CrudRepository;
 
-public interface CourserRepository extends CrudRepository<Course,Integer> {
+public interface CourserRepository extends CrudRepository<Course,Long> {
 
-    Course findById(int id);
+    Course findById(long id);
 }

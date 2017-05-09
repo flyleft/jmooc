@@ -58,19 +58,19 @@ public class CrsController {
                             BindingResult result,
                             HttpServletRequest request){
 
-        User user= RequestUtils.getUserFromReq(request);
-
         if (result.hasErrors()) {
             return "crs_mgr_add";
         }
 
+        User user= RequestUtils.getUserFromReq(request);
         course.setUser(user);
+
         long crsId=crsSer.addCourse(course);
         return "redirect:/user/tea/chp_mgr?crs_id="+crsId;
     }
 
     @GetMapping("/user/tea/chp_mgr")
-    public String chpMgr(@RequestParam("crs_id") int crsId,Model model){
+    public String chpMgr(@RequestParam("crs_id") long crsId,Model model){
         Set<Chapter> chapters=crsSer.getChapterList(crsId);
         if (chapters!=null){
             model.addAttribute("chps",chapters);
