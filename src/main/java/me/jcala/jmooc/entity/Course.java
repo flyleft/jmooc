@@ -1,6 +1,5 @@
 package me.jcala.jmooc.entity;
 
-import lombok.Data;
 import org.hibernate.validator.constraints.NotBlank;
 
 import javax.persistence.*;
@@ -8,7 +7,6 @@ import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
-@Data
 @Entity
 @Table(name = "course")
 public class Course implements Serializable{
@@ -40,7 +38,7 @@ public class Course implements Serializable{
     private User user;
 
     @Column(name = "chapters")
-    @OneToMany(cascade = CascadeType.REFRESH,orphanRemoval = true,fetch=FetchType.EAGER,mappedBy = "course")
+    @OneToMany(cascade = CascadeType.REMOVE,fetch=FetchType.EAGER,mappedBy = "course")
     private Set<Chapter> chapters=new HashSet<>();//课程章节列表
 
     public Course() {
@@ -55,5 +53,77 @@ public class Course implements Serializable{
         this.desp = desp;
         this.dir = dir;
         this.type = type;
+    }
+
+    @Override
+    public String toString() {
+        return "Course{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", desp='" + desp + '\'' +
+                ", dir='" + dir + '\'' +
+                ", type='" + type + '\'' +
+                ", chapters=" + chapters +
+                '}';
+    }
+
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getDesp() {
+        return desp;
+    }
+
+    public void setDesp(String desp) {
+        this.desp = desp;
+    }
+
+    public String getDir() {
+        return dir;
+    }
+
+    public void setDir(String dir) {
+        this.dir = dir;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public Set<Chapter> getChapters() {
+        return chapters;
+    }
+
+    public void setChapters(Set<Chapter> chapters) {
+        this.chapters = chapters;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }

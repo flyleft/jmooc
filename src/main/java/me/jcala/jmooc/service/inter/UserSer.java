@@ -7,4 +7,5 @@ import javax.servlet.http.HttpServletRequest;
 public interface UserSer {
 
     boolean login(User user, HttpServletRequest request);
+
 }

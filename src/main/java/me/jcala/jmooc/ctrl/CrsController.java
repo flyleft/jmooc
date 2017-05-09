@@ -42,16 +42,18 @@ public class CrsController {
     }
 
     @GetMapping("/user/tea/crs_mgr")
-    public String courseManagerPage(@RequestParam("do") String operate){
+    public String courseManagerPage(@RequestParam("do") String operate,HttpServletRequest request,Model model){
+
         if (operate==null || CommonUtils.isEmpty(operate)){
             throw new NoPageException();
         }
         if ("add".equals(operate.trim())){
-            return "crs_mgr_add";
-        }else if ("del".equals(operate.trim())){
-            return "crs_mgr_del";
+            return "crs/crs_mgr_add";
         }else if ("mod".equals(operate.trim())){
-            return "crs_mgr_mod";
+            long userId=RequestUtils.getUserIdFromReq(request);
+            Set<Course> courses=crsSer.getCourseList(userId);
+            model.addAttribute("courses",courses);
+            return "crs/crs_mgr_mod";
         }else {
             throw new NoPageException();
         }
@@ -64,7 +66,7 @@ public class CrsController {
                             HttpServletRequest request){
 
         if (result.hasErrors()) {
-            return "crs_mgr_add";
+            return "crs/crs_mgr_add";
         }
 
         User user= RequestUtils.getUserFromReq(request);
@@ -82,7 +84,7 @@ public class CrsController {
             model.addAttribute("crs",crsId);
             model.addAttribute("pos",chapters.size()+1);
         }
-        return "chp_mgr";
+        return "crs/chp_mgr";
     }
 
 
@@ -101,7 +103,7 @@ public class CrsController {
         if (lessons!=null){
             model.addAttribute("les",lessons);
         }
-       return "les_mgr";
+       return "crs/les_mgr";
     }
 
 }

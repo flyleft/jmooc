@@ -23,7 +23,7 @@ public class Chapter implements Serializable{
     @Column(nullable = false)
     private int pos;//位置，表示第几章节
 
-    @ManyToOne(cascade = CascadeType.REFRESH,fetch=FetchType.LAZY,targetEntity = Course.class)
+    @ManyToOne(cascade = CascadeType.REMOVE,fetch=FetchType.EAGER,targetEntity = Course.class)
     @JoinColumn(name = "course_id")
     private Course course;
 
@@ -38,4 +38,5 @@ public class Chapter implements Serializable{
         this.pos = pos;
         this.course = course;
     }
+
 }
