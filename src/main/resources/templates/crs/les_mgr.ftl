@@ -59,8 +59,9 @@
                         <tr>
                             <th>课时</th>
                             <th>名称</th>
-                            <th>视频地址</th>
-                            <th>课时管理</th>
+                            <th>视频管理</th>
+                            <th>文件管理</th>
+                            <th>习题管理</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -69,7 +70,10 @@
                         <td>${item.name!}</td>
                         <td>${item.video!}</td>
                         <td>
-                            <a href='/user/tea/les_mgr?chp_id=${item.id!}'><i class="fa fa-pencil"></i></a>
+                        ${item.fileNum!}
+                        </td>
+                        <td>
+                        ${item.exeNum!}
                         </td>
                         </tr>
                         </#list>

@@ -30,16 +30,22 @@ public class Lesson implements Serializable{
     @Column(length = 40)
     private String video;//在线视频url
 
-    @ManyToOne(cascade = {CascadeType.REMOVE, CascadeType.REFRESH},fetch=FetchType.EAGER,targetEntity = Chapter.class)
+    @ManyToOne(cascade = CascadeType.REMOVE,fetch=FetchType.EAGER,targetEntity = Chapter.class)
     @JoinColumn(name = "chapter_id")
     private Chapter chapter;
 
     @Column(name = "file_list")
-    @ManyToMany(cascade = {CascadeType.REFRESH, CascadeType.REMOVE},fetch= FetchType.EAGER)
+    @OneToMany(cascade = CascadeType.REMOVE,fetch= FetchType.LAZY)
     private Set<File> fileList=new HashSet<>();//文件列表
 
     @Column(name = "exercise_list")
-    @ManyToMany(cascade = {CascadeType.REMOVE, CascadeType.REFRESH},fetch=FetchType.EAGER)
+    @OneToMany(cascade = CascadeType.REMOVE,fetch=FetchType.LAZY)
     private Set<Exercise> exerciseList=new HashSet<>();//习题列表
+
+    @Transient
+    private int fileNum;//文件数量，为了方便前端的数量
+
+    @Transient
+    private int exeNum;//习题数量，为了方便前端的数量
 
 }

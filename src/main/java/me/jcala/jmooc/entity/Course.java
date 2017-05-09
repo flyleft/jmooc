@@ -33,12 +33,12 @@ public class Course implements Serializable{
     @Column(nullable = false,length = 10)
     private String type;//类型:c,cp,java
 
-    @ManyToOne(cascade = CascadeType.REMOVE,fetch=FetchType.LAZY,targetEntity = User.class)
+    @ManyToOne(cascade = CascadeType.REMOVE,fetch=FetchType.EAGER,targetEntity = User.class)
     @JoinColumn(name = "user_id")
     private User user;
 
     @Column(name = "chapters")
-    @OneToMany(cascade = CascadeType.REMOVE,fetch=FetchType.EAGER,mappedBy = "course")
+    @OneToMany(cascade = CascadeType.REMOVE,fetch=FetchType.LAZY,mappedBy = "course")
     private Set<Chapter> chapters=new HashSet<>();//课程章节列表
 
     public Course() {
