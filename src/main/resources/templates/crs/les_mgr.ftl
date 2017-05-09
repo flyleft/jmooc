@@ -59,7 +59,8 @@
                         <tr>
                             <th>课时</th>
                             <th>名称</th>
-                            <th>视频管理</th>
+                            <th>视频地址</th>
+                            <th>修改视频</th>
                             <th>文件管理</th>
                             <th>习题管理</th>
                         </tr>
@@ -69,6 +70,14 @@
                         <td>${item.pos!}</td>
                         <td>${item.name!}</td>
                         <td>${item.video!}</td>
+                        <td>
+                            <form action="/user/tea/les_mgr/video" method="post" enctype="multipart/form-data">
+                                <input name="file" type="file" class="form-control">
+                                <input type="hidden" name="les_id" value="${item.id!}"/>
+                                <input type="hidden" name="chp_id" value="${chp!}"/>
+                                <input type="submit" value="上传">
+                            </form>
+                        </td>
                         <td>
                         ${item.fileNum!}
                         </td>

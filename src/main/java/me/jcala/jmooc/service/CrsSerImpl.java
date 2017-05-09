@@ -9,8 +9,10 @@ import me.jcala.jmooc.repository.ChapterRepository;
 import me.jcala.jmooc.repository.CourserRepository;
 import me.jcala.jmooc.repository.UserRepository;
 import me.jcala.jmooc.service.inter.CrsSer;
+import me.jcala.jmooc.utils.JmoocBeanUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -57,7 +59,7 @@ public class CrsSerImpl implements CrsSer{
         if (chapter==null){
             return new HashSet<>();
         }
-        return chapter.getLessons();
+        return JmoocBeanUtils.setFileAndExeNum(chapter.getLessons());
     }
 
     @Override

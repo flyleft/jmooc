@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
+import java.util.HashSet;
 import java.util.Set;
 
 /**
@@ -127,11 +128,31 @@ public class CrsController {
      */
     @GetMapping("/user/tea/les_mgr")
     public String LesMgr(@RequestParam("chp_id") int chpId, Model model){
-        Set<Lesson> lessons=crsSer.getLessonList(chpId);
+        //Set<Lesson> lessons=crsSer.getLessonList(chpId);
+
+        Set<Lesson> lessons=new HashSet<>();
+        Lesson lesson=new Lesson();
+        lesson.setFileNum(1);
+        lesson.setExeNum(2);
+        lesson.setId(5L);
+        lesson.setName("test课时");
+        lesson.setPos(1);
+        lesson.setVideo("/video/232/1.avi");
+        lessons.add(lesson);
+
         if (lessons!=null){
             model.addAttribute("les",lessons);
+            model.addAttribute("chp",chpId);
         }
        return "crs/les_mgr";
+    }
+
+    @GetMapping("/user/tea/les_mgr/video")
+    public String modifyVideo(@RequestParam("les_id") String lesId,
+                              @RequestParam("chp_id") String chpId,
+                              HttpServletRequest request){
+
+        return "redirect:/user/tea/les_mgr?chp_id"+chpId;
     }
 
 }

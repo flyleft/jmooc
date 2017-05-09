@@ -4,7 +4,7 @@ import me.jcala.jmooc.entity.Lesson;
 
 import java.util.Set;
 
-public class BeanUtils {
+public class JmoocBeanUtils {
 
     public static Set<Lesson> setFileAndExeNum(Set<Lesson> lessons){
 
