@@ -3,6 +3,8 @@ package me.jcala.jmooc.ctrl;
 import me.jcala.jmooc.entity.Chapter;
 import me.jcala.jmooc.entity.Course;
 import me.jcala.jmooc.entity.Lesson;
+import me.jcala.jmooc.entity.User;
+import me.jcala.jmooc.entity.form.ChpForm;
 import me.jcala.jmooc.exception.NoPageException;
 import me.jcala.jmooc.service.inter.CrsSer;
 import me.jcala.jmooc.utils.CommonUtils;
@@ -51,17 +53,18 @@ public class CrsController {
 
     }
 
-    @PostMapping("/user/tea/crs_mgr/add.do")
+    @PostMapping("/user/tea/crs_mgr/add")
     public String addCourse(@ModelAttribute("course") @Valid Course course,
                             BindingResult result,
                             HttpServletRequest request){
 
-        int userId= RequestUtils.getUserIdFromReq(request);
+        User user= RequestUtils.getUserFromReq(request);
 
         if (result.hasErrors()) {
             return "crs_mgr_add";
         }
-        course.setUserId(userId);
+
+        course.setUser(user);
         int crsId=crsSer.addCourse(course);
         return "redirect:/user/tea/chp_mgr?crs_id="+crsId;
     }
@@ -77,6 +80,14 @@ public class CrsController {
         return "chp_mgr";
     }
 
+
+    @PostMapping("/user/tea/chp_mgr/add")
+    public String chpPost(@ModelAttribute("chapter") @Valid ChpForm chpForm,BindingResult result){
+        if (result.hasErrors()) {
+            throw new RuntimeException("表单数据不合法");
+        }
+        return "";
+    }
 
     @GetMapping("/user/tea/les_mgr")
     public String LesMgr(@RequestParam("chp_id") int chpId, Model model){

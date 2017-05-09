@@ -98,9 +98,10 @@
                                 className: "btn-success",
                                 callback: function() {
                                     var a = document.getElementById("post_chp_form");
-                                    a.action = "/admin/addPro.action",
-                                            a.method = "post",
-                                            a.submit()
+                                    a.name="chapter",
+                                    a.action = "/user/tea/chp_mgr/add",
+                                    a.method = "post",
+                                    a.submit()
                                 }
                             }
                         }

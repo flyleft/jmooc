@@ -16,6 +16,10 @@ public class ExerciseComment implements Serializable{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+    @ManyToOne(cascade = {CascadeType.REMOVE, CascadeType.REFRESH},fetch=FetchType.LAZY,targetEntity = Exercise.class)
+    @JoinColumn(name = "exercise_id")
+    private Exercise exercise;
+
     @OneToOne(optional=false,cascade=CascadeType.ALL,fetch=FetchType.LAZY,targetEntity=User.class)
     @JoinColumn(name="id",nullable=false,updatable=false)
     private User fromUser;

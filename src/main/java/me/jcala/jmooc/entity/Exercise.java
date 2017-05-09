@@ -36,7 +36,7 @@ public class Exercise implements Serializable{
     @Column(name = "choose_answer")
     private int chooseAnswer;//正确选项
 
-    @OneToMany(cascade = CascadeType.REFRESH, fetch = FetchType.LAZY,targetEntity = ExerciseComment.class)
+    @OneToMany(cascade = CascadeType.ALL,orphanRemoval = true, fetch = FetchType.LAZY,mappedBy = "exercise",targetEntity = ExerciseComment.class)
     private Set<ExerciseComment> exerciseCommentList=new HashSet<>();
 
     public Exercise() {

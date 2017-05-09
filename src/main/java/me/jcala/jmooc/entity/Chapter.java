@@ -23,10 +23,11 @@ public class Chapter implements Serializable{
     @Column(nullable = false)
     private int pos;//位置，表示第几章节
 
-    @Column(length = 40)
-    private String video;//在线视频url
+    @ManyToOne(cascade = {CascadeType.REMOVE, CascadeType.REFRESH},fetch=FetchType.LAZY,targetEntity = Course.class)
+    @JoinColumn(name = "course_id")
+    private Course course;
 
-    @OneToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE},fetch=FetchType.EAGER)
+    @OneToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE},orphanRemoval = true,fetch=FetchType.LAZY,mappedBy = "chapter")
     private Set<Lesson> lessons=new HashSet<>();
 
     public Chapter() {

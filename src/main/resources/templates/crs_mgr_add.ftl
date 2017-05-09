@@ -48,7 +48,7 @@
     <div id="page-wrapper">
         <div class="row">
             <div class="col-lg-12">
-                <form role="form" name="course" action="/user/tea/crs_mgr/add.do" method="post">
+                <form role="form" name="course" action="/user/tea/crs_mgr/add" method="post">
                     <div class="form-group">
                         <label for="name">名称</label>
                         <input type="text" class="form-control" name="name"

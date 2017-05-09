@@ -3,6 +3,7 @@ package me.jcala.jmooc.service;
 import me.jcala.jmooc.entity.Chapter;
 import me.jcala.jmooc.entity.Course;
 import me.jcala.jmooc.entity.Lesson;
+import me.jcala.jmooc.entity.form.ChpForm;
 import me.jcala.jmooc.repository.ChapterRepository;
 import me.jcala.jmooc.repository.CourserRepository;
 import me.jcala.jmooc.service.inter.CrsSer;
@@ -37,5 +38,10 @@ public class CrsSerImpl implements CrsSer{
     @Override
     public Set<Lesson> getLessonList(int chpId) {
         return chapterRepository.findById(chpId).getLessons();
+    }
+
+    @Override
+    public void addChapter(ChpForm chpForm) {
+
     }
 }
