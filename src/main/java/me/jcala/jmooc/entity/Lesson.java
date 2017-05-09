@@ -35,11 +35,11 @@ public class Lesson implements Serializable{
     private Chapter chapter;
 
     @Column(name = "file_list")
-    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE},fetch= FetchType.EAGER)
+    @ManyToMany(cascade = {CascadeType.REFRESH, CascadeType.REMOVE},fetch= FetchType.EAGER)
     private Set<File> fileList=new HashSet<>();//文件列表
 
     @Column(name = "exercise_list")
-    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE},fetch=FetchType.EAGER)
+    @ManyToMany(cascade = {CascadeType.REMOVE, CascadeType.REFRESH},fetch=FetchType.EAGER)
     private Set<Exercise> exerciseList=new HashSet<>();//习题列表
 
 }

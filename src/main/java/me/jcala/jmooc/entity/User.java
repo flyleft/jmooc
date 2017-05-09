@@ -31,7 +31,7 @@ public class User implements Serializable{
     @Column(nullable = false,name = "avatar_url",columnDefinition="varchar(40) default '/img/default.png'")
     private String avatarUrl;//头像
 
-    @OneToMany(cascade = {CascadeType.REMOVE, CascadeType.REFRESH},fetch=FetchType.LAZY,mappedBy = "user")
+    @OneToMany(cascade = {CascadeType.REMOVE},fetch=FetchType.EAGER,mappedBy = "user")
     private Set<Course> courses=new HashSet<>();
 
     @Column(name = "exercise_collection")
@@ -42,7 +42,7 @@ public class User implements Serializable{
     @ManyToMany(cascade = {CascadeType.REMOVE},fetch=FetchType.LAZY)
     private Set<Exercise> exerciseError=new HashSet<>();//错误的习题
 
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true,fetch = FetchType.LAZY,targetEntity = Notice.class)
+    @OneToMany(cascade = CascadeType.REMOVE,fetch = FetchType.LAZY,targetEntity = Notice.class)
     private Set<Notice> notices = new HashSet<>();
 
     public User() {

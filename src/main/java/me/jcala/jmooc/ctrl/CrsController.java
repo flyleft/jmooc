@@ -10,6 +10,8 @@ import me.jcala.jmooc.service.inter.CrsSer;
 import me.jcala.jmooc.utils.BeanUtils;
 import me.jcala.jmooc.utils.CommonUtils;
 import me.jcala.jmooc.utils.RequestUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -29,6 +31,8 @@ import java.util.Set;
  */
 @Controller
 public class CrsController {
+
+    private static final Logger logger= LoggerFactory.getLogger(CrsController.class);
 
     private CrsSer crsSer;
 
@@ -87,8 +91,7 @@ public class CrsController {
         if (result.hasErrors()) {
             throw new RuntimeException("表单数据不合法");
         }
-        Chapter chapter= BeanUtils.fromToChapter(chpForm);
-        crsSer.addChapter(chapter);
+        crsSer.addChapter(chpForm);
         return "redirect:/user/tea/chp_mgr?crs_id="+chpForm.getCrs_id();
     }
 
