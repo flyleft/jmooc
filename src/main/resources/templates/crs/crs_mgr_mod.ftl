@@ -75,7 +75,9 @@
                         </td>
                         <td>${item.type!}</td>
                         <td>
-                            <a class="delete" role="button" href="/user/tea/crs_mgr/del?crs_id=${item.id}"  data-title="删除本课程!" data-confirm-button="确定"><i class="fa fa-trash-o"></i></a>
+                            <a class="delete" role="button" href="/user/tea/crs_mgr/del?crs_id=${item.id}"
+                               data-title="删除课程" data-text="确定删除?" data-confirm-button="是"
+                               data-cancel-button="否"><i class="fa fa-trash-o"></i></a>
                         </td>
                         <td>
                             <a href='/user/tea/chp_mgr?crs_id=${item.id!}'><i class="fa fa-pencil"></i></a>
