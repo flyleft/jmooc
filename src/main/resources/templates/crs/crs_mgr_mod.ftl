@@ -52,19 +52,31 @@
                         <thead>
                         <tr>
                             <th>课程名称</th>
-                            <th>课程描述</th>
                             <th>方向</th>
                             <th>类型</th>
-                            <th>修改</th>
+                            <th>删除</th>
                             <th>章节管理</th>
                         </tr>
                         </thead>
                         <tbody>
-                        <#list crs as item>
+                        <#list courses as item>
                         <td>${item.name!}</td>
-                        <td>${item.desp!}</td>
-                        <td>${item.dir!}</td>
+                        <td>
+                        <#if  item.dir== "fe">
+                            前端开发
+                        <#elseif item.dir== "be">
+                            后端开发
+                        <#elseif item.dir== "md">
+                            移动开发
+                        <#else>
+                            数据库开发
+                        </#if>
+
+                        </td>
                         <td>${item.type!}</td>
+                        <td>
+                            <a class="delete" role="button" href="/user/tea/crs_mgr/del?crs_id=${item.id}"  data-title="删除本课程!" data-confirm-button="确定"><i class="fa fa-trash-o"></i></a>
+                        </td>
                         <td>
                             <a href='/user/tea/chp_mgr?crs_id=${item.id!}'><i class="fa fa-pencil"></i></a>
                         </td>
@@ -84,6 +96,9 @@
 <!-- JavaScript -->
 <script src="/js/jquery.min.js"></script>
 <script src="/js/bootstrap.min.js"></script>
-
+<script src="/js/jquery.confirm.min.js"></script>
+<script type="text/javascript">
+    $(".delete").confirm();
+</script>
 </body>
 </html>

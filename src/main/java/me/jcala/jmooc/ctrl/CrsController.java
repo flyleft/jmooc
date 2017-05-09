@@ -16,10 +16,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import javax.jws.WebParam;
 import javax.servlet.http.HttpServletRequest;
@@ -74,6 +71,12 @@ public class CrsController {
 
         long crsId=crsSer.addCourse(course);
         return "redirect:/user/tea/chp_mgr?crs_id="+crsId;
+    }
+
+    @GetMapping("/user/tea/crs_mgr/del")
+    @ResponseBody
+    public String delCourse(@RequestParam("crs_id") long crsId){
+        return "redirect:/user/tea/crs_mgr?do=md";
     }
 
     @GetMapping("/user/tea/chp_mgr")
