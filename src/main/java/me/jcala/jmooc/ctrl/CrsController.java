@@ -152,6 +152,10 @@ public class CrsController {
                               @RequestParam("chp_id") String chpId,
                               HttpServletRequest request){
 
+        if (CommonUtils.notEmpty(lesId,chpId)){
+            return "redirect:/user/tea/les_mgr?chp_id"+chpId;
+        }
+
         return "redirect:/user/tea/les_mgr?chp_id"+chpId;
     }
 
