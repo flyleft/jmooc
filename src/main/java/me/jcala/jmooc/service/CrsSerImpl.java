@@ -31,11 +31,11 @@ public class CrsSerImpl implements CrsSer{
 
     @Override
     public Set<Chapter> getChapterList(int crsId) {
-        return courserRepository.findChapterListById(crsId).getChapters();
+        return courserRepository.findById(crsId).getChapters();
     }
 
     @Override
     public Set<Lesson> getLessonList(int chpId) {
-        return chapterRepository.findLessonListById(chpId).getLessons();
+        return chapterRepository.findById(chpId).getLessons();
     }
 }
