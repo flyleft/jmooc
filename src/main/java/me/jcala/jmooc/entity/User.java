@@ -31,15 +31,15 @@ public class User implements Serializable{
     @Column(nullable = false,name = "avatar_url",columnDefinition="varchar(40) default '/img/default.png'")
     private String avatarUrl;//头像
 
-    @OneToMany(cascade = {CascadeType.REMOVE},fetch=FetchType.EAGER,mappedBy = "user")
+    @OneToMany(cascade = CascadeType.REMOVE,fetch=FetchType.LAZY,mappedBy = "user")
     private Set<Course> courses=new HashSet<>();
 
     @Column(name = "exercise_collection")
-    @ManyToMany(cascade = {CascadeType.REMOVE},fetch=FetchType.LAZY)
+    @ManyToMany(cascade = CascadeType.REMOVE,fetch=FetchType.LAZY)
     private Set<Exercise> exerciseCollection=new HashSet<>();//收藏的习题
 
     @Column(name = "exercise_error")
-    @ManyToMany(cascade = {CascadeType.REMOVE},fetch=FetchType.LAZY)
+    @ManyToMany(cascade = CascadeType.REMOVE,fetch=FetchType.LAZY)
     private Set<Exercise> exerciseError=new HashSet<>();//错误的习题
 
     @OneToMany(cascade = CascadeType.REMOVE,fetch = FetchType.LAZY,targetEntity = Notice.class)

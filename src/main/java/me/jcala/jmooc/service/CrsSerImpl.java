@@ -10,6 +10,7 @@ import me.jcala.jmooc.service.inter.CrsSer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.HashSet;
 import java.util.Set;
 
 @Service
@@ -32,12 +33,20 @@ public class CrsSerImpl implements CrsSer{
 
     @Override
     public Set<Chapter> getChapterList(long crsId) {
-        return courserRepository.findById(crsId).getChapters();
+        Course course=courserRepository.findById(crsId);
+        if (course==null){
+            return new HashSet<>();
+        }
+        return course.getChapters();
     }
 
     @Override
     public Set<Lesson> getLessonList(long chpId) {
-        return chapterRepository.findById(chpId).getLessons();
+        Chapter chapter=chapterRepository.findById(chpId);
+        if (chapter==null){
+            return new HashSet<>();
+        }
+        return chapter.getLessons();
     }
 
     @Override
@@ -45,7 +54,7 @@ public class CrsSerImpl implements CrsSer{
         Chapter chapter=new Chapter();
         chapter.setName(chpForm.getName());
         chapter.setPos(chpForm.getPos());
-        //chapter.setCourse();
-        //chapterRepository.save(chapter);
+        chapter.setCourse(new Course(chpForm.getCrs_id()));
+        chapterRepository.save(chapter);
     }
 }

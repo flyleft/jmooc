@@ -41,13 +41,11 @@ public class InitSerImpl implements InitSer{
             userRepository.save(new User("jcala",pass,1));
         }
 
-
         User tea=userRepository.findUserByName("tea");
         if (tea==null){
             String pass= EncryptUtils.EncoderByMd5("tea");
             userRepository.save(new User("tea",pass,2));
         }
-
     }
 
 }
