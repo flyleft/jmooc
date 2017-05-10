@@ -8,6 +8,8 @@ import me.jcala.jmooc.entity.auxiliary.ChpForm;
 import me.jcala.jmooc.exception.NoPageException;
 import me.jcala.jmooc.service.inter.CrsSer;
 import me.jcala.jmooc.utils.CommonUtils;
+import me.jcala.jmooc.utils.FileType;
+import me.jcala.jmooc.utils.FileUtils;
 import me.jcala.jmooc.utils.RequestUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -127,7 +129,9 @@ public class CrsController {
      * 返回课时列表界面
      */
     @GetMapping("/user/tea/les_mgr")
-    public String LesMgr(@RequestParam("chp_id") int chpId, Model model){
+    public String LesMgr(@RequestParam("chp_id") int chpId,
+                         @RequestParam("crs_id") String crsId,
+                         Model model){
         //Set<Lesson> lessons=crsSer.getLessonList(chpId);
 
         Set<Lesson> lessons=new HashSet<>();
@@ -142,21 +146,23 @@ public class CrsController {
 
         if (lessons!=null){
             model.addAttribute("les",lessons);
-            model.addAttribute("chp",chpId);
+            model.addAttribute("crs_id",crsId);
         }
        return "crs/les_mgr";
     }
 
     @GetMapping("/user/tea/les_mgr/video")
     public String modifyVideo(@RequestParam("les_id") String lesId,
-                              @RequestParam("chp_id") String chpId,
+                              @RequestParam("crs_id") String crsId,
                               HttpServletRequest request){
 
-        if (CommonUtils.notEmpty(lesId,chpId)){
-            return "redirect:/user/tea/les_mgr?chp_id"+chpId;
+        if (CommonUtils.notEmpty(lesId,crsId)){
+
+            FileUtils.uploadFile(request, FileType.VIDEO,1L);
+
         }
 
-        return "redirect:/user/tea/les_mgr?chp_id"+chpId;
+        return "redirect:/user/tea/les_mgr?chp_id"+crsId;
     }
 
 }

@@ -74,7 +74,7 @@
                             <form action="/user/tea/les_mgr/video" method="post" enctype="multipart/form-data">
                                 <input name="file" type="file" class="form-control">
                                 <input type="hidden" name="les_id" value="${item.id!}"/>
-                                <input type="hidden" name="chp_id" value="${chp!}"/>
+                                <input type="hidden" name="crs_id" value="${crs_id!}"/>
                                 <input type="submit" value="上传">
                             </form>
                         </td>
