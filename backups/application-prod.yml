@@ -24,7 +24,7 @@ logging:
 spring:
     freemarker:
       enabled: true
-      suffix: .ftl
+      suffix: ftl
       charset: UTF-8
     thymeleaf:
       enabled: false
@@ -36,32 +36,27 @@ spring:
         encoding.charset: UTF-8
         encoding.force: false
         multipart:
-          max-file-size: 300MB
-          max-request-size: 400MB
+          max-file-size: 3MB
+          max-request-size: 10MB
     cache:
         cache-names: ehcache
         ehcache:
             config: ehcache.xml
     datasource:
-            type: com.zaxxer.hikari.HikariDataSource
-            username: root
-            password: root
-            url: jdbc:mysql://127.0.0.1:3306/jmooc?serverTimezone=UTC&characterEncoding=utf-8
-            driverClassName: com.mysql.jdbc.Driver
-            schema: classpath:import.sql
-            data: classpath:data.sql
-            initialize: false
-            sql-script-encoding: UTF-8
-            hikari:
-                connection-timeout: 30000
-                maximum-pool-size: 50
-                minimum-idle: 5
-    jpa:
-      show-sql: true
-      properties.hibernate.dialect: org.hibernate.dialect.MySQL5Dialect
-      hibernate:
-        ddl-auto: update
-      generate-ddl: true
-jmooc:
-    basic_home: G:\home\jcala\xmarket\pic
-    basic_url: https://192.168.10.4:80
+        role: com.alibaba.druid.pool.DruidDataSource
+        username: root
+        password: root
+        url: jdbc:mysql://127.0.0.1:3306/jmooc?serverTimezone=UTC&characterEncoding=utf-8
+        driverClassName: com.mysql.cj.jdbc.Driver
+        schema: classpath:import.sql
+        initialize: false
+        sql-script-encoding: UTF-8
+        druid:
+            max-active: 10
+            initial-size: 3
+            min-idle: 3
+            max-wait: 60000
+            time-between-eviction-runs-millis: 60000
+            min-evictable-idle-time-millis: 300000
+            poolPreparedStatements: true
+            maxPoolPreparedStatementPerConnectionSize: 20

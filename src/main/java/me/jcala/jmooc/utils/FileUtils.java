@@ -12,7 +12,7 @@ import static org.springframework.util.StreamUtils.copy;
 
 public class FileUtils {
 
-    public static String uploadFile(HttpServletRequest request,String fileHome,String visitBasicUrl)
+    public static String uploadFile(HttpServletRequest request,FileType type)
             throws Exception {
         MultipartHttpServletRequest multipartRequest =
                 (MultipartHttpServletRequest) request;
@@ -29,16 +29,16 @@ public class FileUtils {
         String yearMonth = CommonUtils.getYearMonthOfNow();
 
         //图片存储路径为根路径/年月。比如user/jcala/xmarket/201608
-        File path = new File(fileHome+File.separatorChar+ yearMonth);
+        File path = new File(type.getHome()+ yearMonth);
         if (!path.exists()) {
             path.mkdirs();
         }
 
         //合成图片在服务器上的物理绝对路径
-        File targetFile = new File(fileHome+File.separatorChar + yearMonth + File.separatorChar + fileName);
+        File targetFile = new File(type.getHome() + yearMonth + File.separatorChar + fileName);
         //保存图片
         multipartFile.transferTo(targetFile);
-        return visitBasicUrl + yearMonth + "/" + fileName;
+        return type.getUrl() + yearMonth + "/" + fileName;
     }
 
     /**

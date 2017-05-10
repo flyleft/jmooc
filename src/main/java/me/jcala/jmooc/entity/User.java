@@ -1,10 +1,13 @@
 package me.jcala.jmooc.entity;
 
+import lombok.Data;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
+@Data
 @Entity
 @Table(name = "user_tb")
 public class User implements Serializable{
@@ -58,75 +61,4 @@ public class User implements Serializable{
         this.avatarUrl=DEFAULT_AVATAR;
     }
 
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public int getRole() {
-        return role;
-    }
-
-    public void setRole(int role) {
-        this.role = role;
-    }
-
-    public String getAvatarUrl() {
-        return avatarUrl;
-    }
-
-    public void setAvatarUrl(String avatarUrl) {
-        this.avatarUrl = avatarUrl;
-    }
-
-    public Set<Course> getCourses() {
-        return courses;
-    }
-
-    public void setCourses(Set<Course> courses) {
-        this.courses = courses;
-    }
-
-    public Set<Exercise> getExerciseCollection() {
-        return exerciseCollection;
-    }
-
-    public void setExerciseCollection(Set<Exercise> exerciseCollection) {
-        this.exerciseCollection = exerciseCollection;
-    }
-
-    public Set<Exercise> getExerciseError() {
-        return exerciseError;
-    }
-
-    public void setExerciseError(Set<Exercise> exerciseError) {
-        this.exerciseError = exerciseError;
-    }
-
-    public Set<Notice> getNotices() {
-        return notices;
-    }
-
-    public void setNotices(Set<Notice> notices) {
-        this.notices = notices;
-    }
 }

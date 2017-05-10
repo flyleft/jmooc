@@ -1,22 +1,26 @@
 package me.jcala.jmooc.conf;
 
 import me.jcala.jmooc.interceptor.UserSecurityInterceptor;
+import me.jcala.jmooc.utils.FileType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.context.embedded.ConfigurableEmbeddedServletContainer;
-import org.springframework.boot.context.embedded.EmbeddedServletContainerCustomizer;
-import org.springframework.boot.web.servlet.ErrorPage;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
-import org.springframework.http.HttpStatus;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+
+import javax.annotation.PostConstruct;
+import java.io.File;
 
 @Configuration
 public class WebMvcConfig extends WebMvcConfigurerAdapter {
 
-	public static final String FILE_BASIC_URL="/video/";
+
+	@Value("${jmooc.basic_home}")
+	private String basicHome;
+
+	@Value("${jmooc.basic_url")
+	private String basicUrl;
+
 
 	private UserSecurityInterceptor securityInterceptor;
 
@@ -40,5 +44,13 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {
 		registry.addInterceptor(securityInterceptor).addPathPatterns("/user/**");//配置登录拦截器拦截路径
+	}
+
+	@PostConstruct
+	public void initConfigureBean(){
+		FileType.FILE.setHome(basicHome+ File.separatorChar+"file"+File.separatorChar);
+		FileType.FILE.setHome(basicUrl+"/files/");
+		FileType.VIDEO.setHome(basicHome+ File.separatorChar+"video"+File.separatorChar);
+		FileType.VIDEO.setHome(basicUrl+"/videos/");
 	}
 }
