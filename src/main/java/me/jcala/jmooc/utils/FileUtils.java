@@ -16,7 +16,7 @@ public class FileUtils {
 
     private static final Logger logger= LoggerFactory.getLogger(FileUtils.class);
 
-    public static String uploadFile(HttpServletRequest request,FileType type,long crsId)
+    public static String uploadFile(HttpServletRequest request,FileType type,long crsId,long lesId)
             {
         MultipartHttpServletRequest multipartRequest =
                 (MultipartHttpServletRequest) request;
@@ -37,7 +37,7 @@ public class FileUtils {
         }
 
         //合成图片在服务器上的物理绝对路径
-        File targetFile = new File(type.getHome() + crsId + File.separatorChar + fileName);
+        File targetFile = new File(type.getHome() + crsId+File.separatorChar+lesId+ File.separatorChar + fileName);
         //保存图片
                 try {
                     multipartFile.transferTo(targetFile);
@@ -45,7 +45,7 @@ public class FileUtils {
                     e.printStackTrace();
                     logger.warn("上传文件或者视频出错"+e.getMessage());
                 }
-                return type.getUrl() + crsId + "/" + fileName;
+                return type.getUrl() + crsId + "/" + lesId+"/"+fileName;
     }
 
     /**
