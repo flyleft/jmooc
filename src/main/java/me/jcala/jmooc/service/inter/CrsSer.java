@@ -21,5 +21,7 @@ public interface CrsSer {
 
     void delCourse(long crsId);//删除课程
 
-    void updateLessonVideo(String videoUrl,long lesId);
+    void updateLessonVideo(String videoUrl,long lesId);//更新视频地址
+
+    void addLesson(Lesson lesson,long crsId);//添加课时
 }

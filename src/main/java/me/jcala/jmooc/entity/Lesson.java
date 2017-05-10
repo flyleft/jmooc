@@ -2,8 +2,11 @@ package me.jcala.jmooc.entity;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.validator.constraints.NotBlank;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.persistence.*;
+import javax.validation.constraints.Min;
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
@@ -23,9 +26,11 @@ public class Lesson implements Serializable{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
+    @NotBlank(message = "课时名称")
     @Column(nullable = false,length = 40)
-    private String name;//章节名称
+    private String name;//课时名称
 
+    @Min(1)
     @Column(nullable = false)
     private int pos;//位置，表示第几课时
 
@@ -48,5 +53,8 @@ public class Lesson implements Serializable{
 
     @Transient
     private int exeNum;//习题数量，为了方便前端的数量
+
+    @Transient
+    private MultipartFile vf;
 
 }

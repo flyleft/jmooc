@@ -16,7 +16,7 @@ public class ChpForm {
 
     private int crs_id;//表示课程id
 
-    @Min(0)
+    @Min(1)
     private int pos;//表示第几章
 
 }

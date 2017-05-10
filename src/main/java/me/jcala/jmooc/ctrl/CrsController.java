@@ -22,8 +22,6 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
-import java.io.File;
-import java.io.IOException;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -131,7 +129,7 @@ public class CrsController {
      */
     @GetMapping("/user/tea/les_mgr")
     public String LesMgr(@RequestParam("crs_id") long crsId,
-                         @RequestParam("chp_id") int chpId,
+                         @RequestParam("chp_id") long chpId,
                          Model model){
         //Set<Lesson> lessons=crsSer.getLessonList(chpId);
 
@@ -153,19 +151,42 @@ public class CrsController {
        return "crs/les_mgr";
     }
 
+    /**
+     * 添加课时
+     */
+    @PostMapping("/user/tea/les_mgr/add")
+    public String lesPost(@ModelAttribute("lesson") @Valid Lesson lesson,
+                          BindingResult result,
+                          @RequestParam("crs_id") long crsId,
+                          @RequestParam("chp_id") long chpId){
+
+        if (result.hasErrors()) {
+            throw new RuntimeException("表单数据不合法");
+        }
+
+        crsSer.addLesson(lesson,crsId);
+
+        return "redirect:/user/tea/les_mgr?crs_id="+crsId+"&chp_id="+chpId;
+    }
+
+    /**
+     * 修改课时的视频
+     */
     @PostMapping("/user/tea/les_mgr/video")
     public String modifyVideo(@RequestParam("crs_id") long crsId,
                               @RequestParam("chp_id") long chpId,
                               @RequestParam("les_id") long lesId,
-                              @RequestParam("file") MultipartFile file){
+                              @RequestParam("video") MultipartFile file){
 
 
-        String url = FileUtils.uploadMultipartFile(file, FileType.VIDEO,crsId,lesId);
+        String url = FileUtils.uploadMultipartFile(file, FileType.VIDEO,crsId);
         if (url!=null){
-
+            crsSer.updateLessonVideo(url,lesId);
         }
 
         return "redirect:/user/tea/les_mgr?crs_id="+crsId+"&chp_id="+chpId;
     }
+
+
 
 }

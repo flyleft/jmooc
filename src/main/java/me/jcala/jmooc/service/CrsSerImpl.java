@@ -7,8 +7,11 @@ import me.jcala.jmooc.entity.User;
 import me.jcala.jmooc.entity.auxiliary.ChpForm;
 import me.jcala.jmooc.repository.ChapterRepository;
 import me.jcala.jmooc.repository.CourserRepository;
+import me.jcala.jmooc.repository.LessonRepository;
 import me.jcala.jmooc.repository.UserRepository;
 import me.jcala.jmooc.service.inter.CrsSer;
+import me.jcala.jmooc.utils.FileType;
+import me.jcala.jmooc.utils.FileUtils;
 import me.jcala.jmooc.utils.JmoocBeanUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -29,13 +32,15 @@ public class CrsSerImpl implements CrsSer{
 
     private UserRepository userRepository;
 
+    private LessonRepository lessonRepository;
+
     @Autowired
-    public CrsSerImpl(CourserRepository courserRepository,
-                      ChapterRepository chapterRepository,
-                      UserRepository userRepository) {
+    public CrsSerImpl(CourserRepository courserRepository, ChapterRepository chapterRepository,
+                      UserRepository userRepository, LessonRepository lessonRepository) {
         this.courserRepository = courserRepository;
         this.chapterRepository = chapterRepository;
         this.userRepository = userRepository;
+        this.lessonRepository = lessonRepository;
     }
 
     @Override
@@ -85,6 +90,16 @@ public class CrsSerImpl implements CrsSer{
 
     @Override
     public void updateLessonVideo(String videoUrl, long lesId) {
+         lessonRepository.updateVideoById(videoUrl,lesId);
+    }
 
+    @Override
+    public void addLesson(Lesson lesson,long crsId) {
+        String url = FileUtils.uploadMultipartFile(lesson.getVf(), FileType.VIDEO,crsId);
+        if (url==null) return;
+
+        lesson.setVideo(url);
+
+        lessonRepository.save(lesson);
     }
 }

@@ -47,7 +47,7 @@
     <div id="page-wrapper">
         <div class="row">
             <div class="col-lg-12">
-                <button class="btn btn-default btn-lg" id="add_project"><i class="fa fa-plus"></i> <span class="network-name">添加课时</span></button>
+                <button class="btn btn-default btn-lg" id="post_les"><i class="fa fa-plus"></i> <span class="network-name">添加课时</span></button>
                 <br><br><br>
             </div>
         </div>
@@ -72,7 +72,7 @@
                         <td>${item.video!}</td>
                         <td>
                             <form method="POST" enctype="multipart/form-data" action="/user/tea/les_mgr/video?crs_id=${crs_id!}&chp_id=${chp_id!}&les_id=${item.id!}">
-                                <input type="file" name="file" class="form-control"/>
+                                <input type="file" name="video" class="form-control"/>
                                 <input type="submit" value="上传" class="form-control"/>
                             </form>
                         </td>
@@ -97,5 +97,28 @@
 <!-- JavaScript -->
 <script src="/js/jquery.min.js"></script>
 <script src="/js/bootstrap.min.js"></script>
+<script src="//cdn.bootcss.com/bootbox.js/4.4.0/bootbox.min.js"></script>
+<script type="text/javascript">
+    $(document).on("click", "#post_les",
+            function() {
+                bootbox.dialog({
+                    title: "新的课时",
+                    message: '<div class="col-md-12"><form class="form-horizontal" id="post_les_form" enctype="multipart/form-data"><div class="form-group"> <label class="col-md-2 control-label">课时名</label><div class="col-md-9"> <input name="name" type="text" class="form-control input-md"><input type="hidden" name="pos" id="pos"/></div><div class="form-group"> <label class="col-md-2 control-label">文件</label> <div class="col-md-9"><input type="file" name="vf" class="form-control"/></div></div></div>',
+                    buttons: {
+                        success: {
+                            label: "提交",
+                            className: "btn-success",
+                            callback: function() {
+                                var a = document.getElementById("post_chp_form");
+                                a.name="lesson",
+                                a.action = "/user/tea/les_mgr/add?crs_id=${crs_id!}&chp_id=${chp_id!}",
+                                a.method = "post",
+                                a.submit()
+                            }
+                        }
+                    }
+                })
+            });
+</script>
 </body>
 </html>
