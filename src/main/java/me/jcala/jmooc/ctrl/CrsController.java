@@ -161,8 +161,9 @@ public class CrsController {
 
 
         String url = FileUtils.uploadMultipartFile(file, FileType.VIDEO,crsId,lesId);
+        if (url!=null){
 
-        logger.debug("文件访问地址："+url);
+        }
 
         return "redirect:/user/tea/les_mgr?crs_id="+crsId+"&chp_id="+chpId;
     }

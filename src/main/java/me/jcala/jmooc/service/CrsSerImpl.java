@@ -82,4 +82,9 @@ public class CrsSerImpl implements CrsSer{
     public void delCourse(long crsId) {
         courserRepository.delete(crsId);
     }
+
+    @Override
+    public void updateLessonVideo(String videoUrl, long lesId) {
+
+    }
 }

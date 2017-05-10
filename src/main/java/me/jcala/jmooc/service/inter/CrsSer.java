@@ -20,4 +20,6 @@ public interface CrsSer {
     void addChapter(ChpForm chpForm);//添加章节
 
     void delCourse(long crsId);//删除课程
+
+    void updateLessonVideo(String videoUrl,long lesId);
 }
