@@ -4,7 +4,7 @@ import me.jcala.jmooc.entity.Chapter;
 import me.jcala.jmooc.entity.Course;
 import me.jcala.jmooc.entity.Lesson;
 import me.jcala.jmooc.entity.User;
-import me.jcala.jmooc.entity.form.ChpForm;
+import me.jcala.jmooc.entity.auxiliary.ChpForm;
 import me.jcala.jmooc.repository.ChapterRepository;
 import me.jcala.jmooc.repository.CourserRepository;
 import me.jcala.jmooc.repository.UserRepository;
@@ -12,7 +12,6 @@ import me.jcala.jmooc.service.inter.CrsSer;
 import me.jcala.jmooc.utils.JmoocBeanUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -3,7 +3,7 @@ package me.jcala.jmooc.service.inter;
 import me.jcala.jmooc.entity.Chapter;
 import me.jcala.jmooc.entity.Course;
 import me.jcala.jmooc.entity.Lesson;
-import me.jcala.jmooc.entity.form.ChpForm;
+import me.jcala.jmooc.entity.auxiliary.ChpForm;
 
 import java.util.Set;
 

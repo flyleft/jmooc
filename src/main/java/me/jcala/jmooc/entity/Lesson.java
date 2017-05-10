@@ -34,9 +34,8 @@ public class Lesson implements Serializable{
     @JoinColumn(name = "chapter_id")
     private Chapter chapter;
 
-    @Column(name = "file_list")
-    @OneToMany(cascade = CascadeType.REMOVE,fetch= FetchType.LAZY)
-    private Set<File> fileList=new HashSet<>();//文件列表
+    @Column(name = "file_json",columnDefinition="text")
+    private String upFileList;//存储文件信息。List<UpFile>的json形式，可以省去一个数据表
 
     @Column(name = "exercise_list")
     @OneToMany(cascade = CascadeType.REMOVE,fetch=FetchType.LAZY)

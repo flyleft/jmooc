@@ -1,4 +1,4 @@
-package me.jcala.jmooc.entity.form;
+package me.jcala.jmooc.entity.auxiliary;
 
 import lombok.Data;
 import org.hibernate.validator.constraints.NotBlank;

@@ -4,7 +4,7 @@ import me.jcala.jmooc.entity.Chapter;
 import me.jcala.jmooc.entity.Course;
 import me.jcala.jmooc.entity.Lesson;
 import me.jcala.jmooc.entity.User;
-import me.jcala.jmooc.entity.form.ChpForm;
+import me.jcala.jmooc.entity.auxiliary.ChpForm;
 import me.jcala.jmooc.exception.NoPageException;
 import me.jcala.jmooc.service.inter.CrsSer;
 import me.jcala.jmooc.utils.CommonUtils;
