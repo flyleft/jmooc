@@ -12,14 +12,14 @@ server:
         directory: /home/jcala/jmooc/log/server_log
         pattern: combined
         enabled: true
-#    undertow:
-#        io-threads: 4
-#        worker-threads: 10
-#        buffer-size: 16384
-#        accesslog:
-#            enabled: true
-#            dir: /home/jcala/jmooc/log/server_log
-#            pattern: combined
+    undertow:
+        io-threads: 4
+        worker-threads: 10
+        buffer-size: 16384
+        accesslog:
+            enabled: true
+            dir: /home/jcala/jmooc/log/server_log
+            pattern: combined
 logging:
     config: classpath:log4j2.xml
 spring:
