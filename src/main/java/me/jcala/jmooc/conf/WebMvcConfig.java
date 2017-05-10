@@ -3,7 +3,6 @@ package me.jcala.jmooc.conf;
 import me.jcala.jmooc.interceptor.UserSecurityInterceptor;
 import me.jcala.jmooc.utils.FileType;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
@@ -15,11 +14,9 @@ import java.io.File;
 public class WebMvcConfig extends WebMvcConfigurerAdapter {
 
 
-	@Value("${jmooc.basic_home}")
-	private String basicHome;
+	private static  final String  basicHome="G:/home/jcala/jmooc";
 
-	@Value("${jmooc.basic_url")
-	private String basicUrl;
+	private static  final String basicUrl="http://127.0.0.1:8090";
 
 
 	private UserSecurityInterceptor securityInterceptor;
@@ -48,9 +45,10 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
 
 	@PostConstruct
 	public void initConfigureBean(){
-		FileType.FILE.setHome(basicHome+ File.separatorChar+"files"+File.separatorChar);
-		FileType.FILE.setHome(basicUrl+"/files/");
-		FileType.VIDEO.setHome(basicHome+ File.separatorChar+"videos"+File.separatorChar);
-		FileType.VIDEO.setHome(basicUrl+"/videos/");
+		FileType.FILE.setHome(basicHome+ "/files/");
+		FileType.FILE.setUrl(basicUrl+"/files/");
+		FileType.VIDEO.setHome(basicHome+ "/videos/");
+		FileType.VIDEO.setUrl(basicUrl+"/videos/");
 	}
+
 }

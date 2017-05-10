@@ -17,12 +17,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
+import java.io.File;
+import java.io.IOException;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -129,8 +130,8 @@ public class CrsController {
      * 返回课时列表界面
      */
     @GetMapping("/user/tea/les_mgr")
-    public String LesMgr(@RequestParam("chp_id") int chpId,
-                         @RequestParam("crs_id") String crsId,
+    public String LesMgr(@RequestParam("crs_id") long crsId,
+                         @RequestParam("chp_id") int chpId,
                          Model model){
         //Set<Lesson> lessons=crsSer.getLessonList(chpId);
 
@@ -147,22 +148,23 @@ public class CrsController {
         if (lessons!=null){
             model.addAttribute("les",lessons);
             model.addAttribute("crs_id",crsId);
+            model.addAttribute("chp_id",chpId);
         }
        return "crs/les_mgr";
     }
 
-    @GetMapping("/user/tea/les_mgr/video")
-    public String modifyVideo(@RequestParam("les_id") String lesId,
-                              @RequestParam("crs_id") String crsId,
-                              HttpServletRequest request){
+    @PostMapping("/user/tea/les_mgr/video")
+    public String modifyVideo(@RequestParam("crs_id") long crsId,
+                              @RequestParam("chp_id") long chpId,
+                              @RequestParam("les_id") long lesId,
+                              @RequestParam("file") MultipartFile file){
 
-        if (CommonUtils.notEmpty(lesId,crsId)){
 
-            FileUtils.uploadFile(request, FileType.VIDEO,1L);
+        String url = FileUtils.uploadMultipartFile(file, FileType.VIDEO,crsId,lesId);
 
-        }
+        logger.debug("文件访问地址："+url);
 
-        return "redirect:/user/tea/les_mgr?chp_id"+crsId;
+        return "redirect:/user/tea/les_mgr?crs_id="+crsId+"&chp_id="+chpId;
     }
 
 }

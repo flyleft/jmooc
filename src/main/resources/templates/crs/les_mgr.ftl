@@ -71,11 +71,9 @@
                         <td>${item.name!}</td>
                         <td>${item.video!}</td>
                         <td>
-                            <form action="/user/tea/les_mgr/video" method="post" enctype="multipart/form-data">
-                                <input name="file" type="file" class="form-control">
-                                <input type="hidden" name="les_id" value="${item.id!}"/>
-                                <input type="hidden" name="crs_id" value="${crs_id!}"/>
-                                <input type="submit" value="上传">
+                            <form method="POST" enctype="multipart/form-data" action="/user/tea/les_mgr/video?crs_id=${crs_id!}&chp_id=${chp_id!}&les_id=${item.id!}">
+                                <input type="file" name="file" class="form-control"/>
+                                <input type="submit" value="上传" class="form-control"/>
                             </form>
                         </td>
                         <td>

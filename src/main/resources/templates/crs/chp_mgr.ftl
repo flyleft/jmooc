@@ -67,7 +67,7 @@
                         <td>${chp.pos!}</td>
                         <td>${chp.name!}</td>
                         <td>
-                            <a href='/user/tea/les_mgr?chp_id=${chp.id!}&crs_id=${crs!}'><i class="fa fa-pencil"></i></a>
+                            <a href='/user/tea/les_mgr?crs_id=${crs!}&chp_id=${chp.id!}'><i class="fa fa-pencil"></i></a>
                         </td>
                         </tr>
                         </#list>

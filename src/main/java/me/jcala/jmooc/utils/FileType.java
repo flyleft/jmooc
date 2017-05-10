@@ -21,4 +21,11 @@ public enum FileType {
         this.url = url;
     }
 
+    @Override
+    public String toString() {
+        return "FileType{" +
+                "home='" + home + '\'' +
+                ", url='" + url + '\'' +
+                '}';
+    }
 }

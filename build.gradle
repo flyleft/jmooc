@@ -37,9 +37,9 @@ jar {
     version =  '1.0.0'
 }
 configurations {
-    compile.exclude module: "spring-boot-starter-tomcat"
-    compile.exclude group: 'org.apache.tomcat.embed'
-    compile.exclude group: 'org.apache.tomcat'
+//    compile.exclude module: "spring-boot-starter-tomcat"
+//    compile.exclude group: 'org.apache.tomcat.embed'
+//    compile.exclude group: 'org.apache.tomcat'
     compile.exclude group: 'org.apache.struts'
     compile.exclude group: 'c3p0'
     compile.exclude group: 'ch.qos.logback'
@@ -58,10 +58,11 @@ repositories {
 }
 
 dependencies {
-    compile ("org.springframework.boot:spring-boot-starter-web:${springBootVersion}"){
+    compile "org.springframework.boot:spring-boot-starter-web:${springBootVersion}"
+    /*compile ("org.springframework.boot:spring-boot-starter-web:${springBootVersion}"){
         exclude group: 'org.springframework.boot', module: 'spring-boot-starter-tomcat'
     }
-    compile "org.springframework.boot:spring-boot-starter-undertow:${springBootVersion}"
+    compile "org.springframework.boot:spring-boot-starter-undertow:${springBootVersion}"*/
     //-----------------------测试------------------------------
     testCompile "org.springframework.boot:spring-boot-starter-test:${springBootVersion}"
     testCompile 'junit:junit:4.12'
@@ -94,6 +95,8 @@ dependencies {
     compile 'org.hibernate:hibernate-entitymanager:5.2.10.Final'
     //--------------------JDK工具------------------------------
     compile 'org.projectlombok:lombok:1.16.12'
-    //---------------------缓存-------------------------------
+    //--------------------IO工具-------------------------------
+    //compile group: 'commons-fileupload', name: 'commons-fileupload', version: '1.3.2'
+    //---------------------缓存--------------------------------
     compile "net.sf.ehcache:ehcache:${ehcacheVersion}"
 }

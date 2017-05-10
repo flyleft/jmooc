@@ -17,7 +17,7 @@ public class FileUtils {
     private static final Logger logger= LoggerFactory.getLogger(FileUtils.class);
 
     public static String uploadFile(HttpServletRequest request,FileType type,long crsId,long lesId)
-            {
+    {
         MultipartHttpServletRequest multipartRequest =
                 (MultipartHttpServletRequest) request;
         Iterator<String> fileNames = multipartRequest.getFileNames();
@@ -37,17 +37,41 @@ public class FileUtils {
         }
 
         //合成图片在服务器上的物理绝对路径
-        File targetFile = new File(type.getHome() + crsId+File.separatorChar+lesId+ File.separatorChar + fileName);
+        File targetFile = new File(type.getHome() + crsId+"/"+lesId+ "/" + fileName);
         //保存图片
-                try {
-                    multipartFile.transferTo(targetFile);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                    logger.warn("上传文件或者视频出错"+e.getMessage());
-                }
-                return type.getUrl() + crsId + "/" + lesId+"/"+fileName;
+        try {
+            multipartFile.transferTo(targetFile);
+        } catch (IOException e) {
+            e.printStackTrace();
+            logger.warn("上传文件或者视频出错"+e.getMessage());
+        }
+        return type.getUrl() + crsId + "/" + lesId+"/"+fileName;
     }
 
+    public static String uploadMultipartFile( MultipartFile multipartFile,FileType type,long crsId,long lesId)
+    {
+
+        //设置图片名称为currentTimeMillis+文件后缀
+        String fileName = String.valueOf(System.currentTimeMillis()) + "." +
+                getSuffix(multipartFile.getOriginalFilename());
+
+        //图片存储路径为根路径/年月。比如user/jcala/xmarket/201608
+        File path = new File(type.getHome()+ crsId+"/"+lesId);
+        if (!path.exists()) {
+            path.mkdirs();
+        }
+
+        //合成图片在服务器上的物理绝对路径
+        File targetFile = new File(type.getHome() + crsId+"/"+lesId+ "/"+ fileName);
+        //保存图片
+        try {
+            multipartFile.transferTo(targetFile);
+        } catch (IOException e) {
+            e.printStackTrace();
+            logger.warn("上传文件或者视频出错"+e.getMessage());
+        }
+        return type.getUrl() + crsId + "/" + lesId+"/"+fileName;
+    }
     /**
      * 获取文件后缀
      */
