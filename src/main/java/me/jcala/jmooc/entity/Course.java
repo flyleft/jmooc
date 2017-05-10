@@ -1,6 +1,7 @@
 package me.jcala.jmooc.entity;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 import org.hibernate.validator.constraints.NotBlank;
 
 import javax.persistence.*;
@@ -8,7 +9,8 @@ import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
-@Data
+@Getter
+@Setter
 @Entity
 @Table(name = "course")
 public class Course implements Serializable {
@@ -35,8 +37,9 @@ public class Course implements Serializable {
     @Column(nullable = false, length = 10)
     private String type;//类型:c,cp,java
 
-    @ManyToOne(cascade = CascadeType.REMOVE, fetch = FetchType.EAGER, targetEntity = User.class)
-    @JoinColumn(name = "user_id")
+//    @ManyToOne(cascade = CascadeType.REMOVE, fetch = FetchType.EAGER, targetEntity = User.class)
+//    @JoinColumn(name = "user_id")
+    @ManyToOne
     private User user;
 
     @Column(name = "chapters")

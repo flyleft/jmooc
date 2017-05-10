@@ -1,6 +1,7 @@
 package me.jcala.jmooc.entity;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -8,7 +9,8 @@ import java.util.HashSet;
 import java.util.Set;
 
 //习题表
-@Data
+@Getter
+@Setter
 @Entity
 @Table(name = "exercise")
 public class Exercise implements Serializable{
