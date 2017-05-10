@@ -63,5 +63,5 @@ spring:
         ddl-auto: update
       generate-ddl: true
 jmooc:
-    basic_home: G:\home\jcala\xmarket\pic
-    basic_url: https://192.168.10.4:80
+    basic_home: G:\home\jcala\jmooc
+    basic_url: http://127.0.0.1:8090

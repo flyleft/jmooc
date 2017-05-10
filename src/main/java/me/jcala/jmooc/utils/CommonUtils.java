@@ -26,14 +26,6 @@ public class CommonUtils {
         return true;
     }
 
-    public static String getYearMonthOfNow(){
-        Calendar CALENDAR =  Calendar.getInstance();
-        CALENDAR.setTime(new Date());
-        int year=CALENDAR.get(Calendar.YEAR);
-        int month=CALENDAR.get(Calendar.MONTH);
-        return year+""+month;
-    }
-
     public static UserAuxiliary User2Auxiliary(User user){
 
         return new UserAuxiliary(

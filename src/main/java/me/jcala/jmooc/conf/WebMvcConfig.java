@@ -48,9 +48,9 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
 
 	@PostConstruct
 	public void initConfigureBean(){
-		FileType.FILE.setHome(basicHome+ File.separatorChar+"file"+File.separatorChar);
+		FileType.FILE.setHome(basicHome+ File.separatorChar+"files"+File.separatorChar);
 		FileType.FILE.setHome(basicUrl+"/files/");
-		FileType.VIDEO.setHome(basicHome+ File.separatorChar+"video"+File.separatorChar);
+		FileType.VIDEO.setHome(basicHome+ File.separatorChar+"videos"+File.separatorChar);
 		FileType.VIDEO.setHome(basicUrl+"/videos/");
 	}
 }

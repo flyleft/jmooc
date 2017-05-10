@@ -1,5 +1,7 @@
 package me.jcala.jmooc.utils;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
@@ -12,8 +14,10 @@ import static org.springframework.util.StreamUtils.copy;
 
 public class FileUtils {
 
-    public static String uploadFile(HttpServletRequest request,FileType type)
-            throws Exception {
+    private static final Logger logger= LoggerFactory.getLogger(FileUtils.class);
+
+    public static String uploadFile(HttpServletRequest request,FileType type,long crsId)
+            {
         MultipartHttpServletRequest multipartRequest =
                 (MultipartHttpServletRequest) request;
         Iterator<String> fileNames = multipartRequest.getFileNames();
@@ -25,20 +29,23 @@ public class FileUtils {
         //设置图片名称为currentTimeMillis+文件后缀
         String fileName = String.valueOf(System.currentTimeMillis()) + "." +
                 getSuffix(multipartFile.getOriginalFilename());
-        //获取当前年月
-        String yearMonth = CommonUtils.getYearMonthOfNow();
 
         //图片存储路径为根路径/年月。比如user/jcala/xmarket/201608
-        File path = new File(type.getHome()+ yearMonth);
+        File path = new File(type.getHome()+ crsId);
         if (!path.exists()) {
             path.mkdirs();
         }
 
         //合成图片在服务器上的物理绝对路径
-        File targetFile = new File(type.getHome() + yearMonth + File.separatorChar + fileName);
+        File targetFile = new File(type.getHome() + crsId + File.separatorChar + fileName);
         //保存图片
-        multipartFile.transferTo(targetFile);
-        return type.getUrl() + yearMonth + "/" + fileName;
+                try {
+                    multipartFile.transferTo(targetFile);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                    logger.warn("上传文件或者视频出错"+e.getMessage());
+                }
+                return type.getUrl() + crsId + "/" + fileName;
     }
 
     /**
