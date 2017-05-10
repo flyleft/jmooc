@@ -81,7 +81,8 @@ dependencies {
     //--------------------数据库驱动----------------------------
     compile 'mysql:mysql-connector-java:6.0.5'
     //-------------------数据库连接池---------------------------
-    compile 'com.zaxxer:HikariCP:2.6.1'
+    //compile 'com.zaxxer:HikariCP:2.6.1'
+    compile 'com.alibaba:druid:1.0.29'
     //---------------------消息队列-----------------------------
 //    compile "org.springframework.boot:spring-boot-starter-activemq:${springBootVersion}"
     //----------------------ORM--------------------------------

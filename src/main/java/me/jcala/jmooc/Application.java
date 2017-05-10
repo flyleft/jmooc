@@ -9,10 +9,7 @@ import org.springframework.boot.web.support.SpringBootServletInitializer;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-@SpringBootApplication
-@EnableTransactionManagement// 开启注解事务管理，等同于xml配置文件中的<tx:annotation-driven/>
-@EnableJpaRepositories("me.jcala.jmooc.repository")
-@EntityScan("me.jcala.jmooc.entity")
+@SpringBootApplication(exclude = DataSourceAutoConfiguration.class)
 //@EnableCaching
 public class Application extends SpringBootServletInitializer {
 	@Override

@@ -95,9 +95,10 @@ public class DruidDataSourceConfig implements EnvironmentAware,TransactionManage
         entityManagerFactoryBean.setJpaVendorAdapter(new HibernateJpaVendorAdapter());
 
         Properties jpaProperties = new Properties();
-        jpaProperties.put(org.hibernate.cfg.Environment.DIALECT, "org.hibernate.dialect.MySQLDialect");
+        jpaProperties.put(org.hibernate.cfg.Environment.DIALECT, "org.hibernate.dialect.MySQL5Dialect");
         jpaProperties.put(org.hibernate.cfg.Environment.HBM2DDL_AUTO, "update");
         jpaProperties.put(org.hibernate.cfg.Environment.SHOW_SQL, true);
+        //jpaProperties.put("hibernate.hbm2ddl.import_files", "import.sql");
         entityManagerFactoryBean.setJpaProperties(jpaProperties);
 
         return entityManagerFactoryBean;
