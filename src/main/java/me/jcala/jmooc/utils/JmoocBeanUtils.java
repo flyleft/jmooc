@@ -6,7 +6,7 @@ import java.util.Set;
 
 public class JmoocBeanUtils {
 
-    public static Set<Lesson> setFileAndExeNum(Set<Lesson> lessons){
+    public static Set<Lesson> setFileAndExeNum(Set<Lesson> lessons,long crsId){
 
         for (Lesson lesson:lessons){
             if (lesson.getExerciseList()==null){
@@ -14,7 +14,7 @@ public class JmoocBeanUtils {
             }else {
                 lesson.setExeNum(lesson.getExerciseList().size());
             }
-            lesson.setFileUrl(FileType.FILE.getUrl()+lesson.getId());
+            lesson.setFileUrl(FileType.FILE.getUrl()+crsId+"/"+lesson.getId());
         }
         return lessons;
     }

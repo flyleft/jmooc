@@ -62,12 +62,12 @@ public class CrsSerImpl implements CrsSer{
     }
 
     @Override
-    public Set<Lesson> getLessonList(long chpId) {
+    public Set<Lesson> getLessonList(long chpId,long crsId) {
         Chapter chapter=chapterRepository.findOne(chpId);
         if (chapter==null){
             return new HashSet<>();
         }
-        return JmoocBeanUtils.setFileAndExeNum(chapter.getLessons());
+        return JmoocBeanUtils.setFileAndExeNum(chapter.getLessons(),crsId);
     }
 
     @Override

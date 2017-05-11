@@ -32,8 +32,12 @@ public class FileUtils {
         //合成图片在服务器上的物理绝对路径
         File targetFile = new File(type.getHome() + crsId+"/"+ fileName);
         //保存图片
-        transferTo(multipartFile,targetFile);
-        return crsId + "/" +fileName;
+        boolean result=transferTo(multipartFile,targetFile);
+        if (result){
+            return crsId + "/" +fileName;
+        }else {
+            return null;
+        }
     }
 
     public static String uploadFile( MultipartFile multipartFile,FileType type,long crsId,long lesId)
@@ -44,7 +48,7 @@ public class FileUtils {
                 getSuffix(multipartFile.getOriginalFilename());
 
         //图片存储路径为根路径/年月。比如user/jcala/xmarket/201608
-        File path = new File(type.getHome()+ crsId);
+        File path = new File(type.getHome()+ crsId+"/"+lesId);
         if (!path.exists()) {
             path.mkdirs();
         }
@@ -52,8 +56,12 @@ public class FileUtils {
         //合成图片在服务器上的物理绝对路径
         File targetFile = new File(type.getHome() + crsId+"/"+lesId+"/"+fileName);
         //保存图片
-        transferTo(multipartFile,targetFile);
-        return crsId + "/" +lesId+"/"+fileName;
+        boolean result=transferTo(multipartFile,targetFile);
+        if (result){
+            return crsId + "/" +lesId+"/"+fileName;
+        }else {
+            return null;
+        }
     }
 
     private static boolean transferTo( MultipartFile multipartFile,File targetFile){

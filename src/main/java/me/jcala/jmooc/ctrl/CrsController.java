@@ -131,7 +131,7 @@ public class CrsController {
     public String LesMgr(@RequestParam("crs_id") long crsId,
                          @RequestParam("chp_id") long chpId,
                          Model model){
-        Set<Lesson> lessons=crsSer.getLessonList(chpId);
+        Set<Lesson> lessons=crsSer.getLessonList(chpId,crsId);
 
         if (lessons!=null){
             model.addAttribute("les",lessons);
@@ -185,7 +185,7 @@ public class CrsController {
                              @RequestParam("les_id") long lesId,
                              @RequestParam("file") MultipartFile file){
 
-      crsSer.uploadLessonFile(file,crsId,chpId);
+      crsSer.uploadLessonFile(file,crsId,lesId);
 
       return "redirect:/user/tea/les_mgr?crs_id="+crsId+"&chp_id="+chpId;
     }

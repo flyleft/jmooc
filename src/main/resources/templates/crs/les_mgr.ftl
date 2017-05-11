@@ -78,7 +78,7 @@
                         </td>
                         <td>
                             <a href='${item.fileUrl!}'><i class="fa fa-eye">查看</i></a>&#12288;&#12288;
-                            <a href='javascript:void(0)'><i class="fa fa-pencil upload_file" name="${item.id!}">上传</i></a>
+                            <a href='javascript:void(0)' name="${item.id!}" class="upload_file"><i class="fa fa-pencil">上传</i></a>
                         </td>
                         <td>
                         ${item.exeNum!}
@@ -122,8 +122,9 @@
             });
     $(document).on("click", ".upload_file",
             function() {
+                var lesId=$(this).attr("name");
                 bootbox.dialog({
-                    title: "上传视频",
+                    title: "上传文件",
                     message: '<div class="row"><div class="col-md-12"><form class="form-horizontal" id="post_file_form" enctype="multipart/form-data"><div class="col-md-9"> <input type="file" name="file" class="form-control"/></div></div></div>',
                     buttons: {
                         success: {
@@ -132,7 +133,7 @@
                             callback: function() {
                                 var a = document.getElementById("post_file_form");
                                 a.enctype="multipart/form-data",
-                                a.action = "/user/tea/les_mgr/file?crs_id=${crs_id!}&chp_id=${chp_id!}&lesId=${les_id!}",
+                                a.action = "/user/tea/les_mgr/file?crs_id=${crs_id!}&chp_id=${chp_id!}&les_id="+lesId,
                                 a.method = "post",
                                 a.submit()
                             }

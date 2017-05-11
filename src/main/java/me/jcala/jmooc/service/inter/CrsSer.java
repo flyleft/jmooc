@@ -16,7 +16,7 @@ public interface CrsSer {
 
     Set<Chapter> getChapterList(long crsId);//获取某课程的章节列表
 
-    Set<Lesson> getLessonList(long chpId);//获取某章节的课时列表
+    Set<Lesson> getLessonList(long chpId,long crsId);//获取某章节的课时列表
 
     void addChapter(ChpForm chpForm);//添加章节
 
