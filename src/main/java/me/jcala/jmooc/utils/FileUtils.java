@@ -16,39 +16,7 @@ public class FileUtils {
 
     private static final Logger logger= LoggerFactory.getLogger(FileUtils.class);
 
-    public static String uploadFile(HttpServletRequest request,FileType type,long crsId,long lesId)
-    {
-        MultipartHttpServletRequest multipartRequest =
-                (MultipartHttpServletRequest) request;
-        Iterator<String> fileNames = multipartRequest.getFileNames();
-        if (!fileNames.hasNext()){
-            return null;
-        }
-        MultipartFile multipartFile = multipartRequest.getFile(fileNames.next());
-
-        //设置图片名称为currentTimeMillis+文件后缀
-        String fileName = String.valueOf(System.currentTimeMillis()) + "." +
-                getSuffix(multipartFile.getOriginalFilename());
-
-        //图片存储路径为根路径/年月。比如user/jcala/xmarket/201608
-        File path = new File(type.getHome()+ crsId);
-        if (!path.exists()) {
-            path.mkdirs();
-        }
-
-        //合成图片在服务器上的物理绝对路径
-        File targetFile = new File(type.getHome() + crsId+"/"+lesId+ "/" + fileName);
-        //保存图片
-        try {
-            multipartFile.transferTo(targetFile);
-        } catch (IOException e) {
-            e.printStackTrace();
-            logger.warn("上传文件或者视频出错"+e.getMessage());
-        }
-        return  crsId + "/" + lesId+"/"+fileName;
-    }
-
-    public static String uploadMultipartFile( MultipartFile multipartFile,FileType type,long crsId)
+    public static String uploadVideo( MultipartFile multipartFile,FileType type,long crsId)
     {
 
         //设置图片名称为currentTimeMillis+文件后缀
@@ -64,14 +32,39 @@ public class FileUtils {
         //合成图片在服务器上的物理绝对路径
         File targetFile = new File(type.getHome() + crsId+"/"+ fileName);
         //保存图片
+        transferTo(multipartFile,targetFile);
+        return crsId + "/" +fileName;
+    }
+
+    public static String uploadFile( MultipartFile multipartFile,FileType type,long crsId,long lesId)
+    {
+
+        //设置图片名称为currentTimeMillis+文件后缀
+        String fileName = String.valueOf(System.currentTimeMillis()) + "." +
+                getSuffix(multipartFile.getOriginalFilename());
+
+        //图片存储路径为根路径/年月。比如user/jcala/xmarket/201608
+        File path = new File(type.getHome()+ crsId);
+        if (!path.exists()) {
+            path.mkdirs();
+        }
+
+        //合成图片在服务器上的物理绝对路径
+        File targetFile = new File(type.getHome() + crsId+"/"+lesId+"/"+fileName);
+        //保存图片
+        transferTo(multipartFile,targetFile);
+        return crsId + "/" +lesId+"/"+fileName;
+    }
+
+    private static boolean transferTo( MultipartFile multipartFile,File targetFile){
         try {
             multipartFile.transferTo(targetFile);
         } catch (IOException e) {
             e.printStackTrace();
             logger.warn("上传文件或者视频出错"+e.getMessage());
-            return null;
+            return false;
         }
-        return crsId + "/" +fileName;
+        return true;
     }
     /**
      * 获取文件后缀

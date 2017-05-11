@@ -4,8 +4,8 @@ import lombok.Getter;
 import lombok.Setter;
 
 public enum FileType {
-    FILE("",""),
-    VIDEO("","")
+    FILE,
+    VIDEO
     ;
 
     @Getter
@@ -16,9 +16,7 @@ public enum FileType {
     @Setter
     private String url;
 
-    FileType(String home, String url) {
-        this.home = home;
-        this.url = url;
+    FileType() {
     }
 
     @Override

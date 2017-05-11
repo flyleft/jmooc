@@ -171,14 +171,13 @@ public class CrsController {
                               @RequestParam("video") MultipartFile file){
 
 
-        String url = FileUtils.uploadMultipartFile(file, FileType.VIDEO,crsId);
+        String url = FileUtils.uploadVideo(file, FileType.VIDEO,crsId);
         if (url!=null){
             crsSer.updateLessonVideo(url,lesId);
         }
 
         return "redirect:/user/tea/les_mgr?crs_id="+crsId+"&chp_id="+chpId;
     }
-
 
 
 }

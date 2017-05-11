@@ -77,7 +77,8 @@
                             </form>
                         </td>
                         <td>
-                        ${item.fileNum!}
+                            <a href='${item.fileUrl!}'><i class="fa fa-eye">查看</i></a>&#12288;&#12288;
+                            <a href='javascript:void(0)'><i class="fa fa-pencil upd_project" name="${item.id!}">上传</i></a>
                         </td>
                         <td>
                         ${item.exeNum!}

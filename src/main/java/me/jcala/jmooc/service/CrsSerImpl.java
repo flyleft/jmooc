@@ -96,7 +96,7 @@ public class CrsSerImpl implements CrsSer{
     @Override
     public void addLesson(Lesson lesson,long crsId,long chapId) {
 
-        String url = FileUtils.uploadMultipartFile(lesson.getVf(), FileType.VIDEO,crsId);
+        String url = FileUtils.uploadVideo(lesson.getVf(), FileType.VIDEO,crsId);
 
         if (url==null) return;
 

@@ -14,13 +14,7 @@ public class JmoocBeanUtils {
             }else {
                 lesson.setExeNum(lesson.getExerciseList().size());
             }
-
-            if (lesson.getUpFileList()==null){
-                lesson.setFileNum(0);
-            }else {
-                int size=JsonUtils.instance.readJsonToFileList(lesson.getUpFileList()).size();
-                lesson.setFileNum(size);
-            }
+            lesson.setFileUrl(FileType.FILE.getUrl()+lesson.getId());
         }
         return lessons;
     }

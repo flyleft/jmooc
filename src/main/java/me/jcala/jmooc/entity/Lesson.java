@@ -49,10 +49,10 @@ public class Lesson implements Serializable{
     private Set<Exercise> exerciseList=new HashSet<>();//习题列表
 
     @Transient
-    private int fileNum;//文件数量，为了方便前端的数量
+    private int exeNum;//习题数量，为了方便前端的显示，不存入数据库
 
     @Transient
-    private int exeNum;//习题数量，为了方便前端的数量
+    private String fileUrl;//文件访问地址，为了方便前端的显示，不存入数据库
 
     @Transient
     private MultipartFile vf;
