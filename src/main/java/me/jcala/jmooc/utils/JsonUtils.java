@@ -3,7 +3,6 @@ package me.jcala.jmooc.utils;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import me.jcala.jmooc.entity.auxiliary.UpFile;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -29,14 +28,14 @@ public enum  JsonUtils {
         return str;
     }
 
-    public List<UpFile> readJsonToFileList(String json) {
+    public List<String> readJsonToFileList(String json) {
 
         if (json==null||json.trim().isEmpty()) return new ArrayList<>();
 
-        List<UpFile> list;
+        List<String> list;
 
         try {
-            list=mapper.readValue(json, new TypeReference<List<UpFile>>() {});
+            list=mapper.readValue(json, new TypeReference<List<String>>() {});
         } catch (IOException e) {
             list=new ArrayList<>();
             logger.warn("UpFile list反序列化出现错误:"+e.getMessage());

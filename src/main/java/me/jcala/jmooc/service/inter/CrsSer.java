@@ -4,6 +4,7 @@ import me.jcala.jmooc.entity.Chapter;
 import me.jcala.jmooc.entity.Course;
 import me.jcala.jmooc.entity.Lesson;
 import me.jcala.jmooc.entity.auxiliary.ChpForm;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.Set;
 
@@ -24,4 +25,6 @@ public interface CrsSer {
     void updateLessonVideo(String videoUrl,long lesId);//更新视频地址
 
     void addLesson(Lesson lesson,long crsId,long chpId);//添加课时
+
+    void uploadLessonFile(MultipartFile file,long crsId, long lesId);
 }

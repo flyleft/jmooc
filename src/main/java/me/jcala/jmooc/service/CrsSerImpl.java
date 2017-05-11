@@ -13,12 +13,16 @@ import me.jcala.jmooc.service.inter.CrsSer;
 import me.jcala.jmooc.utils.FileType;
 import me.jcala.jmooc.utils.FileUtils;
 import me.jcala.jmooc.utils.JmoocBeanUtils;
+import me.jcala.jmooc.utils.JsonUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Service
@@ -100,10 +104,30 @@ public class CrsSerImpl implements CrsSer{
 
         if (url==null) return;
 
-        logger.debug("上传文件地址: "+url);
+        logger.debug("上传视频地址: "+url);
 
         lesson.setVideo(url);
         lesson.setChapter(new Chapter(chapId));
         lessonRepository.save(lesson);
+    }
+
+    @Override
+    public void uploadLessonFile(MultipartFile file, long crsId, long lesId) {
+
+        String url = FileUtils.uploadFile(file, FileType.FILE,crsId,lesId);
+
+        if (url==null) return;
+
+        logger.debug("上传文件地址: "+url);
+
+        Lesson lesson=lessonRepository.findOne(lesId);
+        if (lesson!=null){
+            List<String> fileList= JsonUtils.instance.readJsonToFileList(lesson.getUpFileList());
+            fileList.add(url);
+            String newFileList=JsonUtils.instance.toJson(fileList);
+            lessonRepository.updateFileById(newFileList,lesId);
+        }
+
+
     }
 }

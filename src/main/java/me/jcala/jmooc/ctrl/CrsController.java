@@ -179,5 +179,15 @@ public class CrsController {
         return "redirect:/user/tea/les_mgr?crs_id="+crsId+"&chp_id="+chpId;
     }
 
+    @PostMapping("/user/tea/les_mgr/file")
+    public String uploadFile(@RequestParam("crs_id") long crsId,
+                             @RequestParam("chp_id") long chpId,
+                             @RequestParam("les_id") long lesId,
+                             @RequestParam("file") MultipartFile file){
+
+      crsSer.uploadLessonFile(file,crsId,chpId);
+
+      return "redirect:/user/tea/les_mgr?crs_id="+crsId+"&chp_id="+chpId;
+    }
 
 }
