@@ -30,7 +30,11 @@ public enum  JsonUtils {
     }
 
     public List<UpFile> readJsonToFileList(String json) {
+
+        if (json==null||json.trim().isEmpty()) return new ArrayList<>();
+
         List<UpFile> list;
+
         try {
             list=mapper.readValue(json, new TypeReference<List<UpFile>>() {});
         } catch (IOException e) {

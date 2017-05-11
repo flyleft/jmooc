@@ -131,23 +131,13 @@ public class CrsController {
     public String LesMgr(@RequestParam("crs_id") long crsId,
                          @RequestParam("chp_id") long chpId,
                          Model model){
-        //Set<Lesson> lessons=crsSer.getLessonList(chpId);
-
-        Set<Lesson> lessons=new HashSet<>();
-        Lesson lesson=new Lesson();
-        lesson.setFileNum(1);
-        lesson.setExeNum(2);
-        lesson.setId(5L);
-        lesson.setName("test课时");
-        lesson.setPos(1);
-        lesson.setVideo("/video/232/1.avi");
-        lessons.add(lesson);
+        Set<Lesson> lessons=crsSer.getLessonList(chpId);
 
         if (lessons!=null){
             model.addAttribute("les",lessons);
             model.addAttribute("crs_id",crsId);
             model.addAttribute("chp_id",chpId);
-            model.addAttribute("pos",1);
+            model.addAttribute("pos",lessons.size()+1);
         }
        return "crs/les_mgr";
     }
