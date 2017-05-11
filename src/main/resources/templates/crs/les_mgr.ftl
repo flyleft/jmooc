@@ -103,13 +103,13 @@
             function() {
                 bootbox.dialog({
                     title: "新的课时",
-                    message: '<div class="col-md-12"><form class="form-horizontal" id="post_les_form" enctype="multipart/form-data"><div class="form-group"> <label class="col-md-2 control-label">课时名</label><div class="col-md-9"> <input name="name" type="text" class="form-control input-md"><input type="hidden" name="pos" id="pos"/></div><div class="form-group"> <label class="col-md-2 control-label">文件</label> <div class="col-md-9"><input type="file" name="vf" class="form-control"/></div></div></div>',
+                    message: '<div class="col-md-12"><form class="form-horizontal" id="post_les_form" enctype="multipart/form-data"><div class="form-group"> <label class="col-md-2 control-label">课时名</label><div class="col-md-9"> <input name="name" type="text" class="form-control input-md"><input type="hidden" name="pos" value="${pos!0}"/></div><div class="form-group"> <label class="col-md-2 control-label">文件</label> <div class="col-md-9"><input type="file" name="vf" class="form-control"/></div></div></div>',
                     buttons: {
                         success: {
                             label: "提交",
                             className: "btn-success",
                             callback: function() {
-                                var a = document.getElementById("post_chp_form");
+                                var a = document.getElementById("post_les_form");
                                 a.name="lesson",
                                 a.action = "/user/tea/les_mgr/add?crs_id=${crs_id!}&chp_id=${chp_id!}",
                                 a.method = "post",

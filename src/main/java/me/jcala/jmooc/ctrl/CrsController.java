@@ -147,6 +147,7 @@ public class CrsController {
             model.addAttribute("les",lessons);
             model.addAttribute("crs_id",crsId);
             model.addAttribute("chp_id",chpId);
+            model.addAttribute("pos",1);
         }
        return "crs/les_mgr";
     }
@@ -161,6 +162,7 @@ public class CrsController {
                           @RequestParam("chp_id") long chpId){
 
         if (result.hasErrors()) {
+            logger.info("name:"+lesson.getName());
             throw new RuntimeException("表单数据不合法");
         }
 

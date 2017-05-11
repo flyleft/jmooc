@@ -45,7 +45,7 @@ public class FileUtils {
             e.printStackTrace();
             logger.warn("上传文件或者视频出错"+e.getMessage());
         }
-        return type.getUrl() + crsId + "/" + lesId+"/"+fileName;
+        return  crsId + "/" + lesId+"/"+fileName;
     }
 
     public static String uploadMultipartFile( MultipartFile multipartFile,FileType type,long crsId)
@@ -71,7 +71,7 @@ public class FileUtils {
             logger.warn("上传文件或者视频出错"+e.getMessage());
             return null;
         }
-        return type.getUrl() + crsId + "/" +fileName;
+        return crsId + "/" +fileName;
     }
     /**
      * 获取文件后缀
