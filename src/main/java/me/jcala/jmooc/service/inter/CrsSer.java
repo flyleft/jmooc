@@ -23,5 +23,5 @@ public interface CrsSer {
 
     void updateLessonVideo(String videoUrl,long lesId);//更新视频地址
 
-    void addLesson(Lesson lesson,long crsId);//添加课时
+    void addLesson(Lesson lesson,long crsId,long chpId);//添加课时
 }

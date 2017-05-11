@@ -34,7 +34,7 @@ public class Lesson implements Serializable{
     @Column(nullable = false)
     private int pos;//位置，表示第几课时
 
-    @Column(length = 80)
+    @Column(length = 40)
     private String video;//在线视频url
 
     @ManyToOne(cascade = CascadeType.REMOVE,fetch=FetchType.EAGER,targetEntity = Chapter.class)

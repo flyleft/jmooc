@@ -94,15 +94,16 @@ public class CrsSerImpl implements CrsSer{
     }
 
     @Override
-    public void addLesson(Lesson lesson,long crsId) {
+    public void addLesson(Lesson lesson,long crsId,long chapId) {
 
         String url = FileUtils.uploadMultipartFile(lesson.getVf(), FileType.VIDEO,crsId);
 
         if (url==null) return;
 
-        logger.info("url: "+url);
-        lesson.setVideo(url);
+        logger.debug("上传文件地址: "+url);
 
+        lesson.setVideo(url);
+        lesson.setChapter(new Chapter(chapId));
         lessonRepository.save(lesson);
     }
 }

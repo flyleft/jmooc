@@ -166,7 +166,7 @@ public class CrsController {
             throw new RuntimeException("表单数据不合法");
         }
 
-        crsSer.addLesson(lesson,crsId);
+        crsSer.addLesson(lesson,crsId,chpId);
 
         return "redirect:/user/tea/les_mgr?crs_id="+crsId+"&chp_id="+chpId;
     }
