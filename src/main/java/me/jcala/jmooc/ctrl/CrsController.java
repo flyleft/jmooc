@@ -128,7 +128,7 @@ public class CrsController {
      * 返回课时列表界面
      */
     @GetMapping("/user/tea/les_mgr")
-    public String LesMgr(@RequestParam("crs_id") long crsId,
+    public String lesMgr(@RequestParam("crs_id") long crsId,
                          @RequestParam("chp_id") long chpId,
                          Model model){
         Set<Lesson> lessons=crsSer.getLessonList(chpId,crsId);
@@ -190,4 +190,12 @@ public class CrsController {
       return "redirect:/user/tea/les_mgr?crs_id="+crsId+"&chp_id="+chpId;
     }
 
+    @GetMapping("/user/tea/les_mgr/exe")
+    public String exeMgr(@RequestParam("crs_id") long crsId,
+                         @RequestParam("chp_id") long chpId,
+                         @RequestParam("les_id") long lesId){
+
+        return "crs/exe_mgr";
+
+    }
 }
