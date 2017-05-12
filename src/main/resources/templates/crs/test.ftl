@@ -55,78 +55,26 @@
         </div>
         <div class="row">
             <div class="col-md-12">
-                <form class="form-horizontal" id="post_file_form">
+                <form class="form-horizontal" id="post_exe_form">
                     <div class="form-group">
-                        <label class="col-md-2 control-label">习题</label>
-                        <div class="col-md-9">
-                            <input name="name" type="text" class="form-control input-md">
-                        </div>
+                        <label class="col-md-2control-label">习题</label>
+                        <div class="col-md-9"><input name="title" type="text" class="form-control"></div>
                     </div>
                     <div class="form-group">
                         <label class="col-md-2 control-label">选项A</label>
-                        <div class="col-md-9">
-                            <input name="a" type="text" class="form-control input-md">
+                        <div class="col-md-9"><input name="a" type="text" class="form-control">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-md-2 control-label">选项B</label>
-                        <div class="col-md-9">
-                            <input name="b" type="text" class="form-control input-md">
-                        </div>
+                        <div class="col-md-9"><input name="b" type="text" class="form-control"></div>
                     </div>
-                    <div class="form-group">
+                    <divc lass="form-group">
                         <label class="col-md-2 control-label">选项C</label>
-                        <div class="col-md-9">
-                            <input name="c" type="text" class="form-control input-md">
+                        <div class="col-md-9"><input name="c" type="text" class="form-control">
                         </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-md-2 control-label">选项D</label>
-                        <div class="col-md-9">
-                            <input name="d" type="text" class="form-control input-md">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-md-2 control-label">答案</label>
-                        <div class="col-md-9">
-                            <select class="form-control" name="answer">
-                                <option value="A">A</option>
-                                <option value="B">B</option>
-                                <option value="C">C</option>
-                                <option value="D">D</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-md-2 control-label">解析</label>
-                        <div class="col-md-9">
-                            <input name="analysis" type="text" class="form-control input-md">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-md-2 control-label">类型</label>
-                        <div class="col-md-9">
-                            <select class="form-control" name="type">
-                                <option value="c">c</option>
-                                <option value="cp">c++</option>
-                                <option value="java">java</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-md-2 control-label">难度系数</label>
-                        <div class="col-md-9">
-                            <select class="form-control" name="type">
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                            </select>
-                        </div>
-                    </div>
-                </form>
-             </div>
+            </div>
+            <div class="form-group"><label class="col-md-2 control-label">选项D</label><div class="col-md-9"><input name="d" type="text" class="form-control"></div></div><div class="form-group"><label class="col-md-2 control-label">答案</label><div class="col-md-9"><select class="form-control"name="answer"><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option></select></div></div><div class="form-group"><label class="col-md-2 control-label">解析</label><div class="col-md-9"><input name="analysis" type="text" class="form-control"></div></div><div class="form-group"><label class="col-md-2 control-label">类型</label><div class="col-md-9"><select class="form-control" name="type"><option value="c">c</option><option value="cp">c++</option><option value="java">java</option></select></div></div><div class="form-group"><label class="col-md-2 control-label">难度系数</label><div class="col-md-9"><select class="form-control" name="type"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select></div></div></form></div>
         </div>
 
 </div><!-- /#page-wrapper -->
