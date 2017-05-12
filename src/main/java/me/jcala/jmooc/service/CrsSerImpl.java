@@ -18,6 +18,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.File;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 @Service
@@ -132,5 +133,18 @@ public class CrsSerImpl implements CrsSer{
     public void addExercise(ExeForm exeForm, long lesId) {
         Exercise exercise=JmoocBeanUtils.exeFormToBean(exeForm,lesId);
         exerciseRepository.save(exercise);
+    }
+
+    @Override
+    public Set<Exercise> getExerciseByLesId(long lesId) {
+        Lesson lesson=lessonRepository.findOne(lesId);
+        if (lesson==null){
+            return new HashSet<>();
+        }
+        for (Exercise exercise:lesson.getExerciseList()){
+            Map<Character,String> map=JsonUtils.instance.readJsonToExeMap(exercise.getChooses());
+            exercise.setChooseList(map);
+        }
+        return lesson.getExerciseList();
     }
 }

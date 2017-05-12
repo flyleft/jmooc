@@ -2,6 +2,7 @@ package me.jcala.jmooc.service.inter;
 
 import me.jcala.jmooc.entity.Chapter;
 import me.jcala.jmooc.entity.Course;
+import me.jcala.jmooc.entity.Exercise;
 import me.jcala.jmooc.entity.Lesson;
 import me.jcala.jmooc.entity.auxiliary.ChpForm;
 import me.jcala.jmooc.entity.auxiliary.ExeForm;
@@ -30,4 +31,6 @@ public interface CrsSer {
     void uploadLessonFile(MultipartFile file,long crsId, long lesId);
 
     void addExercise(ExeForm exeForm,long lesId);
+
+    Set<Exercise> getExerciseByLesId(long lesId);
 }

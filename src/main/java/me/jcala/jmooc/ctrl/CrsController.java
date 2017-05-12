@@ -205,16 +205,16 @@ public class CrsController {
                          @RequestParam("les_id") long lesId,
                          Model model){
 
-        List<Exercise> exercises=new ArrayList<>();
+        /*List<Exercise> exercises=new ArrayList<>();
         Exercise exercise=new Exercise("明朝时期张居正改革的一条鞭法的主要思想是()",2,'B',5,"这是一道送分题","java");
         Map<Character,String> map=new HashMap<>();
         map.put('A',"面向过程");
         map.put('B',"万物皆数");
         exercise.setChooseList(map);
-
         exercises.add(exercise);
-        exercises.add(exercise);
+        exercises.add(exercise);*/
 
+        Set<Exercise> exercises=crsSer.getExerciseByLesId(lesId);
         model.addAttribute("exe",exercises);
         model.addAttribute("crs_id",crsId);
         model.addAttribute("chp_id",chpId);

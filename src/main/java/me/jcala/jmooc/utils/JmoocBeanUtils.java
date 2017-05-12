@@ -4,6 +4,8 @@ import me.jcala.jmooc.entity.Exercise;
 import me.jcala.jmooc.entity.Lesson;
 import me.jcala.jmooc.entity.auxiliary.ExeForm;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Set;
 
 public class JmoocBeanUtils {
@@ -31,6 +33,18 @@ public class JmoocBeanUtils {
                 form.getAnalysis(),
                 form.getType()
         );
+        Map<Character,String> chooseMap=new HashMap<>();
+        chooseMap.put('A',form.getA());
+        chooseMap.put('B',form.getB());
+
+        if (form.getC()!=null && !form.getC().trim().isEmpty()){
+            chooseMap.put('C',form.getD());
+        }
+        if (form.getD()!=null && !form.getD().trim().isEmpty()){
+            chooseMap.put('D',form.getD());
+        }
+
+        exercise.setChooses(JsonUtils.instance.toJson(chooseMap));
         exercise.setContent(form.getContent());
         Lesson lesson=new Lesson(lesId);
         exercise.setLesson(lesson);

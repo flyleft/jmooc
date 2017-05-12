@@ -45,7 +45,7 @@ public class Lesson implements Serializable{
     private String upFileList;//存储文件信息。List<UpFile>的json形式，可以省去一个数据表
 
     @Column(name = "exercise_list")
-    @OneToMany(cascade = CascadeType.REMOVE,fetch=FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.REMOVE,orphanRemoval = true,fetch=FetchType.LAZY,mappedBy = "lesson")
     private Set<Exercise> exerciseList=new HashSet<>();//习题列表
 
     @Transient
