@@ -10,7 +10,8 @@ import javax.validation.constraints.Min;
 public class ExeForm {
 
     @NotEmpty
-   private String title;
+    private String title;
+    private String content;
     @NotEmpty
    private String a;
     @NotEmpty

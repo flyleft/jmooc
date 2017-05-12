@@ -65,6 +65,8 @@
                         <div class="col-md-9"><input name="a" type="text" class="form-control">
                         </div>
                     </div>
+                    <div class="form-group"><label class="col-md-2 control-label">习题内容</label><div class="col-md-9"> <textarea class="form-control" name="content" rows="3"></textarea></div></div>
+
                     <div class="form-group">
                         <label class="col-md-2 control-label">选项B</label>
                         <div class="col-md-9"><input name="b" type="text" class="form-control"></div>

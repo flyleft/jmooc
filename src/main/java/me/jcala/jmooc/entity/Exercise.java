@@ -25,6 +25,9 @@ public class Exercise implements Serializable{
     @Column(nullable = false,columnDefinition="text")
     private String title;//习题名称
 
+    @Column(columnDefinition="text")
+    private String content;//习题内容
+
     @Column(nullable = false,columnDefinition="tinyint default 1")//1,2,3,4,5五个难度等级
     private int difficulty;//难度
 

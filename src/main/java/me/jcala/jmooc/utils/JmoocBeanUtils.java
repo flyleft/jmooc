@@ -31,6 +31,7 @@ public class JmoocBeanUtils {
                 form.getAnalysis(),
                 form.getType()
         );
+        exercise.setContent(form.getContent());
         Lesson lesson=new Lesson(lesId);
         exercise.setLesson(lesson);
         return exercise;
