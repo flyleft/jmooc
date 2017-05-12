@@ -1,11 +1,14 @@
 package me.jcala.jmooc.entity;
 
+import com.alibaba.druid.sql.visitor.functions.Char;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.validator.constraints.NotBlank;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
 
 //习题表
@@ -24,27 +27,39 @@ public class Exercise implements Serializable{
     @Column(nullable = false,columnDefinition="text")
     private String title;//习题名称
 
-    @Column(nullable = false,columnDefinition="tinyint default 1")
-    private int type;//类型。1:选择题，2：大题
-
-    @Column(columnDefinition="text")
-    private String desp;//习题描述
-
-    @Column(nullable = false,columnDefinition="tinyint default 1")//1,2,3,4四个难度等级
+    @Column(nullable = false,columnDefinition="tinyint default 1")//1,2,3,4,5五个难度等级
     private int difficulty;//难度
 
+    @Column(columnDefinition="text")
     private String chooses;//选项列表
 
     @Column(name = "choose_answer",columnDefinition="char(1)")
-    private char chooseAnswer;//正确选项
+    private char answer;//正确选项
 
     @Column(nullable = false,columnDefinition="tinyint default 1")
     private int score;//习题分值
 
+    @Column(columnDefinition="text")
+    private String analysis;//习题解析
+
+    @Column(nullable = false, length = 10)
+    private String type;//类型:c,cp,java
+
     @OneToMany(cascade = CascadeType.ALL,orphanRemoval = true, fetch = FetchType.LAZY,mappedBy = "exercise",targetEntity = ExerciseComment.class)
     private Set<ExerciseComment> exerciseCommentList=new HashSet<>();
+
+    @Transient
+    private Map<Character,String> chooseList;
 
     public Exercise() {
     }
 
+    public Exercise(String title, int difficulty, char answer, int score, String analysis, String type) {
+        this.title = title;
+        this.difficulty = difficulty;
+        this.answer = answer;
+        this.score = score;
+        this.analysis = analysis;
+        this.type = type;
+    }
 }

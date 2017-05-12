@@ -1,9 +1,6 @@
 package me.jcala.jmooc.ctrl;
 
-import me.jcala.jmooc.entity.Chapter;
-import me.jcala.jmooc.entity.Course;
-import me.jcala.jmooc.entity.Lesson;
-import me.jcala.jmooc.entity.User;
+import me.jcala.jmooc.entity.*;
 import me.jcala.jmooc.entity.auxiliary.ChpForm;
 import me.jcala.jmooc.exception.NoPageException;
 import me.jcala.jmooc.service.inter.CrsSer;
@@ -22,8 +19,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 /**
  *  课程管理控制器
@@ -201,7 +197,19 @@ public class CrsController {
 
 
     @GetMapping("/user/tea/les_mgr/exe")
-    public String test(){
+    public String test(Model model){
+
+        List<Exercise> exercises=new ArrayList<>();
+        Exercise exercise=new Exercise("明朝时期张居正改革的一条鞭法的主要思想是()",2,'B',5,"这是一道送分题","java");
+        Map<Character,String> map=new HashMap<>();
+        map.put('A',"面向过程");
+        map.put('B',"万物皆数");
+        exercise.setChooseList(map);
+
+        exercises.add(exercise);
+        exercises.add(exercise);
+
+        model.addAttribute("exe",exercises);
 
         return "crs/exe_mgr";
 

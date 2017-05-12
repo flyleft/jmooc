@@ -8,6 +8,7 @@ import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public enum  JsonUtils {
@@ -42,6 +43,21 @@ public enum  JsonUtils {
             e.printStackTrace();
         }
         return list;
+    }
+
+    public HashMap<Character, String> readJsonToExeMap(String jsonStr) {
+        if (jsonStr==null || jsonStr.trim().isEmpty()) return new HashMap<>();
+        HashMap<Character, String> modelMap;
+        try {
+            modelMap = mapper.readValue(jsonStr.trim(), new TypeReference<HashMap<Integer, String>>() {
+            });
+            if (modelMap==null) return new HashMap<>();
+        } catch (IOException e) {
+            logger.warn(e.getLocalizedMessage());
+            modelMap=new HashMap<>();
+            e.printStackTrace();
+        }
+        return modelMap;
     }
 
 }

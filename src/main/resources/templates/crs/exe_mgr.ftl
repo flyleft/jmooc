@@ -53,84 +53,38 @@
         </div>
         <div class="row">
             <div class="col-lg-6 col-lg-offset-3">
-                <div class="panel panel-primary">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">1. 明朝时期张居正改革的一条鞭法的主要思想是()</h3>
-                    </div>
-                    <div class="panel-body">
-                            <div class="form-group">
-                                <div class="radio">
-                                    <label>
-                                        <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
-                                        A. 面向过程
-                                    </label>
-                                </div>
-                                <div class="radio">
-                                    <label>
-                                        <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
-                                        B. 万物皆数
-                                    </label>
-                                </div>
-                                <div class="radio">
-                                    <label>
-                                        <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3">
-                                        C. 统一接口
-                                    </label>
-                                </div>
-                                <div class="radio">
-                                    <label>
-                                        <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3">
-                                        D. 泛型编程
-                                    </label>
-                                </div>
-                            </div>
-                        <hr/>
-                        <h3 class="panel-title">正解：B</h3>
-                        <hr/>
-                        <h3 class="panel-title">解析：</h3>
-                        <br>
-                        <p>这是一条送分题</p>
-                    </div>
-                </div>
 
-                <div class="panel panel-primary">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">1. 明朝时期张居正改革的一条鞭法的主要思想是()</h3>
-                    </div>
-                    <div class="panel-body">
-                        <div class="form-group">
-                            <div class="radio">
-                                <label>
-                                    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
-                                    A. 面向过程
-                                </label>
-                            </div>
-                            <div class="radio">
-                                <label>
-                                    <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
-                                    B. 万物皆数
-                                </label>
-                            </div>
-                            <div class="radio">
-                                <label>
-                                    <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3">
-                                    C. 统一接口
-                                </label>
-                            </div>
-                            <div class="radio">
-                                <label>
-                                    <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3">
-                                    D. 泛型编程
-                                </label>
-                            </div>
-                        </div>
-                        <hr/>
-                        <h3 class="panel-title">正解：B</h3>
-                        <hr/>
-                        <h3 class="panel-title">解析：</h3>
-                        <br>
-                        <p>这是一条送分题</p>
-                    </div>
+                   <#list exe as item>
+                   <div class="panel panel-primary">
+                       <div class="panel-heading">
+                           <h3 class="panel-title">${item.title}</h3>
+                       </div>
+                       <div class="panel-body">
+                           <div class="form-group">
+                               <#list item.chooseList!?keys as key>
+                                   <div class="radio">
+                                       <label>
+                                           <input type="radio" name="optionsRadios">
+                                       ${key}:${item.chooseList[key]}
+                                       </label>
+                                   </div>
+                               </#list>
+                           </div>
+                           <hr/>
+                           <h3 class="panel-title">难度系数：${item.difficulty!}</h3>
+                           <hr/>
+                           <h3 class="panel-title">分值：${item.score!}</h3>
+                           <hr/>
+                           <h3 class="panel-title">类型：${item.type!}</h3>
+                           <hr/>
+                           <h3 class="panel-title">正解：${item.answer!}</h3>
+                           <hr/>
+                           <h3 class="panel-title">解析：</h3>
+                           <br>
+                           <p>${item.analysis!}</p>
+                       </div>
+                   </div>
+                   </#list>
                 </div>
             </div>
         </div><!-- /.row -->
