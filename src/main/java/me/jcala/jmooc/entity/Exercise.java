@@ -1,9 +1,7 @@
 package me.jcala.jmooc.entity;
 
-import com.alibaba.druid.sql.visitor.functions.Char;
 import lombok.Getter;
 import lombok.Setter;
-import org.hibernate.validator.constraints.NotBlank;
 
 import javax.persistence.*;
 import java.io.Serializable;

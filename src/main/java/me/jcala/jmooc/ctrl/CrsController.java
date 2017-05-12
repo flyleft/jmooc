@@ -196,8 +196,11 @@ public class CrsController {
     }*/
 
 
+    /**
+     * 习题管理页面
+     */
     @GetMapping("/user/tea/les_mgr/exe")
-    public String test(Model model){
+    public String exeMgr(@RequestParam("crs_id") long crsId, @RequestParam("chp_id") long chpId,Model model){
 
         List<Exercise> exercises=new ArrayList<>();
         Exercise exercise=new Exercise("明朝时期张居正改革的一条鞭法的主要思想是()",2,'B',5,"这是一道送分题","java");
@@ -210,7 +213,8 @@ public class CrsController {
         exercises.add(exercise);
 
         model.addAttribute("exe",exercises);
-
+        model.addAttribute("crs_id",crsId);
+        model.addAttribute("chp_id",chpId);
         return "crs/exe_mgr";
 
     }

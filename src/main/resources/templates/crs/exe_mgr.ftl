@@ -47,6 +47,8 @@
     <div id="page-wrapper">
         <div class="row">
             <div class="col-lg-12">
+                <h2><a href="/user/tea/les_mgr?crs_id=${crs_id!}&chp_id=${chp_id!}"><small>返回课时管理</small></a></h2>
+                <br>
                 <button class="btn btn-default btn-lg" id="post_chp"><i class="fa fa-plus"></i> <span class="network-name">添加习题</span></button>
                 <br><br><br>
             </div>
