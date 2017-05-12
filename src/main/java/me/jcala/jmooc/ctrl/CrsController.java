@@ -200,7 +200,10 @@ public class CrsController {
      * 习题管理页面
      */
     @GetMapping("/user/tea/les_mgr/exe")
-    public String exeMgr(@RequestParam("crs_id") long crsId, @RequestParam("chp_id") long chpId,Model model){
+    public String exeMgr(@RequestParam("crs_id") long crsId,
+                         @RequestParam("chp_id") long chpId,
+                         @RequestParam("les_id") long lesId,
+                         Model model){
 
         List<Exercise> exercises=new ArrayList<>();
         Exercise exercise=new Exercise("明朝时期张居正改革的一条鞭法的主要思想是()",2,'B',5,"这是一道送分题","java");

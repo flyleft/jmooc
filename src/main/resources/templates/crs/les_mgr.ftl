@@ -81,7 +81,7 @@
                             <a href='javascript:void(0)' name="${item.id!}" class="upload_file"><i class="fa fa-pencil">上传</i></a>
                         </td>
                         <td>
-                        ${item.exeNum!}
+                            <a href="/user/tea/les_mgr/exe?crs_id=${crs_id!}&chp_id=${chp_id!}&les_id=${item.id!}">${item.exeNum!}</a>
                         </td>
                         </tr>
                         </#list>
@@ -104,7 +104,7 @@
             function() {
                 bootbox.dialog({
                     title: "新的课时",
-                    message: '<div class="col-md-12"><form class="form-horizontal" id="post_les_form" enctype="multipart/form-data"><div class="form-group"> <label class="col-md-2 control-label">课时名</label><div class="col-md-9"> <input name="name" type="text" class="form-control input-md"><input type="hidden" name="pos" value="${pos!0}"/></div><div class="form-group"> <label class="col-md-2 control-label">文件</label> <div class="col-md-9"><input type="file" name="vf" class="form-control"/></div></div></div>',
+                    message: '<div class="col-md-12"><form class="form-horizontal" id="post_les_form" enctype="multipart/form-data"><div class="form-group"> <label class="col-md-2 control-label">课时名</label><div class="col-md-9"> <input name="name" type="text" class="form-control input-md"><input type="hidden" name="pos" value="${pos!0}"/></div><div class="form-group"> <label class="col-md-2 control-label">视频</label> <div class="col-md-9"><input type="file" name="vf" class="form-control"/></div></div></div>',
                     buttons: {
                         success: {
                             label: "提交",
