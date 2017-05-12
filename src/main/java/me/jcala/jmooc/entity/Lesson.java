@@ -57,4 +57,10 @@ public class Lesson implements Serializable{
     @Transient
     private MultipartFile vf;
 
+    public Lesson(long id) {
+        this.id = id;
+    }
+
+    public Lesson() {
+    }
 }

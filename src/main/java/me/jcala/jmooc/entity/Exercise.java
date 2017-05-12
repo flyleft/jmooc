@@ -43,6 +43,10 @@ public class Exercise implements Serializable{
     @Column(nullable = false, length = 10)
     private String type;//类型:c,cp,java
 
+    @ManyToOne(cascade = CascadeType.REMOVE,fetch=FetchType.EAGER,targetEntity = Lesson.class)
+    @JoinColumn(name = "lesson_id")
+    private Lesson lesson;
+
     @OneToMany(cascade = CascadeType.ALL,orphanRemoval = true, fetch = FetchType.LAZY,mappedBy = "exercise",targetEntity = ExerciseComment.class)
     private Set<ExerciseComment> exerciseCommentList=new HashSet<>();
 

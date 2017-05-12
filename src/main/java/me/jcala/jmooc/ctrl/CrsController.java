@@ -2,6 +2,7 @@ package me.jcala.jmooc.ctrl;
 
 import me.jcala.jmooc.entity.*;
 import me.jcala.jmooc.entity.auxiliary.ChpForm;
+import me.jcala.jmooc.entity.auxiliary.ExeForm;
 import me.jcala.jmooc.exception.NoPageException;
 import me.jcala.jmooc.service.inter.CrsSer;
 import me.jcala.jmooc.utils.CommonUtils;
@@ -148,7 +149,6 @@ public class CrsController {
                           @RequestParam("chp_id") long chpId){
 
         if (result.hasErrors()) {
-            logger.info("name:"+lesson.getName());
             throw new RuntimeException("表单数据不合法");
         }
 
@@ -218,7 +218,23 @@ public class CrsController {
         model.addAttribute("exe",exercises);
         model.addAttribute("crs_id",crsId);
         model.addAttribute("chp_id",chpId);
+        model.addAttribute("les_id",lesId);
         return "crs/exe_mgr";
 
+    }
+
+
+    @PostMapping("/user/tea/les_mgr/exe/add")
+    public String exePost(@ModelAttribute("exe") @Valid ExeForm exeForm,
+                          BindingResult result,
+                          @RequestParam("crs_id") long crsId,
+                          @RequestParam("chp_id") long chpId,
+                          @RequestParam("les_id") long lesId){
+
+        if (result.hasErrors()) {
+            throw new RuntimeException("表单数据不合法");
+        }
+       crsSer.addExercise(exeForm,lesId);
+        return "redirect:/user/tea/les_mgr/exe?crs_id="+crsId+"&chp_id="+chpId+"&les_id="+lesId;
     }
 }

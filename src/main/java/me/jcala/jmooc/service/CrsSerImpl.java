@@ -1,14 +1,9 @@
 package me.jcala.jmooc.service;
 
-import me.jcala.jmooc.entity.Chapter;
-import me.jcala.jmooc.entity.Course;
-import me.jcala.jmooc.entity.Lesson;
-import me.jcala.jmooc.entity.User;
+import me.jcala.jmooc.entity.*;
 import me.jcala.jmooc.entity.auxiliary.ChpForm;
-import me.jcala.jmooc.repository.ChapterRepository;
-import me.jcala.jmooc.repository.CourserRepository;
-import me.jcala.jmooc.repository.LessonRepository;
-import me.jcala.jmooc.repository.UserRepository;
+import me.jcala.jmooc.entity.auxiliary.ExeForm;
+import me.jcala.jmooc.repository.*;
 import me.jcala.jmooc.service.inter.CrsSer;
 import me.jcala.jmooc.utils.FileType;
 import me.jcala.jmooc.utils.FileUtils;
@@ -38,13 +33,17 @@ public class CrsSerImpl implements CrsSer{
 
     private LessonRepository lessonRepository;
 
+    private ExerciseRepository exerciseRepository;
+
     @Autowired
     public CrsSerImpl(CourserRepository courserRepository, ChapterRepository chapterRepository,
-                      UserRepository userRepository, LessonRepository lessonRepository) {
+                      UserRepository userRepository, LessonRepository lessonRepository,
+                      ExerciseRepository exerciseRepository) {
         this.courserRepository = courserRepository;
         this.chapterRepository = chapterRepository;
         this.userRepository = userRepository;
         this.lessonRepository = lessonRepository;
+        this.exerciseRepository = exerciseRepository;
     }
 
     @Override
@@ -127,7 +126,11 @@ public class CrsSerImpl implements CrsSer{
             String newFileList=JsonUtils.instance.toJson(fileList);
             lessonRepository.updateFileById(newFileList,lesId);
         }
+    }
 
-
+    @Override
+    public void addExercise(ExeForm exeForm, long lesId) {
+        Exercise exercise=JmoocBeanUtils.exeFormToBean(exeForm,lesId);
+        exerciseRepository.save(exercise);
     }
 }
