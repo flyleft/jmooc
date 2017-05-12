@@ -21,8 +21,8 @@ public class Exercise implements Serializable{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;//id
 
-    @Column(nullable = false,length = 40)
-    private String name;//习题名称
+    @Column(nullable = false,columnDefinition="text")
+    private String title;//习题名称
 
     @Column(nullable = false,columnDefinition="tinyint default 1")
     private int type;//类型。1:选择题，2：大题
@@ -35,8 +35,11 @@ public class Exercise implements Serializable{
 
     private String chooses;//选项列表
 
-    @Column(name = "choose_answer")
-    private int chooseAnswer;//正确选项
+    @Column(name = "choose_answer",columnDefinition="char(1)")
+    private char chooseAnswer;//正确选项
+
+    @Column(nullable = false,columnDefinition="tinyint default 1")
+    private int score;//习题分值
 
     @OneToMany(cascade = CascadeType.ALL,orphanRemoval = true, fetch = FetchType.LAZY,mappedBy = "exercise",targetEntity = ExerciseComment.class)
     private Set<ExerciseComment> exerciseCommentList=new HashSet<>();

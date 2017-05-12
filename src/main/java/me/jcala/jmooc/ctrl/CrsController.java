@@ -190,10 +190,18 @@ public class CrsController {
       return "redirect:/user/tea/les_mgr?crs_id="+crsId+"&chp_id="+chpId;
     }
 
-    @GetMapping("/user/tea/les_mgr/exe")
+   /* @GetMapping("/user/tea/les_mgr/exe")
     public String exeMgr(@RequestParam("crs_id") long crsId,
                          @RequestParam("chp_id") long chpId,
                          @RequestParam("les_id") long lesId){
+
+        return "crs/exe_mgr";
+
+    }*/
+
+
+    @GetMapping("/user/tea/les_mgr/exe")
+    public String test(){
 
         return "crs/exe_mgr";
 
