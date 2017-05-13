@@ -1,5 +1,6 @@
 package me.jcala.jmooc.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -46,24 +47,36 @@ public class Exercise implements Serializable{
     @Column(nullable = false, length = 10)
     private String type;//类型:c,cp,java
 
+    @JsonIgnore
     @ManyToOne(cascade = CascadeType.REMOVE,fetch=FetchType.EAGER,targetEntity = Lesson.class)
     @JoinColumn(name = "lesson_id")
     private Lesson lesson;
 
+    @JsonIgnore
     @OneToMany(cascade = CascadeType.ALL,orphanRemoval = true, fetch = FetchType.LAZY,mappedBy = "exercise",targetEntity = ExerciseComment.class)
     private Set<ExerciseComment> exerciseCommentList=new HashSet<>();
 
     @Transient
+    @JsonIgnore
     private Map<Character,String> chooseList;
 
     public Exercise() {
     }
 
-    public Exercise(String title, int difficulty, char answer, int score, String analysis, String type) {
+    public Exercise(String title, int difficulty, char answer,int score, String analysis, String type) {
         this.title = title;
         this.difficulty = difficulty;
         this.answer = answer;
         this.score = score;
+        this.analysis = analysis;
+        this.type = type;
+    }
+    public Exercise(String title, String content, int difficulty, String chooses, char answer, String analysis, String type) {
+        this.title = title;
+        this.content = content;
+        this.difficulty = difficulty;
+        this.chooses = chooses;
+        this.answer = answer;
         this.analysis = analysis;
         this.type = type;
     }

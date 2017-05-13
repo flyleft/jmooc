@@ -1,5 +1,6 @@
 package me.jcala.jmooc.utils;
 
+import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -65,11 +66,13 @@ public enum  JsonUtils {
         Set<Exercise> set;
 
         try {
+            ObjectMapper mapper = new ObjectMapper();
+            mapper.configure(JsonParser.Feature.ALLOW_UNQUOTED_CONTROL_CHARS, true);
             set=mapper.readValue(json, new TypeReference<Set<Exercise>>() {});
         } catch (IOException e) {
-            set=new HashSet<>();
             logger.warn("批量导入习题时json数据不合法:"+e.getMessage());
             e.printStackTrace();
+            return new HashSet<>();
         }
         return set;
     }

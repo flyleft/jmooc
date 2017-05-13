@@ -61,9 +61,10 @@
                    <#list exe as item>
                    <div class="panel panel-primary">
                        <div class="panel-heading">
-                           <h3 class="panel-title">${item.title}</h3>
+                           <h3 class="panel-title">${item.title!}</h3>
                        </div>
                        <div class="panel-body">
+                            ${item.content!}
                            <div class="form-group">
                                <#list item.chooseList!?keys as key>
                                    <div class="radio">
@@ -125,7 +126,7 @@
             function() {
                 bootbox.dialog({
                     title: "批量导入习题",
-                    message: '<div class="row"><div class="col-md-12"><form class="form-horizontal" id="post_batch_form"><div class="form-group"><label class="col-md-2 control-label">json</label> <div class="col-md-9"> <textarea class="form-control" rows="10" name="json"></textarea></div></div></form></div></div>',
+                    message: '<div class="row"><div class="col-md-12"><form class="form-horizontal" id="post_batch_form"><div class="form-group"><label class="col-md-2 control-label">json</label><div class="col-md-9"><textarea class="form-control" rows="10" name="json"></textarea></div></div></form></div></div>',
                     buttons: {
                         success: {
                             label: "提交",
