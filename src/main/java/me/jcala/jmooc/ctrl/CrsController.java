@@ -237,4 +237,17 @@ public class CrsController {
        crsSer.addExercise(exeForm,lesId);
         return "redirect:/user/tea/les_mgr/exe?crs_id="+crsId+"&chp_id="+chpId+"&les_id="+lesId;
     }
+
+    @PostMapping("/user/tea/les_mgr/exe/add_batch")
+    public String exePostBatch(@RequestParam("json") String json,
+                               @RequestParam("crs_id") long crsId,
+                               @RequestParam("chp_id") long chpId,
+                               @RequestParam("les_id") long lesId){
+
+        if (json.trim().isEmpty()) {
+            throw new RuntimeException("表单数据不合法");
+        }
+        crsSer.addExerciseBatch(json,lesId);
+        return "redirect:/user/tea/les_mgr/exe?crs_id="+crsId+"&chp_id="+chpId+"&les_id="+lesId;
+    }
 }

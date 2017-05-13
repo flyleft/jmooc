@@ -147,4 +147,13 @@ public class CrsSerImpl implements CrsSer{
         }
         return lesson.getExerciseList();
     }
+
+    @Override
+    public void addExerciseBatch(String json, long lesId) {
+        Set<Exercise> exercises=JsonUtils.instance.readJsonToExeSet(json);
+        for (Exercise exercise:exercises){
+            exercise.setLesson(new Lesson(lesId));
+        }
+        exerciseRepository.save(exercises);
+    }
 }

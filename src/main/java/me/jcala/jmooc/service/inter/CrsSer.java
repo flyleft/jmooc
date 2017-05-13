@@ -28,9 +28,11 @@ public interface CrsSer {
 
     void addLesson(Lesson lesson,long crsId,long chpId);//添加课时
 
-    void uploadLessonFile(MultipartFile file,long crsId, long lesId);
+    void uploadLessonFile(MultipartFile file,long crsId, long lesId);//上传课程文件
 
-    void addExercise(ExeForm exeForm,long lesId);
+    void addExercise(ExeForm exeForm,long lesId);//添加习题
 
-    Set<Exercise> getExerciseByLesId(long lesId);
+    void addExerciseBatch(String json,long lesId);//批量添加习题
+
+    Set<Exercise> getExerciseByLesId(long lesId);//获取某课时下的习题
 }

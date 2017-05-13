@@ -50,7 +50,9 @@
                 <h2><a href="/user/tea/les_mgr?crs_id=${crs_id!}&chp_id=${chp_id!}"><small>返回课时管理</small></a></h2>
                 <br>
                 <button class="btn btn-default btn-lg" id="post_exe"><i class="fa fa-plus"></i> <span class="network-name">添加习题</span></button>
-                <br><br><br>
+                <button class="btn btn-default btn-lg" id="post_batch"><i class="fa fa-plus"></i> <span class="network-name">批量添加</span></button>
+                <br>
+                <br><br>
             </div>
         </div>
         <div class="row">
@@ -102,7 +104,7 @@
     $(document).on("click", "#post_exe",
             function() {
                 bootbox.dialog({
-                    title: "新的课时",
+                    title: "新的习题",
                     message: '<div class="col-md-12"><form class="form-horizontal" id="post_exe_form"><div class="form-group"><label class="col-md-2 control-label">题目</label><div class="col-md-9"><input name="title" type="text" class="form-control"></div></div><div class="form-group"><label class="col-md-2 control-label">内容</label><div class="col-md-9"> <textarea class="form-control" name="content" rows="3"></textarea></div></div><div class="form-group"><label class="col-md-2 control-label">选项A</label><div class="col-md-9"><input name="a" type="text" class="form-control"></div></div><div class="form-group"><label class="col-md-2 control-label">选项B</label><div class="col-md-9"><input name="b" type="text" class="form-control"></div></div><div class="form-group"><label class="col-md-2 control-label">选项C</label><div class="col-md-9"><input name="c" type="text" class="form-control"></div></div><div class="form-group"><label class="col-md-2 control-label">选项D</label><div class="col-md-9"><input name="d" type="text" class="form-control"></div></div><div class="form-group"><label class="col-md-2 control-label">答案</label><div class="col-md-9"><select class="form-control"name="answer"><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option></select></div></div><div class="form-group"><label class="col-md-2 control-label">解析</label><div class="col-md-9"><input name="analysis" type="text" class="form-control"></div></div><div class="form-group"><label class="col-md-2 control-label">类型</label><div class="col-md-9"><select class="form-control" name="type"><option value="c">c</option><option value="cp">c++</option><option value="java">java</option></select></div></div><div class="form-group"><label class="col-md-2 control-label">难度系数</label><div class="col-md-9"><select class="form-control" name="difficulty"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select></div></div></form></div>',
                     buttons: {
                         success: {
@@ -114,6 +116,26 @@
                                  a.action = "/user/tea/les_mgr/exe/add?crs_id=${crs_id!}&chp_id=${chp_id!}&les_id=${les_id!}",
                                  a.method = "post",
                                  a.submit()
+                            }
+                        }
+                    }
+                })
+            });
+    $(document).on("click", "#post_batch",
+            function() {
+                bootbox.dialog({
+                    title: "批量导入习题",
+                    message: '<div class="row"><div class="col-md-12"><form class="form-horizontal" id="post_batch_form"><div class="form-group"><label class="col-md-2 control-label">json</label> <div class="col-md-9"> <textarea class="form-control" rows="10" name="json"></textarea></div></div></form></div></div>',
+                    buttons: {
+                        success: {
+                            label: "提交",
+                            className: "btn-success",
+                            callback: function() {
+                                var a = document.getElementById("post_batch_form");
+                                a.name="exe",
+                                a.action = "/user/tea/les_mgr/exe/add_batch?crs_id=${crs_id!}&chp_id=${chp_id!}&les_id=${les_id!}",
+                                a.method = "post",
+                                a.submit()
                             }
                         }
                     }

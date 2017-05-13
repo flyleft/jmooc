@@ -3,13 +3,12 @@ package me.jcala.jmooc.utils;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import me.jcala.jmooc.entity.Exercise;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 public enum  JsonUtils {
     instance;
@@ -58,6 +57,21 @@ public enum  JsonUtils {
             e.printStackTrace();
         }
         return modelMap;
+    }
+
+
+    public Set<Exercise> readJsonToExeSet(String json) {
+        if (json==null||json.trim().isEmpty()) return new HashSet<>();
+        Set<Exercise> set;
+
+        try {
+            set=mapper.readValue(json, new TypeReference<Set<Exercise>>() {});
+        } catch (IOException e) {
+            set=new HashSet<>();
+            logger.warn("批量导入习题时json数据不合法:"+e.getMessage());
+            e.printStackTrace();
+        }
+        return set;
     }
 
 }
