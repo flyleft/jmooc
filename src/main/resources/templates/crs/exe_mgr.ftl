@@ -75,13 +75,13 @@
                            <hr/>
                            <h3 class="panel-title">难度系数：${item.difficulty!}</h3>
                            <hr/>
-                           <h3 class="panel-title">分值：${item.score!}</h3>
+                           <h3 class="panel-title">分&#12288;&#12288;值：${item.score!}</h3>
                            <hr/>
-                           <h3 class="panel-title">类型：${item.type!}</h3>
+                           <h3 class="panel-title">类&#12288;&#12288;型：${item.type!}</h3>
                            <hr/>
-                           <h3 class="panel-title">正解：${item.answer!}</h3>
+                           <h3 class="panel-title">正&#12288;&#12288;解：${item.answer!}</h3>
                            <hr/>
-                           <h3 class="panel-title">解析：</h3>
+                           <h3 class="panel-title">解&#12288;&#12288;析：</h3>
                            <br>
                            <p>${item.analysis!}</p>
                        </div>

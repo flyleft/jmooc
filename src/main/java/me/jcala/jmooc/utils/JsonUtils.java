@@ -49,7 +49,7 @@ public enum  JsonUtils {
         if (jsonStr==null || jsonStr.trim().isEmpty()) return new HashMap<>();
         HashMap<Character, String> modelMap;
         try {
-            modelMap = mapper.readValue(jsonStr.trim(), new TypeReference<HashMap<Integer, String>>() {
+            modelMap = mapper.readValue(jsonStr.trim(), new TypeReference<HashMap<Character, String>>() {
             });
             if (modelMap==null) return new HashMap<>();
         } catch (IOException e) {
