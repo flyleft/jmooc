@@ -15,10 +15,6 @@
         a:link,a:visited{color:#5e5e5e;text-decoration:none;}
         a:hover{color:#F97307;text-decoration:none;}
         a:active{color:#666;text-decoration:none;}
-        .test p { position: absolute; left: 0; top 0; }
-        .course-nav-item{display:inline-block;margin:0 4px}
-        .course-nav-item a{display:block;line-height:14px;margin-bottom:10px;padding:10px;font-size:14px}
-        .course-nav-item.on a{background:#F97307;color:#fff;border-radius:2px}
     </style>
 </head>
 <body>
@@ -54,93 +50,89 @@
 <div class="page-header">
     <div class="container">
         <div class="row">
-            <div class="test col-md-9">
-                <p>类型：</p>
-                <ul class="">
-                    <li class="course-nav-item on">
-                        <a href="/exercise/list">全部</a>
-                    </li>
-                    <li class="course-nav-item">
-                        <a href="/exercise/list?c=c" >C</a>
-                    </li>
-                    <li class="course-nav-item">
-                        <a href="/exercise/list?c=cp" >C++</a>
-                    </li>
-                    <li class="course-nav-item">
-                        <a href="/exercise/list?c=java" >JAVA</a>
-                    </li>
-                </ul>
+            <div class="col-md-9">
+                <h1>轻松愉快之玩转SpringData</h1>
             </div>
         </div>
         <div class="row">
-            <div class="test col-md-9">
-                <p>难度：</p>
-                <ul class="">
-                    <li class="course-nav-item on">
-                        <a href="/exercise/list">全部</a>
-                    </li>
-                    <li class="course-nav-item">
-                        <a href="/exercise/list?c=1" >1</a>
-                    </li>
-                    <li class="course-nav-item">
-                        <a href="/exercise/list?c=2" >2</a>
-                    </li>
-                    <li class="course-nav-item">
-                        <a href="/exercise/list?c=3" >3</a>
-                    </li>
-                    <li class="course-nav-item">
-                        <a href="/exercise/list?c=4" >4</a>
-                    </li>
-                    <li class="course-nav-item">
-                        <a href="/exercise/list?c=5" >5</a>
-                    </li>
-                </ul>
+            <div class="col-md-9">
+                <p>简介：在企业级JavaEE应用开发中，对数据库的访问和操作是必须的。Spring Data作为SpringSource的其中一个子项目，旨在统一和简化对各类型持久化存储和访问，而不拘泥于是关系型数据库还是NoSQL数据存储，使得对数据库的访问变得方便快捷，并支持MapReduce框架及云计算服务
+                </p>
             </div>
         </div>
     </div>
 </div>
 
-<!-- Video list boxes: grid -->
-    <div class="container">
-    <#--     <div class="filter">
-             <a href="#" class="btn btn-theme navbar-btn btn-btn-orange">最热门</a>
-             <a href="#" class="btn btn-theme navbar-btn btn-lightblue">最新更新</a>
-         </div>
-
-         <hr class="invisible" />-->
+<div class="container content content-light">
         <div class="row">
             <div class="col-lg-9">
-            <#list exe as item>
-                <div class="panel panel-primary">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">${item_index + 1}.&#8194;${item.title!}</h3>
+                <div class="panel panel-info">
+
+                    <div class="panel-heading">第1章</div>
+                    <div class="table-responsive">
+                        <table class="table table-hover tablesorter">
+                            <thead>
+                            <tr>
+                                <th>课时 <i class="fa fa-sort"></i></th>
+                                <th>名称 <i class="fa fa-sort"></i></th>
+                                <th>观看视频 <i class="fa fa-sort"></i></th>
+                                <th>课后习题 <i class="fa fa-sort"></i></th>
+                                <th>文件资料 <i class="fa fa-sort"></i></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>java基础</td>
+                                <td><a class="fa fa-play-circle" href="/video/1"></a></td>
+                                <td>0</td>
+                                <td>0</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>java多线程</td>
+                                <td><a class="fa fa-play-circle" href="/video/1"></a></td>
+                                <td>2</td>
+                                <td>2</td>
+                            </tr>
+                            </tbody>
+                        </table>
                     </div>
-                    <div class="panel-body">
-                    ${(item.content)!}
-                        <div class="form-group">
-                            <#list item.chooseList!?keys as key>
-                                <div class="radio">
-                                    <label>
-                                        <input type="radio" name="optionsRadios">
-                                    ${key}:${item.chooseList[key]}
-                                    </label>
-                                </div>
-                            </#list>
-                        </div>
+
+                    <div class="panel-heading">第2章</div>
+                    <div class="table-responsive">
+                        <table class="table table-hover tablesorter">
+                            <thead>
+                            <tr>
+                                <th>课时 <i class="fa fa-sort"></i></th>
+                                <th>名称 <i class="fa fa-sort"></i></th>
+                                <th>观看视频 <i class="fa fa-sort"></i></th>
+                                <th>课后习题 <i class="fa fa-sort"></i></th>
+                                <th>文件资料 <i class="fa fa-sort"></i></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>java基础</td>
+                                <td><a class="fa fa-play-circle" href="/video/1"></a></td>
+                                <td>0</td>
+                                <td>0</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>java多线程</td>
+                                <td><a class="fa fa-play-circle" href="/video/1"></a></td>
+                                <td>2</td>
+                                <td>2</td>
+                            </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
-            </#list>
             </div>
         </div><!-- /.row -->
-        <!-- Pagination -->
-        <ul class="pagination">
-            <li class="disabled"><a href="#"><i class="fa fa-angle-left"></i></a></li>
-            <li class="active"><a href="videos-list.htm">1 <span class="sr-only">(current)</span></a></li>
-            <li><a href="#">2</a></li>
-            <li><a href="#">3</a></li>
-            <li><a href="#"><i class="fa fa-angle-right"></i></a></li>
-        </ul>
-    </div>
+</div>
 
 <footer class="main bg-dark-img">
     <section class="copyright">
