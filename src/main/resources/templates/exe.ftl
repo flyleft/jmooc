@@ -101,8 +101,7 @@
 </div>
 
 <!-- Video list boxes: grid -->
-<section class="content content-light">
-    <div class="container">
+<div class="container content content-light">
    <#--     <div class="filter">
             <a href="#" class="btn btn-theme navbar-btn btn-btn-orange">最热门</a>
             <a href="#" class="btn btn-theme navbar-btn btn-lightblue">最新更新</a>
@@ -112,7 +111,7 @@
         <div class="row">
             <div class="col-lg-9">
                 <#list exe as item>
-                <div class="panel panel-primary">
+                <div class="panel panel-info">
                     <div class="panel-heading">
                         <h3 class="panel-title">${item_index + 1}.&#8194;${item.title!}</h3>
                     </div>
@@ -142,7 +141,6 @@
             <li><a href="#"><i class="fa fa-angle-right"></i></a></li>
         </ul>
     </div>
-</section>
 
 <footer class="main bg-dark-img">
     <section class="copyright">

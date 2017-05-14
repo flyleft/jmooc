@@ -59,7 +59,7 @@
             <div class="col-lg-6 col-lg-offset-3">
 
                    <#list exe as item>
-                   <div class="panel panel-primary">
+                   <div class="panel panel-info">
                        <div class="panel-heading">
                            <h3 class="panel-title">${item.title!}</h3>
                        </div>
