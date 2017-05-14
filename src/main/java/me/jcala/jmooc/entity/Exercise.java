@@ -47,6 +47,9 @@ public class Exercise implements Serializable{
     @Column(nullable = false, length = 10)
     private String type;//类型:c,cp,java
 
+    @Column(nullable = false,columnDefinition = "int default 0")
+    private int collNum;//收藏本题目的人数
+
     @JsonIgnore
     @ManyToOne(cascade = CascadeType.REMOVE,fetch=FetchType.EAGER,targetEntity = Lesson.class)
     @JoinColumn(name = "lesson_id")
