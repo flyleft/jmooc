@@ -123,7 +123,7 @@
                 </div>
                 <div class="row video-params">
                     <div class="col-md-12">
-                        Date: <b>${(item.createdAt)?string('yyyy-mm-dd')}</b>
+                        Date: <b>${(item.createdAt)?string('yyyy-MM-dd')}</b>
                     </div>
                 </div>
             </article>

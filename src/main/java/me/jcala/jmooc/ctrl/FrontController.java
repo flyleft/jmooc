@@ -1,6 +1,7 @@
 package me.jcala.jmooc.ctrl;
 
 import lombok.extern.slf4j.Slf4j;
+import me.jcala.jmooc.entity.Course;
 import me.jcala.jmooc.entity.Exercise;
 import me.jcala.jmooc.entity.auxiliary.UserAuxiliary;
 import me.jcala.jmooc.service.FrontSerImpl;
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.Date;
 
 @Controller
 @Slf4j
