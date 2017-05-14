@@ -103,14 +103,49 @@
 <!-- Video list boxes: grid -->
 <section class="content content-light">
     <div class="container">
-        <div class="filter">
+   <#--     <div class="filter">
             <a href="#" class="btn btn-theme navbar-btn btn-btn-orange">最热门</a>
             <a href="#" class="btn btn-theme navbar-btn btn-lightblue">最新更新</a>
         </div>
 
-        <hr class="invisible" />
+        <hr class="invisible" />-->
         <div class="row">
             <div class="col-lg-9">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">明朝时期张居正改革的一条鞭法的主要思想是()</h3>
+                    </div>
+                    <div class="panel-body">
+                        <form>
+                            <div class="form-group">
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+                                        A. 面向过程
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+                                        B. 万物皆数
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3">
+                                        C. 统一接口
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3">
+                                        D. 泛型编程
+                                    </label>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
                 <div class="panel panel-primary">
                     <div class="panel-heading">
                         <h3 class="panel-title">明朝时期张居正改革的一条鞭法的主要思想是()</h3>
