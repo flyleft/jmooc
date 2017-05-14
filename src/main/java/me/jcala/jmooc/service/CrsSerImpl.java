@@ -16,10 +16,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 @Service
 public class CrsSerImpl implements CrsSer{
@@ -49,6 +46,7 @@ public class CrsSerImpl implements CrsSer{
 
     @Override
     public long addCourse(Course course) {
+        course.setCreatedAt(new Date());
        return courserRepository.save(course).getId();
     }
 

@@ -6,6 +6,7 @@ import org.hibernate.validator.constraints.NotBlank;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -39,6 +40,10 @@ public class Course implements Serializable {
 
     @Column(nullable = false,columnDefinition = "int default 0")
     private int parNum;//参与本课程的人数
+
+    @Temporal(TemporalType.DATE)
+    @Column(nullable = false,name = "create_at")
+    private Date createdAt;
 
 //    @ManyToOne(cascade = CascadeType.REMOVE, fetch = FetchType.EAGER, targetEntity = User.class)
 //    @JoinColumn(name = "user_id")

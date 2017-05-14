@@ -14,6 +14,7 @@ import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
@@ -49,18 +50,6 @@ public class FrontController {
         return "video";
     }
 
-    @GetMapping("/course/list")
-    public String coursesList(
-            @RequestParam(value = "c",required = false) String param,
-            @PageableDefault(sort = {"id"},direction = Sort.Direction.DESC) Pageable pageable,
-            Model model){
-
-           FrontSerImpl.CrsFront crs=frontSer.getCrsFront(param,pageable);
-        model.addAttribute("crs", crs.courses);
-        model.addAttribute("count",crs.count);
-        return "courses";
-    }
-
     @GetMapping("/exercise/list")
     public String exercise(@RequestParam(value = "c",required = false) String param,
                            @PageableDefault(sort = {"id"},direction = Sort.Direction.DESC) Pageable pageable,
@@ -74,6 +63,29 @@ public class FrontController {
         model.addAttribute("exe", JmoocBeanUtils.setExeChooseList(exe.exercises));
         model.addAttribute("count",exe.count);
 
-      return "exercises";
+      return "exe";
+    }
+
+    @GetMapping("/course/list")
+    public String coursesList(
+            @RequestParam(value = "c",required = false) String param,
+            @PageableDefault(sort = {"id"},direction = Sort.Direction.DESC) Pageable pageable,
+            Model model){
+
+        FrontSerImpl.CrsFront crs=frontSer.getCrsFront(param,pageable);
+        model.addAttribute("crs", crs.courses);
+        model.addAttribute("count",crs.count);
+        return "crs";
+    }
+
+    @GetMapping("/course/{id}")
+    public String courseDetail(@PathVariable("id") long id){
+        return "crs_detail";
+    }
+
+    @GetMapping("/course/{id}/participate")
+    public String courseParticipate(@PathVariable("id") long id){
+
+       return "redirect:/course/"+id;
     }
 }
