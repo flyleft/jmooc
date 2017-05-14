@@ -118,7 +118,10 @@
                         老师: <b>${(item.user.name)!}</b>
                     </div>
                     <div class="col-md-5 text-right">
-                        参与: <b>${item.parNum}</b> <a href="/course/${item.id!}/participate"><i class="fa fa-heart"></i></a>
+                        参与: <b>${item.parNum}</b>
+                        <a href="/course/participate/${item.id!}" class="participate"  data-text="确定参与本课程?" data-confirm-button="是" data-cancel-button="否">
+                            <i class="fa fa-heart"></i>
+                        </a>
                     </div>
                 </div>
                 <div class="row video-params">
@@ -152,7 +155,11 @@
 <script src="/js/bootstrap.min.js"></script>
 <script src="/js/animate.js"></script>
 <script src="/js/jquery.cuteTime.min.js"></script>
+<script src="/js/jquery.confirm.min.js"></script>
 <script src="/js/script.js"></script>
+<script type="text/javascript">
+    $(".participate").confirm();
+</script>
 <!-- / JavaScript Files -->
 </body>
 </html>

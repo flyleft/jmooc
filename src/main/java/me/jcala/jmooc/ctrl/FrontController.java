@@ -85,7 +85,7 @@ public class FrontController {
         return "crs_detail";
     }
 
-    @GetMapping("/course/{id}/participate")
+    @GetMapping("/course/participate/{id}")
     public String courseParticipate(@PathVariable("id") long id){
 
        return "redirect:/course/"+id;
