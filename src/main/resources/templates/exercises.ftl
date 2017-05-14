@@ -114,7 +114,7 @@
                 <#list exe as item>
                 <div class="panel panel-primary">
                     <div class="panel-heading">
-                        <h3 class="panel-title">${item.title!}</h3>
+                        <h3 class="panel-title">${item_index + 1}.&#8194;${item.title!}</h3>
                     </div>
                     <div class="panel-body">
                     ${(item.content)!}

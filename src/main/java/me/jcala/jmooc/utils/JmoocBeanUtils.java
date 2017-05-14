@@ -5,6 +5,7 @@ import me.jcala.jmooc.entity.Lesson;
 import me.jcala.jmooc.entity.auxiliary.ExeForm;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -49,6 +50,14 @@ public class JmoocBeanUtils {
         Lesson lesson=new Lesson(lesId);
         exercise.setLesson(lesson);
         return exercise;
+    }
+
+    public static List<Exercise> setExeChooseList(List<Exercise> exercises){
+        for (Exercise exe:exercises){
+             Map<Character,String> chos=JsonUtils.instance.readJsonToExeMap(exe.getChooses());
+             exe.setChooseList(chos);
+        }
+        return exercises;
     }
 
 }

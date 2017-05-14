@@ -5,6 +5,7 @@ import me.jcala.jmooc.entity.Exercise;
 import me.jcala.jmooc.entity.auxiliary.UserAuxiliary;
 import me.jcala.jmooc.service.FrontSerImpl;
 import me.jcala.jmooc.service.inter.FrontSer;
+import me.jcala.jmooc.utils.JmoocBeanUtils;
 import me.jcala.jmooc.utils.RequestUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
@@ -68,17 +69,9 @@ public class FrontController {
         Sort sort=new Sort(numOrder);
         Pageable pageable1=new PageRequest(pageable.getPageNumber(),pageable.getPageSize(),sort);*/
 
-        FrontSerImpl.ExeFront exe= null;
-        try {
-            exe = frontSer.getExeFront(param,pageable);
-            for (Exercise exercise:exe.exercises){
-                log.info(exercise.toString());
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        FrontSerImpl.ExeFront exe= frontSer.getExeFront(param,pageable);
 
-        model.addAttribute("exe",exe.exercises);
+        model.addAttribute("exe", JmoocBeanUtils.setExeChooseList(exe.exercises));
         model.addAttribute("count",exe.count);
 
       return "exercises";
