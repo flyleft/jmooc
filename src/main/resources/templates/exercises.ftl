@@ -61,13 +61,13 @@
                         <a href="/exercise/list">全部</a>
                     </li>
                     <li class="course-nav-item">
-                        <a href="/exercise/list?t=c" >C</a>
+                        <a href="/exercise/list?c=c" >C</a>
                     </li>
                     <li class="course-nav-item">
-                        <a href="/exercise/list?t=c_plus" >C++</a>
+                        <a href="/exercise/list?c=cp" >C++</a>
                     </li>
                     <li class="course-nav-item">
-                        <a href="/exercise/list?t=java" >JAVA</a>
+                        <a href="/exercise/list?c=java" >JAVA</a>
                     </li>
                 </ul>
             </div>
@@ -80,19 +80,19 @@
                         <a href="/exercise/list">全部</a>
                     </li>
                     <li class="course-nav-item">
-                        <a href="/exercise/list?d=1" >1</a>
+                        <a href="/exercise/list?c=1" >1</a>
                     </li>
                     <li class="course-nav-item">
-                        <a href="/exercise/list?d=2" >2</a>
+                        <a href="/exercise/list?c=2" >2</a>
                     </li>
                     <li class="course-nav-item">
-                        <a href="/exercise/list?d=3" >3</a>
+                        <a href="/exercise/list?c=3" >3</a>
                     </li>
                     <li class="course-nav-item">
-                        <a href="/exercise/list?d=4" >4</a>
+                        <a href="/exercise/list?c=4" >4</a>
                     </li>
                     <li class="course-nav-item">
-                        <a href="/exercise/list?d=5" >5</a>
+                        <a href="/exercise/list?c=5" >5</a>
                     </li>
                 </ul>
             </div>

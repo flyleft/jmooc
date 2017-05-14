@@ -1,9 +1,8 @@
 package me.jcala.jmooc.ctrl;
 
 import lombok.extern.slf4j.Slf4j;
-import me.jcala.jmooc.entity.Course;
-import me.jcala.jmooc.entity.Exercise;
 import me.jcala.jmooc.entity.auxiliary.UserAuxiliary;
+import me.jcala.jmooc.service.FrontSerImpl;
 import me.jcala.jmooc.service.inter.FrontSer;
 import me.jcala.jmooc.utils.RequestUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +15,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.List;
 
 @Controller
 @Slf4j
@@ -51,35 +49,29 @@ public class FrontController {
 
     @GetMapping("/course/list")
     public String coursesList(
-            @RequestParam(value = "t",required = false) String type,
-            @RequestParam(value = "d",required = false) String dir,
-            Pageable pageable,
+            @RequestParam(value = "c",required = false) String param,
+            @PageableDefault(sort = {"id"},direction = Sort.Direction.DESC) Pageable pageable,
             Model model){
-        List<Course> courses=frontSer.getCourse(type,dir,pageable);
-        long count=frontSer.getCourseCount(type,dir);
 
-//        model.addAttribute("crs",courses);
-//        model.addAttribute("count",count);
-        log.info(count+"");
+           FrontSerImpl.CrsFront crs=frontSer.getCrsFront(param,pageable);
+        model.addAttribute("crs", crs.courses);
+        model.addAttribute("count",crs.count);
         return "courses";
     }
 
     @GetMapping("/exercise/list")
-    public String exercise(@RequestParam(value = "t",required = false) String type,
-                           @RequestParam(value = "d",required = false) Integer diff,
+    public String exercise(@RequestParam(value = "c",required = false) String param,
                            @PageableDefault(sort = {"id"},direction = Sort.Direction.DESC) Pageable pageable,
                            Model model){
         /*Sort.Order numOrder=new Sort.Order(Sort.Direction.DESC,"collNum");
         Sort sort=new Sort(numOrder);
         Pageable pageable1=new PageRequest(pageable.getPageNumber(),pageable.getPageSize(),sort);*/
 
-        List<Exercise> exercises= frontSer.getExercise(type,diff,pageable);
-        long count= frontSer.getExerciseCount(type,diff);
+        FrontSerImpl.ExeFront exe=frontSer.getExeFront(param,pageable);
 
-//        model.addAttribute("exe",exercises);
-//        model.addAttribute("count",count);
+        model.addAttribute("exe",exe.exercises);
+        model.addAttribute("count",exe.count);
 
-        log.info(count+"");
       return "exercises";
     }
 }

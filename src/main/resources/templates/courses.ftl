@@ -62,16 +62,16 @@
                         <a href="/course/list">全部</a>
                     </li>
                     <li class="course-nav-item">
-                        <a href="/course/list?d=fe" >前端开发</a>
+                        <a href="/course/list?c=fe" >前端开发</a>
                     </li>
                     <li class="course-nav-item">
-                        <a href="/course/list?d=be" >后端开发</a>
+                        <a href="/course/list?c=be" >后端开发</a>
                     </li>
                     <li class="course-nav-item">
-                        <a href="/course/list?d=mobile" >移动开发</a>
+                        <a href="/course/list?c=mb" >移动开发</a>
                     </li>
                     <li class="course-nav-item">
-                        <a href="/course/list?d=data" >数据库</a>
+                        <a href="/course/list?c=db" >数据库</a>
                     </li>
                 </ul>
                </div>
@@ -84,13 +84,13 @@
                             <a href="/course/list">全部</a>
                         </li>
                         <li class="course-nav-item">
-                            <a href="/course/list?t=fe" >C</a>
+                            <a href="/course/list?c=c" >C</a>
                         </li>
                         <li class="course-nav-item">
-                            <a href="/course/list?t=be" >C++</a>
+                            <a href="/course/list?c=cp" >C++</a>
                         </li>
                         <li class="course-nav-item">
-                            <a href="/course/list?t=mobile" >JAVA</a>
+                            <a href="/course/list?c=java" >JAVA</a>
                         </li>
                     </ul>
                  </div>
