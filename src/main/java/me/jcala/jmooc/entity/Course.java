@@ -37,6 +37,9 @@ public class Course implements Serializable {
     @Column(nullable = false, length = 10)
     private String type;//类型:c,cp,java
 
+    @Column(nullable = false,columnDefinition = "int default 0")
+    private int parNum;//参与本课程的人数
+
 //    @ManyToOne(cascade = CascadeType.REMOVE, fetch = FetchType.EAGER, targetEntity = User.class)
 //    @JoinColumn(name = "user_id")
     @ManyToOne
