@@ -111,76 +111,26 @@
         <hr class="invisible" />-->
         <div class="row">
             <div class="col-lg-9">
+                <#list exe as item>
                 <div class="panel panel-primary">
                     <div class="panel-heading">
-                        <h3 class="panel-title">明朝时期张居正改革的一条鞭法的主要思想是()</h3>
+                        <h3 class="panel-title">${item.title!}</h3>
                     </div>
                     <div class="panel-body">
-                        <form>
-                            <div class="form-group">
+                    ${(item.content)!}
+                        <div class="form-group">
+                            <#list item.chooseList!?keys as key>
                                 <div class="radio">
                                     <label>
-                                        <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
-                                        A. 面向过程
+                                        <input type="radio" name="optionsRadios">
+                                    ${key}:${item.chooseList[key]}
                                     </label>
                                 </div>
-                                <div class="radio">
-                                    <label>
-                                        <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
-                                        B. 万物皆数
-                                    </label>
-                                </div>
-                                <div class="radio">
-                                    <label>
-                                        <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3">
-                                        C. 统一接口
-                                    </label>
-                                </div>
-                                <div class="radio">
-                                    <label>
-                                        <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3">
-                                        D. 泛型编程
-                                    </label>
-                                </div>
-                            </div>
-                        </form>
+                            </#list>
+                        </div>
                     </div>
                 </div>
-                <div class="panel panel-primary">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">明朝时期张居正改革的一条鞭法的主要思想是()</h3>
-                    </div>
-                    <div class="panel-body">
-                        <form>
-                            <div class="form-group">
-                                <div class="radio">
-                                    <label>
-                                        <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
-                                        A. 面向过程
-                                    </label>
-                                </div>
-                                <div class="radio">
-                                    <label>
-                                        <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
-                                        B. 万物皆数
-                                    </label>
-                                </div>
-                                <div class="radio">
-                                    <label>
-                                        <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3">
-                                        C. 统一接口
-                                    </label>
-                                </div>
-                                <div class="radio">
-                                    <label>
-                                        <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3">
-                                        D. 泛型编程
-                                    </label>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
+                </#list>
             </div>
         </div><!-- /.row -->
         <!-- Pagination -->

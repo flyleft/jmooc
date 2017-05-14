@@ -1,6 +1,7 @@
 package me.jcala.jmooc.ctrl;
 
 import lombok.extern.slf4j.Slf4j;
+import me.jcala.jmooc.entity.Exercise;
 import me.jcala.jmooc.entity.auxiliary.UserAuxiliary;
 import me.jcala.jmooc.service.FrontSerImpl;
 import me.jcala.jmooc.service.inter.FrontSer;
@@ -67,7 +68,15 @@ public class FrontController {
         Sort sort=new Sort(numOrder);
         Pageable pageable1=new PageRequest(pageable.getPageNumber(),pageable.getPageSize(),sort);*/
 
-        FrontSerImpl.ExeFront exe=frontSer.getExeFront(param,pageable);
+        FrontSerImpl.ExeFront exe= null;
+        try {
+            exe = frontSer.getExeFront(param,pageable);
+            for (Exercise exercise:exe.exercises){
+                log.info(exercise.toString());
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
         model.addAttribute("exe",exe.exercises);
         model.addAttribute("count",exe.count);
