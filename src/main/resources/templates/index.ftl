@@ -29,11 +29,10 @@
                     <ul class="nav navbar-nav">
 
                         <li><a href="/"><span>首页</span></a></li>
-                        <li><a href="/courses"><span>课程中心</span></a></li>
+                        <li><a href="/course/list"><span>课程中心</span></a></li>
                         <li><a href="about-us.htm"><span>代码运行</span></a></li>
+                        <li><a href="/exercise/list"><span>习题中心</span></a></li>
 
-
-                        <li><a href="features.htm"><span>习题中心</span></a></li>
                     <#if type == 1>
                         <li class="dropdown user-dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i>${name!"jmooc"}<b class="caret"></b></a>

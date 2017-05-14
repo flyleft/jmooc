@@ -39,10 +39,9 @@
                     <ul class="nav navbar-nav">
 
                         <li><a href="/"><span>首页</span></a></li>
-                        <li><a href="/courses"><span>课程中心</span></a></li>
+                        <li><a href="/course/list"><span>课程中心</span></a></li>
                         <li><a href="about-us.htm"><span>代码运行</span></a></li>
-
-                        <li><a href="features.htm"><span>习题中心</span></a></li>
+                        <li><a href="/exercise/list"><span>习题中心</span></a></li>
 
                     </ul>
                     <a class="btn btn-theme navbar-btn btn-default sign-in" href="/login">登录</a>
@@ -56,59 +55,122 @@
     <div class="container">
         <div class="row">
             <div class="test col-md-9">
-                <div class="row">
-                    <div class="test col-md-9">
-                        <p>类型：</p>
-                        <ul class="">
-                            <li class="course-nav-item on">
-                                <a href="/course/list">全部</a>
-                            </li>
-                            <li class="course-nav-item">
-                                <a href="/course/list?c=fe" >C</a>
-                            </li>
-                            <li class="course-nav-item">
-                                <a href="/course/list?c=be" >C++</a>
-                            </li>
-                            <li class="course-nav-item">
-                                <a href="/course/list?c=mobile" >JAVA</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+                <p>类型：</p>
+                <ul class="">
+                    <li class="course-nav-item on">
+                        <a href="/exercise/list">全部</a>
+                    </li>
+                    <li class="course-nav-item">
+                        <a href="/exercise/list?t=c" >C</a>
+                    </li>
+                    <li class="course-nav-item">
+                        <a href="/exercise/list?t=c_plus" >C++</a>
+                    </li>
+                    <li class="course-nav-item">
+                        <a href="/exercise/list?t=java" >JAVA</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="test col-md-9">
+                <p>难度：</p>
+                <ul class="">
+                    <li class="course-nav-item on">
+                        <a href="/exercise/list">全部</a>
+                    </li>
+                    <li class="course-nav-item">
+                        <a href="/exercise/list?d=1" >1</a>
+                    </li>
+                    <li class="course-nav-item">
+                        <a href="/exercise/list?d=2" >2</a>
+                    </li>
+                    <li class="course-nav-item">
+                        <a href="/exercise/list?d=3" >3</a>
+                    </li>
+                    <li class="course-nav-item">
+                        <a href="/exercise/list?d=4" >4</a>
+                    </li>
+                    <li class="course-nav-item">
+                        <a href="/exercise/list?d=5" >5</a>
+                    </li>
+                </ul>
             </div>
         </div>
     </div>
+</div>
 
-    <!-- Video list boxes: grid -->
-    <section class="content content-light  videos-list videos-list-grid">
-        <div class="container">
+<!-- Video list boxes: grid -->
+<section class="content content-light">
+    <div class="container">
+        <div class="filter">
+            <a href="#" class="btn btn-theme navbar-btn btn-btn-orange">最热门</a>
+            <a href="#" class="btn btn-theme navbar-btn btn-lightblue">最新更新</a>
+        </div>
 
-            <div class="row">
+        <hr class="invisible" />
+        <div class="row">
+            <div class="col-lg-9">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">明朝时期张居正改革的一条鞭法的主要思想是()</h3>
+                    </div>
+                    <div class="panel-body">
+                        <form>
+                            <div class="form-group">
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+                                        A. 面向过程
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+                                        B. 万物皆数
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3">
+                                        C. 统一接口
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3">
+                                        D. 泛型编程
+                                    </label>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
+        </div><!-- /.row -->
+        <!-- Pagination -->
+        <ul class="pagination">
+            <li class="disabled"><a href="#"><i class="fa fa-angle-left"></i></a></li>
+            <li class="active"><a href="videos-list.htm">1 <span class="sr-only">(current)</span></a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#"><i class="fa fa-angle-right"></i></a></li>
+        </ul>
+    </div>
+</section>
 
-            <!-- Pagination -->
-            <ul class="pagination">
-                <li class="disabled"><a href="#"><i class="fa fa-angle-left"></i></a></li>
-                <li class="active"><a href="videos-list.htm">1 <span class="sr-only">(current)</span></a></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#"><i class="fa fa-angle-right"></i></a></li>
-            </ul>
+<footer class="main bg-dark-img">
+    <section class="copyright">
+        <div class="container"> &copy; Copyright 2016
         </div>
     </section>
-
-    <footer class="main bg-dark-img">
-        <section class="copyright">
-            <div class="container"> &copy; Copyright 2016
-            </div>
-        </section>
-    </footer>
-    <!-- JavaScript Files -->
-    <script src="/js/jquery.min.js"></script>
-    <script src="/js/bootstrap.min.js"></script>
-    <script src="/js/animate.js"></script>
-    <script src="/js/jquery.cuteTime.min.js"></script>
-    <script src="/js/script.js"></script>
-    <!-- / JavaScript Files -->
+</footer>
+<!-- JavaScript Files -->
+<script src="/js/jquery.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/animate.js"></script>
+<script src="/js/jquery.cuteTime.min.js"></script>
+<script src="/js/script.js"></script>
+<!-- / JavaScript Files -->
 </body>
 </html>

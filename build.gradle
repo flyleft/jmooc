@@ -83,6 +83,8 @@ dependencies {
     //-------------------数据库连接池---------------------------
     //compile 'com.zaxxer:HikariCP:2.6.1'
     compile 'com.alibaba:druid:1.0.29'
+    //---------------------缓存--------------------------------
+    compile 'net.sf.ehcache:ehcache:2.10.4'
     //---------------------消息队列-----------------------------
 //    compile "org.springframework.boot:spring-boot-starter-activemq:${springBootVersion}"
     //----------------------ORM--------------------------------

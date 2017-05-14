@@ -54,26 +54,28 @@
 
 <div class="page-header">
     <div class="container">
-        <div class="row">
-            <div class="test col-md-9">
+            <div class="row">
+               <div class="test col-md-9">
                 <p>方向：</p>
                 <ul class="">
                     <li class="course-nav-item on">
                         <a href="/course/list">全部</a>
                     </li>
                     <li class="course-nav-item">
-                        <a href="/course/list?c=fe" >前端开发</a>
+                        <a href="/course/list?d=fe" >前端开发</a>
                     </li>
                     <li class="course-nav-item">
-                        <a href="/course/list?c=be" >后端开发</a>
+                        <a href="/course/list?d=be" >后端开发</a>
                     </li>
                     <li class="course-nav-item">
-                        <a href="/course/list?c=mobile" >移动开发</a>
+                        <a href="/course/list?d=mobile" >移动开发</a>
                     </li>
                     <li class="course-nav-item">
-                        <a href="/course/list?c=data" >数据库</a>
+                        <a href="/course/list?d=data" >数据库</a>
                     </li>
                 </ul>
+               </div>
+            </div>
                 <div class="row">
                 <div class="test col-md-9">
                     <p>类型：</p>
@@ -82,28 +84,26 @@
                             <a href="/course/list">全部</a>
                         </li>
                         <li class="course-nav-item">
-                            <a href="/course/list?c=fe" >C</a>
+                            <a href="/course/list?t=fe" >C</a>
                         </li>
                         <li class="course-nav-item">
-                            <a href="/course/list?c=be" >C++</a>
+                            <a href="/course/list?t=be" >C++</a>
                         </li>
                         <li class="course-nav-item">
-                            <a href="/course/list?c=mobile" >JAVA</a>
+                            <a href="/course/list?t=mobile" >JAVA</a>
                         </li>
                     </ul>
                  </div>
                 </div>
+
         </div>
-    </div>
 </div>
 
 <!-- Video list boxes: grid -->
 <section class="content content-light  videos-list videos-list-grid">
     <div class="container">
         <div class="filter">
-            <a href="#" class="btn btn-theme navbar-btn btn-orange">所有</a> &nbsp;
-            <a href="#" class="btn btn-theme navbar-btn btn-lightblue">只看本学期</a>
-            <a href="#" class="btn btn-theme navbar-btn btn-lightblue">最热门</a>
+            <a href="#" class="btn btn-theme navbar-btn btn-orange">最热门</a>
             <a href="#" class="btn btn-theme navbar-btn btn-lightblue">最新更新</a>
         </div>
 
