@@ -47,7 +47,7 @@ public class Notice implements Serializable{
 
     @Transient
     @Min(0)
-    private long ownerId;
+    private long frontOwnerId;
 
     public Notice() {
     }

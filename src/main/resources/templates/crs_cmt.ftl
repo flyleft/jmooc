@@ -95,7 +95,7 @@
                 <textarea class="form-control" rows="3" placeholder="留言" name="content"></textarea>
                 <input type="hidden" name="fromInfo" value="${(crs.name)!}"/>
                 <input type="hidden" name="fromInfoId" value="${(crs.id)!}"/>
-                <input type="hidden" name="ownerId" value="${crs.user.id!}"/>
+                <input type="hidden" name="frontOwnerId" value="${crs.user.id!}"/>
                 <input type="submit" class="btn btn-success jmooc-cmt" value="提交留言"/>
             </form>
         </div>

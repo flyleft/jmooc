@@ -1,6 +1,7 @@
 package me.jcala.jmooc.service;
 
 import me.jcala.jmooc.entity.Notice;
+import me.jcala.jmooc.entity.User;
 import me.jcala.jmooc.entity.auxiliary.UserAuxiliary;
 import me.jcala.jmooc.repository.NoticeRepository;
 import me.jcala.jmooc.repository.UserRepository;
@@ -33,9 +34,10 @@ public class NoticeSerImpl implements NoticeSer{
         notice.setType(1);
         notice.setFromUserId(auxiliary.getId());
         notice.setFromUserName(auxiliary.getName());
+        notice.setOwner(new User(notice.getFrontOwnerId()));
 
         noticeRepository.save(notice);
-        userRepository.noticeNumPlusOne(notice.getOwnerId());
+        userRepository.noticeNumPlusOne(notice.getFrontOwnerId());
     }
 
     @Override
