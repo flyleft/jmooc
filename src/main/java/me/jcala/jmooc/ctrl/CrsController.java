@@ -339,4 +339,10 @@ public class CrsController {
         model.addAttribute("exe",exercises);
         return "mgr/stu_col_exe";
     }
+
+    @GetMapping("/user/stu/crs")
+    public String joinCrsPage(HttpServletRequest request,Model model){
+
+        return "mgr/stu_join_crs";
+    }
 }

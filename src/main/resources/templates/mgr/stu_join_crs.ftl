@@ -36,8 +36,8 @@
             <ul class="nav navbar-nav side-nav">
                 <li><a href="/user/all/notice?r=s"><i class="fa fa-bell"></i> 消息中心</a></li>
                 <li><a href="/user/all/info"><i class="fa fa-info-circle"></i> 个人信息</a></li>
-                <li class="active-bg"><a href="#"><i class="fa fa-plus"></i> 习题收藏</a></li>
-                <li><a href="/user/stu/crs"><i class="fa fa-edit"></i> 参加课程</a></li>
+                <li><a href="/user/stu/exe/col"><i class="fa fa-plus"></i> 习题收藏</a></li>
+                <li class="active-bg"><a href="#"><i class="fa fa-edit"></i> 参加课程</a></li>
             </ul>
 
             <h3 style="text-align: center;color: #ffffff;"> 习题收藏</h3>
@@ -47,29 +47,6 @@
     <div id="page-wrapper">
         <div class="row">
             <div class="col-lg-6 col-lg-offset-3">
-            <#list exe as item>
-                <div class="panel panel-info">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">${item_index + 1}.&#8194;${item.title!}</h3>
-                    </div>
-                    <div class="panel-body">
-                    ${(item.content)!}
-                        <div class="form-group">
-                            <#list item.chooseList!?keys as key>
-                                <div class="radio">
-                                    <label>
-                                        <input type="radio" name="optionsRadios">
-                                    ${key}:${item.chooseList[key]}
-                                    </label>
-                                </div>
-                            </#list>
-                        </div>
-                        <p>
-                            <a class="btn btn-default" href="/exercise/${item.id!}">详情...</a>
-                        </p>
-                    </div>
-                </div>
-            </#list>
             </div>
         </div><!-- /.row -->
     </div><!-- /#page-wrapper -->
