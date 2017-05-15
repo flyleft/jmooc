@@ -3,10 +3,12 @@ package me.jcala.jmooc.ctrl;
 import lombok.extern.slf4j.Slf4j;
 import me.jcala.jmooc.entity.Course;
 import me.jcala.jmooc.entity.Exercise;
+import me.jcala.jmooc.entity.Notice;
 import me.jcala.jmooc.entity.auxiliary.UserAuxiliary;
 import me.jcala.jmooc.service.FrontSerImpl;
 import me.jcala.jmooc.service.inter.CrsSer;
 import me.jcala.jmooc.service.inter.FrontSer;
+import me.jcala.jmooc.service.inter.NoticeSer;
 import me.jcala.jmooc.utils.FileType;
 import me.jcala.jmooc.utils.JmoocBeanUtils;
 import me.jcala.jmooc.utils.RequestUtils;
@@ -23,6 +25,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.Date;
+import java.util.List;
 
 @Controller
 @Slf4j
@@ -30,12 +33,14 @@ public class FrontController {
 
     private FrontSer frontSer;
     private CrsSer crsSer;
+    private NoticeSer noticeSer;
 
 
     @Autowired
-    public FrontController(FrontSer frontSer, CrsSer crsSer) {
+    public FrontController(FrontSer frontSer, CrsSer crsSer, NoticeSer noticeSer) {
         this.frontSer = frontSer;
         this.crsSer = crsSer;
+        this.noticeSer = noticeSer;
     }
 
     @GetMapping("/")
@@ -107,7 +112,9 @@ public class FrontController {
             return "crs_chp";
         }
 
+        List<Notice> notices=noticeSer.getCrsNotice(id);
         model.addAttribute("crs",course);
+        model.addAttribute("cmt",notices);
         return "crs_cmt";
     }
 

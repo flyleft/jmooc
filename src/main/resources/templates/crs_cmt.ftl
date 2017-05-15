@@ -78,18 +78,19 @@
     <div class="row">
         <div class="col-lg-9">
             <div class="panel panel-danger">
-                <div class="panel-heading">
-                    <h3 class="panel-title">用户：xiaoming</h3>
-                </div>
-                <div class="panel-body">
-                    <p>
-                        JpaRepository继承PagingAndSortingRepository，PagingAndSortingRepository又继承CrudRepository，
-                        也就是说我们平时自定义的接口只要继承JpaRepository，就相当于拥有了增删查改，分页，等等功能。
-                    </p>
-                    <small class="jmooc-date">
-                        时间: 2017-12-22
-                    </small>
-                </div>
+                <#list cmt as item>
+                    <div class="panel-heading">
+                        <h3 class="panel-title">用户：${item.fromUserName!}</h3>
+                    </div>
+                    <div class="panel-body">
+                        <p>
+                        ${item.content!}
+                        </p>
+                        <small class="jmooc-date">
+                            时间: ${(item.createdAt)!?string('yyyy-MM-dd')}
+                        </small>
+                    </div>
+                </#list>
             </div>
             <form class="form-horizontal" action="/user/all/cmt/crs/add" method="post" name="cmt">
                 <textarea class="form-control" rows="3" placeholder="留言" name="content"></textarea>

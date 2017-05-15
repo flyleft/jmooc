@@ -81,7 +81,7 @@
             <div class="col-lg-9">
                 <div class="panel panel-info">
                     <#list crs.chapters as chp>
-                        <div class="panel-heading">第${chp.pos}章</div>
+                        <div class="panel-heading">第${chp.pos}章: ${chp.name!}</div>
                         <div class="table-responsive">
                             <table class="table table-hover tablesorter">
                                 <thead>

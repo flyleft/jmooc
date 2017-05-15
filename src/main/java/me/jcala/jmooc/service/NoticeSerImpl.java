@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.Date;
+import java.util.List;
 
 @Service
 public class NoticeSerImpl implements NoticeSer{
@@ -43,5 +44,10 @@ public class NoticeSerImpl implements NoticeSer{
     @Override
     public void addExeComment(HttpServletRequest request,Notice notice) {
 
+    }
+
+    @Override
+    public List<Notice> getCrsNotice(long fromInfoId) {
+        return noticeRepository.findByTypeAndFromInfoId(1,fromInfoId);
     }
 }
