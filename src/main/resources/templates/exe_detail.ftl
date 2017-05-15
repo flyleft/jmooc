@@ -102,48 +102,78 @@
 
 <!-- Video list boxes: grid -->
 <div class="container content content-light">
-   <#--     <div class="filter">
-            <a href="#" class="btn btn-theme navbar-btn btn-btn-orange">最热门</a>
-            <a href="#" class="btn btn-theme navbar-btn btn-lightblue">最新更新</a>
-        </div>
+<#--     <div class="filter">
+         <a href="#" class="btn btn-theme navbar-btn btn-btn-orange">最热门</a>
+         <a href="#" class="btn btn-theme navbar-btn btn-lightblue">最新更新</a>
+     </div>
 
-        <hr class="invisible" />-->
-        <div class="row">
+     <hr class="invisible" />-->
+    <div class="row">
+        <div class="col-lg-9">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <h3 class="panel-title">${exe.title!}</h3>
+                </div>
+                <div class="panel-body">
+                ${(exe.content)!}
+                    <div class="form-group">
+                        <#list exe.chooseList!?keys as key>
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="optionsRadios">
+                                ${key}:${exe.chooseList[key]}
+                                </label>
+                            </div>
+                        </#list>
+                    </div>
+                    <hr/>
+                    <h3 class="panel-title">难度系数：${exe.difficulty!}</h3>
+                    <hr/>
+                    <h3 class="panel-title">分&#12288;&#12288;值：${exe.score!}</h3>
+                    <hr/>
+                    <h3 class="panel-title">类&#12288;&#12288;型：${exe.type!}</h3>
+                    <hr/>
+                    <h3 class="panel-title">正&#12288;&#12288;解：${exe.answer!}</h3>
+                    <hr/>
+                    <h3 class="panel-title">解&#12288;&#12288;析：</h3>
+                    <br>
+                    <p>${exe.analysis!}</p>
+                </div>
+            </div>
             <div class="col-lg-9">
-                <#list exe as item>
-                <div class="panel panel-info">
+                <div class="panel panel-danger">
+                <#list cmt as item>
                     <div class="panel-heading">
-                        <h3 class="panel-title">${item_index + 1}.&#8194;${item.title!}</h3>
+                        <h3 class="panel-title">用户：${item.fromUserName!}</h3>
                     </div>
                     <div class="panel-body">
-                    ${(item.content)!}
-                        <div class="form-group">
-                            <#list item.chooseList!?keys as key>
-                                <div class="radio">
-                                    <label>
-                                        <input type="radio" name="optionsRadios">
-                                    ${key}:${item.chooseList[key]}
-                                    </label>
-                                </div>
-                            </#list>
-                        </div>
                         <p>
-                            <a class="btn btn-default" href="#">详情...</a>
+                        ${item.content!}
                         </p>
+                        <small class="jmooc-date">
+                            时间: ${(item.createdAt)!?string('yyyy-MM-dd')}
+                        </small>
                     </div>
-                </div>
                 </#list>
+                </div>
+                <form class="form-horizontal" action="/user/all/cmt/crs/add" method="post" name="cmt">
+                    <textarea class="form-control" rows="3" placeholder="留言" name="content"></textarea>
+                    <input type="hidden" name="fromInfo" value="${(exe.name)!}"/>
+                    <input type="hidden" name="fromInfoId" value="${(exe.id)!}"/>
+                    <input type="submit" class="btn btn-success jmooc-cmt" value="提交留言"/>
+                </form>
             </div>
-        </div><!-- /.row -->
-        <!-- Pagination -->
-        <ul class="pagination">
-            <li class="disabled"><a href="#"><i class="fa fa-angle-left"></i></a></li>
-            <li class="active"><a href="videos-list.htm">1 <span class="sr-only">(current)</span></a></li>
-            <li><a href="#">2</a></li>
-            <li><a href="#">3</a></li>
-            <li><a href="#"><i class="fa fa-angle-right"></i></a></li>
-        </ul>
-    </div>
+        </div>
+    </div><!-- /.row -->
+    <!-- Pagination -->
+    <ul class="pagination">
+        <li class="disabled"><a href="#"><i class="fa fa-angle-left"></i></a></li>
+        <li class="active"><a href="videos-list.htm">1 <span class="sr-only">(current)</span></a></li>
+        <li><a href="#">2</a></li>
+        <li><a href="#">3</a></li>
+        <li><a href="#"><i class="fa fa-angle-right"></i></a></li>
+    </ul>
+</div>
 
 <footer class="main bg-dark-img">
     <section class="copyright">

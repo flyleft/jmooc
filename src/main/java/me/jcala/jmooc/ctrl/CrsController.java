@@ -236,12 +236,14 @@ public class CrsController {
                           BindingResult result,
                           @RequestParam("crs_id") long crsId,
                           @RequestParam("chp_id") long chpId,
-                          @RequestParam("les_id") long lesId){
+                          @RequestParam("les_id") long lesId,
+                          HttpServletRequest request){
 
         if (result.hasErrors()) {
             throw new RuntimeException("表单数据不合法");
         }
-       crsSer.addExercise(exeForm,lesId);
+        long userId=RequestUtils.getUserIdFromReq(request);
+       crsSer.addExercise(exeForm,lesId,userId);
         return "redirect:/user/tea/les_mgr/exe?crs_id="+crsId+"&chp_id="+chpId+"&les_id="+lesId;
     }
 
@@ -252,12 +254,14 @@ public class CrsController {
     public String exePostBatch(@RequestParam("json") String json,
                                @RequestParam("crs_id") long crsId,
                                @RequestParam("chp_id") long chpId,
-                               @RequestParam("les_id") long lesId){
+                               @RequestParam("les_id") long lesId,
+                               HttpServletRequest request){
 
         if (json.trim().isEmpty()) {
             throw new RuntimeException("表单数据不合法");
         }
-        crsSer.addExerciseBatch(json,lesId);
+        long userId=RequestUtils.getUserIdFromReq(request);
+        crsSer.addExerciseBatch(json,lesId,userId);
         return "redirect:/user/tea/les_mgr/exe?crs_id="+crsId+"&chp_id="+chpId+"&les_id="+lesId;
     }
 

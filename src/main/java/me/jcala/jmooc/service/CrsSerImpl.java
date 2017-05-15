@@ -129,8 +129,9 @@ public class CrsSerImpl implements CrsSer{
     }
 
     @Override
-    public void addExercise(ExeForm exeForm, long lesId) {
+    public void addExercise(ExeForm exeForm, long lesId,long ownerId) {
         Exercise exercise=JmoocBeanUtils.exeFormToBean(exeForm,lesId);
+        exercise.setOwnerId(ownerId);
         exerciseRepository.save(exercise);
     }
 
@@ -148,10 +149,11 @@ public class CrsSerImpl implements CrsSer{
     }
 
     @Override
-    public void addExerciseBatch(String json, long lesId) {
+    public void addExerciseBatch(String json, long lesId,long ownerId) {
         Set<Exercise> exercises=JsonUtils.instance.readJsonToExeSet(json);
         for (Exercise exercise:exercises){
             exercise.setLesson(new Lesson(lesId));
+            exercise.setOwnerId(ownerId);
         }
         exerciseRepository.save(exercises);
     }
