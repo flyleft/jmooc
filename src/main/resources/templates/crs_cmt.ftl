@@ -15,6 +15,8 @@
         a:link,a:visited{text-decoration:none;}
         a:hover{text-decoration:none;}
         a:active{text-decoration:none;}
+        .jmooc-date{color: #9d9fc4}
+        .jmooc-cmt{float: right}
     </style>
 </head>
 <body>
@@ -63,7 +65,7 @@
                 </p>
                 <p>
                     <a class="btn btn-default" href="/course/${id!}">章  节</a>
-                    <a class="btn btn-default disabled" href="#">评  论</a>
+                    <a class="btn btn-default disabled" href="#">留  言</a>
                 </p>
 
 
@@ -75,6 +77,24 @@
 <div class="container content content-light">
     <div class="row">
         <div class="col-lg-9">
+            <div class="panel panel-danger">
+                <div class="panel-heading">
+                    <h3 class="panel-title">用户：xiaoming</h3>
+                </div>
+                <div class="panel-body">
+                    <p>
+                        JpaRepository继承PagingAndSortingRepository，PagingAndSortingRepository又继承CrudRepository，
+                        也就是说我们平时自定义的接口只要继承JpaRepository，就相当于拥有了增删查改，分页，等等功能。
+                    </p>
+                    <small class="jmooc-date">
+                        时间: 2017-12-22
+                    </small>
+                </div>
+            </div>
+            <form class="form-horizontal" id="add_pro_form">
+                <textarea class="form-control" rows="3" placeholder="留言" name="cmt"></textarea>
+                <input type="submit" class="btn btn-success jmooc-cmt" value="提交留言"/>
+            </form>
         </div>
     </div><!-- /.row -->
 </div>

@@ -67,7 +67,7 @@
                 </p>
                 <p>
                     <a class="btn btn-default disabled" href="#">章  节</a>
-                    <a class="btn btn-default" href="/course/${id!}?c=cmt">评  论</a>
+                    <a class="btn btn-default" href="/course/${id!}?c=cmt">留  言</a>
                 </p>
 
 
