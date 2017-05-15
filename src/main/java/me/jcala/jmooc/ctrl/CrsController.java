@@ -342,7 +342,9 @@ public class CrsController {
 
     @GetMapping("/user/stu/crs")
     public String joinCrsPage(HttpServletRequest request,Model model){
-
+        long userId=RequestUtils.getUserIdFromReq(request);
+        List<Course> courses=crsSer.getJoinCrsList(userId);
+        model.addAttribute("crs",courses);
         return "mgr/stu_join_crs";
     }
 }

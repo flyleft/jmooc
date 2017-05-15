@@ -232,4 +232,17 @@ public class CrsSerImpl implements CrsSer{
         }
         return exercises;
     }
+
+    @Override
+    public List<Course> getJoinCrsList(long userId) {
+        List<Long> joinCrs=getUserJoinCrs(userId);
+        if (joinCrs==null) return new ArrayList<>();
+        List<Course> courseList=new ArrayList<>();
+        for (long id:joinCrs){
+            Course course=courserRepository.findOne(id);
+            if (course==null) continue;
+            courseList.add(course);
+        }
+        return courseList;
+    }
 }

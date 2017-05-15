@@ -48,4 +48,6 @@ public interface CrsSer {
     Set<Notice> getNoticeList(long userId);//获取用户的消息
 
     List<Exercise> getColExeList(long userId);//获取用户收藏的习题列表
+
+    List<Course> getJoinCrsList(long userId);//获取参加的课程列表
 }

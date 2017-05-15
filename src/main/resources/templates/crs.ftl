@@ -134,7 +134,7 @@
            <#list crs as item>
             <article class="col-md-4 video-item">
                 <a href="/course/${item.id!}" class="video-prev video-prev-small"></a>
-                <h3 class="video-title"><a href="video.htm">java从入门到精通</a></h3>
+                <h3 class="video-title"><a href="video.htm">${item.name!}</a></h3>
                 <div class="row video-params">
                     <div class="col-md-7">
                         老师: <b>${(item.user.name)!}</b>
