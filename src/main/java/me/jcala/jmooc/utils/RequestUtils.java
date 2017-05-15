@@ -2,6 +2,7 @@ package me.jcala.jmooc.utils;
 
 import me.jcala.jmooc.entity.User;
 import me.jcala.jmooc.entity.auxiliary.UserAuxiliary;
+import org.springframework.ui.Model;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -30,5 +31,22 @@ public class RequestUtils {
         }
         UserAuxiliary auxiliary=(UserAuxiliary)obj;
         return new User(auxiliary.getId(),auxiliary.getName());
+    }
+
+    public static void setFrontUserInfo(Model model, HttpServletRequest request){
+        UserAuxiliary userAuxiliary= RequestUtils.getUserAuxiliaryFromReq(request);
+        if (userAuxiliary==null){
+            model.addAttribute("type",0);
+        }else if (userAuxiliary.getType()==1){
+            model.addAttribute("type",1);
+            model.addAttribute("name",userAuxiliary.getName());
+            model.addAttribute("id",userAuxiliary.getId());
+            model.addAttribute("num",userAuxiliary.getNoticeNum());
+        }else if (userAuxiliary.getType()==2){
+            model.addAttribute("type",2);
+            model.addAttribute("name",userAuxiliary.getName());
+            model.addAttribute("id",userAuxiliary.getId());
+            model.addAttribute("num",userAuxiliary.getNoticeNum());
+        }
     }
 }

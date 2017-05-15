@@ -46,20 +46,7 @@ public class FrontController {
 
     @GetMapping("/")
     public String index(Model model,HttpServletRequest request){
-        UserAuxiliary userAuxiliary= RequestUtils.getUserAuxiliaryFromReq(request);
-        if (userAuxiliary==null){
-            model.addAttribute("type",0);
-        }else if (userAuxiliary.getType()==1){
-            model.addAttribute("type",1);
-            model.addAttribute("name",userAuxiliary.getName());
-            model.addAttribute("id",userAuxiliary.getId());
-            model.addAttribute("num",userAuxiliary.getNoticeNum());
-        }else if (userAuxiliary.getType()==2){
-            model.addAttribute("type",2);
-            model.addAttribute("name",userAuxiliary.getName());
-            model.addAttribute("id",userAuxiliary.getId());
-            model.addAttribute("num",userAuxiliary.getNoticeNum());
-        }
+       RequestUtils.setFrontUserInfo(model,request);
         return "index";
     }
 
@@ -67,11 +54,12 @@ public class FrontController {
     @GetMapping("/exercise/list")
     public String exercise(@RequestParam(value = "c",required = false) String param,
                            @PageableDefault(sort = {"id"},direction = Sort.Direction.DESC) Pageable pageable,
+                           HttpServletRequest request,
                            Model model){
         /*Sort.Order numOrder=new Sort.Order(Sort.Direction.DESC,"collNum");
         Sort sort=new Sort(numOrder);
         Pageable pageable1=new PageRequest(pageable.getPageNumber(),pageable.getPageSize(),sort);*/
-
+        RequestUtils.setFrontUserInfo(model,request);
         FrontSerImpl.ExeFront exe= frontSer.getExeFront(param,pageable);
 
         model.addAttribute("exe", JmoocBeanUtils.setExeChooseList(exe.exercises));
@@ -84,8 +72,9 @@ public class FrontController {
     public String coursesList(
             @RequestParam(value = "c",required = false) String param,
             @PageableDefault(sort = {"id"},direction = Sort.Direction.DESC) Pageable pageable,
+            HttpServletRequest request,
             Model model){
-
+        RequestUtils.setFrontUserInfo(model,request);
         FrontSerImpl.CrsFront crs=frontSer.getCrsFront(param,pageable);
         model.addAttribute("crs", crs.courses);
         model.addAttribute("count",crs.count);
@@ -97,7 +86,7 @@ public class FrontController {
                                @RequestParam(value = "c",required = false) String param,
                                HttpServletRequest request,
                                Model model){
-
+        RequestUtils.setFrontUserInfo(model,request);
         long userId=RequestUtils.getUserIdFromReq(request);
         if (userId>=0 && crsSer.hasJoinCrs(id,userId)){
            model.addAttribute("join",true);
@@ -123,8 +112,8 @@ public class FrontController {
      *  习题详情界面
      */
     @GetMapping("/exercise/{id}")
-    public String courseExe(@PathVariable("id") long id, Model model){
-
+    public String courseExe(@PathVariable("id") long id, Model model,HttpServletRequest request){
+        RequestUtils.setFrontUserInfo(model,request);
         Exercise exercise=frontSer.getExercise(id);
 
         if (exercise==null) return "redirect:/exercise/list";

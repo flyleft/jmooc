@@ -62,7 +62,6 @@
                 </div>
             </div>
         </nav>
-
         <p class="header text-center text-white">在线学习，与老师在线交流，c/c++/java代码在线运行</p>
 
         <!-- Screens -->
