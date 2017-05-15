@@ -29,11 +29,14 @@
             diskExpiryThreadIntervalSeconds="1800"
             memoryStoreEvictionPolicy="FIFO"
     />
-    <!--cache配置同defaultCache -->
-<!--    <cache name="newTaskList"
+
+    <cache name="newTaskList"
            maxElementsInMemory="1"
     />
-    <cache name="dailyTaskList"
-           maxElementsInMemory="1"
-    />-->
+    <!--cache配置同defaultCache -->
+    <cache name="user_join_courses"
+           maxElementsInMemory="100"
+           maxElementsOnDisk="1000"
+           memoryStoreEvictionPolicy="FIFO"
+    />
 </ehcache>

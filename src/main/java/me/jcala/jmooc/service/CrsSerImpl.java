@@ -12,6 +12,8 @@ import me.jcala.jmooc.utils.JsonUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -154,6 +156,7 @@ public class CrsSerImpl implements CrsSer{
         exerciseRepository.save(exercises);
     }
 
+    @CacheEvict(value = "user_join_courses",key = "#userId")
     @Override
     public void joinCrs(long crsId, long userId) {
        User user=userRepository.findOne(userId);
@@ -170,5 +173,13 @@ public class CrsSerImpl implements CrsSer{
 
         String newJoinCrs=JsonUtils.instance.toJson(joinList);
        userRepository.updateJoinCourses(newJoinCrs,userId);
+    }
+
+    @Cacheable(value = "user_join_courses",key = "#userId",unless="#result == null")
+    @Override
+    public List<Long> getUserJoinCrs(long userId) {
+        User user=userRepository.findOne(userId);
+        if (user==null) return null;
+        return JsonUtils.instance.readJsonToSLongList(user.getJoinCourses());
     }
 }

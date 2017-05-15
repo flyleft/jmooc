@@ -265,7 +265,10 @@ public class CrsController {
     @GetMapping("/user/all/crs/join/{id}")
     public String joinCrs(@PathVariable("id") long id,HttpServletRequest request){
         long userId=RequestUtils.getUserIdFromReq(request);
-        crsSer.joinCrs(id,userId);
+
+        if (userId>=0) {
+            crsSer.joinCrs(id, userId);
+        }
         return "redirect:/course/"+id;
     }
 

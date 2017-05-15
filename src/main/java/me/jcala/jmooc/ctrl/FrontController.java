@@ -82,7 +82,13 @@ public class FrontController {
 
     @GetMapping("/course/{id}")
     public String courseDetail(@PathVariable("id") long id,
-                               @RequestParam(value = "c",required = false) String param){
+                               @RequestParam(value = "c",required = false) String param,
+                               HttpServletRequest request){
+
+        long userId=RequestUtils.getUserIdFromReq(request);
+        if (userId>=0){
+
+        }
         if (param==null){
             return "crs_chp";
         }

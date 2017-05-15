@@ -8,6 +8,7 @@ import me.jcala.jmooc.entity.auxiliary.ChpForm;
 import me.jcala.jmooc.entity.auxiliary.ExeForm;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.util.List;
 import java.util.Set;
 
 public interface CrsSer {
@@ -36,5 +37,7 @@ public interface CrsSer {
 
     Set<Exercise> getExerciseByLesId(long lesId);//获取某课时下的习题
 
-    void joinCrs(long crsId,long userId);
+    void joinCrs(long crsId,long userId);//参加课程
+
+    List<Long> getUserJoinCrs(long userId);
 }
