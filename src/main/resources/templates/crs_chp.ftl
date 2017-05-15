@@ -59,7 +59,11 @@
                 <p>简介：在企业级JavaEE应用开发中，对数据库的访问和操作是必须的。Spring Data作为SpringSource的其中一个子项目，旨在统一和简化对各类型持久化存储和访问，而不拘泥于是关系型数据库还是NoSQL数据存储，使得对数据库的访问变得方便快捷，并支持MapReduce框架及云计算服务
                 </p>
                 <p>
-                    <a class="btn btn-warning" href="/user/all/crs/join/${id!}">参  与</a>
+                    <#if join>
+                        <a class="btn btn-warning disabled" href="#">已参加</a>
+                        <#else>
+                            <a class="btn btn-warning" href="/user/all/crs/join/${id!}">参  与</a>
+                    </#if>
                 </p>
                 <p>
                     <a class="btn btn-default disabled" href="#">章  节</a>

@@ -5,6 +5,7 @@ import me.jcala.jmooc.entity.Course;
 import me.jcala.jmooc.entity.Exercise;
 import me.jcala.jmooc.entity.auxiliary.UserAuxiliary;
 import me.jcala.jmooc.service.FrontSerImpl;
+import me.jcala.jmooc.service.inter.CrsSer;
 import me.jcala.jmooc.service.inter.FrontSer;
 import me.jcala.jmooc.utils.JmoocBeanUtils;
 import me.jcala.jmooc.utils.RequestUtils;
@@ -26,10 +27,13 @@ import java.util.Date;
 public class FrontController {
 
     private FrontSer frontSer;
+    private CrsSer crsSer;
+
 
     @Autowired
-    public FrontController(FrontSer frontSer) {
+    public FrontController(FrontSer frontSer, CrsSer crsSer) {
         this.frontSer = frontSer;
+        this.crsSer = crsSer;
     }
 
     @GetMapping("/")
@@ -83,12 +87,17 @@ public class FrontController {
     @GetMapping("/course/{id}")
     public String courseDetail(@PathVariable("id") long id,
                                @RequestParam(value = "c",required = false) String param,
-                               HttpServletRequest request){
+                               HttpServletRequest request,
+                               Model model){
 
         long userId=RequestUtils.getUserIdFromReq(request);
-        if (userId>=0){
-
+        if (userId>=0 && crsSer.hasJoinCrs(id,userId)){
+           model.addAttribute("join",true);
+        }else {
+            model.addAttribute("join",false);
         }
+
+
         if (param==null){
             return "crs_chp";
         }

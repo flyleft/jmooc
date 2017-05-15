@@ -39,5 +39,7 @@ public interface CrsSer {
 
     void joinCrs(long crsId,long userId);//参加课程
 
-    List<Long> getUserJoinCrs(long userId);
+    List<Long> getUserJoinCrs(long userId);//获取用户已经参与的课程id列表
+
+    boolean hasJoinCrs(long crsId,long userId);//判断用户是否已经参与该课程
 }

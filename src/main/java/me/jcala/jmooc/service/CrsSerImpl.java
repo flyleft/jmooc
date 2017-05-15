@@ -159,10 +159,8 @@ public class CrsSerImpl implements CrsSer{
     @CacheEvict(value = "user_join_courses",key = "#userId")
     @Override
     public void joinCrs(long crsId, long userId) {
-       User user=userRepository.findOne(userId);
-       if (user==null) return;
 
-       List<Long> joinList=JsonUtils.instance.readJsonToSLongList(user.getJoinCourses());
+       List<Long> joinList=getUserJoinCrs(userId);
 
        for (long id:joinList){
            if (id==crsId) return;
@@ -181,5 +179,14 @@ public class CrsSerImpl implements CrsSer{
         User user=userRepository.findOne(userId);
         if (user==null) return null;
         return JsonUtils.instance.readJsonToSLongList(user.getJoinCourses());
+    }
+
+    @Override
+    public boolean hasJoinCrs(long crsId, long userId) {
+        List<Long> joinCrs=getUserJoinCrs(userId);
+        for (long id: joinCrs){
+            if (crsId==id) return true;
+        }
+        return false;
     }
 }
