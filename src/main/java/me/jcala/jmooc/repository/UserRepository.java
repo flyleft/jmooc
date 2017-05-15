@@ -19,4 +19,12 @@ public interface UserRepository extends CrudRepository<User,Long>{
     @Modifying(clearAutomatically = true)
     @Query(value = "update user_tb u set u.join_courses =?1 where u.id = ?2",nativeQuery = true)
     void updateJoinCourses(String crsStr,long userId);
+
+    @Modifying(clearAutomatically = true)
+    @Query(value = "update user_tb u set u.notice_num = u.notice_num + 1 where u.id = ?1",nativeQuery = true)
+    void noticeNumPlusOne(long userId);
+
+    @Modifying(clearAutomatically = true)
+    @Query(value = "update user_tb u set u.notice_num = 0 where u.id = ?1",nativeQuery = true)
+    void clearNoticeNum(long userId);
 }

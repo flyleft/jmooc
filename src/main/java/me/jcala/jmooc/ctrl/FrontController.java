@@ -100,13 +100,14 @@ public class FrontController {
         }
 
 
+        Course course=frontSer.getCourse(id);
         if (param==null){
-            Course course=frontSer.getCourse(id);
             model.addAttribute("crs",course);
             model.addAttribute("url", FileType.FILE.getUrl());
             return "crs_chp";
         }
 
+        model.addAttribute("crs",course);
         return "crs_cmt";
     }
 

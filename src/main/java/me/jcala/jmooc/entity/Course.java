@@ -45,9 +45,8 @@ public class Course implements Serializable {
     @Column(nullable = false,name = "create_at")
     private Date createdAt;
 
-//    @ManyToOne(cascade = CascadeType.REMOVE, fetch = FetchType.EAGER, targetEntity = User.class)
-//    @JoinColumn(name = "user_id")
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.REMOVE, fetch = FetchType.EAGER, targetEntity = User.class)
+    @JoinColumn(name = "user_id")
     private User user;
 
     @Column(name = "chapters")

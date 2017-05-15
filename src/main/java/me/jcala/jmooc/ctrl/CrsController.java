@@ -1,10 +1,12 @@
 package me.jcala.jmooc.ctrl;
 
+import lombok.extern.slf4j.Slf4j;
 import me.jcala.jmooc.entity.*;
 import me.jcala.jmooc.entity.auxiliary.ChpForm;
 import me.jcala.jmooc.entity.auxiliary.ExeForm;
 import me.jcala.jmooc.exception.NoPageException;
 import me.jcala.jmooc.service.inter.CrsSer;
+import me.jcala.jmooc.service.inter.NoticeSer;
 import me.jcala.jmooc.utils.CommonUtils;
 import me.jcala.jmooc.utils.FileType;
 import me.jcala.jmooc.utils.FileUtils;
@@ -26,18 +28,20 @@ import java.util.*;
  *  课程管理控制器
  */
 @Controller
+@Slf4j
 public class CrsController {
 
-    private static final Logger logger= LoggerFactory.getLogger(CrsController.class);
-
     private CrsSer crsSer;
+    private NoticeSer noticeSer;
 
     @Autowired
-    public CrsController(CrsSer crsSer) {
+    public CrsController(CrsSer crsSer, NoticeSer noticeSer) {
         this.crsSer = crsSer;
+        this.noticeSer = noticeSer;
     }
 
-    //-------------------------------------------------课程管理相关---------------------------------------------
+
+//-------------------------------------------------课程管理相关---------------------------------------------
 
     /**
      *  课程管理界面
@@ -272,5 +276,18 @@ public class CrsController {
         return "redirect:/course/"+id;
     }
 
+    /**
+     * 发表课程留言
+     */
+    @PostMapping("/user/all/cmt/crs/add")
+    public String CrsCmtPost(@ModelAttribute("cmt") @Valid Notice notice,
+                             BindingResult result,HttpServletRequest request){
+
+        if (result.hasErrors()) {
+            throw new RuntimeException("表单数据不合法");
+        }
+       noticeSer.addCrsComment(request,notice);
+       return "redirect:/course/"+notice.getFromInfoId();
+    }
 
 }

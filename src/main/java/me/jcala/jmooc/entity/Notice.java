@@ -2,9 +2,12 @@ package me.jcala.jmooc.entity;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.validator.constraints.NotBlank;
 
 import javax.persistence.*;
+import javax.validation.constraints.Min;
 import java.io.Serializable;
+import java.util.Date;
 
 @Getter
 @Setter
@@ -17,16 +20,34 @@ public class Notice implements Serializable{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column(nullable = false,columnDefinition="tinyint default 1")
-    private int typeAndStatus;//1：系统未读消息；2：系统已读消息；3：用户未读消息；4：用户已读消息
+    @ManyToOne(targetEntity = User.class)
+    @JoinColumn(name = "owner_id")
+    private User owner;
 
-    @OneToOne(optional=false,cascade=CascadeType.ALL,fetch=FetchType.LAZY,targetEntity=User.class)
-    @JoinColumn(name="id",nullable=false,updatable=false)
-    private User fromUser;
+    private String fromUserName;
 
+    private long fromUserId;
+
+    @NotBlank(message = "评论源自信息")
+    private String fromInfo;
+
+    @Column(nullable = false,columnDefinition="tinyint(1) default 1")//1：表示课程留言；2：表示习题留言
+    private int type;
+
+    @Min(0)
+    private long fromInfoId;//课程id或者习题id
+
+    @Temporal(TemporalType.DATE)
+    @Column(nullable = false,name = "create_at")
+    private Date createdAt;
+
+    @NotBlank(message = "评论内容")
     @Column(nullable = false,columnDefinition="text")
     private String content;
 
+    @Transient
+    @Min(0)
+    private long ownerId;
 
     public Notice() {
     }

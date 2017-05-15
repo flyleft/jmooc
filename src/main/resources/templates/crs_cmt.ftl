@@ -53,18 +53,18 @@
     <div class="container">
         <div class="row">
             <div class="col-md-9">
-                <h1>轻松愉快之玩转SpringData</h1>
+                <h1>${(crs.name)!}</h1>
             </div>
         </div>
         <div class="row">
             <div class="col-md-9">
-                <p>简介：在企业级JavaEE应用开发中，对数据库的访问和操作是必须的。Spring Data作为SpringSource的其中一个子项目，旨在统一和简化对各类型持久化存储和访问，而不拘泥于是关系型数据库还是NoSQL数据存储，使得对数据库的访问变得方便快捷，并支持MapReduce框架及云计算服务
+                <p>${(crs.desp)!}
                 </p>
                 <p>
-                    <a class="btn btn-warning" href="/user/all/crs/join/${id!}">参  与</a>
+                    <a class="btn btn-warning" href="/user/all/crs/join/${(crs.id)!}">参  与</a>
                 </p>
                 <p>
-                    <a class="btn btn-default" href="/course/${id!}">章  节</a>
+                    <a class="btn btn-default" href="/course/${(crs.id)!}">章  节</a>
                     <a class="btn btn-default disabled" href="#">留  言</a>
                 </p>
 
@@ -91,8 +91,11 @@
                     </small>
                 </div>
             </div>
-            <form class="form-horizontal" id="add_pro_form">
-                <textarea class="form-control" rows="3" placeholder="留言" name="cmt"></textarea>
+            <form class="form-horizontal" action="/user/all/cmt/crs/add" method="post" name="cmt">
+                <textarea class="form-control" rows="3" placeholder="留言" name="content"></textarea>
+                <input type="hidden" name="fromInfo" value="${(crs.name)!}"/>
+                <input type="hidden" name="fromInfoId" value="${(crs.id)!}"/>
+                <input type="hidden" name="ownerId" value="${crs.user.id!}"/>
                 <input type="submit" class="btn btn-success jmooc-cmt" value="提交留言"/>
             </form>
         </div>

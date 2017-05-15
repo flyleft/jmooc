@@ -62,12 +62,12 @@
                     <#if join>
                         <a class="btn btn-warning disabled" href="#">已参加</a>
                         <#else>
-                            <a class="btn btn-warning" href="/user/all/crs/join/${id!}">参  与</a>
+                            <a class="btn btn-warning" href="/user/all/crs/join/${crs.id!}">参  与</a>
                     </#if>
                 </p>
                 <p>
                     <a class="btn btn-default disabled" href="#">章  节</a>
-                    <a class="btn btn-default" href="/course/${id!}?c=cmt">留  言</a>
+                    <a class="btn btn-default" href="/course/${crs.id!}?c=cmt">留  言</a>
                 </p>
 
 
