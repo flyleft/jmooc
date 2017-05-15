@@ -99,9 +99,16 @@ public class FrontController {
 
 
         if (param==null){
+            Course course=frontSer.getCourse(id);
+            model.addAttribute("crs",course);
             return "crs_chp";
         }
 
         return "crs_cmt";
+    }
+
+    @GetMapping("/course/exe")
+    public String courseExe(){
+        return null;
     }
 }

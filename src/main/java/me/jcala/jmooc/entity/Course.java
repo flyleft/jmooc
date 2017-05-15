@@ -51,6 +51,7 @@ public class Course implements Serializable {
     private User user;
 
     @Column(name = "chapters")
+    @OrderBy("pos ASC")
     @OneToMany(cascade = CascadeType.REMOVE, fetch = FetchType.LAZY, mappedBy = "course")
     private Set<Chapter> chapters = new HashSet<>();//课程章节列表
 

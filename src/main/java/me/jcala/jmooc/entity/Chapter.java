@@ -30,6 +30,7 @@ public class Chapter implements Serializable{
     @JoinColumn(name = "course_id")
     private Course course;
 
+    @OrderBy("pos ASC")
     @OneToMany(cascade = CascadeType.REMOVE,orphanRemoval = true,fetch=FetchType.LAZY,mappedBy = "chapter")
     private Set<Lesson> lessons=new HashSet<>();
 

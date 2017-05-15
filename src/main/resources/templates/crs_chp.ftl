@@ -51,12 +51,12 @@
     <div class="container">
         <div class="row">
             <div class="col-md-9">
-                <h1>轻松愉快之玩转SpringData</h1>
+                <h1>${crs.name!}</h1>
             </div>
         </div>
         <div class="row">
             <div class="col-md-9">
-                <p>简介：在企业级JavaEE应用开发中，对数据库的访问和操作是必须的。Spring Data作为SpringSource的其中一个子项目，旨在统一和简化对各类型持久化存储和访问，而不拘泥于是关系型数据库还是NoSQL数据存储，使得对数据库的访问变得方便快捷，并支持MapReduce框架及云计算服务
+                <p>${crs.desp!}
                 </p>
                 <p>
                     <#if join>
@@ -80,68 +80,38 @@
         <div class="row">
             <div class="col-lg-9">
                 <div class="panel panel-info">
-
-                    <div class="panel-heading">第1章</div>
-                    <div class="table-responsive">
-                        <table class="table table-hover tablesorter">
-                            <thead>
-                            <tr>
-                                <th>课时 <i class="fa fa-sort"></i></th>
-                                <th>名称 <i class="fa fa-sort"></i></th>
-                                <th>观看视频 <i class="fa fa-sort"></i></th>
-                                <th>课后习题 <i class="fa fa-sort"></i></th>
-                                <th>文件资料 <i class="fa fa-sort"></i></th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>java基础</td>
-                                <td><a class="fa fa-play-circle" href="/video/1"></a></td>
-                                <td>0</td>
-                                <td>0</td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>java多线程</td>
-                                <td><a class="fa fa-play-circle" href="/video/1"></a></td>
-                                <td>2</td>
-                                <td>2</td>
-                            </tr>
-                            </tbody>
-                        </table>
-                    </div>
-
-                    <div class="panel-heading">第2章</div>
-                    <div class="table-responsive">
-                        <table class="table table-hover tablesorter">
-                            <thead>
-                            <tr>
-                                <th>课时 <i class="fa fa-sort"></i></th>
-                                <th>名称 <i class="fa fa-sort"></i></th>
-                                <th>观看视频 <i class="fa fa-sort"></i></th>
-                                <th>课后习题 <i class="fa fa-sort"></i></th>
-                                <th>文件资料 <i class="fa fa-sort"></i></th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>java基础</td>
-                                <td><a class="fa fa-play-circle" href="/video/1"></a></td>
-                                <td>0</td>
-                                <td>0</td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>java多线程</td>
-                                <td><a class="fa fa-play-circle" href="/video/1"></a></td>
-                                <td>2</td>
-                                <td>2</td>
-                            </tr>
-                            </tbody>
-                        </table>
-                    </div>
+                    <#list crs.chapters as chp>
+                        <div class="panel-heading">第${chp.pos}章</div>
+                        <div class="table-responsive">
+                            <table class="table table-hover tablesorter">
+                                <thead>
+                                <tr>
+                                    <th>课时 <i class="fa fa-sort"></i></th>
+                                    <th>名称 <i class="fa fa-sort"></i></th>
+                                    <th>观看视频 <i class="fa fa-sort"></i></th>
+                                    <th>课后习题 <i class="fa fa-sort"></i></th>
+                                    <th>文件资料 <i class="fa fa-sort"></i></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>java基础</td>
+                                    <td><a class="fa fa-play-circle" href="/video/1"></a></td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>java多线程</td>
+                                    <td><a class="fa fa-play-circle" href="/video/1"></a></td>
+                                    <td>2</td>
+                                    <td>2</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </#list>
                 </div>
             </div>
         </div><!-- /.row -->

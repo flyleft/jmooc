@@ -1,11 +1,11 @@
 package me.jcala.jmooc.service;
 
-import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
+import me.jcala.jmooc.entity.Chapter;
 import me.jcala.jmooc.entity.Course;
 import me.jcala.jmooc.entity.Exercise;
+import me.jcala.jmooc.entity.Lesson;
+import me.jcala.jmooc.repository.ChapterRepository;
 import me.jcala.jmooc.repository.CourserRepository;
 import me.jcala.jmooc.repository.ExerciseRepository;
 import me.jcala.jmooc.service.inter.FrontSer;
@@ -14,6 +14,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Set;
 
 @Slf4j
 @Service
@@ -23,10 +24,15 @@ public class FrontSerImpl implements FrontSer {
 
     private CourserRepository courserRepository;
 
+    private ChapterRepository chapterRepository;
+
     @Autowired
-    public FrontSerImpl(ExerciseRepository exerciseRepository, CourserRepository courserRepository) {
+    public FrontSerImpl(ExerciseRepository exerciseRepository,
+                        CourserRepository courserRepository,
+                        ChapterRepository chapterRepository) {
         this.exerciseRepository = exerciseRepository;
         this.courserRepository = courserRepository;
+        this.chapterRepository = chapterRepository;
     }
 
     public static class ExeFront{
@@ -78,39 +84,8 @@ public class FrontSerImpl implements FrontSer {
         return new CrsFront(courserRepository.findByDir(param,pageable),courserRepository.countByDir(param));
     }
 
-    /* @Override
-    public List<Course> getCourse(String type, String dir, Pageable pageable) {
-        if (type==null){
-            if (dir==null){
-               return courserRepository.findAll(pageable);
-            }else {
-               return courserRepository.findByDir(dir,pageable);
-            }
-        }else {
-            if (dir==null){
-              return courserRepository.findByType(type,pageable);
-            }else {
-                return courserRepository.findByTypeAndDir(type,dir,pageable);
-            }
-
-        }
-    }
-
     @Override
-    public long getCourseCount(String type, String dir) {
-        if (type==null){
-            if (dir==null){
-                return courserRepository.count();
-            }else {
-                return courserRepository.countByDir(dir);
-            }
-        }else {
-            if (dir==null){
-                return courserRepository.countByType(type);
-            }else {
-                return courserRepository.countByTypeAndDir(type,dir);
-            }
-
-        }
-    }*/
+    public Course getCourse(long crsId) {
+        return courserRepository.findOne(crsId);
+    }
 }
