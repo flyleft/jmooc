@@ -58,7 +58,7 @@ public class FrontSerImpl implements FrontSer {
 
     @Override
     public ExeFront getExeFront(String param,Pageable pageable) {
-      if (param==null)  return new ExeFront(exerciseRepository.findAll(pageable).getContent(),exerciseRepository.count());
+      if (param==null || "all".equals(param))  return new ExeFront(exerciseRepository.findAll(pageable).getContent(),exerciseRepository.count());
 
         param=param.trim();
         if ("c".equals(param) || "cp".equals(param) || "java".equals(param)){
@@ -77,7 +77,7 @@ public class FrontSerImpl implements FrontSer {
 
     @Override
     public CrsFront getCrsFront(String param,Pageable pageable) {
-        if (param==null) return new CrsFront(courserRepository.findAll(pageable).getContent(),courserRepository.count());
+        if (param==null || "all".equals(param)) return new CrsFront(courserRepository.findAll(pageable).getContent(),courserRepository.count());
         param=param.trim();
         if ("c".equals(param) || "cp".equals(param) || "java".equals(param)){
             return new CrsFront(courserRepository.findByType(param,pageable),courserRepository.countByType(param));

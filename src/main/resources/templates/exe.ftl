@@ -159,11 +159,23 @@
         </div><!-- /.row -->
         <!-- Pagination -->
         <ul class="pagination">
-            <li class="disabled"><a href="#"><i class="fa fa-angle-left"></i></a></li>
-            <li class="active"><a href="videos-list.htm">1 <span class="sr-only">(current)</span></a></li>
-            <li><a href="#">2</a></li>
-            <li><a href="#">3</a></li>
-            <li><a href="#"><i class="fa fa-angle-right"></i></a></li>
+        <#if (cur > 1)>
+            <li><a href="/exercise/list?c=${c!"all"}&page=${cur - 1}"><i class="fa fa-angle-left"></i></a></li>
+        <#else>
+            <li class="disabled"><a href="/exercise/list?c=${c!"all"}&page=${cur - 1}"><i class="fa fa-angle-left"></i></a></li>
+        </#if>
+        <#list 1..count as t>
+            <#if cur == t>
+                <li class="active"><a href="/exercise/list?c=${c!"all"}&page=${t - 1}">${t}</a></li>
+            <#else>
+                <li><a href="/exercise/list?c=${c!"all"}&page=${t - 1}"></a></li>
+            </#if>
+        </#list>
+        <#if (cur < count)>
+            <li><a href="/exercise/list?c=${c!"all"}&page=${cur + 1}"><i class="fa fa-angle-right"></i></a></li>
+        <#else>
+            <li class="disabled"><a href="/exercise/list?c=${c!"all"}&page=${cur + 1}"><i class="fa fa-angle-right"></i></a></li>
+        </#if>
         </ul>
     </div>
 

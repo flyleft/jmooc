@@ -62,9 +62,11 @@ public class FrontController {
         RequestUtils.setFrontUserInfo(model,request);
         FrontSerImpl.ExeFront exe= frontSer.getExeFront(param,pageable);
 
+        long count=exe.count/pageable.getPageSize() +1;
         model.addAttribute("exe", JmoocBeanUtils.setExeChooseList(exe.exercises));
-        model.addAttribute("count",exe.count);
-
+        model.addAttribute("count",count);
+        model.addAttribute("c",param);
+        model.addAttribute("cur",pageable.getPageNumber()+1);
       return "exe";
     }
 
@@ -76,8 +78,11 @@ public class FrontController {
             Model model){
         RequestUtils.setFrontUserInfo(model,request);
         FrontSerImpl.CrsFront crs=frontSer.getCrsFront(param,pageable);
+        long count=crs.count/pageable.getPageSize() +1;
         model.addAttribute("crs", crs.courses);
-        model.addAttribute("count",crs.count);
+        model.addAttribute("count",count);
+        model.addAttribute("c",param);
+        model.addAttribute("cur",pageable.getPageNumber()+1);
         return "crs";
     }
 
