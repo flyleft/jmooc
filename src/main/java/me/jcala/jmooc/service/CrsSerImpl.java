@@ -191,4 +191,17 @@ public class CrsSerImpl implements CrsSer{
         }
         return false;
     }
+
+    @Override
+    public void addColExe(long exeId,long userId) {
+        User user=userRepository.findOne(userId);
+        if (user==null) return;
+        List<Long> exeColList=JsonUtils.instance.readJsonToSLongList(user.getColExercises());
+        for (long id:exeColList){
+            if (id==exeId) return;
+        }
+        exeColList.add(exeId);
+        String newJson=JsonUtils.instance.toJson(exeColList);
+        userRepository.updateColExe(newJson,userId);
+    }
 }

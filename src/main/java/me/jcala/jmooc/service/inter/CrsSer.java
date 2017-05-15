@@ -42,4 +42,6 @@ public interface CrsSer {
     List<Long> getUserJoinCrs(long userId);//获取用户已经参与的课程id列表
 
     boolean hasJoinCrs(long crsId,long userId);//判断用户是否已经参与该课程
+
+    void addColExe(long exeId,long userId);//用户收藏习题
 }

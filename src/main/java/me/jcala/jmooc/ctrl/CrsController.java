@@ -284,7 +284,7 @@ public class CrsController {
      * 发表课程留言
      */
     @PostMapping("/user/all/cmt/crs/add")
-    public String CrsCmtPost(@ModelAttribute("cmt") @Valid Notice notice,
+    public String crsCmtPost(@ModelAttribute("cmt") @Valid Notice notice,
                              BindingResult result,HttpServletRequest request){
 
         if (result.hasErrors()) {
@@ -294,12 +294,11 @@ public class CrsController {
        return "redirect:/course/"+notice.getFromInfoId();
     }
 
-
     /**
      * 发表习题留言
      */
     @PostMapping("/user/all/cmt/exe/add")
-    public String ExeCmtPost(@ModelAttribute("cmt") @Valid Notice notice,
+    public String exeCmtPost(@ModelAttribute("cmt") @Valid Notice notice,
                              BindingResult result,HttpServletRequest request){
 
         if (result.hasErrors()) {
@@ -307,6 +306,13 @@ public class CrsController {
         }
         noticeSer.addComment(request,notice,2);
         return "redirect:/exercise/"+notice.getFromInfoId();
+    }
+
+    @GetMapping("/user/all/exe/col/add/{id}")
+    public String exeColAdd(@PathVariable("id") long exeId,HttpServletRequest request){
+       long userId=RequestUtils.getUserIdFromReq(request);
+        crsSer.addColExe(exeId,userId);
+        return "redirect:/exercise/"+exeId;
     }
 
 }

@@ -41,18 +41,14 @@ public class User implements Serializable{
     @ManyToMany(cascade = CascadeType.REMOVE,fetch=FetchType.LAZY)
     private Set<Exercise> exerciseCollection=new HashSet<>();//收藏的习题
 
-    @Column(name = "exercise_error")
-    @ManyToMany(cascade = CascadeType.REMOVE,fetch=FetchType.LAZY)
-    private Set<Exercise> exerciseError=new HashSet<>();//错误的习题
-
-    @OneToMany(fetch = FetchType.LAZY,targetEntity = Notice.class)
-    private Set<Notice> notices = new HashSet<>();
-
     @Column(name = "notice_num",columnDefinition = "int default 0")
     private int noticeNum;
 
     @Column(columnDefinition = "text",name = "join_courses")
     private String joinCourses;
+
+    @Column(columnDefinition = "text",name = "col_exercises")
+    private String colExercises;
 
     public User() {
     }

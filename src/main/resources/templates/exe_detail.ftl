@@ -109,6 +109,9 @@
                     <h3 class="panel-title">解&#12288;&#12288;析：</h3>
                     <br>
                     <p>${exe.analysis!}</p>
+                    <p>
+                        <a class="btn btn-success" href="/user/all/exe/col/add/${exe.id!}">收藏...</a>
+                    </p>
                 </div>
             </div>
         </div>
