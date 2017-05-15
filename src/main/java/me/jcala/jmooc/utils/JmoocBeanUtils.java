@@ -60,4 +60,9 @@ public class JmoocBeanUtils {
         return exercises;
     }
 
+    public static void setOneExeChooseList(Exercise exe){
+        Map<Character,String> chos=JsonUtils.instance.readJsonToExeMap(exe.getChooses());
+        exe.setChooseList(chos);
+    }
+
 }

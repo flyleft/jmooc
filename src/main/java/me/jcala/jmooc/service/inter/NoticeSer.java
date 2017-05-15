@@ -10,9 +10,7 @@ import java.util.List;
  */
 public interface NoticeSer {
 
-    void addCrsComment(HttpServletRequest request,Notice notice);//添加课程评论
-
-    void addExeComment(HttpServletRequest request,Notice notice);//添加习题评论
+    void addComment(HttpServletRequest request,Notice notice,int type);//添加课程或者习题评论
 
     List<Notice> getCrsNotice(long fromInfoId);//获取课程评论列表
 

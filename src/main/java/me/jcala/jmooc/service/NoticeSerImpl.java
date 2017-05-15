@@ -27,23 +27,18 @@ public class NoticeSerImpl implements NoticeSer{
     }
 
     @Override
-    public void addCrsComment(HttpServletRequest request, Notice notice) {
+    public void addComment(HttpServletRequest request, Notice notice,int type) {
         UserAuxiliary auxiliary= RequestUtils.getUserAuxiliaryFromReq(request);
         if (auxiliary==null) return;
 
         notice.setCreatedAt(new Date());
-        notice.setType(1);
+        notice.setType(type);
         notice.setFromUserId(auxiliary.getId());
         notice.setFromUserName(auxiliary.getName());
         notice.setOwner(new User(notice.getFrontOwnerId()));
 
         noticeRepository.save(notice);
         userRepository.noticeNumPlusOne(notice.getFrontOwnerId());
-    }
-
-    @Override
-    public void addExeComment(HttpServletRequest request,Notice notice) {
-
     }
 
     @Override

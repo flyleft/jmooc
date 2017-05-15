@@ -290,8 +290,23 @@ public class CrsController {
         if (result.hasErrors()) {
             throw new RuntimeException("表单数据不合法");
         }
-       noticeSer.addCrsComment(request,notice);
+       noticeSer.addComment(request,notice,1);
        return "redirect:/course/"+notice.getFromInfoId();
+    }
+
+
+    /**
+     * 发表习题留言
+     */
+    @PostMapping("/user/all/cmt/exe/add")
+    public String ExeCmtPost(@ModelAttribute("cmt") @Valid Notice notice,
+                             BindingResult result,HttpServletRequest request){
+
+        if (result.hasErrors()) {
+            throw new RuntimeException("表单数据不合法");
+        }
+        noticeSer.addComment(request,notice,2);
+        return "redirect:/exercise/"+notice.getFromInfoId();
     }
 
 }

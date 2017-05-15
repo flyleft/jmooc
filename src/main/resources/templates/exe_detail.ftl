@@ -90,7 +90,6 @@
                 </div>
             </div>
         </div>
-        <div class="row">
             <div class="col-lg-9">
                 <div class="panel panel-danger">
                 <#list cmt as item>
@@ -109,12 +108,11 @@
                 </div>
                 <form class="form-horizontal" action="/user/all/cmt/exe/add" method="post" name="cmt">
                     <textarea class="form-control" rows="3" placeholder="留言" name="content"></textarea>
-                    <input type="hidden" name="fromInfo" value="${(exe.name)!}"/>
+                    <input type="hidden" name="fromInfo" value="${(exe.title)!}"/>
                     <input type="hidden" name="fromInfoId" value="${(exe.id)!}"/>
                     <input type="hidden" name="frontOwnerId" value="${(exe.ownerId)!}"/>
                     <input type="submit" class="btn btn-success jmooc-cmt" value="提交留言"/>
                 </form>
-            </div>
         </div>
     </div><!-- /.row -->
     <!-- Pagination -->

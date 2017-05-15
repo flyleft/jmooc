@@ -119,6 +119,9 @@ public class FrontController {
         return "crs_cmt";
     }
 
+    /**
+     *  习题详情界面
+     */
     @GetMapping("/exercise/{id}")
     public String courseExe(@PathVariable("id") long id, Model model){
 
@@ -126,7 +129,7 @@ public class FrontController {
 
         if (exercise==null) return "redirect:/exercise/list";
 
-        List<Notice> notices=noticeSer.getCrsNotice(id);
+        List<Notice> notices=noticeSer.getExeNotice(id);
         model.addAttribute("exe",exercise);
         model.addAttribute("cmt",notices);
         return "exe_detail";

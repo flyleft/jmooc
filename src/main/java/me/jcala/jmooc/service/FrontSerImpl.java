@@ -9,6 +9,7 @@ import me.jcala.jmooc.repository.ChapterRepository;
 import me.jcala.jmooc.repository.CourserRepository;
 import me.jcala.jmooc.repository.ExerciseRepository;
 import me.jcala.jmooc.service.inter.FrontSer;
+import me.jcala.jmooc.utils.JmoocBeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -91,6 +92,10 @@ public class FrontSerImpl implements FrontSer {
 
     @Override
     public Exercise getExercise(long exeId) {
-        return exerciseRepository.findOne(exeId);
+        Exercise exercise = exerciseRepository.findOne(exeId);
+        if (exercise!=null){
+            JmoocBeanUtils.setOneExeChooseList(exercise);
+        }
+        return exercise;
     }
 }
