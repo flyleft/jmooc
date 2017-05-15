@@ -94,20 +94,15 @@
                                 </tr>
                                 </thead>
                                 <tbody>
+                                <#list chp.lessons as les>
                                 <tr>
-                                    <td>1</td>
-                                    <td>java基础</td>
-                                    <td><a class="fa fa-play-circle" href="/video/1"></a></td>
-                                    <td>0</td>
-                                    <td>0</td>
+                                    <td>${les.pos!}</td>
+                                    <td>${les.name!}</td>
+                                    <td><a class="fa fa-play-circle" href="/video/${les.id!}"></a></td>
+                                    <td><a href='/course/exe/${les.id}'><i class="fa fa-pencil">查看</i></a></td>
+                                    <td><a href='${url!}${(crs.id)!}/${les.id!}'><i class="fa fa-eye">查看</i></a></td>
                                 </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>java多线程</td>
-                                    <td><a class="fa fa-play-circle" href="/video/1"></a></td>
-                                    <td>2</td>
-                                    <td>2</td>
-                                </tr>
+                                </#list>
                                 </tbody>
                             </table>
                         </div>

@@ -7,6 +7,7 @@ import me.jcala.jmooc.entity.auxiliary.UserAuxiliary;
 import me.jcala.jmooc.service.FrontSerImpl;
 import me.jcala.jmooc.service.inter.CrsSer;
 import me.jcala.jmooc.service.inter.FrontSer;
+import me.jcala.jmooc.utils.FileType;
 import me.jcala.jmooc.utils.JmoocBeanUtils;
 import me.jcala.jmooc.utils.RequestUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +19,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.Date;
@@ -101,6 +103,7 @@ public class FrontController {
         if (param==null){
             Course course=frontSer.getCourse(id);
             model.addAttribute("crs",course);
+            model.addAttribute("url", FileType.FILE.getUrl());
             return "crs_chp";
         }
 
@@ -108,7 +111,8 @@ public class FrontController {
     }
 
     @GetMapping("/course/exe")
+    @ResponseBody
     public String courseExe(){
-        return null;
+        return "课后习题";
     }
 }
