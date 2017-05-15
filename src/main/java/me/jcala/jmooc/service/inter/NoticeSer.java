@@ -15,4 +15,6 @@ public interface NoticeSer {
     void addExeComment(HttpServletRequest request,Notice notice);//添加习题评论
 
     List<Notice> getCrsNotice(long fromInfoId);//获取课程评论列表
+
+    List<Notice> getExeNotice(long fromInfoId);//获取课程评论列表
 }

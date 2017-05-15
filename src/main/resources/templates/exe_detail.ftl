@@ -15,10 +15,8 @@
         a:link,a:visited{color:#5e5e5e;text-decoration:none;}
         a:hover{color:#F97307;text-decoration:none;}
         a:active{color:#666;text-decoration:none;}
-        .test p { position: absolute; left: 0; top 0; }
-        .course-nav-item{display:inline-block;margin:0 4px}
-        .course-nav-item a{display:block;line-height:14px;margin-bottom:10px;padding:10px;font-size:14px}
-        .course-nav-item.on a{background:#F97307;color:#fff;border-radius:2px}
+        .jmooc-date{color: #9d9fc4}
+        .jmooc-cmt{float: right}
     </style>
 </head>
 <body>
@@ -50,55 +48,6 @@
         </nav>
     </div>
 </header>
-
-<div class="page-header">
-    <div class="container">
-        <div class="row">
-            <div class="test col-md-9">
-                <p>类型：</p>
-                <ul class="">
-                    <li class="course-nav-item on">
-                        <a href="/exercise/list">全部</a>
-                    </li>
-                    <li class="course-nav-item">
-                        <a href="/exercise/list?c=c" >C</a>
-                    </li>
-                    <li class="course-nav-item">
-                        <a href="/exercise/list?c=cp" >C++</a>
-                    </li>
-                    <li class="course-nav-item">
-                        <a href="/exercise/list?c=java" >JAVA</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <div class="row">
-            <div class="test col-md-9">
-                <p>难度：</p>
-                <ul class="">
-                    <li class="course-nav-item on">
-                        <a href="/exercise/list">全部</a>
-                    </li>
-                    <li class="course-nav-item">
-                        <a href="/exercise/list?c=1" >1</a>
-                    </li>
-                    <li class="course-nav-item">
-                        <a href="/exercise/list?c=2" >2</a>
-                    </li>
-                    <li class="course-nav-item">
-                        <a href="/exercise/list?c=3" >3</a>
-                    </li>
-                    <li class="course-nav-item">
-                        <a href="/exercise/list?c=4" >4</a>
-                    </li>
-                    <li class="course-nav-item">
-                        <a href="/exercise/list?c=5" >5</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</div>
 
 <!-- Video list boxes: grid -->
 <div class="container content content-light">
@@ -140,6 +89,8 @@
                     <p>${exe.analysis!}</p>
                 </div>
             </div>
+        </div>
+        <div class="row">
             <div class="col-lg-9">
                 <div class="panel panel-danger">
                 <#list cmt as item>
@@ -156,23 +107,17 @@
                     </div>
                 </#list>
                 </div>
-                <form class="form-horizontal" action="/user/all/cmt/crs/add" method="post" name="cmt">
+                <form class="form-horizontal" action="/user/all/cmt/exe/add" method="post" name="cmt">
                     <textarea class="form-control" rows="3" placeholder="留言" name="content"></textarea>
                     <input type="hidden" name="fromInfo" value="${(exe.name)!}"/>
                     <input type="hidden" name="fromInfoId" value="${(exe.id)!}"/>
+                    <input type="hidden" name="frontOwnerId" value="${(exe.ownerId)!}"/>
                     <input type="submit" class="btn btn-success jmooc-cmt" value="提交留言"/>
                 </form>
             </div>
         </div>
     </div><!-- /.row -->
     <!-- Pagination -->
-    <ul class="pagination">
-        <li class="disabled"><a href="#"><i class="fa fa-angle-left"></i></a></li>
-        <li class="active"><a href="videos-list.htm">1 <span class="sr-only">(current)</span></a></li>
-        <li><a href="#">2</a></li>
-        <li><a href="#">3</a></li>
-        <li><a href="#"><i class="fa fa-angle-right"></i></a></li>
-    </ul>
 </div>
 
 <footer class="main bg-dark-img">

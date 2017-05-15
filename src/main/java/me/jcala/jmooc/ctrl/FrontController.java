@@ -3,6 +3,7 @@ package me.jcala.jmooc.ctrl;
 import lombok.extern.slf4j.Slf4j;
 import me.jcala.jmooc.entity.Course;
 import me.jcala.jmooc.entity.Exercise;
+import me.jcala.jmooc.entity.Lesson;
 import me.jcala.jmooc.entity.Notice;
 import me.jcala.jmooc.entity.auxiliary.UserAuxiliary;
 import me.jcala.jmooc.service.FrontSerImpl;
@@ -118,9 +119,16 @@ public class FrontController {
         return "crs_cmt";
     }
 
-    @GetMapping("/course/exe")
-    @ResponseBody
-    public String courseExe(){
-        return "课后习题";
+    @GetMapping("/exercise/{id}")
+    public String courseExe(@PathVariable("id") long id, Model model){
+
+        Exercise exercise=frontSer.getExercise(id);
+
+        if (exercise==null) return "redirect:/exercise/list";
+
+        List<Notice> notices=noticeSer.getCrsNotice(id);
+        model.addAttribute("exe",exercise);
+        model.addAttribute("cmt",notices);
+        return "exe_detail";
     }
 }

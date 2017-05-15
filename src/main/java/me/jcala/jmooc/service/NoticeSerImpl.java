@@ -50,4 +50,9 @@ public class NoticeSerImpl implements NoticeSer{
     public List<Notice> getCrsNotice(long fromInfoId) {
         return noticeRepository.findByTypeAndFromInfoId(1,fromInfoId);
     }
+
+    @Override
+    public List<Notice> getExeNotice(long fromInfoId) {
+        return noticeRepository.findByTypeAndFromInfoId(2,fromInfoId);
+    }
 }

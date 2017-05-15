@@ -128,7 +128,7 @@
                             </#list>
                         </div>
                         <p>
-                            <a class="btn btn-default" href="#">详情...</a>
+                            <a class="btn btn-default" href="/exercise/${item.id!}">详情...</a>
                         </p>
                     </div>
                 </div>

@@ -88,4 +88,9 @@ public class FrontSerImpl implements FrontSer {
     public Course getCourse(long crsId) {
         return courserRepository.findOne(crsId);
     }
+
+    @Override
+    public Exercise getExercise(long exeId) {
+        return exerciseRepository.findOne(exeId);
+    }
 }
