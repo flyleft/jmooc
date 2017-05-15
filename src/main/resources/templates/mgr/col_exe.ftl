@@ -6,7 +6,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>消息中心</title>
+    <title>习题收藏</title>
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css"/>
@@ -34,34 +34,42 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav side-nav">
-                <li class="active-bg"><a href="#"><i class="fa fa-bell"></i> 消息中心</a></li>
+                <li><a href="/user/all/notice?r=s"><i class="fa fa-bell"></i> 消息中心</a></li>
                 <li><a href="/user/all/info"><i class="fa fa-info-circle"></i> 个人信息</a></li>
                 <li><a href="/user/tea/crs_mgr?do=add"><i class="fa fa-plus"></i> 添加课程</a></li>
                 <li><a href="/user/tea/crs_mgr?do=mod"><i class="fa fa-edit"></i> 课程管理</a></li>
             </ul>
 
-            <h3 style="text-align: center;color: #ffffff;"> 章节管理</h3>
+            <h3 style="text-align: center;color: #ffffff;"> 习题收藏</h3>
         </div><!-- /.navbar-collapse -->
     </nav>
 
     <div id="page-wrapper">
         <div class="row">
-            <div class="col-lg-9">
-                <div class="panel panel-danger">
-                <#list notices as item>
+            <div class="col-lg-6 col-lg-offset-3">
+            <#list exe as item>
+                <div class="panel panel-info">
                     <div class="panel-heading">
-                        <h3 class="panel-title">用户：${item.fromUserName!}</h3>
+                        <h3 class="panel-title">${item_index + 1}.&#8194;${item.title!}</h3>
                     </div>
                     <div class="panel-body">
+                    ${(item.content)!}
+                        <div class="form-group">
+                            <#list item.chooseList!?keys as key>
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="optionsRadios">
+                                    ${key}:${item.chooseList[key]}
+                                    </label>
+                                </div>
+                            </#list>
+                        </div>
                         <p>
-                        ${item.content!}
+                            <a class="btn btn-default" href="/exercise/${item.id!}">详情...</a>
                         </p>
-                        <small class="jmooc-date">
-                            时间: ${(item.createdAt)!?string('yyyy-MM-dd')}&#12288;源自:${(item.fromInfo)!}
-                        </small>
                     </div>
-                </#list>
                 </div>
+            </#list>
             </div>
         </div><!-- /.row -->
     </div><!-- /#page-wrapper -->

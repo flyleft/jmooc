@@ -46,4 +46,6 @@ public interface CrsSer {
     void clearNoticeNum(long userId);//清楚用户的未读信息数量
 
     Set<Notice> getNoticeList(long userId);//获取用户的消息
+
+    List<Exercise> getColExeList(long userId);//获取用户收藏的习题列表
 }

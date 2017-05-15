@@ -316,13 +316,27 @@ public class CrsController {
         return "redirect:/exercise/"+exeId;
     }
 
+    /**
+     * 消息中心
+     */
     @GetMapping("/user/all/notice")
-    public String noticeMgr(HttpServletRequest request,Model model){
+    public String noticeMgr(@RequestParam("r") String role,HttpServletRequest request,Model model){
         long userId=RequestUtils.getUserIdFromReq(request);
         crsSer.clearNoticeNum(userId);
         Set<Notice> notices=crsSer.getNoticeList(userId);
         model.addAttribute("notices",notices);
-       return "mgr/not_mgr";
+        if ("t".equals(role)) {
+            return "mgr/tea_not_mgr";
+        }else{
+            return "mgr/stu_not_mgr";
+        }
     }
 
+    @GetMapping("/user/stu/exe/col")
+    public String colExePage(HttpServletRequest request,Model model){
+        long userId=RequestUtils.getUserIdFromReq(request);
+        List<Exercise> exercises=crsSer.getColExeList(userId);
+        model.addAttribute("exe",exercises);
+        return "mgr/col_exe";
+    }
 }

@@ -216,4 +216,20 @@ public class CrsSerImpl implements CrsSer{
         if (user==null) return new HashSet<>();
         return user.getNotices();
     }
+
+    @Override
+    public List<Exercise> getColExeList(long userId) {
+        User user=userRepository.findOne(userId);
+        List<Exercise> exercises=new ArrayList<>();
+        if (user==null) return exercises;
+        List<Long> exeColList=JsonUtils.instance.readJsonToSLongList(user.getColExercises());
+        for (long id:exeColList){
+            Exercise exercise=exerciseRepository.findOne(id);
+            if (exercise==null) continue;
+
+            JmoocBeanUtils.setOneExeChooseList(exercise);
+            exercises.add(exercise);
+        }
+        return exercises;
+    }
 }

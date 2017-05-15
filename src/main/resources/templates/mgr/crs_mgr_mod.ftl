@@ -34,7 +34,7 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav side-nav">
-                <li><a href="/user/all/notice"><i class="fa fa-bell"></i> 消息中心</a></li>
+                <li><a href="/user/all/notice?r=t"><i class="fa fa-bell"></i> 消息中心</a></li>
                 <li><a href="/user/all/info"><i class="fa fa-info-circle"></i> 个人信息</a></li>
                 <li><a href="/user/tea/crs_mgr?do=add"><i class="fa fa-plus"></i> 添加课程</a></li>
                 <li class="active-bg"><a href="#"><i class="fa fa-edit"></i> 课程管理</a></li>
