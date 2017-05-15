@@ -98,7 +98,7 @@
                                 <tr>
                                     <td>${les.pos!}</td>
                                     <td>${les.name!}</td>
-                                    <td><a class="fa fa-play-circle" href="/video/${les.id!}"></a></td>
+                                    <td><a class="fa fa-play-circle" href="/video?p=${les.video!}"></a></td>
                                     <td><a href='/course/exe/${les.id}'><i class="fa fa-pencil">查看</i></a></td>
                                     <td><a href='${url!}${(crs.id)!}/${les.id!}'><i class="fa fa-eye">查看</i></a></td>
                                 </tr>

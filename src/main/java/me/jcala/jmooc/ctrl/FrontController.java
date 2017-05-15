@@ -59,10 +59,6 @@ public class FrontController {
         return "index";
     }
 
-    @GetMapping("/video")
-    public String video(Model model){
-        return "video";
-    }
 
     @GetMapping("/exercise/list")
     public String exercise(@RequestParam(value = "c",required = false) String param,
@@ -133,5 +129,15 @@ public class FrontController {
         model.addAttribute("exe",exercise);
         model.addAttribute("cmt",notices);
         return "exe_detail";
+    }
+
+    @GetMapping("/video")
+    public String video(@RequestParam("p") String video,Model model){
+       if (video==null){
+           throw new RuntimeException("请求参数异常");
+       }
+       String baseUrl=FileType.VIDEO.getUrl();
+       model.addAttribute("video",baseUrl+video);
+       return "video";
     }
 }
