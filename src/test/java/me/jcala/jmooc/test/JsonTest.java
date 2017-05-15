@@ -5,15 +5,12 @@ import me.jcala.jmooc.utils.JsonUtils;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 public class JsonTest {
 
     private String jsonStr;
-    @Before
+
     public void outputJson(){
         //(String title, String content, int difficulty, String chooses, char answer, String analysis, String type
         Set<Exercise> exercises=new HashSet<>();
@@ -61,6 +58,11 @@ public class JsonTest {
         }
     }
 
+    @Test
+    public void testList(){
+        List<Long> strings=Arrays.asList(26L,25L,46L);
+        System.out.println(JsonUtils.instance.toJson(strings));
+    }
 
 
 }

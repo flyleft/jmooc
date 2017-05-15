@@ -81,13 +81,12 @@ public class FrontController {
     }
 
     @GetMapping("/course/{id}")
-    public String courseDetail(@PathVariable("id") long id){
-        return "crs_detail";
-    }
+    public String courseDetail(@PathVariable("id") long id,
+                               @RequestParam(value = "c",required = false) String param){
+        if (param==null){
+            return "crs_chp";
+        }
 
-    @GetMapping("/course/participate/{id}")
-    public String courseParticipate(@PathVariable("id") long id){
-
-       return "redirect:/course/"+id;
+        return "crs_cmt";
     }
 }

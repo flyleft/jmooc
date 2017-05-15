@@ -35,4 +35,6 @@ public interface CrsSer {
     void addExerciseBatch(String json,long lesId);//批量添加习题
 
     Set<Exercise> getExerciseByLesId(long lesId);//获取某课时下的习题
+
+    void joinCrs(long crsId,long userId);
 }

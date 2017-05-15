@@ -1,6 +1,8 @@
 package me.jcala.jmooc.repository;
 
 import me.jcala.jmooc.entity.User;
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.transaction.annotation.Transactional;
@@ -13,4 +15,8 @@ public interface UserRepository extends CrudRepository<User,Long>{
     User findUserByNameAndPasswordAndRole(@Param("name") String name,
                                       @Param("password") String password,
                                       @Param("role") int role);
+
+    @Modifying(clearAutomatically = true)
+    @Query(value = "update user_tb u set u.join_courses =?1 where u.id = ?2",nativeQuery = true)
+    void updateJoinCourses(String crsStr,long userId);
 }

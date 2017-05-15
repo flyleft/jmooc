@@ -12,9 +12,9 @@
     <link rel="stylesheet" href="/css/animate.min.css"/>
     <style type="text/css">
         a:{text-decoration:none;}
-        a:link,a:visited{color:#5e5e5e;text-decoration:none;}
-        a:hover{color:#F97307;text-decoration:none;}
-        a:active{color:#666;text-decoration:none;}
+        a:link,a:visited{text-decoration:none;}
+        a:hover{text-decoration:none;}
+        a:active{text-decoration:none;}
     </style>
 </head>
 <body>
@@ -58,6 +58,15 @@
             <div class="col-md-9">
                 <p>简介：在企业级JavaEE应用开发中，对数据库的访问和操作是必须的。Spring Data作为SpringSource的其中一个子项目，旨在统一和简化对各类型持久化存储和访问，而不拘泥于是关系型数据库还是NoSQL数据存储，使得对数据库的访问变得方便快捷，并支持MapReduce框架及云计算服务
                 </p>
+                <p>
+                    <a class="btn btn-warning" href="/user/all/crs/join/${id!}">参  与</a>
+                </p>
+                <p>
+                    <a class="btn btn-default disabled" href="#">章  节</a>
+                    <a class="btn btn-default" href="/course/${id!}?c=cmt">评  论</a>
+                </p>
+
+
             </div>
         </div>
     </div>

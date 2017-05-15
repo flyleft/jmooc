@@ -29,20 +29,28 @@ public enum  JsonUtils {
         return str;
     }
 
-    public List<String> readJsonToFileList(String json) {
+    public List<String> readJsonToStringList(String json) {
 
         if (json==null||json.trim().isEmpty()) return new ArrayList<>();
 
-        List<String> list;
+        try {
+            return mapper.readValue(json, new TypeReference<List<String>>() {});
+        } catch (IOException e) {
+            e.printStackTrace();
+            return new ArrayList<>();
+        }
+    }
+
+    public List<Long> readJsonToSLongList(String json) {
+
+        if (json==null||json.trim().isEmpty()) return new ArrayList<>();
 
         try {
-            list=mapper.readValue(json, new TypeReference<List<String>>() {});
+            return mapper.readValue(json, new TypeReference<List<Long>>() {});
         } catch (IOException e) {
-            list=new ArrayList<>();
-            logger.warn("UpFile list反序列化出现错误:"+e.getMessage());
             e.printStackTrace();
+            return new ArrayList<>();
         }
-        return list;
     }
 
     public HashMap<Character, String> readJsonToExeMap(String jsonStr) {

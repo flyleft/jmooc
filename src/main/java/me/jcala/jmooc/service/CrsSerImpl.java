@@ -15,7 +15,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.File;
 import java.util.*;
 
 @Service
@@ -120,7 +119,7 @@ public class CrsSerImpl implements CrsSer{
 
         Lesson lesson=lessonRepository.findOne(lesId);
         if (lesson!=null){
-            List<String> fileList= JsonUtils.instance.readJsonToFileList(lesson.getUpFileList());
+            List<String> fileList= JsonUtils.instance.readJsonToStringList(lesson.getUpFileList());
             fileList.add(url);
             String newFileList=JsonUtils.instance.toJson(fileList);
             lessonRepository.updateFileById(newFileList,lesId);
@@ -153,5 +152,23 @@ public class CrsSerImpl implements CrsSer{
             exercise.setLesson(new Lesson(lesId));
         }
         exerciseRepository.save(exercises);
+    }
+
+    @Override
+    public void joinCrs(long crsId, long userId) {
+       User user=userRepository.findOne(userId);
+       if (user==null) return;
+
+       List<Long> joinList=JsonUtils.instance.readJsonToSLongList(user.getJoinCourses());
+
+       for (long id:joinList){
+           if (id==crsId) return;
+       }
+
+
+       joinList.add(crsId);
+
+        String newJoinCrs=JsonUtils.instance.toJson(joinList);
+       userRepository.updateJoinCourses(newJoinCrs,userId);
     }
 }

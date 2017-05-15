@@ -101,12 +101,12 @@
 <!-- Video list boxes: grid -->
 <section class="content content-light  videos-list videos-list-grid">
     <div class="container">
-        <div class="filter">
+       <#-- <div class="filter">
             <a href="#" class="btn btn-theme navbar-btn btn-orange">最热门</a>
             <a href="#" class="btn btn-theme navbar-btn btn-lightblue">最新更新</a>
         </div>
 
-        <hr class="invisible" />
+        <hr class="invisible" />-->
 
         <div class="row">
            <#list crs as item>
@@ -119,7 +119,7 @@
                     </div>
                     <div class="col-md-5 text-right">
                         参与: <b>${item.parNum}</b>
-                        <a href="/course/participate/${item.id!}" class="participate"  data-text="确定参与本课程?" data-confirm-button="是" data-cancel-button="否">
+                        <a href="/user/all/crs/join/${item.id!}" class="participate"  data-text="确定参与本课程?" data-confirm-button="是" data-cancel-button="否">
                             <i class="fa fa-heart"></i>
                         </a>
                     </div>

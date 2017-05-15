@@ -224,6 +224,9 @@ public class CrsController {
     }
 
 
+    /**
+     * 导入习题
+     */
     @PostMapping("/user/tea/les_mgr/exe/add")
     public String exePost(@ModelAttribute("exe") @Valid ExeForm exeForm,
                           BindingResult result,
@@ -238,6 +241,9 @@ public class CrsController {
         return "redirect:/user/tea/les_mgr/exe?crs_id="+crsId+"&chp_id="+chpId+"&les_id="+lesId;
     }
 
+    /**
+     * 批量导入习题
+     */
     @PostMapping("/user/tea/les_mgr/exe/add_batch")
     public String exePostBatch(@RequestParam("json") String json,
                                @RequestParam("crs_id") long crsId,
@@ -250,4 +256,18 @@ public class CrsController {
         crsSer.addExerciseBatch(json,lesId);
         return "redirect:/user/tea/les_mgr/exe?crs_id="+crsId+"&chp_id="+chpId+"&les_id="+lesId;
     }
+
+    //---------------------------------------其他-----------------------------------------------
+
+    /**
+     * 参与课程
+     */
+    @GetMapping("/user/all/crs/join/{id}")
+    public String joinCrs(@PathVariable("id") long id,HttpServletRequest request){
+        long userId=RequestUtils.getUserIdFromReq(request);
+        crsSer.joinCrs(id,userId);
+        return "redirect:/course/"+id;
+    }
+
+
 }

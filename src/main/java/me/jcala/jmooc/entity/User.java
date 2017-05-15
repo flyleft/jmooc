@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import javax.persistence.Id;
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
@@ -46,6 +47,9 @@ public class User implements Serializable{
 
     @OneToMany(cascade = CascadeType.REMOVE,fetch = FetchType.LAZY,targetEntity = Notice.class)
     private Set<Notice> notices = new HashSet<>();
+
+    @Column(columnDefinition = "text",name = "join_courses")
+    private String joinCourses;
 
     public User() {
     }
