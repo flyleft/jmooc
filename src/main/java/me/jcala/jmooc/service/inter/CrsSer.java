@@ -1,11 +1,9 @@
 package me.jcala.jmooc.service.inter;
 
-import me.jcala.jmooc.entity.Chapter;
-import me.jcala.jmooc.entity.Course;
-import me.jcala.jmooc.entity.Exercise;
-import me.jcala.jmooc.entity.Lesson;
+import me.jcala.jmooc.entity.*;
 import me.jcala.jmooc.entity.auxiliary.ChpForm;
 import me.jcala.jmooc.entity.auxiliary.ExeForm;
+import org.springframework.data.domain.Pageable;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
@@ -44,4 +42,8 @@ public interface CrsSer {
     boolean hasJoinCrs(long crsId,long userId);//判断用户是否已经参与该课程
 
     void addColExe(long exeId,long userId);//用户收藏习题
+
+    void clearNoticeNum(long userId);//清楚用户的未读信息数量
+
+    Set<Notice> getNoticeList(long userId);//获取用户的消息
 }

@@ -204,4 +204,16 @@ public class CrsSerImpl implements CrsSer{
         String newJson=JsonUtils.instance.toJson(exeColList);
         userRepository.updateColExe(newJson,userId);
     }
+
+    @Override
+    public void clearNoticeNum(long userId) {
+        userRepository.clearNoticeNum(userId);
+    }
+
+    @Override
+    public Set<Notice> getNoticeList(long userId) {
+        User user=userRepository.findOne(userId);
+        if (user==null) return new HashSet<>();
+        return user.getNotices();
+    }
 }

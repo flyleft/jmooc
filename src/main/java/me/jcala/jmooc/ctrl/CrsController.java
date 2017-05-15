@@ -14,6 +14,7 @@ import me.jcala.jmooc.utils.RequestUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -55,12 +56,12 @@ public class CrsController {
             throw new NoPageException();
         }
         if ("add".equals(operate.trim())){
-            return "crs/crs_mgr_add";
+            return "mgr/crs_mgr_add";
         }else if ("mod".equals(operate.trim())){
             long userId=RequestUtils.getUserIdFromReq(request);
             Set<Course> courses=crsSer.getCourseList(userId);
             model.addAttribute("courses",courses);
-            return "crs/crs_mgr_mod";
+            return "mgr/crs_mgr_mod";
         }else {
             throw new NoPageException();
         }
@@ -76,7 +77,7 @@ public class CrsController {
                             HttpServletRequest request){
 
         if (result.hasErrors()) {
-            return "crs/crs_mgr_add";
+            return "mgr/crs_mgr_add";
         }
 
         User user= RequestUtils.getUserFromReq(request);
@@ -104,10 +105,10 @@ public class CrsController {
         Set<Chapter> chapters=crsSer.getChapterList(crsId);
         if (chapters!=null){
             model.addAttribute("chps",chapters);
-            model.addAttribute("crs",crsId);
+            model.addAttribute("mgr",crsId);
             model.addAttribute("pos",chapters.size()+1);
         }
-        return "crs/chp_mgr";
+        return "mgr/chp_mgr";
     }
 
 
@@ -140,7 +141,7 @@ public class CrsController {
             model.addAttribute("chp_id",chpId);
             model.addAttribute("pos",lessons.size()+1);
         }
-       return "crs/les_mgr";
+       return "mgr/les_mgr";
     }
 
     /**
@@ -195,7 +196,7 @@ public class CrsController {
                          @RequestParam("chp_id") long chpId,
                          @RequestParam("les_id") long lesId){
 
-        return "crs/exe_mgr";
+        return "mgr/exe_mgr";
 
     }*/
 
@@ -223,7 +224,7 @@ public class CrsController {
         model.addAttribute("crs_id",crsId);
         model.addAttribute("chp_id",chpId);
         model.addAttribute("les_id",lesId);
-        return "crs/exe_mgr";
+        return "mgr/exe_mgr";
 
     }
 
@@ -313,6 +314,15 @@ public class CrsController {
        long userId=RequestUtils.getUserIdFromReq(request);
         crsSer.addColExe(exeId,userId);
         return "redirect:/exercise/"+exeId;
+    }
+
+    @GetMapping("/user/all/notice")
+    public String noticeMgr(HttpServletRequest request,Model model){
+        long userId=RequestUtils.getUserIdFromReq(request);
+        crsSer.clearNoticeNum(userId);
+        Set<Notice> notices=crsSer.getNoticeList(userId);
+        model.addAttribute("notices",notices);
+       return "mgr/not_mgr";
     }
 
 }

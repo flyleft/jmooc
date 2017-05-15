@@ -2,6 +2,7 @@ package me.jcala.jmooc.entity;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.aspectj.weaver.ast.Not;
 
 import javax.persistence.*;
 import javax.persistence.Id;
@@ -49,6 +50,10 @@ public class User implements Serializable{
 
     @Column(columnDefinition = "text",name = "col_exercises")
     private String colExercises;
+
+    @OneToMany(cascade = CascadeType.REMOVE,fetch=FetchType.LAZY,mappedBy = "owner")
+    @OrderBy("id DESC")
+    private Set<Notice> notices=new HashSet<>();
 
     public User() {
     }

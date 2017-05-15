@@ -76,9 +76,9 @@ public class FrontController {
             Model model){
         RequestUtils.setFrontUserInfo(model,request);
         FrontSerImpl.CrsFront crs=frontSer.getCrsFront(param,pageable);
-        model.addAttribute("crs", crs.courses);
+        model.addAttribute("mgr", crs.courses);
         model.addAttribute("count",crs.count);
-        return "crs";
+        return "mgr";
     }
 
     @GetMapping("/course/{id}")
@@ -97,13 +97,13 @@ public class FrontController {
 
         Course course=frontSer.getCourse(id);
         if (param==null){
-            model.addAttribute("crs",course);
+            model.addAttribute("mgr",course);
             model.addAttribute("url", FileType.FILE.getUrl());
             return "crs_chp";
         }
 
         List<Notice> notices=noticeSer.getCrsNotice(id);
-        model.addAttribute("crs",course);
+        model.addAttribute("mgr",course);
         model.addAttribute("cmt",notices);
         return "crs_cmt";
     }

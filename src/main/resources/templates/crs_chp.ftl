@@ -42,9 +42,9 @@
                         <li class="dropdown user-dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i>${name!"jmooc"}<b class="caret"></b></a>
                             <ul class="dropdown-menu">
-                                <li><a href="/user/stu/crs/${id!}"><i class="fa fa-user"></i> 学习课程</a></li>
-                                <li><a href="/user/all/message/${id!}"><i class="fa fa-envelope"></i> 消息 <span class="badge">${num!0}</span></a></li>
-                                <li><a href="/user/stu/exe/col/${id!}><i class="fa fa-gear"></i> 习题收藏</a></li>
+                                <li><a href="/user/stu/crs"><i class="fa fa-user"></i> 学习课程</a></li>
+                                <li><a href="/user/all/notice"><i class="fa fa-envelope"></i> 消息 <span class="badge">${num!0}</span></a></li>
+                                <li><a href="/user/stu/exe/col><i class="fa fa-gear"></i> 习题收藏</a></li>
                                 <li class="divider"></li>
                                 <li><a href="/user/logout"><i class="fa fa-power-off"></i> 登出</a></li>
                             </ul>
@@ -54,7 +54,7 @@
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i>${name!"jmooc"}<b class="caret"></b></a>
                             <ul class="dropdown-menu">
                                 <li><a href="/user/tea/crs_mgr?do=add"><i class="fa fa-user"></i> 课程管理</a></li>
-                                <li><a href="/user/all/message/${id!}"><i class="fa fa-envelope"></i> 消息 <span class="badge">${num!0}</span></a></li>
+                                <li><a href="/user/all/notice"><i class="fa fa-envelope"></i> 消息 <span class="badge">${num!0}</span></a></li>
                                 <li class="divider"></li>
                                 <li><a href="/user/logout"><i class="fa fa-power-off"></i> 登出</a></li>
                             </ul>
