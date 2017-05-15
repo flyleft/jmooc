@@ -36,8 +36,8 @@
             <ul class="nav navbar-nav side-nav">
                 <li><a href="/user/all/notice?r=s"><i class="fa fa-bell"></i> 消息中心</a></li>
                 <li><a href="/user/all/info"><i class="fa fa-info-circle"></i> 个人信息</a></li>
-                <li><a href="/user/tea/crs_mgr?do=add"><i class="fa fa-plus"></i> 添加课程</a></li>
-                <li><a href="/user/tea/crs_mgr?do=mod"><i class="fa fa-edit"></i> 课程管理</a></li>
+                <li><a href="/user/stu/exe/col"><i class="fa fa-plus"></i> 习题收藏</a></li>
+                <li><a href="/user/stu/crs"><i class="fa fa-edit"></i> 参加课程</a></li>
             </ul>
 
             <h3 style="text-align: center;color: #ffffff;"> 习题收藏</h3>

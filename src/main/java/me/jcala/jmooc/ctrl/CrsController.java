@@ -337,6 +337,6 @@ public class CrsController {
         long userId=RequestUtils.getUserIdFromReq(request);
         List<Exercise> exercises=crsSer.getColExeList(userId);
         model.addAttribute("exe",exercises);
-        return "mgr/col_exe";
+        return "mgr/stu_col_exe";
     }
 }
