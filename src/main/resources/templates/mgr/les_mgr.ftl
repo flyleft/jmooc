@@ -103,7 +103,7 @@
             function() {
                 bootbox.dialog({
                     title: "新的课时",
-                    message: '<div class="col-md-12"><form class="form-horizontal" id="post_les_form" enctype="multipart/form-data"><div class="form-group"> <label class="col-md-2 control-label">课时名</label><div class="col-md-9"> <input name="name" type="text" class="form-control input-md"><input type="hidden" name="pos" value="${pos!0}"/></div><div class="form-group"> <label class="col-md-2 control-label">视频</label> <div class="col-md-9"><input type="file" name="vf" class="form-control"/></div></div></div>',
+                    message: '<div class="col-md-12"><form class="form-horizontal" id="post_les_form" enctype="multipart/form-data"><div class="form-group"> <label class="col-md-2 control-label">课时名</label><div class="col-md-9"> <input name="name" type="text" class="form-control input-md"><input type="hidden" name="pos" value="${pos!0}"/></div><div class="form-group"> <label class="col-md-2 control-label">视频</label> <div class="col-md-9"><input type="file" name="vf" class="form-control"/></div></div></form></div>',
                     buttons: {
                         success: {
                             label: "提交",
@@ -124,7 +124,7 @@
                 var lesId=$(this).attr("name");
                 bootbox.dialog({
                     title: "上传文件",
-                    message: '<div class="row"><div class="col-md-12"><form class="form-horizontal" id="post_file_form" enctype="multipart/form-data"><div class="col-md-9"> <input type="file" name="file" class="form-control"/></div></div></div>',
+                    message: '<div class="row"><div class="col-md-12"><form class="form-horizontal" id="post_file_form" enctype="multipart/form-data"><div class="col-md-9"> <input type="file" name="file" class="form-control"/></div></form></div></div>',
                     buttons: {
                         success: {
                             label: "提交",

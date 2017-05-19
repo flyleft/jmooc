@@ -180,6 +180,9 @@ public class CrsController {
         return "redirect:/user/tea/les_mgr?crs_id="+crsId+"&chp_id="+chpId;
     }
 
+    /**
+     *  上传文件
+     */
     @PostMapping("/user/tea/les_mgr/file")
     public String uploadFile(@RequestParam("crs_id") long crsId,
                              @RequestParam("chp_id") long chpId,
@@ -332,6 +335,9 @@ public class CrsController {
         }
     }
 
+    /**
+     *  学生习题收藏列表
+     */
     @GetMapping("/user/stu/exe/col")
     public String colExePage(HttpServletRequest request,Model model){
         long userId=RequestUtils.getUserIdFromReq(request);
@@ -340,6 +346,9 @@ public class CrsController {
         return "mgr/stu_col_exe";
     }
 
+    /**
+     * 学生参与课程列表
+     */
     @GetMapping("/user/stu/crs")
     public String joinCrsPage(HttpServletRequest request,Model model){
         long userId=RequestUtils.getUserIdFromReq(request);
