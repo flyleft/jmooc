@@ -99,7 +99,7 @@
 <!-- JavaScript -->
 <script src="/js/jquery.min.js"></script>
 <script src="/js/bootstrap.min.js"></script>
-<script src="//cdn.bootcss.com/bootbox.js/4.4.0/bootbox.min.js"></script>
+<script src="/js/bootbox.min.js"></script>
 <script type="text/javascript">
     $(document).on("click", "#post_exe",
             function() {

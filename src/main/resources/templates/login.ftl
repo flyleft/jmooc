@@ -48,7 +48,7 @@
 </div>
 <script src="/js/jquery.min.js"></script>
 <script src="/js/bootstrap.min.js"></script>
-<script src="//cdn.bootcss.com/blueimp-md5/2.3.1/js/md5.min.js"></script>
+<script src="/js/md5.min.js"></script>
 <script type="text/javascript">
     $("#user-type").click(function(){
         if ("学生用户" == $(this).text().trim()){

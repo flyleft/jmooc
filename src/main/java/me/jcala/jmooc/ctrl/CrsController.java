@@ -105,7 +105,7 @@ public class CrsController {
         Set<Chapter> chapters=crsSer.getChapterList(crsId);
         if (chapters!=null){
             model.addAttribute("chps",chapters);
-            model.addAttribute("mgr",crsId);
+            model.addAttribute("crs",crsId);
             model.addAttribute("pos",chapters.size()+1);
         }
         return "mgr/chp_mgr";
