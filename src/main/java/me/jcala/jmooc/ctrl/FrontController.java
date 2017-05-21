@@ -1,6 +1,7 @@
 package me.jcala.jmooc.ctrl;
 
 import lombok.extern.slf4j.Slf4j;
+import me.jcala.jmooc.conf.WebMvcConfig;
 import me.jcala.jmooc.entity.Course;
 import me.jcala.jmooc.entity.Exercise;
 import me.jcala.jmooc.entity.Lesson;
@@ -22,6 +23,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import java.io.IOException;
 import java.util.Date;
 import java.util.List;
 
@@ -155,6 +157,12 @@ public class FrontController {
     @PostMapping("/code/run")
     @ResponseBody
     public String codePost(HttpServletRequest request,Model model){
+        String[] cmd={WebMvcConfig.OJ_PATH+"Client.exe",Integer.toString(1),Integer.toString(5),WebMvcConfig.OJ_INI_PATH};
+        try {
+            Runtime.getRuntime().exec(cmd);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
       return "result";
     }
 }

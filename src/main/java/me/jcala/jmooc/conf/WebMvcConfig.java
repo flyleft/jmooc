@@ -14,6 +14,8 @@ import java.io.File;
 public class WebMvcConfig extends WebMvcConfigurerAdapter {
 
 
+	public static final  String OJ_PATH="G:/home/OJ/";
+	public static final String OJ_INI_PATH="G:/home/OJ/conf/config.ini";
 	private static  final String  basicHome="G:/home/jcala/jmooc";
 
 	private static  final String basicUrl="http://127.0.0.1:8090";

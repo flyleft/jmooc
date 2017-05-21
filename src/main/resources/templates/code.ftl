@@ -77,7 +77,7 @@
                 <form role="form" name="code" action="/code/run" method="post">
                     <div class="form-group">
                         <label for="name">代码</label>
-                        <textarea class="form-control" rows="10"></textarea>
+                        <textarea class="form-control" rows="20"></textarea>
                     </div>
                     <div class="form-group">
                         <label>语言类型</label>
