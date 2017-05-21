@@ -19,10 +19,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.Date;
@@ -56,6 +53,7 @@ public class FrontController {
                            @PageableDefault(sort = {"id"},direction = Sort.Direction.DESC) Pageable pageable,
                            HttpServletRequest request,
                            Model model){
+        long start=System.currentTimeMillis();
         /*Sort.Order numOrder=new Sort.Order(Sort.Direction.DESC,"collNum");
         Sort sort=new Sort(numOrder);
         Pageable pageable1=new PageRequest(pageable.getPageNumber(),pageable.getPageSize(),sort);*/
@@ -67,6 +65,8 @@ public class FrontController {
         model.addAttribute("count",count);
         model.addAttribute("c",param);
         model.addAttribute("cur",pageable.getPageNumber()+1);
+        long end=System.currentTimeMillis();
+        log.info("习题列表响应时间为："+(end-start));
       return "exe";
     }
 
@@ -76,6 +76,7 @@ public class FrontController {
             @PageableDefault(sort = {"id"},direction = Sort.Direction.DESC) Pageable pageable,
             HttpServletRequest request,
             Model model){
+        long start=System.currentTimeMillis();
         RequestUtils.setFrontUserInfo(model,request);
         FrontSerImpl.CrsFront crs=frontSer.getCrsFront(param,pageable);
         long count=crs.count/pageable.getPageSize() +1;
@@ -83,6 +84,8 @@ public class FrontController {
         model.addAttribute("count",count);
         model.addAttribute("c",param);
         model.addAttribute("cur",pageable.getPageNumber()+1);
+        long end=System.currentTimeMillis();
+        log.info("课程列表响应时间为："+(end-start));
         return "crs";
     }
 
@@ -91,6 +94,7 @@ public class FrontController {
                                @RequestParam(value = "c",required = false) String param,
                                HttpServletRequest request,
                                Model model){
+        long start=System.currentTimeMillis();
         RequestUtils.setFrontUserInfo(model,request);
         long userId=RequestUtils.getUserIdFromReq(request);
         if (userId>=0 && crsSer.hasJoinCrs(id,userId)){
@@ -110,6 +114,8 @@ public class FrontController {
         List<Notice> notices=noticeSer.getCrsNotice(id);
         model.addAttribute("crs",course);
         model.addAttribute("cmt",notices);
+        long end=System.currentTimeMillis();
+        log.info("课程详细响应时间为："+(end-start));
         return "crs_cmt";
     }
 
@@ -137,5 +143,18 @@ public class FrontController {
        String baseUrl=FileType.VIDEO.getUrl();
        model.addAttribute("video",baseUrl+video);
        return "video";
+    }
+
+    @GetMapping("/code")
+    public String codePage(HttpServletRequest request,Model model){
+        RequestUtils.setFrontUserInfo(model,request);
+        return "code";
+    }
+
+
+    @PostMapping("/code/run")
+    @ResponseBody
+    public String codePost(HttpServletRequest request,Model model){
+      return "result";
     }
 }
