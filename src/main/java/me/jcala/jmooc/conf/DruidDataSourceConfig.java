@@ -38,7 +38,7 @@ public class DruidDataSourceConfig implements EnvironmentAware,TransactionManage
     public DataSource dataSource() {
         DruidDataSource datasource = new DruidDataSource();
         datasource.setUrl(propertyResolver.getProperty("url"));
-        datasource.setUsername(propertyResolver.getProperty("username"));
+        datasource.setUsername(propertyResolver.getProperty("name"));
         datasource.setPassword(propertyResolver.getProperty("password"));
         datasource.setDriverClassName(propertyResolver.getProperty("driverClassName"));
         datasource.setInitialSize(Integer.valueOf(propertyResolver.getProperty("druid.initial-size")));

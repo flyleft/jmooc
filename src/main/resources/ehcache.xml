@@ -4,7 +4,7 @@
     <diskStore path = "/home/jcala_blog/cache" />
     <!--<diskStore path = "/home/smart/cache" />-->
     <!--默认缓存配置，以下属性是必须的：
-    name ：cache的标识符，在一个CacheManager中必须唯一。
+usernamename ：cache的标识符，在一个CacheManager中必须唯一。
     maxElementsInMemory ： 在内存中缓存的element的最大数目。
     maxElementsOnDisk ： 在磁盘上缓存的element的最大数目。
     eternal ： 设定缓存的elements是否有有效期。如果为true，timeouts属性被忽略。

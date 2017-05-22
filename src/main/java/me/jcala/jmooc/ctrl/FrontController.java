@@ -6,8 +6,10 @@ import me.jcala.jmooc.entity.Course;
 import me.jcala.jmooc.entity.Exercise;
 import me.jcala.jmooc.entity.Lesson;
 import me.jcala.jmooc.entity.Notice;
+import me.jcala.jmooc.entity.auxiliary.CodeForm;
 import me.jcala.jmooc.entity.auxiliary.UserAuxiliary;
 import me.jcala.jmooc.service.FrontSerImpl;
+import me.jcala.jmooc.service.inter.CodeSer;
 import me.jcala.jmooc.service.inter.CrsSer;
 import me.jcala.jmooc.service.inter.FrontSer;
 import me.jcala.jmooc.service.inter.NoticeSer;
@@ -20,9 +22,11 @@ import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
 import java.io.IOException;
 import java.util.Date;
 import java.util.List;
@@ -34,7 +38,6 @@ public class FrontController {
     private FrontSer frontSer;
     private CrsSer crsSer;
     private NoticeSer noticeSer;
-
 
     @Autowired
     public FrontController(FrontSer frontSer, CrsSer crsSer, NoticeSer noticeSer) {
@@ -145,24 +148,5 @@ public class FrontController {
        String baseUrl=FileType.VIDEO.getUrl();
        model.addAttribute("video",baseUrl+video);
        return "video";
-    }
-
-    @GetMapping("/code")
-    public String codePage(HttpServletRequest request,Model model){
-        RequestUtils.setFrontUserInfo(model,request);
-        return "code";
-    }
-
-
-    @PostMapping("/code/run")
-    @ResponseBody
-    public String codePost(HttpServletRequest request,Model model){
-        String[] cmd={WebMvcConfig.OJ_PATH+"Client.exe",Integer.toString(1),Integer.toString(5),WebMvcConfig.OJ_INI_PATH};
-        try {
-            Runtime.getRuntime().exec(cmd);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-      return "result";
     }
 }

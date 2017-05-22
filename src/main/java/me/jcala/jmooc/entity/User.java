@@ -2,7 +2,6 @@ package me.jcala.jmooc.entity;
 
 import lombok.Getter;
 import lombok.Setter;
-import org.aspectj.weaver.ast.Not;
 
 import javax.persistence.*;
 import javax.persistence.Id;
@@ -13,7 +12,7 @@ import java.util.Set;
 @Getter
 @Setter
 @Entity
-@Table(name = "user_tb")
+@Table(name = "users")
 public class User implements Serializable{
 
     private static final String DEFAULT_AVATAR="/img/default.png";
@@ -25,6 +24,9 @@ public class User implements Serializable{
 
     @Column(nullable = false,length = 40)
     private String name;//用户名
+
+    @Column(nullable = false,length = 40)
+    private String username;
 
     @Column(nullable = false,length = 32)
     private String password;//密码
@@ -55,6 +57,9 @@ public class User implements Serializable{
     @OrderBy("id DESC")
     private Set<Notice> notices=new HashSet<>();
 
+    @Column(columnDefinition = "int default 0")
+    private int submit;
+
     public User() {
     }
 
@@ -65,7 +70,7 @@ public class User implements Serializable{
 
     public User(long id,String name) {
         this.id=id;
-        this.name=name;
+        this.name = name;
     }
 
     public User(String name, String password, int role) {

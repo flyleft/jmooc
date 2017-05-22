@@ -1,4 +1,4 @@
-package me.jcala.jmooc.entity;
+package me.jcala.jmooc.entity.oj;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -31,20 +31,24 @@ public class Problem {
     private int memory_limit;
     private char defunct;
     private int accepted;
-    private int solved;
+    //private int solved;
     private int submit;
     private int submit_user;
     @Column(length = 30)
     private String author;
     @Temporal(TemporalType.DATE)
     private Date create_date;
-    @Column(columnDefinition = "default 0")
+    @Column(columnDefinition = "FLOAT default 0.00")
     private float difficulty;
-    @Column(columnDefinition = "default 0")
+    @Column(columnDefinition = "FLOAT default 0.00")
     private float ratio;
     private int contest_id;
     private String oj_name;
     private int oj_pid;
     @Column(columnDefinition = "tinyint(1)")
     private int isvirtual;
+
+    public Problem() {
+    }
+
 }

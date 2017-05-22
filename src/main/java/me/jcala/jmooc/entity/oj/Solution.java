@@ -1,4 +1,4 @@
-package me.jcala.jmooc.entity;
+package me.jcala.jmooc.entity.oj;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -29,4 +29,7 @@ public class Solution {
     private int verdict;
     private long contest_id;
     private int testcase;
+
+    public Solution() {
+    }
 }

@@ -46,7 +46,7 @@ spring:
             config: ehcache.xml
     datasource:
         role: com.alibaba.druid.pool.DruidDataSource
-        username: root
+        name: root
         password: root
         url: jdbc:mysql://127.0.0.1:3306/jmooc?serverTimezone=UTC&characterEncoding=utf-8
         driverClassName: com.mysql.cj.jdbc.Driver

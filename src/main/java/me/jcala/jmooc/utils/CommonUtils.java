@@ -3,9 +3,6 @@ package me.jcala.jmooc.utils;
 import me.jcala.jmooc.entity.User;
 import me.jcala.jmooc.entity.auxiliary.UserAuxiliary;
 
-import java.util.Calendar;
-import java.util.Date;
-
 public class CommonUtils {
 
     public static boolean isEmpty(String...strings){
