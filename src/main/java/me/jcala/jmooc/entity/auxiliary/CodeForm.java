@@ -13,9 +13,6 @@ public class CodeForm {
     @Max(5)
     private int language;
 
-    @Min(1)
-    private int problem_id;
-
     @NotBlank(message = "提交的代码")
     @Length(min = 10,max = 65535)
     private String source;

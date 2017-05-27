@@ -10,6 +10,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
@@ -25,9 +26,17 @@ public class CodeController {
     }
 
     @GetMapping("/code")
-    public String codePage(HttpServletRequest request, Model model){
+    public String codePage(@RequestParam(value = "lau",required = false) String lau,
+                           HttpServletRequest request,
+                           Model model){
         RequestUtils.setFrontUserInfo(model,request);
-        return "code";
+        if (lau==null || lau.isEmpty()){
+            return "code/c";
+        }else if ("java".equals(lau)){
+            return "code/java";
+        }else {
+            return "code/cpp";
+        }
     }
 
 

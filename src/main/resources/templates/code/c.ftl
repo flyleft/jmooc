@@ -15,6 +15,10 @@
         a:link,a:visited{color:#5e5e5e;text-decoration:none;}
         a:hover{color:#F97307;text-decoration:none;}
         a:active{color:#666;text-decoration:none;}
+        .test p { position: absolute; left: 0; top 0; }
+        .course-nav-item{display:inline-block;margin:0 4px}
+        .course-nav-item a{display:block;line-height:14px;margin-bottom:10px;padding:10px;font-size:14px}
+        .course-nav-item.on a{background:#F97307;color:#fff;border-radius:2px}
     </style>
 </head>
 <body>
@@ -69,6 +73,25 @@
     </div>
 </header>
 
+<div class="page-header">
+    <div class="container">
+        <div class="row">
+            <div class="test col-md-9">
+                <ul class="">
+                    <li class="course-nav-item on">
+                        <a href="#" >c语言</a>
+                    </li>
+                    <li class="course-nav-item">
+                        <a href="/code?lau=cpp" >c++</a>
+                    </li>
+                    <li class="course-nav-item">
+                        <a href="/code?lau=java" >Java</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
 <!-- Video list boxes: grid -->
 <section class="content content-light  videos-list videos-list-grid">
     <div class="container">
@@ -76,18 +99,10 @@
             <div class="col-lg-9">
                 <form role="form" name="code" action="/code/run" method="post">
                     <div class="form-group">
-                        <label>语言类型</label>
-                        <select class="form-control" name="language">
-                            <option value="3">c++</option>
-                            <option value="4">c语言</option>
-                            <option value="5">java</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
                         <label for="source">代码</label>
                         <textarea class="form-control" rows="20" name="source"></textarea>
                     </div>
-                    <input name="problem_id" type="hidden" value="1000"/>
+                    <input name="language" type="hidden" value="4"/>
                     <div class="form-group">
                         <input type="submit" class="form-control" value="提交">
                     </div>
