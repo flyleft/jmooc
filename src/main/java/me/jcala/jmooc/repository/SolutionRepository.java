@@ -1,6 +1,6 @@
 package me.jcala.jmooc.repository;
 
-import me.jcala.jmooc.entity.oj.Solution;
+import me.jcala.jmooc.entity.Solution;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.transaction.annotation.Transactional;
 

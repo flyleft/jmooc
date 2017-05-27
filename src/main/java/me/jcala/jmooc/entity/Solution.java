@@ -1,4 +1,4 @@
-package me.jcala.jmooc.entity.oj;
+package me.jcala.jmooc.entity;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -18,17 +18,23 @@ public class Solution {
 
     private String user_id;
 
-    @Temporal(TemporalType.DATE)
+    @Temporal(TemporalType.TIMESTAMP)
     private Date submit_date;
 
     @Column(columnDefinition = "tinyint(4)")
     private int language;
+
+    @Column(columnDefinition = "text")
+    private String source;
 
     @Column(columnDefinition = "tinyint(4)")
     private int verdict;
 
     @Column(columnDefinition = "text")
     private String result;
+
+    @Column(columnDefinition = "text")
+    private String compile_err;
 
     public Solution() {
     }
