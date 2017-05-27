@@ -76,18 +76,18 @@
             <div class="col-lg-9">
                 <form role="form" name="code" action="/code/run" method="post">
                     <div class="form-group">
+                        <label>语言类型</label>
+                        <select class="form-control" name="language">
+                            <option value="3">c++</option>
+                            <option value="4">c语言</option>
+                            <option value="5">java</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
                         <label for="source">代码</label>
                         <textarea class="form-control" rows="20" name="source"></textarea>
                     </div>
                     <input name="problem_id" type="hidden" value="1000"/>
-                    <div class="form-group">
-                        <label>语言类型</label>
-                        <select class="form-control" name="language">
-                            <option value="3">c</option>
-                            <option value="4">c++</option>
-                            <option value="5">java</option>
-                        </select>
-                    </div>
                     <div class="form-group">
                         <input type="submit" class="form-control" value="提交">
                     </div>

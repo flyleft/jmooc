@@ -30,8 +30,7 @@ public class CodeSerImpl implements CodeSer{
     public void submitCode(String userId, CodeForm codeForm) {
 
         Solution solution=new Solution();
-        solution.setUsername(userId);
-        solution.setProblem_id(codeForm.getProblem_id());
+        solution.setUser_id(userId);
         solution.setLanguage(codeForm.getLanguage());
         solution.setSubmit_date(new Date());
         Solution back=solutionRepository.save(solution);

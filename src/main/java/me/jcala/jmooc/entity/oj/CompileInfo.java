@@ -1,4 +1,4 @@
-package me.jcala.jmooc.entity;
+package me.jcala.jmooc.entity.oj;
 
 import lombok.Getter;
 import lombok.Setter;

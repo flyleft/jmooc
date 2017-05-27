@@ -25,9 +25,6 @@ public class User implements Serializable{
     @Column(nullable = false,length = 40)
     private String name;//用户名
 
-    @Column(nullable = false,length = 40)
-    private String username;
-
     @Column(nullable = false,length = 32)
     private String password;//密码
 
@@ -56,9 +53,6 @@ public class User implements Serializable{
     @OneToMany(cascade = CascadeType.REMOVE,fetch=FetchType.LAZY,mappedBy = "owner")
     @OrderBy("id DESC")
     private Set<Notice> notices=new HashSet<>();
-
-    @Column(columnDefinition = "int default 0")
-    private int submit;
 
     public User() {
     }

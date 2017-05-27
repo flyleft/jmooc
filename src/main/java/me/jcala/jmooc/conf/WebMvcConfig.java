@@ -12,12 +12,16 @@ import java.io.File;
 
 @Configuration
 public class WebMvcConfig extends WebMvcConfigurerAdapter {
+	//G:\cHome\work\judger-kernel\build\bin32
 
 
-	public static final  String OJ_PATH="G:/home/OJ/";
-	public static final String OJ_INI_PATH="G:/home/OJ/conf/config.ini";
+	//public static final  String OJ_PATH="G:/home/OJ/";
+	//public static final String OJ_INI_PATH="G:/home/OJ/conf/config.ini";
+
+	public static final  String OJ_PATH="G:/cHome/work/judger-kernel/build/bin32/";
+	public static final String OJ_INI_PATH="G:/cHome/work/judger-kernel/build/bin32/conf/config.ini";
+
 	private static  final String  basicHome="G:/home/jcala/jmooc";
-
 	private static  final String basicUrl="http://127.0.0.1:8090";
 
 
