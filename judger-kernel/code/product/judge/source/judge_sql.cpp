@@ -65,7 +65,7 @@ int SQL_InitMySQL()
 		return 0;
 	}
 
-	strcpy(query,"SET CHARACTER SET utf8"); //设置编码 gbk
+	strcpy(query,"SET CHARACTER SET gbk"); //设置编码 gbk
 	int ret = mysql_real_query(mysql,query, (unsigned int)strlen(query));
 	if (ret)
 	{
@@ -95,7 +95,7 @@ int SQL_getSolutionSource(JUDGE_SUBMISSION_ST *pstJudgeSubmission)
 
 	SQL_SemP();
 
-	sprintf(query,"select source from solution_source where solution_id=%d",
+	sprintf(query,"select source from solution where solution_id=%d",
 			pstJudgeSubmission->stSolution.solutionId);
 
 	int ret=mysql_real_query(mysql,query,(unsigned int)strlen(query));
@@ -126,6 +126,8 @@ int SQL_getSolutionSource(JUDGE_SUBMISSION_ST *pstJudgeSubmission)
 	{
 		write_log(JUDGE_ERROR,"SQL_getSolutionSource Error");
 	}
+
+    judge_outstring("code:%s\r\n",code);
 
 	if(pstJudgeSubmission->isTranscoding == 1)
 	{
@@ -266,69 +268,40 @@ void SQL_updateCompileInfo(JUDGE_SUBMISSION_ST *pstJudgeSubmission)
 		return ;
 	}
 
+    judge_outstring("准备更新编译信息\r\n");
+
 	SQL_SemP();
 
-	//先删除
-	sprintf(query,"delete from compile_info where solution_id=%d;",pstJudgeSubmission->stSolution.solutionId);
-	mysql_real_query(mysql,query,(unsigned int)strlen(query));
-
-	//先插入
 	if((fgets(buffer, 4095, fp))!= NULL)
-	{	
+	{
 		string str = buffer;
-    	string::iterator   it;
- 
-	    for (it =str.begin(); it != str.end(); ++it)
-	    {
-	        if ( *it == '\"')
-	        {
-	            str.erase(it);
-	        }
-	    }
+		string::iterator   it;
 
-		sprintf(query,"insert into compile_info values(%d,\"%s\");",pstJudgeSubmission->stSolution.solutionId,str.c_str());
+		for (it =str.begin(); it != str.end(); ++it)
+		{
+			if ( *it == '\"')
+			{
+				str.erase(it);
+			}
+		}
+
+        judge_outstring("异常信息:%s\r\n",str.c_str());
+
+		sprintf(query,"update solution set compile_err = \"%s\",verdict=2 where solution_id = %d limit 1",str.c_str(),pstJudgeSubmission->stSolution.solutionId);
+
 		int ret=mysql_real_query(mysql,query,(unsigned int)strlen(query));
 		if(ret)
 		{
 			write_log(JUDGE_ERROR,mysql_error(mysql));
+            judge_outstring("更新数据库编译信息出现异常...%s\r\n",mysql_error(mysql));
 			fclose(fp);
 			SQL_SemV();
 			return ;
 		}
 	}
 
-	//后连接
-	while ((fgets (buffer, 4095, fp))!= NULL)
-	{
-		buffer[strlen(buffer)];
-
-		string str = buffer;
-    	string::iterator   it;
- 
-	    for (it =str.begin(); it != str.end(); ++it)
-	    {
-	        if ( *it == '\"')
-	        {
-	            str.erase(it);
-	        }
-	    }
-		
-		sprintf(query,"update compile_info set error=CONCAT(error,\"%s\") where solution_id=%d;",
-				buffer, pstJudgeSubmission->stSolution.solutionId);
-
-		int ret = mysql_real_query(mysql, query, (unsigned int)strlen(query));
-		if(ret)
-		{
-			write_log(JUDGE_ERROR,mysql_error(mysql));
-			fclose(fp);
-			SQL_SemV();
-			return ;
-		}
- 	}
-
 	fclose(fp);
 
 	SQL_SemV();
 
 }
-

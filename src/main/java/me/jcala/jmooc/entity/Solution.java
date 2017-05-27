@@ -27,7 +27,7 @@ public class Solution {
     @Column(columnDefinition = "text")
     private String source;
 
-    @Column(columnDefinition = "tinyint(4)")
+    @Column(columnDefinition = "tinyint(4) default 1")
     private int verdict;
 
     @Column(columnDefinition = "text")

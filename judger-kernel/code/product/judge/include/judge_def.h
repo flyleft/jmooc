@@ -14,19 +14,18 @@
 #define BUFFER_SIZE 512
 
 
-#define V_ALL 0
-#define V_Q 1
-#define V_C 2
-#define V_CE 3
-#define V_RUN 4
-#define V_AC 5
-#define V_RE 6
-#define V_TLE 7
-#define V_SE 8
+#define V_Q 0
+#define V_C 1
+#define V_CE 2
+#define V_RUN 3
+#define V_AC 4
+#define V_RE 5
+#define V_TLE 6
+#define V_SE 7
 
 #define JUDGE_ISJUDGE_STOP(v) (v == V_CE || v == V_RE || v == V_SE)
 
-static const char* VERDICT_NAME[] = {"ALL", "Queuing", "Compiling", "Compilation Error", "Running","Accepted","Runtime Error","TIME LIMIT","System Error"};
+static const char* VERDICT_NAME[] = {"Queuing", "Compiling", "Compilation Error", "Running","Accepted","Runtime Error","TIME LIMIT","System Error"};
 
 #define JUDGE_SYSTEM_ERROR 0
 #define JUDGE_WARNING 1

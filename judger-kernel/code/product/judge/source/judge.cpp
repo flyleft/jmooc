@@ -271,7 +271,7 @@ void Judge_InitJudgePath(JUDGE_SUBMISSION_ST *pstJudgeSubmission)
  */
 void Judge_InitSubmissionData(JUDGE_SUBMISSION_ST *pstJudgeSubmission)
 {
-	pstJudgeSubmission->stSolution.verdictId = V_AC;
+	pstJudgeSubmission->stSolution.verdictId = V_Q;
 	pstJudgeSubmission->stSolution.reJudge = 0;
 
 	pstJudgeSubmission->isTranscoding = 0;
@@ -605,7 +605,7 @@ int Judge_RunLocalSolution(JUDGE_SUBMISSION_ST *pstJudgeSubmission)
 		//get process state
 		GetExitCodeProcess(pstJudgeSubmission->pProRunInfo.hProcess, &(pstJudgeSubmission->dwProStatusCode));
 	    if(Judge_ExistException(pstJudgeSubmission->dwProStatusCode)) {
-		pstJudgeSubmission->stSolution.verdictId=V_RE;
+		  pstJudgeSubmission->stSolution.verdictId=V_RE;
 	   }
 	   else if(pstJudgeSubmission->dwProStatusCode == STILL_ACTIVE) {
 			TerminateProcess(pstJudgeSubmission->pProRunInfo.hProcess, 0);
@@ -613,6 +613,8 @@ int Judge_RunLocalSolution(JUDGE_SUBMISSION_ST *pstJudgeSubmission)
 			{
 				pstJudgeSubmission->stSolution.verdictId = V_TLE;
 			}
+		} else{
+			pstJudgeSubmission->stSolution.verdictId = V_AC;
 		}
 	    TerminateJobObject(pstJudgeSubmission->hJob,0);
 
@@ -620,6 +622,7 @@ int Judge_RunLocalSolution(JUDGE_SUBMISSION_ST *pstJudgeSubmission)
 
 		CloseHandle(pstJudgeSubmission->hJob);pstJudgeSubmission->hJob = NULL;
 	    SQL_updateSolutionJsonResult(pstJudgeSubmission->stSolution.solutionId, pstJudgeSubmission->result_Json);
+        SQL_updateSolution(pstJudgeSubmission->stSolution.solutionId,pstJudgeSubmission->stSolution.verdictId);
 	return 0;
 
 }
@@ -632,6 +635,7 @@ int Judge_Local(JUDGE_SUBMISSION_ST *pstJudgeSubmission)
 	if(0 == Judge_CompileProc(pstJudgeSubmission))
 	{
         judge_outstring("编译出现异常...\r\n");
+        pstJudgeSubmission->stSolution.verdictId = V_CE;
         SQL_updateCompileInfo(pstJudgeSubmission);
 	}
 	else
@@ -727,9 +731,7 @@ unsigned _stdcall  Judge_Proc(void *pData)
 		return OS_ERR;
 	}
 	//初始化程序编译，运行等指令
-    judge_outstring("Judge_Proc 初始化程序编译，运行等指令\r\n");
 	Judge_InitJudgePath(&stJudgeSubmission);
-    judge_outstring("初始化的源文件目录:%s\r\n",stJudgeSubmission.sourcePath);
     //获取运行的源代码
 	ret = SQL_getSolutionSource(&stJudgeSubmission);
 	if (OS_OK != ret)
@@ -740,16 +742,11 @@ unsigned _stdcall  Judge_Proc(void *pData)
 	}
 	write_log(JUDGE_INFO,"Do SQL_getSolutionSource ok. (solutionId=%d)", stJudgeSubmission.stSolution.solutionId);
 
-    judge_outstring("从数据中获取源代码正确\r\n");
-
     //获取本地运行结果
 	ret = Judge_Local(&stJudgeSubmission);
 
 	write_log(JUDGE_INFO,"Do Judge finish. (solutionId=%d)", stJudgeSubmission.stSolution.solutionId);
 
-	SQL_updateSolution(stJudgeSubmission.stSolution.solutionId,
-					   stJudgeSubmission.stSolution.verdictId);
-	
 
 	string time_string_;
 	API_TimeToString(time_string_, stJudgeSubmission.stSolution.submitDate);
