@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="/css/font-awesome.min.css"/>
     <link rel="stylesheet" href="/css/style.css"/>
     <link rel="stylesheet" href="/css/animate.min.css"/>
+    <link rel="stylesheet" href="/css/codemirror.min.css">
+    <link rel="stylesheet" href="/css/theme/rubyblue.css">
     <style type="text/css">
         a:{text-decoration:none;}
         a:link,a:visited{color:#5e5e5e;text-decoration:none;}
@@ -96,17 +98,38 @@
 <section class="content content-light  videos-list videos-list-grid">
     <div class="container">
         <div class="row">
-            <div class="col-lg-9">
+            <div class="col-lg-12">
                 <form role="form" name="code" action="/code/run" method="post">
                     <div class="form-group">
                         <label for="source">代码</label>
-                        <textarea class="form-control" rows="20" name="source"></textarea>
+                        <textarea class="form-control" rows="20" name="source" id="code">
+#include "iostream"
+using namespace std;
+
+int main() {
+    cout << "c++" << endl;
+    return 0;
+}
+                        </textarea>
                     </div>
                     <input name="language" type="hidden" value="3"/>
                     <div class="form-group">
                         <input type="submit" class="form-control" value="提交">
                     </div>
                 </form>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">运行结果:</h3>
+                    </div>
+                    <div class="panel-body">
+                        <h4 id="re-info"></h4>
+                        <p id="re-data"></p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -120,6 +143,39 @@
 </footer>
 <!-- JavaScript Files -->
 <script src="/js/jquery.min.js"></script>
-<script src="/js/bootstrap.min.js"></script>
+<script src="/js/codemirror.min.js"></script>
+<script src="/js/clike.min.js"></script>
+<script type="text/javascript">
+    var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
+        mode: 'text/x-c++src',//text/x-csrc
+        tabSize: 4,
+        tabMode: 'indent',
+        theme: 'rubyblue',
+        lineNumbers: true,
+        lineWrapping: true,
+        styleActiveLine: true,
+        matchBrackets: true
+    });
+    editor.setSize('auto','500px');
+
+    var soId=${so_id!-1};
+    var re_id=0;
+    var exe_num=0;
+    var t1;
+
+    if (soId>0){
+        t1 = window.setInterval(getResult,2000);
+    }
+
+    function getResult(){
+        if(exe_num++ > 2 || re_id !== 0){window.clearInterval(t1);return;}
+        $.getJSON("/code/result?id="+soId,function(data){
+            console.log(data);
+            re_id=data.id;
+            $("#re-info").text(data.info);
+            $("#re-data").text(data.data);
+        });
+    }
+</script>>
 </body>
 </html>

@@ -68,6 +68,22 @@ public enum  JsonUtils {
         return modelMap;
     }
 
+    public HashMap<String, String> readJsonToStrMap(String jsonStr) {
+        if (jsonStr==null || jsonStr.trim().isEmpty()) return new HashMap<>();
+        HashMap<String, String> modelMap;
+        try {
+            ObjectMapper mapper = new ObjectMapper();
+            mapper.configure(JsonParser.Feature.ALLOW_UNQUOTED_CONTROL_CHARS, true) ;
+            modelMap = mapper.readValue(jsonStr.trim(), new TypeReference<HashMap<String, String>>() {
+            });
+            if (modelMap==null) return new HashMap<>();
+        } catch (IOException e) {
+            modelMap=new HashMap<>();
+            e.printStackTrace();
+        }
+        return modelMap;
+    }
+
 
     public Set<Exercise> readJsonToExeSet(String json) {
         if (json==null||json.trim().isEmpty()) return new HashSet<>();

@@ -65,4 +65,12 @@ public class JmoocBeanUtils {
         exe.setChooseList(chos);
     }
 
+    public static String getDataFromJsonMap(String result){
+        HashMap<String,String> jsonMap=JsonUtils.instance.readJsonToStrMap(result);
+        if (jsonMap.isEmpty()){
+            return "";
+        }else {
+            return jsonMap.get("1");
+        }
+    }
 }
