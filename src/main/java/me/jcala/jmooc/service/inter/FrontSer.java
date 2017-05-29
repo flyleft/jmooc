@@ -9,12 +9,15 @@ import org.aspectj.weaver.ast.Not;
 import org.springframework.data.domain.Pageable;
 
 import java.util.List;
+import java.util.Set;
 
 public interface FrontSer {
 
     FrontSerImpl.ExeFront getExeFront(String param, Pageable pageable);//分页获取习题列表
 
     FrontSerImpl.CrsFront getCrsFront(String param,Pageable pageable);//分页获取课程列表
+
+    Set<Exercise> getLesExe(long lesId);//获取某个课程的习题列表
 
     Course getCourse(long crsId);//获取课程的全部信息
 

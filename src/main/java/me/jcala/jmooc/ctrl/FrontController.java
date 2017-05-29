@@ -30,6 +30,7 @@ import javax.validation.Valid;
 import java.io.IOException;
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
 @Controller
 @Slf4j
@@ -148,5 +149,13 @@ public class FrontController {
        String baseUrl=FileType.VIDEO.getUrl();
        model.addAttribute("video",baseUrl+video);
        return "video";
+    }
+
+    @GetMapping("/les/exe")
+    public String lesExe(@RequestParam("les_id") long lesId,Model model,HttpServletRequest request){
+        RequestUtils.setFrontUserInfo(model,request);
+        Set<Exercise> exercises=frontSer.getLesExe(lesId);
+        model.addAttribute("exe", JmoocBeanUtils.setExeChooseList(exercises));
+        return "les_exe";
     }
 }

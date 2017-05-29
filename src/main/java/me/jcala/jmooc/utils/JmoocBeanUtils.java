@@ -4,10 +4,7 @@ import me.jcala.jmooc.entity.Exercise;
 import me.jcala.jmooc.entity.Lesson;
 import me.jcala.jmooc.entity.auxiliary.ExeForm;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 public class JmoocBeanUtils {
 
@@ -52,7 +49,7 @@ public class JmoocBeanUtils {
         return exercise;
     }
 
-    public static List<Exercise> setExeChooseList(List<Exercise> exercises){
+    public static Collection<Exercise> setExeChooseList(Collection<Exercise> exercises){
         for (Exercise exe:exercises){
              Map<Character,String> chos=JsonUtils.instance.readJsonToExeMap(exe.getChooses());
              exe.setChooseList(chos);

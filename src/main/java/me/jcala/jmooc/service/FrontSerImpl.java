@@ -8,12 +8,14 @@ import me.jcala.jmooc.entity.Lesson;
 import me.jcala.jmooc.repository.ChapterRepository;
 import me.jcala.jmooc.repository.CourserRepository;
 import me.jcala.jmooc.repository.ExerciseRepository;
+import me.jcala.jmooc.repository.LessonRepository;
 import me.jcala.jmooc.service.inter.FrontSer;
 import me.jcala.jmooc.utils.JmoocBeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -25,15 +27,14 @@ public class FrontSerImpl implements FrontSer {
 
     private CourserRepository courserRepository;
 
-    private ChapterRepository chapterRepository;
+    private LessonRepository lessonRepository;
 
     @Autowired
-    public FrontSerImpl(ExerciseRepository exerciseRepository,
-                        CourserRepository courserRepository,
-                        ChapterRepository chapterRepository) {
+    public FrontSerImpl(ExerciseRepository exerciseRepository, CourserRepository courserRepository,
+                        LessonRepository lessonRepository) {
         this.exerciseRepository = exerciseRepository;
         this.courserRepository = courserRepository;
-        this.chapterRepository = chapterRepository;
+        this.lessonRepository = lessonRepository;
     }
 
     public static class ExeFront{
@@ -97,5 +98,12 @@ public class FrontSerImpl implements FrontSer {
             JmoocBeanUtils.setOneExeChooseList(exercise);
         }
         return exercise;
+    }
+
+    @Override
+    public Set<Exercise> getLesExe(long lesId) {
+        Lesson lesson=lessonRepository.findOne(lesId);
+        if (lesson==null) return new HashSet<>();
+        return lesson.getExerciseList();
     }
 }
