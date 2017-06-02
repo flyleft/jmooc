@@ -11,6 +11,7 @@ public class JsonTest {
 
     private String jsonStr;
 
+    @Test
     public void outputJson(){
         //(String title, String content, int difficulty, String chooses, char answer, String analysis, String type
         Set<Exercise> exercises=new HashSet<>();

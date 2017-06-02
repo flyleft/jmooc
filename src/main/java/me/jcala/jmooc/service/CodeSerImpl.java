@@ -7,7 +7,6 @@ import me.jcala.jmooc.entity.auxiliary.CodeResult;
 import me.jcala.jmooc.repository.SolutionRepository;
 import me.jcala.jmooc.service.inter.CodeSer;
 import me.jcala.jmooc.utils.JmoocBeanUtils;
-import org.aspectj.apache.bcel.classfile.Code;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -62,8 +61,7 @@ public class CodeSerImpl implements CodeSer{
         }
         if (solution.getVerdict()==4){
             result.setInfo("代码正确，结果如下:");
-            String re= JmoocBeanUtils.getDataFromJsonMap(solution.getResult());
-            result.setData(re);
+            result.setData(solution.getResult());
         }
         if (solution.getVerdict()==5){
             result.setInfo("运行异常");
