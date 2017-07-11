@@ -19,6 +19,8 @@
  - mysql: 数据库
  - druid: 数据库连接池及数据库监控
  - nginx: 静态文件服务器
+ - gradle: 构建工具
+ - IDEA： ide
  - OJ: [online-judge](https://git.oschina.net/jungle/online-judge)
  
 ---
