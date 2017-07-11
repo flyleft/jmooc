@@ -1,0 +1,3 @@
+"D:\andriod\CLion 2017.1.2\bin\cmake\bin\cmake.exe" -E remove -f CMakeFiles\judger_kernel.dir/objects.a
+D:\andriod\java\mingw\bin\ar.exe cr CMakeFiles\judger_kernel.dir/objects.a @CMakeFiles\judger_kernel.dir\objects1.rsp
+D:\andriod\java\mingw\bin\g++.exe  -g   -Wl,--whole-archive CMakeFiles\judger_kernel.dir/objects.a -Wl,--no-whole-archive  -o judger_kernel.exe -Wl,--out-implib,libjudger_kernel.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\judger_kernel.dir\linklibs.rsp

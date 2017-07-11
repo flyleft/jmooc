@@ -1,0 +1,41 @@
+file(REMOVE_RECURSE
+  "CMakeFiles/judger_kernel.dir/build/3part/mingw32/i686-w64-mingw32/include/agtctl_i.c.obj"
+  "CMakeFiles/judger_kernel.dir/build/3part/mingw32/i686-w64-mingw32/include/agtsvr_i.c.obj"
+  "CMakeFiles/judger_kernel.dir/build/3part/mingw32/i686-w64-mingw32/include/cdoex_i.c.obj"
+  "CMakeFiles/judger_kernel.dir/build/3part/mingw32/i686-w64-mingw32/include/cdoexm_i.c.obj"
+  "CMakeFiles/judger_kernel.dir/build/3part/mingw32/i686-w64-mingw32/include/cdosys_i.c.obj"
+  "CMakeFiles/judger_kernel.dir/build/3part/mingw32/i686-w64-mingw32/include/emostore_i.c.obj"
+  "CMakeFiles/judger_kernel.dir/build/3part/mingw32/i686-w64-mingw32/include/iisext_i.c.obj"
+  "CMakeFiles/judger_kernel.dir/build/3part/mingw32/i686-w64-mingw32/include/mtsadmin_i.c.obj"
+  "CMakeFiles/judger_kernel.dir/build/3part/mingw32/i686-w64-mingw32/include/mtxadmin_i.c.obj"
+  "CMakeFiles/judger_kernel.dir/build/3part/mingw32/i686-w64-mingw32/include/scardssp_i.c.obj"
+  "CMakeFiles/judger_kernel.dir/build/3part/mingw32/i686-w64-mingw32/include/scardssp_p.c.obj"
+  "CMakeFiles/judger_kernel.dir/build/3part/mingw32/i686-w64-mingw32/include/tsuserex_i.c.obj"
+  "CMakeFiles/judger_kernel.dir/build/3part/mingw32/opt/lib/python2.7/config/config.c.obj"
+  "CMakeFiles/judger_kernel.dir/build/3part/mingw32/opt/lib/python2.7/distutils/tests/xxmodule.c.obj"
+  "CMakeFiles/judger_kernel.dir/code/client/client.cpp.obj"
+  "CMakeFiles/judger_kernel.dir/code/osp/command/source/command_adp.cpp.obj"
+  "CMakeFiles/judger_kernel.dir/code/osp/command/source/command_core.cpp.obj"
+  "CMakeFiles/judger_kernel.dir/code/osp/command/source/command_func.cpp.obj"
+  "CMakeFiles/judger_kernel.dir/code/osp/command/source/command_io.cpp.obj"
+  "CMakeFiles/judger_kernel.dir/code/osp/command/source/command_var.cpp.obj"
+  "CMakeFiles/judger_kernel.dir/code/osp/debug/source/debug_center.cpp.obj"
+  "CMakeFiles/judger_kernel.dir/code/osp/event/source/event_pub.cpp.obj"
+  "CMakeFiles/judger_kernel.dir/code/product/hook/hook.cpp.obj"
+  "CMakeFiles/judger_kernel.dir/code/product/judge/source/judge.cpp.obj"
+  "CMakeFiles/judger_kernel.dir/code/product/judge/source/judge_io.cpp.obj"
+  "CMakeFiles/judger_kernel.dir/code/product/judge/source/judge_sql.cpp.obj"
+  "CMakeFiles/judger_kernel.dir/code/product/judge/source/judge_util.cpp.obj"
+  "CMakeFiles/judger_kernel.dir/code/product/judge/source/judge_var.cpp.obj"
+  "CMakeFiles/judger_kernel.dir/code/product/main/pdt_init.cpp.obj"
+  "CMakeFiles/judger_kernel.dir/code/product/thirdpart32/cjson/cJSON.cpp.obj"
+  "judger_kernel.pdb"
+  "judger_kernel.exe"
+  "judger_kernel.exe.manifest"
+  "libjudger_kernel.dll.a"
+)
+
+# Per-language clean rules from dependency scanning.
+foreach(lang C CXX)
+  include(CMakeFiles/judger_kernel.dir/cmake_clean_${lang}.cmake OPTIONAL)
+endforeach()
