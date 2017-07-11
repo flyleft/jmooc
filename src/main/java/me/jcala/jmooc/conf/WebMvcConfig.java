@@ -8,7 +8,6 @@ import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 import javax.annotation.PostConstruct;
-import java.io.File;
 
 @Configuration
 public class WebMvcConfig extends WebMvcConfigurerAdapter {
