@@ -5,7 +5,7 @@
 [github地址](https://github.com/jcalaz/jmooc)
 ## 开源云课堂网站
 
-> 做的毕设，类似于慕课网的云课堂，并且可以在线运行c/c++/java代码，前端用的bootstrap模板，目前安全性较低，正在逐步加上spring security，提高安全性。
+> 做的毕设，类似于慕课网的云课堂，并且可以在线运行c/c++/java代码，前端用的bootstrap模板，目前安全性较低，正在逐步加上spring security，提高安全性。其中在线代码运行由一个OJ系统修改而来，可以运行简单代码。
 
 #### 所用技术
  - springBoot
@@ -19,6 +19,7 @@
  - mysql: 数据库
  - druid: 数据库连接池及数据库监控
  - nginx: 静态文件服务器
+ - OJ: [online-judge](https://git.oschina.net/jungle/online-judge)
  
 ---
 #### 预览
